@@ -8,93 +8,17 @@
   </header>
 
   <div class="product-gallery__content">
-    <aside class="product-gallery__filters filters">
-      <h4 class="filters__title">Filters</h4>
-      <section class="filters__section filters__section--category">
-        <p class="filters__section-title">Category</p>
-        <div class="filters__buttons">
-          <svg
-            data-hx-trigger="load"
-            data-hx-swap="outerHTML"
-            data-hx-get="./elements/zymyn/svg/index.categories.filter-button-up.html"
-          ></svg>
-        </div>
-      </section>
-      <ul class="filters__list">
-        <li class="filters__item">
-          <a href="#" class="filters__link">All</a>
-        </li>
-        <li class="filters__item">
-          <a href="#" class="filters__link">Monitors</a>
-        </li>
-        <li class="filters__item">
-          <a href="#" class="filters__link">Headphones</a>
-        </li>
-        <li class="filters__item">
-          <a href="#" class="filters__link">Mice</a>
-        </li>
-        <li class="filters__item">
-          <a href="#" class="filters__link">Keyboards</a>
-        </li>
-      </ul>
+    <aside
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="./elements/zymyn/categories-partials/index.categories-aside.partial.html"
+    ></aside>
 
-      <div class="filters__section filters__section--price">
-        <h5 class="filters__section-title">Price</h5>
-        <input class="filters__price-range" type="range" min="0" max="500" />
-      </div>
-      <section class="filters__section filters__section--color">
-        <h5 class="filters__section-title">Color</h5>
-        <!-- Add color options -->
-      </section>
-      <section class="filters__section filters__section--connection">
-        <h4 class="filters__section-title">Connection</h4>
-        <!-- Add connection options -->
-      </section>
-      <section class="filters__section filters__section--screen-size">
-        <h4 class="filters__section-title">Screen Size</h4>
-        <!-- Add screen size options -->
-      </section>
-    </aside>
-
-    <div class="product-gallery__grid">
-      <article class="product-card">
-        <img
-          src="img/products/aeroboats-500.jpg"
-          alt="Aeroboats 500"
-          class="product-card__image"
-        />
-        <h3 class="product-card__name">AeroBoats 500</h3>
-        <p class="product-card__price">$124.00</p>
-        <a href="#" class="product-card__button">Buy Now</a>
-      </article>
-
-      <article class="product-card">
-        <img
-          src="img/products/aerotrack-300.jpg"
-          alt="AeroTrack 300"
-          class="product-card__image"
-        />
-        <h3 class="product-card__name">AeroTrack 300</h3>
-        <p class="product-card__price">$39.00</p>
-        <a href="#" class="product-card__button">Buy Now</a>
-      </article>
-
-      <article class="product-card">
-        <img
-          src="img/products/aerowave-250.jpg"
-          alt="AeroWave 250"
-          class="product-card__image"
-        />
-        <h3 class="product-card__name">AeroWave 250</h3>
-        <p class="product-card__price">
-          <span class="product-card__price--old">$125.00</span>
-          <span class="product-card__price--new">$95.00</span>
-        </p>
-        <a href="#" class="product-card__button">Buy Now</a>
-      </article>
-
-      <!-- Repeat for other products -->
-    </div>
+    <div
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="./elements/zymyn/categories-partials/index.categories-cards.partial.html"
+    ></div>
   </div>
 
   <footer class="product-gallery__footer">
