@@ -10,42 +10,50 @@
   <div class="product-gallery__content">
     <aside class="product-gallery__filters filters">
       <h4 class="filters__title">Filters</h4>
-      <div class="filters__section filters__section--category">
-        <h5 class="filters__section-title">Category</h5>
-        <ul class="filters__list">
-          <li class="filters__item">
-            <a href="#" class="filters__link">All</a>
-          </li>
-          <li class="filters__item">
-            <a href="#" class="filters__link">Monitors</a>
-          </li>
-          <li class="filters__item">
-            <a href="#" class="filters__link">Headphones</a>
-          </li>
-          <li class="filters__item">
-            <a href="#" class="filters__link">Mice</a>
-          </li>
-          <li class="filters__item">
-            <a href="#" class="filters__link">Keyboards</a>
-          </li>
-        </ul>
-      </div>
+      <section class="filters__section filters__section--category">
+        <p class="filters__section-title">Category</p>
+        <div class="filters__buttons">
+          <svg
+            data-hx-trigger="load"
+            data-hx-swap="outerHTML"
+            data-hx-get="./elements/zymyn/svg/index.categories.filter-button-up.html"
+          ></svg>
+        </div>
+      </section>
+      <ul class="filters__list">
+        <li class="filters__item">
+          <a href="#" class="filters__link">All</a>
+        </li>
+        <li class="filters__item">
+          <a href="#" class="filters__link">Monitors</a>
+        </li>
+        <li class="filters__item">
+          <a href="#" class="filters__link">Headphones</a>
+        </li>
+        <li class="filters__item">
+          <a href="#" class="filters__link">Mice</a>
+        </li>
+        <li class="filters__item">
+          <a href="#" class="filters__link">Keyboards</a>
+        </li>
+      </ul>
+
       <div class="filters__section filters__section--price">
         <h5 class="filters__section-title">Price</h5>
         <input class="filters__price-range" type="range" min="0" max="500" />
       </div>
-      <div class="filters__section filters__section--color">
+      <section class="filters__section filters__section--color">
         <h5 class="filters__section-title">Color</h5>
         <!-- Add color options -->
-      </div>
-      <div class="filters__section filters__section--connection">
+      </section>
+      <section class="filters__section filters__section--connection">
         <h4 class="filters__section-title">Connection</h4>
         <!-- Add connection options -->
-      </div>
-      <div class="filters__section filters__section--screen-size">
+      </section>
+      <section class="filters__section filters__section--screen-size">
         <h4 class="filters__section-title">Screen Size</h4>
         <!-- Add screen size options -->
-      </div>
+      </section>
     </aside>
 
     <div class="product-gallery__grid">
@@ -89,7 +97,7 @@
     </div>
   </div>
 
-  <div class="product-gallery__footer">
+  <footer class="product-gallery__footer">
     <button class="product-gallery__load-more">Load More</button>
-  </div>
+  </footer>
 </section>
