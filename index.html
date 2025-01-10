@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electronics Store</title>
+    <link
+      rel="shortcut icon"
+      href="https://placekitten.com/96/139"
+      type="image/x-icon"
+    />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Electronics Store</title>
-  <link rel="shortcut icon" href="https://placekitten.com/96/139" type="image/x-icon" />
-  <script src="https://unpkg.com/htmx.org@1.9.10"
-    integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
-    crossorigin="anonymous"></script>
-</head>
+  <body>
+    <!-- Назар Яремій -->
+    <header
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="./partials/yaremii/global.header.partial.html"
+    ></header>
 
-<body>
-  <!-- Назар Яремій -->
-  <header data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./partials/yaremii/global.header.partial.html">
-  </header>
+    <main>
+      <!-- Світлана Воронько -->
+      <!-- hero-section -->
+      <section
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="partials/index.hero.partial.html"
+      ></section>
 
-  <main>
-    <!-- Світлана Воронько -->
-    <!-- hero-section -->
-    <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="partials/index.hero.partial.html"></section>
-
-    <!-- Домініка Сливка -->
-    <section></section>
+      <!-- Домініка Сливка -->
+      <section></section>
+      
       <!-- Максим Зимин -->
       <section
         data-hx-trigger="load"
@@ -31,25 +44,27 @@
         data-hx-get="./elements/zymyn/index.categories.partial.html"
       ></section>
 
-    <!-- Максим Зимин -->
-    <section></section>
+      <!-- Максим Зимин -->
+      <section></section>
 
-    <!-- Viontsek Markian -->
-    <section data-hx-trigger="load" data-hx-swap="outerHTML"
-      data-hx-get="./elements/viontsek/index.join-discount-club.partial.html"></section>
+      <!-- Viontsek Markian -->
+      <section
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="./elements/viontsek/index.join-discount-club.partial.html"
+      ></section>
 
-    <!-- Віталіна Гавалешко -->
-    <section></section>
+      <!-- Віталіна Гавалешко -->
+      <section></section>
 
-    <!-- Галина Федьків -->
-    <section></section>
+      <!-- Галина Федьків -->
+      <section></section>
 
-    <!-- Anna Yatsenko  -->
-    <section></section>
-  </main>
+      <!-- Anna Yatsenko  -->
+      <section></section>
+    </main>
 
-  <!-- Andrii Makovetskyi -->
-  <footer></footer>
-</body>
-
+    <!-- Andrii Makovetskyi -->
+    <footer></footer>
+  </body>
 </html>
