@@ -40,3 +40,4 @@ Add the data-proofer-ignore attribute to any tag to ignore it from every check.
 - Markiyan Viontsek
 - Denys Ocheretnyy
 - Dominika Slyvka
+- Artem Lypnytskyi
