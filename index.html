@@ -7,6 +7,24 @@
     <title>Electronics Store</title>
     <link
       rel="shortcut icon"
+      href="./img/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.10"
+      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electronics Store</title>
+    <link
+      rel="shortcut icon"
       href="https://placekitten.com/96/139"
       type="image/x-icon"
     />
@@ -17,13 +35,16 @@
     ></script>
   </head>
 
-  <body>
-    <!-- Назар Яремій -->
-    <header
+<body>
+    <!-- Test -->
+      <aside
       data-hx-trigger="load"
       data-hx-swap="outerHTML"
-      data-hx-get="./elements/yaremii/global.header.partial.html"
-    ></header>
+      data-hx-get="./partials/zymyn/aside.html"
+    ></aside>
+    <!-- End test -->
+  <!-- Nazar Yaremii-->
+  <header data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./global.header.partial.html"></header>
 
     <main>
       <!-- Світлана Воронько -->
@@ -31,33 +52,73 @@
       <section
         data-hx-trigger="load"
         data-hx-swap="outerHTML"
-        data-hx-get="partials/index.hero.partial.html"
+        data-hx-get="./index.hero.partial.html"
       ></section>
 
       <!-- Домініка Сливка -->
-      <section></section>
+      <section
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="partials/slyvka/index.offers.partial.html"
+      ></section>
 
       <!-- Максим Зимин -->
-      <section></section>
+      <section
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="./partials/zymyn/index.categories.partial.html"
+      ></section>
 
       <!-- Viontsek Markian -->
       <section
         data-hx-trigger="load"
         data-hx-swap="outerHTML"
+<<<<<<< HEAD
         data-hx-get="./index.join-discount-club.partial.html"
+=======
+        data-hx-get="./partials/viontsek/index.join-discount-club.partial.html"
+>>>>>>> 434b84e805a5c3d0c1b5d6456baf482db3af410b
       ></section>
 
       <!-- Віталіна Гавалешко -->
       <section></section>
 
-      <!-- Галина Федьків -->
-      <section></section>
+      <!-- Halyna Fedkiv -->
+      <section
+        class="new-product"
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="index.new-product.partial.html"
+      ></section>
 
-      <!-- Анна Яценко -->
-      <section></section>
+      <section
+        class="deals"
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="index.deals.partial.html"
+      ></section>
+
+      <!-- Anna Yatsenko  -->
+      <section
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="index.our-clients-about-us.partial.html"
+      ></section>
+      <section
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="index.read-about-the-top-gadgets.partial.html"
+      ></section>
+      <!-- End Anna Yatsenko  -->
     </main>
 
     <!-- Andrii Makovetskyi -->
-    <footer></footer>
+    <footer>
+      <section
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="global.footer-nav.partial.html"
+      ></section>
+    </footer>
   </body>
 </html>

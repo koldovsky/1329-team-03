@@ -10,6 +10,7 @@
       href="https://placekitten.com/96/139"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="./css/contacts.css">
     <script
       src="https://unpkg.com/htmx.org@1.9.10"
       integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
@@ -17,16 +18,30 @@
     ></script>
   </head>
   <body>
-    <!-- Назар Яремій -->
-    <header></header>
+    <!-- Nazar Yaremii-->
+    <header
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="./global.header.partial.html"
+    ></header>
 
     <main>
       <!-- Usenko Vitalii -->
       <!-- hero-section -->
       <section></section>
 
-      <!-- Анастасія Веселовська -->
-      <section></section>
+      <!-- Anastasiia Veselovska -->
+      <section
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="./partials/veselovska/contacts.return-warranty.partial.html"
+      ></section>
+      <section
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="./partials/veselovska/contacts.faq.partial.html"
+      ></section>
+      <!-- End partial Anastasiia Veselovska -->
     </main>
 
     <!-- Andrii Makovetskyi -->

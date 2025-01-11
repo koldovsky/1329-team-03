@@ -10,6 +10,7 @@
       href="https://placekitten.com/96/139"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="./css/about-us.css">
     <script
       src="https://unpkg.com/htmx.org@1.9.10"
       integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
@@ -18,8 +19,12 @@
   </head>
 
   <body>
-    <!-- Назар Яремій -->
-    <header></header>
+    <!-- Nazar Yaremii-->
+    <header
+      data-hx-trigger="load"
+      data-hx-swap="outerHTML"
+      data-hx-get="./global.header.partial.html"
+    ></header>
 
     <main>
       <!-- Lypnytskyi Artem -->
@@ -33,8 +38,8 @@
       <section
         data-hx-trigger="load"
         data-hx-swap="outerHTML"
-        data-hx-get="./elements/yankovskiy/about-us.section.partial.html">
-      </section>
+        data-hx-get="./partials/yankovskiy/about-us.section.partial.html"
+      ></section>
     </main>
 
     <!-- Andrii Makovetskyi -->
