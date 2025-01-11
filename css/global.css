@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 *,
 *::before,
 *::after {
@@ -8,9 +11,22 @@
 
 :root {
   scroll-behavior: smooth;
+  --font-title: "Bebas Neue", serif;
+  --font-text: "Nunito", serif;
+
+}
+
+body {
+  font-family: var(--font-text);
 }
 
 img {
   display: block;
   max-width: 100%;
+}
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px;
+  margin: 0 auto;
 }
