@@ -1,5 +1,9 @@
+<!-- Svitlana Voron`ko -->
 <section class="hero">
-  <div class="hero__header">
+  <div
+    class="hero__header"
+    style="background-image: url('img/hero-index/hero-background.png')"
+  >
     <h1 class="hero__title">Take Your Gadgets to the Next Level!</h1>
     <p class="hero__description">
       Discover the latest in tech innovation with exclusive discounts up to 50%
@@ -7,208 +11,270 @@
     </p>
     <div class="hero__buttons">
       <a href="#" class="hero__button hero__button--primary">Shop Now</a>
-      <a href="#" class="hero__button hero__button--secondary">Watch Video</a>
+      <div>
+        <img
+          width="24"
+          src="img/hero-index/icons/play.svg"
+          alt="Play Icon"
+          class="hero__play-icon"
+        />
+        <a href="#" class="hero__button hero__button--secondary">Watch Video</a>
+      </div>
     </div>
   </div>
-  <div class="hero__features">
-    <ul class="hero__feature-list">
-      <li class="hero__feature-item">
-        <img
-          width="20"
-          height="24"
-          src="img/hero-index/icons/headphones.svg"
-          alt="Headphones Icon"
-          class="hero__feature-icon"
-        />
-        <span class="hero__feature-text">Wireless and Wired Headphones</span>
-      </li>
-      <li class="hero__feature-divider">|</li>
-      <li class="hero__feature-item">
-        <img
-          width="20"
-          height="24"
-          src="img/hero-index/icons/keyboard.svg"
-          alt="Keyboard Icon"
-          class="hero__feature-icon"
-        />
-        <span class="hero__feature-text">Mechanical Keyboards</span>
-      </li>
-      <li class="hero__feature-divider">|</li>
-      <li class="hero__feature-item">
-        <img
-          width="20"
-          height="24"
-          src="img/hero-index/icons/mouse.svg"
-          alt="Mouse Icon"
-          class="hero__feature-icon"
-        />
-        <span class="hero__feature-text">Optical and Laser Mice</span>
-      </li>
-      <li class="hero__feature-divider">|</li>
-      <li class="hero__feature-item">
-        <img
-          width="20"
-          height="24"
-          src="img/hero-index/icons/monitor.svg"
-          alt="Monitor Icon"
-          class="hero__feature-icon"
-        />
-        <span class="hero__feature-text">High-Resolution Monitors</span>
-      </li>
-    </ul>
+
+  <!-- Bestseller -->
+  <div class="featured-products">
+    <div class="featured-products__list">
+      <!-- KeyGo X1 -->
+      <article
+        class="featured-products__item"
+        style="background-image: url('img/hero-index/featured/keygo-x1.webp')"
+      >
+        <div class="featured-products__content">
+          <span class="featured-products__badge">Bestseller</span>
+          <h3 class="featured-products__name">KeyGo X1</h3>
+          <p class="featured-products__description">Wireless headphones.</p>
+        </div>
+      </article>
+
+      <!-- QuantumX1 -->
+      <article
+        class="featured-products__item"
+        style="background-image: url('img/hero-index/featured/quantum-x1.webp')"
+      >
+        <div class="featured-products__content">
+          <span class="featured-products__badge">Bestseller</span>
+          <h3 class="featured-products__name">QuantumX1</h3>
+          <p class="featured-products__description">Keyboard for gamers.</p>
+        </div>
+      </article>
+
+      <!-- AeroTrack 300 -->
+      <article
+        class="featured-products__item"
+        style="
+          background-image: url('img/hero-index/featured/aerotrack-300.webp');
+        "
+      >
+        <div class="featured-products__content">
+          <span class="featured-products__badge">Bestseller</span>
+          <h3 class="featured-products__name">AeroTrack 300</h3>
+          <p class="featured-products__description">Ultimate mice for work.</p>
+        </div>
+      </article>
+    </div>
   </div>
-</section>
 
-<section class="featured-products">
-  <!-- <h2 class="featured-products__title">Featured Products</h2> -->
-  <div class="featured-products__list">
-    <!-- KeyGo X1 -->
-    <article
-      class="featured-products__item"
-      style="background-image: url('img/hero-index/featured/keygo-x1.webp')"
-    >
-      <div class="featured-products__content">
-        <span class="featured-products__badge">Bestseller</span>
-        <h3 class="featured-products__name">KeyGo X1</h3>
-        <p class="featured-products__description">Wireless headphones.</p>
-      </div>
-    </article>
+  <section class="popular-products">
+    <h2 class="popular-products__items">POPULAR ITEMS</h2>
+    <p class="popular-products__subtitle">
+      <span class="popular-products__divider">/</span>
+      POWER UP WITH THE BEST IN TECH
+      <span class="popular-products__divider">/</span>
+    </p>
+    <p class="popular-products__description">
+      Discover our best-selling items that our customers love!
+    </p>
+    <div class="popular-products__list">
+      <!-- PixelView Flex -->
+      <article class="popular-products__item">
+        <div
+          class="popular-products__badge popular-products__badge--out-of-stock"
+        >
+          Sale
+        </div>
+        <img
+          width="304"
+          src="img/hero-index/popular/pixelview-flex.png"
+          alt="PixelView Flex Monitor"
+          class="popular-products__image"
+        />
+        <div
+          class="popular-products__badge popular-products__badge--out-of-stock"
+        >
+          Out of Stock
+        </div>
+        <h3 class="popular-products__name">PixelView Flex</h3>
+        <p class="popular-products__price">
+          <span class="popular-products__price-old"><s>$210.00 USD</s></span>
+          <span class="popular-products__price-current">$199.99 USD</span>
+        </p>
+        <button
+          class="popular-products__button popular-products__button--disabled"
+        >
+          Buy Now
+        </button>
+      </article>
+      <!-- NovaSound Pro 3000 -->
+      <article class="popular-products__item">
+        <div class="popular-products__badge popular-products__badge--limited">
+          Limited
+        </div>
+        <img
+          width="304"
+          src="img/hero-index/popular/novasound-pro-3000.png"
+          alt="NovaSound Pro 3000 Headphones"
+          class="popular-products__image"
+        />
+        <div class="popular-products__badge popular-products__badge"></div>
+        <h3 class="popular-products__name">NovaSound Pro 3000</h3>
+        <p class="popular-products__price">
+          <span class="popular-products__price-current">$92.00 USD</span>
+        </p>
+        <button class="popular-products__button">Buy Now</button>
+      </article>
 
-    <!-- QuantumX1 -->
-    <article
-      class="featured-products__item"
-      style="background-image: url('img/hero-index/featured/quantum-x1.webp')"
-    >
-      <div class="featured-products__content">
-        <span class="featured-products__badge">Bestseller</span>
-        <h3 class="featured-products__name">QuantumX1</h3>
-        <p class="featured-products__description">Keyboard for gamers.</p>
-      </div>
-    </article>
+      <!-- QuantumBoard X1 -->
+      <article class="popular-products__item">
+        <div class="popular-products__badge popular-products__badge--new">
+          New
+        </div>
+        <img
+          width="304"
+          src="img/hero-index/popular/quantumboard-x1.png"
+          alt="QuantumBoard X1 Keyboard"
+          class="popular-products__image"
+        />
+        <div class="popular-products__badge popular-products__badge"></div>
+        <h3 class="popular-products__name">QuantumBoard X1</h3>
+        <p class="popular-products__price">
+          <span class="popular-products__price-old"><s>$60.00 USD</s></span>
+          <span class="popular-products__price-current">$54.00 USD</span>
+        </p>
+        <button class="popular-products__button">Buy Now</button>
+      </article>
+      <!-- AeroWave 250 -->
+      <article class="popular-products__item">
+        <div class="popular-products__badge popular-products__badge"></div>
+        <img
+          width="304"
+          src="img/hero-index/popular/aerowave-250.png"
+          alt="AeroWave 250 Headphones"
+          class="popular-products__image"
+        />
+        <div class="popular-products__badge popular-products__badge"></div>
+        <h3 class="popular-products__name">AeroWave 250</h3>
+        <p class="popular-products__price">
+          <span class="popular-products__price-current">$95.00 USD</span>
+        </p>
+        <button class="popular-products__button">Buy Now</button>
+      </article>
+      <!-- LumiMouse Pro -->
+      <article class="popular-products__item">
+        <div class="popular-products__badge popular-products__badge--new">
+          New
+        </div>
+        <img
+          width="304"
+          src="img/hero-index/popular/lumimouse-pro.png"
+          alt="LumiMouse Pro"
+          class="popular-products__image"
+        />
+        <div class="popular-products__badge popular-products__badge"></div>
+        <h3 class="popular-products__name">LumiMouse Pro</h3>
+        <p class="popular-products__price">
+          <span class="popular-products__price-old"><s>$49.00 USD</s></span>
+          <span class="popular-products__price-current">$42.00 USD</span>
+        </p>
+        <button class="popular-products__button">Buy Now</button>
+      </article>
+      <!-- AeroBeats 500 -->
+      <article class="popular-products__item">
+        <div class="popular-products__badge popular-products__badge"></div>
+        <img
+          width="304"
+          src="img/hero-index/popular/aerobeats-500.png"
+          alt="AeroBeats 500"
+          class="popular-products__image"
+        />
+        <div class="popular-products__badge popular-products__badge"></div>
+        <h3 class="popular-products__name">AeroBeats 500</h3>
+        <p class="popular-products__price">
+          <span class="popular-products__price-current">$124.00 USD</span>
+        </p>
+        <button class="popular-products__button">Buy Now</button>
+      </article>
+      <!-- SyncroMouse Elite -->
+      <article class="popular-products__item">
+        <div
+          class="popular-products__badge popular-products__badge--bestseller"
+        >
+          Bestseller
+        </div>
+        <img
+          width="304"
+          src="img/hero-index/popular/syncromouse-elite.png"
+          alt="SyncroMouse Elite"
+          class="popular-products__image"
+        />
+        <div class="popular-products__badge popular-products__badge"></div>
+        <h3 class="popular-products__name">SyncroMouse Elite</h3>
+        <p class="popular-products__price">
+          <span class="popular-products__price-old"><s>$46.00 USD</s></span>
+          <span class="popular-products__price-current">$36.00 USD</span>
+        </p>
+        <button class="popular-products__button">Buy Now</button>
+      </article>
+      <!-- NeuroSound 700 -->
+      <article class="popular-products__item">
+        <div class="popular-products__badge popular-products__badge--new">
+          New
+        </div>
+        <img
+          width="304"
+          src="img/hero-index/popular/neurosound-700.png"
+          alt="NeuroSound 700"
+          class="popular-products__image"
+        />
+        <div class="popular-products__badge popular-products__badge"></div>
+        <h3 class="popular-products__name">NeuroSound 700</h3>
+        <p class="popular-products__price">
+          <span class="popular-products__price-current">$105.00 USD</span>
+        </p>
+        <button class="popular-products__button">Buy Now</button>
+      </article>
+      <!-- AType 300 Keyboard -->
+      <article class="popular-products__item">
+        <div class="popular-products__badge popular-products__badge"></div>
+        <img
+          width="304"
+          src="img/hero-index/popular/atype-300-keyboard.png"
+          alt="AType 300 Keyboard"
+          class="popular-products__image"
+        />
+        <div class="popular-products__badge popular-products__badge--preorder">
+          Pre-order
+        </div>
+        <h3 class="popular-products__name">AType 300 Keyboard</h3>
+        <p class="popular-products__price">
+          <span class="popular-products__price-old"><s>$52.00 USD</s></span>
+          <span class="popular-products__price-current">$40.00 USD</span>
+        </p>
+        <button class="popular-products__button">Buy Now</button>
+      </article>
+      <!-- NovaScreen Ultra -->
+      <article class="popular-products__item">
+        <div
+          class="popular-products__badge popular-products__badge--bestseller"
+        >
+          Bestseller
+        </div>
+        <img
+          width="304"
+          src="img/hero-index/popular/novascreen-ultra.png"
+          alt="NovaScreen Ultra"
+          class="popular-products__image"
+        />
+        <div class="popular-products__badge popular-products__badge"></div>
+        <h3 class="popular-products__name">NovaScreen Ultra</h3>
+        <p class="popular-products__price">
+          <span class="popular-products__price-current">$210.00 USD</span>
+        </p>
+        <button class="popular-products__button">Buy Now</button>
+      </article>
 
-    <!-- AeroTrack 300 -->
-    <article
-      class="featured-products__item"
-      style="
-        background-image: url('img/hero-index/featured/aerotrack-300.webp');
-      "
-    >
-      <div class="featured-products__content">
-        <span class="featured-products__badge">Bestseller</span>
-        <h3 class="featured-products__name">AeroTrack 300</h3>
-        <p class="featured-products__description">Ultimate mice for work.</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="popular-products">
-  <p class="popular-products__items">POPULAR ITEMS</p>
-  <h2 class="popular-products__title">Power Up with the Best in Tech</h2>
-  <p class="popular-products__description">
-    Discover our best-selling items that our customers love!
-  </p>
-  <div class="popular-products__list">
-    <article class="popular-products__item">
-      <img
-        width="304"
-        src="img/hero-index/popular/pixelview-flex.png"
-        alt="PixelView Flex Monitor"
-        class="popular-products__image"
-      />
-      <h3 class="popular-products__name">PixelView Flex</h3>
-      <p class="popular-products__price">$199.99</p>
-    </article>
-    <article class="popular-products__item">
-      <img
-        width="304"
-        src="img/hero-index/popular/novasound-pro-3000.png"
-        alt="NovaSound Pro 3000 Headphones"
-        class="popular-products__image"
-      />
-      <h3 class="popular-products__name">NovaSound Pro 3000</h3>
-      <p class="popular-products__price">$92.00</p>
-    </article>
-    <article class="popular-products__item">
-      <img
-        width="304"
-        src="img/hero-index/popular/quantumboard-x1.png"
-        alt="QuantumBoard X1 Keyboard"
-        class="popular-products__image"
-      />
-      <h3 class="popular-products__name">QuantumBoard X1</h3>
-      <p class="popular-products__price">$65.00</p>
-    </article>
-    <article class="popular-products__item">
-      <img
-        width="304"
-        src="img/hero-index/popular/aerowave-250.png"
-        alt="AeroWave 250 Headphones"
-        class="popular-products__image"
-      />
-      <h3 class="popular-products__name">AeroWave 250</h3>
-      <p class="popular-products__price">$89.99</p>
-    </article>
-    <article class="popular-products__item">
-      <img
-        width="304"
-        src="img/hero-index/popular/lumimouse-pro.png"
-        alt="LumiMouse Pro"
-        class="popular-products__image"
-      />
-      <h3 class="popular-products__name">LumiMouse Pro</h3>
-      <p class="popular-products__price">$89.99</p>
-    </article>
-    <article class="popular-products__item">
-      <img
-        width="304"
-        src="img/hero-index/popular/aerobeats-500.png"
-        alt="AeroBeats 500"
-        class="popular-products__image"
-      />
-      <h3 class="popular-products__name">AeroBeats 500</h3>
-      <p class="popular-products__price">$89.99</p>
-    </article>
-    <article class="popular-products__item">
-      <img
-        width="304"
-        src="img/hero-index/popular/syncromouse-elite.png"
-        alt="SyncroMouse Elite"
-        class="popular-products__image"
-      />
-      <h3 class="popular-products__name">SyncroMouse Elite</h3>
-      <p class="popular-products__price">$89.99</p>
-    </article>
-    <article class="popular-products__item">
-      <img
-        width="304"
-        src="img/hero-index/popular/neurosound-700.png"
-        alt="NeuroSound 700"
-        class="popular-products__image"
-      />
-      <h3 class="popular-products__name">NeuroSound 700</h3>
-      <p class="popular-products__price">$89.99</p>
-    </article>
-    <article class="popular-products__item">
-      <img
-        width="304"
-        src="img/hero-index/popular/atype-300-keyboard.png"
-        alt="AType 300 Keyboard"
-        class="popular-products__image"
-      />
-      <h3 class="popular-products__name">AType 300 Keyboard</h3>
-      <p class="popular-products__price">$89.99</p>
-    </article>
-    <article class="popular-products__item">
-      <img
-        width="304"
-        src="img/hero-index/popular/novascreen-ultra.png"
-        alt="NovaScreen Ultra"
-        class="popular-products__image"
-      />
-      <h3 class="popular-products__name">NovaScreen Ultra</h3>
-      <p class="popular-products__price">$89.99</p>
-    </article>
-    <!-- Add more product items as necessary -->
-  </div>
+      <!-- Add more product items as necessary -->
+    </div>
+  </section>
 </section>
