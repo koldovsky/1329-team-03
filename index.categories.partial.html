@@ -1,27 +1,26 @@
+<!-- Максим Зимин -->
 <section class="product-gallery">
-  <header class="product-gallery__header">
     <h2 class="product-gallery__title">Categories</h2>
     <h3 class="product-gallery__subtitle">/ Stay Connected, Stay Ahead /</h3>
     <p class="product-gallery__description">
       Elevate your work and leisure with top gadgets from the best brands.
     </p>
-  </header>
 
   <div class="product-gallery__content">
     <aside
       data-hx-trigger="load"
       data-hx-swap="outerHTML"
-      data-hx-get="./partials/zymyn/categories-partials/index.categories-aside.partial.html"
+      data-hx-get="./index.categories-aside.partial.html"
     ></aside>
 
     <div
       data-hx-trigger="load"
       data-hx-swap="outerHTML"
-      data-hx-get="./partials/zymyn/categories-partials/index.categories-cards.partial.html"
+      data-hx-get="./index.categories-cards.partial.html"
     ></div>
   </div>
 
-  <footer class="product-gallery__footer">
+  <div class="product-gallery__footer">
     <button class="product-gallery__load-more">Load More</button>
-  </footer>
+  </div>
 </section>
