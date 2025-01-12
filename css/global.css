@@ -13,6 +13,16 @@
   scroll-behavior: smooth;
   --font-title: "Bebas Neue", serif;
   --font-text: "Nunito", serif;
+  /* color of titles */
+  --color-text-primary: rgb(39, 39, 39);
+  /* color of subtitles */
+  --color-text-secondary: rgb(77, 77, 77);
+  /* color of descriptions */
+  --color-text-body: rgb(106, 106, 106);
+  /* color of most buttons and text accents */
+  --color-accent: rgb(28, 76, 151);
+ /* color of prices and accent buttons */
+  --color-accent-additional: rgb(255, 123, 22);
 }
 
 body {
@@ -23,9 +33,11 @@ img {
   display: block;
   max-width: 100%;
 }
+
 ul {
   list-style: none;
 }
+
 .container {
   width: 100%;
   max-width: 1200px;
