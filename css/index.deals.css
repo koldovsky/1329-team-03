@@ -4,27 +4,29 @@
   padding: 40px;
 }
 
-.deals__title {
+.deals__header {text-align: center;}
+
+.deals__subtitle {
   color: var(--color-accent-additional);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 12px;
 }
 
 .deals-devider {
   color: var(--color-accent);
-  font-family: "Bebas Neue";
+  font-family: var(--font-title);
   font-size: 64px;
 }
 
-.deals__subtitle {
+.deals__title {
   color: var(--color-text-primary);
-  font-family: "Bebas Neue";
+  font-family: var(--font-title);
   font-size: 64px;
 }
 
 .deals__description {
   color: var(--color-text-secondary);
-  font-family: Nunito, sans-serif;
+  font-family: var(--font-text);
   font-size: 17px;
 }
 
@@ -34,60 +36,61 @@
 
 .deals__category {
   color: var(--color-accent);
-  font-family: Nunito, sans-serif;
+  font-family: var(--font-text);
   font-size: 12px;
 }
 
 .deals__product-title {
   color: var(--color-text-primary);
+  font-family: var(--font-text);
   font-size: 24px;
   font-weight: bold;
 }
 
 .deals__price {
   color: var(--color-text-primary);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 17px;
   font-weight: bold;
 }
 
 .deals__price-sale {
   color: var(--color-accent-additional);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 24px;
   font-weight: bold;
 }
 
 .deals__price-original {
   color: var(--color-text-body);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 17px;
   font-weight: bold;
 }
 
 .deals__description {
   color: var(--color-text-body);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 17px;
 }
 
 .deals__specs-title {
   color: var(--color-accent);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 24px;
   font-weight: 700;
 }
 
 .deals__specs-label {
   color: var(--color-text-body);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 17px;
   font-weight: 700;
 }
 
 .deals__specs-item {
   color: var(--color-text-body);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 17px;
 }
 
