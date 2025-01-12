@@ -1,0 +1,68 @@
+/* Halyna Fedkiv */
+
+.new-product__content {
+  padding: 30px;
+}
+
+.new-product__title {
+  color: var(--color-accent-additional);
+  font-family: Nunito;
+  font-size: 12px;
+}
+
+.new-product-devider {
+  color: var(--color-accent);
+  font-family: "Bebas Neue";
+  font-size: 64px;
+}
+
+.new-product__subtitle {
+  color: var(--color-text-primary);
+  font-family: "Bebas Neue";
+  font-size: 64px;
+}
+
+.new-product__price {
+  color: var(--color-accent-additional);
+  font-family: Nunito;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.new-product__description {
+  color: var(--color-text-body);
+  font-family: Nunito, sans-serif;
+  font-size: 17px;
+}
+
+.new-product__specs-title {
+  color: var(--color-accent);
+  font-family: Nunito;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.new-product__specs-label {
+  color: var(--color-text-body);
+  font-family: Nunito;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.new-product__specs-item {
+  color: var(--color-text-body);
+  font-family: Nunito;
+  font-size: 15px;
+}
+
+.new_product__button {
+  background-color: var(--color-accent-additional);
+}
+
+
+
+.divider {
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+}

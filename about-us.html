@@ -10,7 +10,7 @@
       href="https://placekitten.com/96/139"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="./css/about-us.css">
+    <link rel="stylesheet" href="./css/about-us.css" />
     <script
       src="https://unpkg.com/htmx.org@1.9.10"
       integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
@@ -29,17 +29,24 @@
     <main>
       <!-- Lypnytskyi Artem -->
       <!-- hero-section -->
-      <section></section>
+      <section
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="./index.about-us-our-way.html"
+      ></section>
+      <!-- End partial Lypnytskyi Artem -->
 
       <!-- Denys Ocheretnyy -->
       <section></section>
+      <!-- End partial Denys Ocheretnyy -->
 
       <!-- Yankovskyi Oleksandr -->
       <section
         data-hx-trigger="load"
         data-hx-swap="outerHTML"
-        data-hx-get="./partials/yankovskiy/about-us.section.partial.html"
+        data-hx-get="./index.about-us.vacancies.partial.html"
       ></section>
+      <!-- End partial Yankovskyi Oleksandr -->
     </main>
 
     <!-- Andrii Makovetskyi -->

@@ -1,0 +1,98 @@
+/* Halyna Fedkiv */
+
+.deals {
+  padding: 40px;
+}
+
+.deals__title {
+  color: var(--color-accent-additional);
+  font-family: Nunito;
+  font-size: 12px;
+}
+
+.deals-devider {
+  color: var(--color-accent);
+  font-family: "Bebas Neue";
+  font-size: 64px;
+}
+
+.deals__subtitle {
+  color: var(--color-text-primary);
+  font-family: "Bebas Neue";
+  font-size: 64px;
+}
+
+.deals__description {
+  color: var(--color-text-secondary);
+  font-family: Nunito, sans-serif;
+  font-size: 17px;
+}
+
+.deals__text {
+  padding: 60px;
+}
+
+.deals__category {
+  color: var(--color-accent);
+  font-family: Nunito, sans-serif;
+  font-size: 12px;
+}
+
+.deals__product-title {
+  color: var(--color-text-primary);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.deals__price {
+  color: var(--color-text-primary);
+  font-family: Nunito;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.deals__price-sale {
+  color: var(--color-accent-additional);
+  font-family: Nunito;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.deals__price-original {
+  color: var(--color-text-body);
+  font-family: Nunito;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.deals__description {
+  color: var(--color-text-body);
+  font-family: Nunito;
+  font-size: 17px;
+}
+
+.deals__specs-title {
+  color: var(--color-accent);
+  font-family: Nunito;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.deals__specs-label {
+  color: var(--color-text-body);
+  font-family: Nunito;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.deals__specs-item {
+  color: var(--color-text-body);
+  font-family: Nunito;
+  font-size: 17px;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+}

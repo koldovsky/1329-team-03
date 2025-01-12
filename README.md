@@ -27,17 +27,40 @@ Add the data-proofer-ignore attribute to any tag to ignore it from every check.
 ```html
 <a href="https://notareallink" data-proofer-ignore>Not checked.</a>
 ```
-# Team
+# Development team :
 
-- Anastasiia Veselovska
-- Nazar Yaremii
-- Maksym Zymyn
-- Andrii Makovetskyi
-- Svitlana Voronko
-- Halyna Fedkiv
-- Oleksandr Yankovskiy
-- Yatsenko Anna
-- Markiyan Viontsek
-- Denys Ocheretnyy
-- Dominika Slyvka
-- Artem Lypnytskyi
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/marksik001)
+  Markiyan Viontsek **Team Lead**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/anastasiiaveselovska)
+  Anastasiia Veselovska **Front End Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nyaremiiy)
+  Nazar Yaremii **Front End Developer**
+  
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MaksymDudkin)
+  Maksym Zymyn **Front End Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/forester-code5)
+  Andrii Makovetskyi **Front End Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/fotinia-sadovskaya)
+  Svitlana Voronko **Front End Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/halynafedkiv)
+  Halyna Fedkiv **Front End Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ammoniy)
+  Oleksandr Yankovskiy **Front End Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ann-uii)
+  Yatsenko Anna **Front End Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/den1389)
+  Denys Ocheretnyy **Front End Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sldominika)
+  Dominika Slyvka **Front End Developer**
+
+- [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lipnart)
+  Artem Lypnytskyi **Front End Developer**
