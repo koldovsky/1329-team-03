@@ -6,6 +6,7 @@
 .header__top-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .header__info-links {
   column-gap: 22px;
