@@ -5,8 +5,9 @@
 .vacancies-title
 {
     color: #ff7b16;
+
 }
-.job-opportunities-vacancies-cards-groupe
+.job-opportunities-vacancies-cards-groupe > div
 {
     background-color: #ffffff;
 }
@@ -14,7 +15,11 @@
 {
     color: #1c4c97;
 }
-strong
+.vacancie-card-sallary
 {
     color: #1c4c97;
+}
+#contact-us-mail
+{
+  color: black;
 }
