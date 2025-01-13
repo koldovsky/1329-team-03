@@ -46,3 +46,9 @@ ul {
   padding: 0 24px;
   margin: 0 auto;
 }
+
+.divider {
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+}
