@@ -1,25 +1,19 @@
-.job-opportunities
-{
-    background-color: #f8f3ef;
+/* Yankovskiy Oleksandr */
+.job-opportunities {
+  background-color: #f8f3ef;
 }
-.vacancies-title
-{
-    color: #ff7b16;
-
+.vacancies-title {
+  color: #ff7b16;
 }
-.job-opportunities-vacancies-cards-groupe > div
-{
-    background-color: #ffffff;
+.job-opportunities-vacancies-cards-groupe > div {
+  background-color: #ffffff;
 }
-.company-slogan-title
-{
-    color: #1c4c97;
+.company-slogan-title {
+  color: #1c4c97;
 }
-.vacancie-card-sallary
-{
-    color: #1c4c97;
+.vacancie-card-sallary {
+  color: #1c4c97;
 }
-#contact-us-mail
-{
+#contact-us-mail {
   color: black;
 }
