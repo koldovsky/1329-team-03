@@ -1,2 +1,32 @@
 /* Svitlana Voron`ko */
 /* --- HERO SECTION --- */
+.hero__title {
+    color: var(--color-text-primary);
+    font-family: var(--font-title);
+    font-size: 109px;
+    font-weight: 400;
+  }
+  
+  .hero__description {
+    color: var(--color-text-body);
+    font-family: var(--font-text);
+    font-size: 19px;
+  }
+  
+  h2 {
+    color: var(--color-accent-additional);
+    font-family: var(--font-text);
+    font-size: 12px;
+  }
+  
+  .popular-products__divider {
+    color: var(--color-accent);
+    font-family: var(--font-title);
+    font-size: 64px;
+  }
+
+  .popular-products__subtitle {
+    color: var(--color-text-primary);
+    font-family: var(--font-title);
+    font-size: 64px;
+  }
