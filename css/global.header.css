@@ -3,6 +3,8 @@
   background-color: var(--dark-bg-color);
   padding: 20px 0;
 
+  
+
   .header__wrapper {
     display: flex;
     align-items: center;
