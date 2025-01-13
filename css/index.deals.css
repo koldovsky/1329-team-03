@@ -93,9 +93,3 @@
   font-family: var(--font-text);
   font-size: 17px;
 }
-
-.divider {
-  height: 1px;
-  background-color: #ccc;
-  margin: 20px 0;
-}

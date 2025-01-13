@@ -76,10 +76,3 @@
 .new_product__button:hover {
   background-color: var(--color-text-primary);
 }
-
-
-.divider {
-  height: 1px;
-  background-color: #ccc;
-  margin: 20px 0;
-}
