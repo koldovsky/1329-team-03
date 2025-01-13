@@ -3,8 +3,6 @@
   background-color: var(--dark-bg-color);
   padding: 20px 0;
 
-  
-
   .header__wrapper {
     display: flex;
     align-items: center;
@@ -25,18 +23,29 @@
 
   .header__burger {
     padding: 12px 8px;
-    display: block;
     height: 40px;
     width: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    cursor: pointer;
+
+    @media (min-width: 992px) {
+      display: none;
+    }
 
     .header__burger-line {
+      transition: opacity 0.2s ease-in-out;
       background-color: var(--color-primary-white);
       display: block;
       width: 100%;
       height: 2px;
+    }
+  }
+
+  .header__burger:hover {
+    .header__burger-line {
+      opacity: 0.5;
     }
   }
 }
