@@ -25,6 +25,10 @@
   --color-accent-additional: rgb(255, 123, 22);
   /* color of buttons text*/
   --color-text-buttons: rgb(255, 255, 255);
+  /* color of dark elements */
+  --dark-bg-color: rgb(39, 39, 39);
+  /* color white */
+  --color-primary-white: rgb(255, 255, 255);
 }
 
 body {
