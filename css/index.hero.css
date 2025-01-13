@@ -5,6 +5,7 @@
   font-family: var(--font-title);
   font-size: 109px;
   font-weight: 400;
+  text-align: start;
 }
 
 .hero__description {
