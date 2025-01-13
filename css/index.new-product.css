@@ -4,61 +4,78 @@
   padding: 30px;
 }
 
-.new-product__title {
+.new-product__subtitle {
   color: var(--color-accent-additional);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 12px;
 }
 
 .new-product-devider {
   color: var(--color-accent);
-  font-family: "Bebas Neue";
+  font-family: var(--font-title);
   font-size: 64px;
 }
 
-.new-product__subtitle {
+.new-product__title {
   color: var(--color-text-primary);
-  font-family: "Bebas Neue";
+  font-family: var(--font-title);
   font-size: 64px;
 }
 
 .new-product__price {
   color: var(--color-accent-additional);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 36px;
   font-weight: bold;
 }
 
 .new-product__description {
   color: var(--color-text-body);
-  font-family: Nunito, sans-serif;
+  font-family: var(--font-text);
   font-size: 17px;
 }
 
 .new-product__specs-title {
   color: var(--color-accent);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 24px;
   font-weight: bold;
 }
 
 .new-product__specs-label {
   color: var(--color-text-body);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 15px;
   font-weight: bold;
 }
 
 .new-product__specs-item {
   color: var(--color-text-body);
-  font-family: Nunito;
+  font-family: var(--font-text);
   font-size: 15px;
 }
 
+
 .new_product__button {
+  display: inline-block;
   background-color: var(--color-accent-additional);
+  color: var(--color-text-buttons); 
+  padding: 10px 20px;
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 40px;
+  border:none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 40px;
 }
 
+
+.new_product__button:hover {
+  background-color: var(--color-text-primary);
+}
 
 
 .divider {

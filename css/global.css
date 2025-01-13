@@ -23,6 +23,8 @@
   --color-accent: rgb(28, 76, 151);
  /* color of prices and accent buttons */
   --color-accent-additional: rgb(255, 123, 22);
+  /* color of buttons text*/
+  --color-text-buttons: rgb(255, 255, 255);
 }
 
 body {
