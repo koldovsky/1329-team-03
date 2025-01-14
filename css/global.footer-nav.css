@@ -1,0 +1,164 @@
+/* Footer Reward Section */
+.footer__reward {
+    background-color: #1c4c97;
+    color: #fff;
+    padding: 20px 0px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.footer__reward-text strong {
+    color: #ff6700;
+}
+
+/* Footer Top Section */
+.footer__top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #1c1c1c;
+    color: #fff;
+}
+
+.footer__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer__subtitle {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.footer__link {
+    color: #ff6700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
+}
+
+.footer__icons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.footer__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #ccc;
+}
+
+.footer__icon img {
+    margin-bottom: 10px;
+}
+
+/* Footer Middle Section */
+.footer__middle {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #292929;
+    color: #fff;
+    flex-wrap: wrap;
+}
+
+.footer__about {
+    max-width: 250px;
+}
+
+.footer__logo {
+    margin-bottom: 10px;
+}
+
+.footer__social {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.footer__social-link img {
+    width: 15px;
+}
+
+.footer__navigation,
+.footer__items,
+.footer__subscribe {
+    flex: 1;
+    margin: 10px;
+}
+
+.footer__nav-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer__nav-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer__nav-list li {
+    margin-bottom: 5px;
+}
+
+.footer__nav-list a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer__nav-list a:hover {
+    color: #ff6700;
+}
+
+.footer__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #1c1c1c;
+    color: #fff;
+}
+
+.footer__button {
+    padding: 10px;
+    background-color: #ff6700;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.footer__button:hover {
+    background-color: #e65c00;
+}
+
+/* Footer Bottom Section */
+.footer__bottom {
+    background-color: #1c1c1c;
+    color: #ccc;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+
+
