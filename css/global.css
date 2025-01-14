@@ -12,7 +12,7 @@
 :root {
   scroll-behavior: smooth;
   --font-title: "Bebas Neue", serif;
-  --font-text: "Nunito", serif;
+  --font-text: "Nunito", sans-serif;
   /* color of titles */
   --color-text-primary: rgb(39, 39, 39);
   /* color of subtitles */
@@ -21,7 +21,7 @@
   --color-text-body: rgb(106, 106, 106);
   /* color of most buttons and text accents */
   --color-accent: rgb(28, 76, 151);
- /* color of prices and accent buttons */
+  /* color of prices and accent buttons */
   --color-accent-additional: rgb(255, 123, 22);
   /* color of buttons text*/
   --color-text-buttons: rgb(255, 255, 255);
@@ -46,9 +46,19 @@ ul {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1248px;
   padding: 0 24px;
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    max-width: 1264px;
+    padding: 0 32px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 1280px;
+    padding: 0 40px;
+  }
 }
 
 .divider {

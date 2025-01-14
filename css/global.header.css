@@ -1,12 +1,113 @@
 /* Nazar Yaremii */
+
 .header {
-  .header__top {
+  .header__top-bar {
     display: none;
+
+    .header__top-bar-wrapper {
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      padding-top: 5px;
+      padding-bottom: 8px;
+
+      .header__info-list {
+        align-items: center;
+        display: flex;
+        gap: 22px;
+
+        .header__info-link {
+          color: var(--color-primary-white);
+          text-decoration: none;
+          font-size: 14px;
+          cursor: pointer;
+          font-weight: 500;
+        }
+      }
+
+      .header__social-list {
+        align-items: center;
+        display: flex;
+        gap: 15px;
+
+        .header__social-item {
+          transition: opacity 0.3s ease-in-out;
+          cursor: pointer;
+
+          .header__social-link {
+            display: flex;
+
+            svg {
+              fill: var(--color-primary-white);
+              width: 30px;
+            }
+          }
+
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+
+    @media (min-width: 992px) {
+      background-color: var(--color-accent);
+      display: block;
+    }
+  }
+}
+
+/* .header {
+  & .header__top {
+    background-color: var(--color-accent);
+    display: none;
+
+    @media (min-width: 992px) {
+      display: block;
+    }
+
+    .header__top-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 5px;
+      padding-bottom: 5px;
+
+      .header__info-links {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+
+        .header__info-item {
+          .header__info-link {
+            color: var(--color-primary-white);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+      }
+
+      .header__social-links {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        & .header__social-item {
+          & .header__social-link {
+            & svg {
+              fill: aliceblue;
+            }
+          }
+        }
+      }
+    }
   }
 
   .header__bottom {
+    background-color: var(--dark-bg-color);
+
     .header__bottom-wrapper {
-      background-color: var(--dark-bg-color);
       padding-bottom: 20px;
       padding-top: 20px;
       display: flex;
@@ -42,6 +143,10 @@
         justify-content: space-between;
         cursor: pointer;
 
+        @media (min-width: 992px) {
+          display: none;
+        }
+
         .header__burger-line {
           transition: opacity 0.2s ease-in-out;
           background-color: var(--color-primary-white);
@@ -58,4 +163,4 @@
       }
     }
   }
-}
+} */
