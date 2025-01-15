@@ -18,6 +18,30 @@
   color: var(--color-accent-additional);
 }
 
+.hero__button--primary {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-text-buttons); 
+  padding: 15px 40px;
+  font-family: var(--font-text);
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 40px;
+  border:none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hero__button--primary:hover {
+  background-color: var(--color-text-primary);
+}
+
+/* BESTSELLER */
+
+
+/* POPULAR ITEMS */
+
 .popular-products__items {
   color: var(--color-accent-additional);
   font-family: var(--font-text);
@@ -35,4 +59,24 @@
   color: var(--color-text-primary);
   font-family: var(--font-title);
   font-size: 64px;
+}
+
+.popular-products__button--primary {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-text-buttons); 
+  padding: 10px 20px;
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 40px;
+  border:none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.popular-products__button--primary:hover {
+  background-color: var(--color-text-primary);
 }
