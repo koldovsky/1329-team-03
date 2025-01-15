@@ -80,3 +80,20 @@
 .popular-products__button--primary:hover {
   background-color: var(--color-text-primary);
 }
+
+.popular-products__button--disabled {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-text-buttons); 
+  padding: 10px 20px;
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 40px;
+  border:none;
+  border-radius: 8px;
+  cursor: not-allowed;
+  margin-top: 40px;
+  opacity: 0.5;
+}
