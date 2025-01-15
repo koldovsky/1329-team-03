@@ -33,6 +33,8 @@
   --color-additional-text: rgb(248, 243, 239);
   /* color of header menu */
   --color-menu-items: rgba(255, 255, 255, 0.76);
+  /*color of background (beige)*/
+  --color-bg-second: rgb(248, 243, 239);
 
   /* transition for all  */
   --transiton-primary-all: all .3s ease-in-out;
