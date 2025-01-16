@@ -11,10 +11,6 @@
   overflow-x: hidden;
   position: relative;
 
-  @media (max-width: 320px) {
-    width: 320px;
-  }
-
 
   .new-product__container {
     display: flex;

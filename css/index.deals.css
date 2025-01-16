@@ -9,9 +9,6 @@
   overflow-x: hidden;
   position: static;
 
-  @media (max-width: 320px) {
-    width: 320px;
-  }
 
   .deals__container {
     display: block;

@@ -39,6 +39,9 @@
   --color-bg-second: rgb(248, 243, 239);
   /* color of secondary button's background */
   --color-secondary-button: #464c5c;
+  /* color of divider */
+  --color-divider: rgba(0, 0, 0, 0.07);
+
 
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;
@@ -46,6 +49,10 @@
 
 body {
   font-family: var(--font-text);
+
+  @media (max-width: 320px) {
+    width: 320px;
+  }
 }
 
 img {
@@ -76,7 +83,7 @@ ul {
 
 .divider {
   height: 1px;
-  background-color: #ccc;
+  background-color: var(--color-divider);
   margin: 20px 0;
 }
 
@@ -93,7 +100,6 @@ ul {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 40px;
   transition: all 250ms ease-in-out;
 }
 
@@ -114,6 +120,5 @@ ul {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 40px;
   transition: all 250ms ease-in-out;
 }
