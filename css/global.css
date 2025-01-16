@@ -96,6 +96,10 @@ ul {
   margin-top: 40px;
 }
 
+.btn-primary:hover {
+  background-color: var(--color-text-primary);
+}
+
 .btn-secondary {
   display: inline-block;
   background-color: var(--color-secondary-button);
