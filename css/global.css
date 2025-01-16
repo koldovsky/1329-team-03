@@ -20,7 +20,7 @@
   --color-text-secondary: rgb(77, 77, 77);
   /* color of descriptions */
   --color-text-body: rgb(106, 106, 106);
-  --color-text-description: #6A6A6A;
+  --color-text-description: #6a6a6a;
   /* color of most buttons and text accents */
   --color-accent: rgb(28, 76, 151);
   /* color of prices and accent buttons */
@@ -38,10 +38,10 @@
   /*color of background (beige)*/
   --color-bg-second: rgb(248, 243, 239);
   /* color of secondary button's background */
-  --color-secondary-button: #464C5C;
+  --color-secondary-button: #464c5c;
 
   /* transition for all  */
-  --transiton-primary-all: all .3s ease-in-out;
+  --transiton-primary-all: all 0.3s ease-in-out;
 }
 
 body {
@@ -55,6 +55,8 @@ img {
 
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .container {
