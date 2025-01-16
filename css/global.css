@@ -12,6 +12,7 @@
 :root {
   scroll-behavior: smooth;
   --font-title: "Bebas Neue", serif;
+  --font-title-primary: "Bebas Neue", sans-serif;
   --font-text: "Nunito", sans-serif;
   /* color of titles */
   --color-text-primary: rgb(39, 39, 39);
@@ -19,6 +20,7 @@
   --color-text-secondary: rgb(77, 77, 77);
   /* color of descriptions */
   --color-text-body: rgb(106, 106, 106);
+  --color-text-description: #6A6A6A;
   /* color of most buttons and text accents */
   --color-accent: rgb(28, 76, 151);
   /* color of prices and accent buttons */

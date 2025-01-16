@@ -15,7 +15,7 @@
 
     .product-gallery__container {
         display: block;
-        background-color: var(--color-bg-second);
+        background-color: var(--color-primary-white);
         padding: 90px 24px;
         position: relative;
 
@@ -39,8 +39,8 @@
             .product-gallery__subtitle {
                 display: block;
                 color: var(--color-text-primary);
-                font-family: var(--font-title);
-                font-size: 40px;
+                font-family: var(--font-title-primary);
+                font-size: 64px;
                 font-weight: 400;
                 margin-top: 20px;
                 justify-content: center;
@@ -48,12 +48,12 @@
                 .product-gallery__divider {
                     color: var(--color-accent);
                     font-family: var(--font-title);
-                    font-size: 40px;
+                    font-size: 64px;
                 }
             }
 
             .product-gallery__description {
-                color: var(--color-text-secondary);
+                color: var(--color-text-description);
                 font-family: var(--font-text);
                 font-size: 19px;
                 margin-top: 25px;
@@ -66,4 +66,65 @@
             margin-top: 45px;
         }
     }
+}
+
+.product-card {
+    position: relative
+}
+
+.product-card .btn-secondary {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    display: block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.filters__color-checkbox {
+    appearance: none;
+    /* Приховує стандартний вигляд */
+    -webkit-appearance: none;
+    /* Для сумісності з Safari */
+    -moz-appearance: none;
+    /* Для Firefox */
+    width: 16px;
+    height: 16px;
+    border: 1px solid #272727;
+    /* Стилізація замість квадратика */
+    cursor: pointer;
+    /* margin-right: 8px; */
+    transition: all 0.3s ease-out;
+}
+
+.filters__color-label {
+    display: flex;
+    column-gap: 8px;
+    cursor: pointer;
+    position: relative;
+}
+
+.filters__color-checkbox:checked {
+    background-color: #ff7b16;
+    /* Стиль для активного стану */
+    border-color: #ff7b16;
+}
+
+.filters__color-checkbox-active {
+    transition: all 0.2s ease-out;
+    opacity: 0;
+    /* Прозорість*/
+    position: absolute;
+    left: 0;
+}
+
+.filters__color-checkbox:checked+.filters__color-checkbox-active {
+    opacity: 1;
+}
+
+.filters__item {
+    padding: 15px 5px 15px 5px;
+    border-bottom: 1px solid rgba(33, 39, 54, 0.12);
 }
