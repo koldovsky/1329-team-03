@@ -48,6 +48,7 @@
   font-family: var(--font-text);
   font-size: 12px;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .popular-products__divider {
