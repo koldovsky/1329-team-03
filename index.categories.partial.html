@@ -1,27 +1,27 @@
 <!-- Maksym Zymyn -->
 <section class="product-gallery">
-    <h2 class="product-gallery__title">Categories</h2>
-    <h3 class="product-gallery__subtitle">/ Stay Connected, Stay Ahead /</h3>
-    <p class="product-gallery__description">
-      Elevate your work and leisure with top gadgets from the best brands.
-    </p>
+  <div class="product-gallery__container container">
+    <div class="product-gallery__header">
+      <h2 class="product-gallery__title">Categories</h2>
+      <h3 class="product-gallery__subtitle">
+        <span class="product-gallery__divider">/</span>
+        Stay Connected, Stay Ahead
+        <span class="product-gallery__divider">/</span>
+      </h3>
+      <p class="product-gallery__description">
+        Elevate your work and leisure with top gadgets from the best brands.
+      </p>
+    </div>
+    <div class="divider"></div>
+    <div class="product-gallery__content">
+      <aside data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./index.categories-aside.partial.html">
+      </aside>
 
-  <div class="product-gallery__content">
-    <aside
-      data-hx-trigger="load"
-      data-hx-swap="outerHTML"
-      data-hx-get="./index.categories-aside.partial.html"
-    ></aside>
+      <div data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./index.categories-cards.partial.html"></div>
+    </div>
 
-
-    <div
-      data-hx-trigger="load"
-      data-hx-swap="outerHTML"
-      data-hx-get="./index.categories-cards.partial.html"
-    ></div>
-  </div>
-
-  <div class="product-gallery__footer">
-    <button class="product-gallery__load-more">Load More</button>
+    <div class="product-gallery__footer">
+      <button class="product-gallery__load-more">Load More</button>
+    </div>
   </div>
 </section>

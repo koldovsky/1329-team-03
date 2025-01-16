@@ -35,6 +35,8 @@
   --color-menu-items: rgba(255, 255, 255, 0.76);
   /*color of background (beige)*/
   --color-bg-second: rgb(248, 243, 239);
+  /* color of secondary button's background */
+  --color-secondary-button: #464C5C;
 
   /* transition for all  */
   --transiton-primary-all: all .3s ease-in-out;
@@ -72,4 +74,36 @@ ul {
   height: 1px;
   background-color: #ccc;
   margin: 20px 0;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-text-buttons);
+  padding: 10px 20px;
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.btn-secondary {
+  display: inline-block;
+  background-color: var(--color-secondary-button);
+  color: var(--color-text-buttons);
+  padding: 10px 20px;
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 40px;
 }
