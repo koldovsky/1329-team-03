@@ -1,19 +1,50 @@
 /* Yankovskiy Oleksandr */
+@import "./global.css";
 .job-opportunities {
-  background-color: #f8f3ef;
+  background-color: var(--color-additional-text);
 }
-.vacancies-title {
-  color: #ff7b16;
+.job-opportunities__header {
+  display: block;
+  text-align: center;
+  .job-opportunities__title {
+    color: var(--color-accent-additional);
+    font-size: 12px;
+  }
+  .job-opportunities__join-us {
+    font-size: 40px;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    #job-opportunities__dark-accent {
+      color: var(--color-accent);
+      display: inline-block;
+    }
+    .job-opportunities__contact-massage {
+      font-size: 19px;
+    }
+  }
 }
-.job-opportunities-vacancies-cards-groupe > div {
-  background-color: #ffffff;
+
+.job-opportunities__vacancies {
+  padding-left: 25%;
+  padding-right: 25%;
+  flex-direction: row;
 }
-.company-slogan-title {
-  color: #1c4c97;
+.job-opportunities__card {
+  display: block;
+  background-color: var(--color-primary-white);
+  width: 100%;
+  border: solid var(--color-primary-white);
 }
-.vacancie-card-sallary {
-  color: #1c4c97;
+.job-opportunities__slogan-title {
+  color: var(--color-accent);
 }
-#contact-us-mail {
-  color: black;
+.job-opportunities__sallary-amount {
+  color: var(--color-accent);
+}
+#job-opportunities__email {
+  color: var(--dark-bg-color);
+}
+
+.job-opportunities__slogans{
+  flex-direction: column;
 }
