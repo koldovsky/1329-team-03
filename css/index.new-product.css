@@ -33,7 +33,6 @@
       .new-product__image {
         display: block;
         min-height: 32px;
-        background-color: rgba(0, 0, 0, 0);
         margin: auto;
         object-fit: cover;
         object-position: 49.809% 100%;

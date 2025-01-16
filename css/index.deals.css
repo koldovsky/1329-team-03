@@ -65,17 +65,14 @@
     }
 
     .deals__content {
-      display: block;
-      justify-content: center;
       margin-top: 45px;
 
 
       .deals__item {
-        background-color: var(--color-primary-white);
         display: flex;
-        justify-content: flex-start;
         flex-direction: column;
         text-align: center;
+        background-color: var(--color-primary-white);
         border-radius: 10px;
 
         .deals__image-container {
@@ -95,72 +92,128 @@
         .deals__text {
           display: flex;
           flex-direction: column;
-          flex-grow: 1;
           justify-content: center;
           padding: 39px;
           text-align: left;
-        }
+        
 
         .deals__category {
+          display: block;
           color: var(--color-accent);
           font-family: var(--font-text);
           font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 2.4px;
         }
 
         .deals__product-title {
+          display: block;
           color: var(--color-text-primary);
           font-family: var(--font-text);
-          font-size: 24px;
-          font-weight: bold;
+          font-size: 22px;
+          font-weight: 700;
+          margin-top: 20px;
         }
 
         .deals__price {
+          display: block;
           color: var(--color-text-primary);
           font-family: var(--font-text);
           font-size: 17px;
-          font-weight: bold;
-        }
+          font-weight: 700;
+          margin-top: 20px;
 
-        .deals__price-sale {
-          color: var(--color-accent-additional);
-          font-family: var(--font-text);
-          font-size: 24px;
-          font-weight: bold;
-        }
 
-        .deals__price-original {
-          color: var(--color-text-body);
-          font-family: var(--font-text);
-          font-size: 17px;
-          font-weight: bold;
+          .deals__price-sale {
+            color: var(--color-accent-additional);
+            font-size: 22px;
+            font-weight: 700;
+          }
+
+          .deals__price-original {
+            color: var(--color-text-body);
+            font-size: 17px;
+            font-weight: 700;
+          }
         }
 
         .deals__description {
+          display: block;
           color: var(--color-text-body);
           font-family: var(--font-text);
           font-size: 17px;
+          margin-top: 20px;
         }
 
-        .deals__specs-title {
-          color: var(--color-accent);
-          font-family: var(--font-text);
-          font-size: 24px;
-          font-weight: 700;
-        }
+        .deals__accordion {
+          display: flex;
+          flex-direction: column;
+          margin-top: 20px;
+          padding: 20px 0px;
+          overflow: hidden;
 
-        .deals__specs-label {
-          color: var(--color-text-body);
-          font-family: var(--font-text);
-          font-size: 17px;
-          font-weight: 700;
-        }
 
-        .deals__specs-item {
-          color: var(--color-text-body);
-          font-family: var(--font-text);
-          font-size: 17px;
+          input[type="checkbox"] {
+            display: none;
+
+            &:checked~.deals__accordion-content {
+              max-height: 214px;
+              margin-top: 20px;
+            }
+
+          }
+
+
+          .deals__accordion-header {
+            display: flex;
+            justify-content: space-between;
+            color: var(--color-accent);
+            font-family: var(--font-text);
+            font-size: 17px;
+            cursor: pointer;
+
+
+            .deals__accordion-title {
+              font-size: 22px;
+              font-weight: 700;
+              max-width: calc(100% - 35px);
+            }
+
+            /* .deals__accordion-icon {
+                      background-attachment: scroll;
+                      margin-left: 20px;
+                      max-width: 15px;
+                      position: absolute;
+                    } */
+
+          }
+
+          .deals__accordion-content {
+            max-height: 0px;
+            overflow: hidden;
+            margin-top: 0px;
+            transition: max-height 0.3s ease, margin-top 0.3s ease;
+
+
+            .deals__specs-label {
+              color: var(--color-text-body);
+              font-family: var(--font-text);
+              font-size: 17px;
+              font-weight: 700;
+            }
+
+            .deals__specs-item {
+              color: var(--color-text-body);
+              font-family: var(--font-text);
+              font-size: 17px;
+            }
+          }
+          .deals__counter{
+            margin-top: 30px;
+          }
         }
       }
     }
   }
+}
 }
