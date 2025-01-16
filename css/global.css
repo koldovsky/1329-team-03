@@ -94,6 +94,7 @@ ul {
   border-radius: 8px;
   cursor: pointer;
   margin-top: 40px;
+  transition: all 250ms ease-in-out;
 }
 
 .btn-primary:hover {
@@ -114,4 +115,5 @@ ul {
   border-radius: 8px;
   cursor: pointer;
   margin-top: 40px;
+  transition: all 250ms ease-in-out;
 }
