@@ -19,7 +19,7 @@
   color: var(--color-accent-additional);
 }
 
-.hero__button--primary {
+.hero__btn-primary {
   display: inline-block;
   background-color: var(--color-accent);
   color: var(--color-text-buttons);
@@ -35,7 +35,7 @@
   transition: all 250ms ease-in-out;
 }
 
-.hero__button--primary:hover {
+.hero__btn-primary:hover {
   background-color: var(--color-text-primary);
 }
 
