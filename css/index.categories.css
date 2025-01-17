@@ -1,5 +1,40 @@
 /* Maksym Zymyn */
 
+aside {
+  width: 25%;
+  padding-right: 10px;
+}
+
+aside h4 {
+  margin-bottom: 10px;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside ul li {
+  margin-bottom: 5px;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+}
+
+.product-gallery__load-more {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-gallery__load-more:hover {
+  background-color: #2980b9;
+}
+
 .product-gallery {
   display: flex;
   vertical-align: baseline;
@@ -52,6 +87,13 @@
       font-size: 19px;
       margin-top: 25px;
       font-weight: 600;
+    }
+
+    .product-gallery__divider {
+      color: var(--color-accent);
+      font-family: var(--font-title-primary);
+      font-size: 64px;
+      font-weight: 400;
     }
   }
 
