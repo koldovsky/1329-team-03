@@ -14,26 +14,28 @@
   font-size: 19px;
   font-weight: 600;
 }
+
 .hero__description__span {
   color: var(--color-accent-additional);
 }
 
-.hero__button--primary {
+.hero__btn-primary {
   display: inline-block;
   background-color: var(--color-accent);
-  color: var(--color-text-buttons); 
+  color: var(--color-text-buttons);
   padding: 15px 40px;
   font-family: var(--font-text);
   font-size: 15px;
   font-weight: bold;
   text-decoration: none;
   margin-top: 40px;
-  border:none;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: all 250ms ease-in-out;
 }
 
-.hero__button--primary:hover {
+.hero__btn-primary:hover {
   background-color: var(--color-text-primary);
 }
 
@@ -47,6 +49,7 @@
   font-family: var(--font-text);
   font-size: 12px;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .popular-products__divider {
@@ -61,27 +64,7 @@
   font-size: 64px;
 }
 
-.popular-products__button--primary {
-  display: inline-block;
-  background-color: var(--color-accent);
-  color: var(--color-text-buttons); 
-  padding: 10px 20px;
-  font-family: var(--font-text);
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  margin-top: 40px;
-  border:none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 40px;
-}
-
-.popular-products__button--primary:hover {
-  background-color: var(--color-text-primary);
-}
-
-.popular-products__button--disabled {
+.popular-products__btn-disabled {
   display: inline-block;
   background-color: var(--color-accent);
   color: var(--color-text-buttons); 

@@ -1,79 +1,104 @@
 <!-- Halyna Fedkiv -->
 <section class="deals">
-    <div class="deals__header">
-        <p class="deals__subtitle">DEALS OF THE MONTH</p>
-        <p class="deals__title"><span class="deals-devider">/</span> SMART SOLUTIONS FOR MODERN LIVING <span
-                class="deals-devider">/</span></p>
-        <p class="deals__description">
-            Get a smart price on smart gadgets at NextLevel!
-        </p>
-    </div>
-    <div class="divider"></div>
-    <div class="deals__content">
-        <!-- Item one -->
-        <div class="deals__item">
-            <div class="deals__text">
-                <p class="deals__category">HEADPHONES</p>
-                <h3 class="deals__product-title">SoundStorm Pro Gaming Headset</h3>
-                <p class="deals__price">
-                    Price:
-                    <span class="deals__price-sale">$89.99</span>
-                    <del class="deals__price-original">$119</del>
-                </p>
-                <p class="deals__description">
-                    Elevate your gaming experience with the SoundStorm Pro Gaming Headset.
-                    This headset delivers immersive sound quality with its 53mm drivers
-                    and virtual 7.1 sound.
-                </p>
-                <p class="deals__specs-title">Key Specs:</p>
-                <ul class="deals__specs" aria-label="SoundStorm Pro Gaming Headset Key Specs">
-                    <li class="deals__specs-item">● <span class="deals__specs-label">Drivers: </span>53mm with
-                        neodymium magnets;</li>
-                    <li class="deals__specs-item">● <span class="deals__specs-label">Sound: </span>Virtual 7.1
-                        surround sound;</li>
-                    <li class="deals__specs-item">● <span class="deals__specs-label">Connectivity: </span>USB and
-                        3.5mm jack;</li>
-                    <li class="deals__specs-item">● <span class="deals__specs-label">Microphone: </span>Detachable,
-                        noise-cancelling.</li>
-                </ul>
-            </div>
-            <div class="divider"></div>
-            <div class="deals__image-container">
-                <img width="768" class="deals__image" src="img/deals/soundstorm-pro-gaming-headset.png"
-                    alt="SoundStorm Pro Gaming Headset" />
-            </div>
+    <div class="deals__container">
+        <div class="deals__header">
+            <p class="deals__subtitle">DEALS OF THE MONTH</p>
+            <p class="deals__title"><span class="deals__devider">/</span> SMART SOLUTIONS FOR MODERN LIVING <span
+                    class="deals__devider">/</span></p>
+            <p class="deals__description">
+                Get a smart price on smart gadgets at NextLevel!
+            </p>
         </div>
-        <!-- Item two -->
-        <div class="deals__item">
-            <div class="deals__text">
-                <p class="deals__category">KEYBOARDS</p>
-                <h3 class="deals__product-title">AType 300 Keyboard Wired</h3>
-                <p class="deals__price">
-                    Price:
-                    <span class="deals__price-sale">$89.99</span>
-                    <del class="deals__price-original">$119</del>
-                </p>
-                <p class="deals__description">
-                    This keyboard combines a sleek, compact layout with a striking color
-                    scheme, featuring a matte black body, grey keycaps, and bold red
-                    accents on the Escape and Enter keys.
-                </p>
-                <p class="deals__specs-title">Key Specs:</p>
-                <ul class="deals__specs" aria-label="AType 300 Keyboard Key Specs">
-                    <li class="deals__specs-item">● <span class="deals__specs-label">Connection: </span>Wired, USB;
-                    </li>
-                    <li class="deals__specs-item">● <span class="deals__specs-label">Keys Type: </span>Mechanical;
-                    </li>
-                    <li class="deals__specs-item">● <span class="deals__specs-label">Compatibility: </span>Windows,
-                        Mac;</li>
-                    <li class="deals__specs-item">● <span class="deals__specs-label">Special Feature: </span>Volume
-                        control.</li>
-                </ul>
+        <div class="divider"></div>
+        <div class="deals__content">
+            <!-- Item one -->
+            <div class="deals__item">
+                <div class="deals__image-container">
+                    <img class="deals__image" src="img/deals/soundstorm-pro-gaming-headset.png"
+                        alt="SoundStorm Pro Gaming Headset" />
+                </div>
+                <div class="deals__text">
+                    <p class="deals__category">HEADPHONES</p>
+                    <h3 class="deals__product-title">SoundStorm Pro Gaming Headset</h3>
+                    <p class="deals__price">
+                        Price:
+                        <span class="deals__price-sale">$89.99</span>
+                        <del class="deals__price-original">$119</del>
+                    </p>
+                    <p class="deals__description">
+                        Elevate your gaming experience with the SoundStorm Pro Gaming Headset.
+                        This headset delivers immersive sound quality with its 53mm drivers
+                        and virtual 7.1 sound.
+                    </p>
+                    <div class="deals__accordion">
+                        <input type="checkbox" id="item-1">
+                        <label for="item-1" class="deals__accordion-header">
+                            <p class="deals__accordion-title">Key Specs:</p>
+                            <div class="deals__accordion-icon"></div>
+                        </label>
+                        <ul class="deals__accordion-content" aria-label="SoundStorm Pro Gaming Headset Key Specs">
+                            <li class="deals__specs-item">● <span class="deals__specs-label">Drivers: </span>53mm
+                                with
+                                neodymium magnets;</li>
+                            <li class="deals__specs-item">● <span class="deals__specs-label">Sound: </span>Virtual
+                                7.1
+                                surround sound;</li>
+                            <li class="deals__specs-item">● <span class="deals__specs-label">Connectivity:
+                                </span>USB
+                                and
+                                3.5mm jack;</li>
+                            <li class="deals__specs-item">● <span class="deals__specs-label">Microphone:
+                                </span>Detachable,
+                                noise-cancelling.</li>
+                        </ul>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="deals__counter"></div>
+                </div>
             </div>
-            <div class="divider"></div>
-            <div class="deals__image-container">
-                <img width="768" class="deals__image" src="img/deals/keyboard-atype300.png"
-                    alt="AType 300 Wired Keyboard" />
+            <!-- Item two -->
+            <div class="deals__item">
+                <div class="deals__image-container">
+                    <img class="deals__image" src="img/deals/keyboard-atype300.png" alt="AType 300 Wired Keyboard" />
+                </div>
+                <div class="deals__text">
+                    <p class="deals__category">KEYBOARDS</p>
+                    <h3 class="deals__product-title">AType 300 Keyboard Wired</h3>
+                    <p class="deals__price">
+                        Price:
+                        <span class="deals__price-sale">$89.99</span>
+                        <del class="deals__price-original">$119</del>
+                    </p>
+                    <p class="deals__description">
+                        This keyboard combines a sleek, compact layout with a striking color
+                        scheme, featuring a matte black body, grey keycaps, and bold red
+                        accents on the Escape and Enter keys.
+                    </p>
+                    <div class="deals__accordion">
+                        <input type="checkbox" id="item-2">
+                        <label for="item-2" class="deals__accordion-header">
+                            <p class="deals__accordion-title">Key Specs:</p>
+
+                            <div class="deals__accordion-icon"></div>
+                        </label>
+                        <ul class="deals__accordion-content" aria-label="AType 300 Keyboard Key Specs">
+                            <li class="deals__specs-item">● <span class="deals__specs-label">Connection:
+                                </span>Wired, USB;
+                            </li>
+                            <li class="deals__specs-item">● <span class="deals__specs-label">Keys Type:
+                                </span>Mechanical;
+                            </li>
+                            <li class="deals__specs-item">● <span class="deals__specs-label">Compatibility:
+                                </span>Windows,
+                                Mac;</li>
+                            <li class="deals__specs-item">● <span class="deals__specs-label">Special Feature:
+                                </span>Volume
+                                control.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="deals__counter"></div>
             </div>
         </div>
     </div>
