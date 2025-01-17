@@ -19,7 +19,7 @@
   color: var(--color-accent-additional);
 }
 
-.hero__btn-primary {
+.hero__button-primary {
   display: inline-block;
   background-color: var(--color-accent);
   color: var(--color-text-buttons);
