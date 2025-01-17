@@ -91,11 +91,16 @@
   z-index: 2;
 }
 
-.product-card__card-title {
+.product-card__name {
   color: var(--color-text-primary);
   font-family: var(--font-text);
   font-size: 21px;
   font-weight: 500;
   text-align: start;
+  text-decoration: none;
+}
+
+a {
+  color: var(--color-text-primary);
   text-decoration: none;
 }
