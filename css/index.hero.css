@@ -91,3 +91,11 @@
   flex-wrap: wrap;
   z-index: 2
 }
+
+ .product-card__card-title {
+  color: var(--color-text-primary);
+  font-family: var(--font-text);
+  font-size: 21px;
+  font-weight: 500;
+  text-align: start;
+ }
