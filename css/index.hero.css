@@ -41,7 +41,6 @@
 
 /* BESTSELLER */
 
-
 /* POPULAR ITEMS */
 
 .popular-products__items {
@@ -67,14 +66,14 @@
 .popular-products__btn-disabled {
   display: inline-block;
   background-color: var(--color-accent);
-  color: var(--color-text-buttons); 
+  color: var(--color-text-buttons);
   padding: 10px 20px;
   font-family: var(--font-text);
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
   margin-top: 40px;
-  border:none;
+  border: none;
   border-radius: 8px;
   cursor: not-allowed;
   margin-top: 40px;
@@ -89,13 +88,14 @@
   padding: 4px;
   align-items: center;
   flex-wrap: wrap;
-  z-index: 2
+  z-index: 2;
 }
 
- .product-card__card-title {
+.product-card__card-title {
   color: var(--color-text-primary);
   font-family: var(--font-text);
   font-size: 21px;
   font-weight: 500;
   text-align: start;
- }
+  text-decoration: none;
+}
