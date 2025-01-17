@@ -80,3 +80,14 @@
   margin-top: 40px;
   opacity: 0.5;
 }
+
+.popular-prodacts__absolute-wrapper {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  padding: 4px;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 2
+}
