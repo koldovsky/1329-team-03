@@ -18,7 +18,7 @@
 
   .section__subtitle {
     display: block;
-    color: var(--color-text-primary);
+    color: var(--color-primary);
     font-family: var(--font-title);
     font-size: 52px;
     font-weight: 400;

@@ -68,7 +68,7 @@
 
           .deals__product-title {
             display: block;
-            color: var(--color-text-primary);
+            color: var(--color-primary);
             font-family: var(--font-text);
             font-size: 22px;
             font-weight: 700;
@@ -77,7 +77,7 @@
 
           .deals__price {
             display: block;
-            color: var(--color-text-primary);
+            color: var(--color-primary);
             font-family: var(--font-text);
             font-size: 17px;
             font-weight: 700;

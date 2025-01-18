@@ -21,7 +21,7 @@
 }
 
 .hero__title {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   font-family: var(--font-title);
   font-size: 60px;
   font-weight: 400;
@@ -67,7 +67,7 @@
 }
 
 .hero__button-primary:hover {
-  background-color: var(--color-text-primary);
+  background-color: var(--color-primary);
 }
 
 .hero__play-wrapper {
@@ -83,7 +83,7 @@
 }
 
 .hero__button-secondary {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   font-family: var(--font-text);
   font-size: 15px;
   font-weight: bold;
@@ -99,7 +99,7 @@
 }
 
 .hero a {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -226,7 +226,7 @@
 }
 
 .popular-products__subtitle {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   font-family: var(--font-title);
   font-size: 64px;
   font-weight: 400;
@@ -328,7 +328,7 @@
 }
 
 .popular-products__product-card__name {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   font-family: var(--font-text);
   font-size: 21px;
   font-weight: 500;
