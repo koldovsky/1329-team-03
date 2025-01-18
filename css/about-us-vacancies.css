@@ -210,12 +210,19 @@
   margin: auto;
   @media (min-width: 320px) {
     flex-direction: column;
+    width: 90%;
   }
   @media (min-width: 768px) {
     flex-direction: row;
+    width: 95%;
+  }
+  @media (min-width: 992px) {
+    width: 85%;
+  }
+  @media (min-width: 1200px) {
+    width: 100%;
   }
 }
-
 .job-opportunities__slogan {
   display: border-box;
   padding-top: 30px;
