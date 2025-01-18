@@ -58,8 +58,6 @@
   font-weight: 600;
   font-size: 19px;
   display: border-box;
-  padding-left: 10px;
-  padding-right: 10px;
   padding-bottom: 20px;
   margin: auto;
   width: 93%;
@@ -83,8 +81,6 @@
   }
   margin: auto;
 
-  padding-left: 15px;
-  padding-right: 15px;
 }
 .job-opportunities__divider {
   @media (min-width: 320px) {
@@ -226,8 +222,6 @@
 .job-opportunities__slogan {
   display: border-box;
   padding-top: 30px;
-  padding-left: 15px;
-  padding-right: 15px;
 
   .job-opportunities__slogan-title {
     font-size: 12px;
@@ -239,4 +233,10 @@
     padding-top: 20px;
     color: var(--color-text-body);
   }
+  
+}
+
+.job-opportunities__slogans .job-opportunities__slogan:not(:first-child):not(:last-child) {
+  padding-left: 15px;
+  padding-right: 15px;
 }
