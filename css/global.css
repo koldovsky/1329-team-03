@@ -86,6 +86,10 @@ body .container {
   }
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .divider {
   border: none;
   height: 1px;
