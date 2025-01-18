@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 *,
 *::before,
@@ -13,6 +13,7 @@
   scroll-behavior: smooth;
   --font-title: "Bebas Neue", sans-serif;
   --font-text: "Nunito", sans-serif;
+
   /* color of titles */
   --color-text-primary: rgb(39, 39, 39);
   /* color of subtitles */
@@ -43,7 +44,9 @@
   --color-filters: #272727;
   /* color of bottom line */
   --color-bottom-line: rgba(33, 39, 54, 0.12);
-  
+  /* color of checked checkbox */
+  --color-checkbox-checked: #ff7b16;
+
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;
 }
@@ -67,7 +70,8 @@ ul {
   margin: 0;
 }
 
-.container {
+body .container {
+  max-width: 1280px;
   width: 100%;
   padding: 0 24px;
   margin: 0 auto;
@@ -78,7 +82,12 @@ ul {
 
   @media (min-width: 992px) {
     max-width: 1280px;
+    padding: 0 40px;
   }
+}
+
+body .overflow-hidden {
+  overflow: hidden;
 }
 
 .divider {
@@ -92,7 +101,7 @@ ul {
   display: inline-block;
   background-color: var(--color-accent);
   color: var(--color-text-buttons);
-  padding: 10px 20px;
+  padding: 12px 21px;
   font-family: var(--font-text);
   font-size: 14px;
   font-weight: bold;
@@ -112,7 +121,7 @@ ul {
   display: inline-block;
   background-color: var(--color-secondary-button);
   color: var(--color-text-buttons);
-  padding: 10px 20px;
+  padding: 12px 21px;
   font-family: var(--font-text);
   font-size: 14px;
   font-weight: bold;
