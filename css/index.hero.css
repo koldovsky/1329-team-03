@@ -100,7 +100,8 @@
   text-decoration: none;
 }
 
-a {
+/* Тимчасово виправив бо мені стилі перебивало */
+.hero a {
   color: var(--color-text-primary);
   text-decoration: none;
 }
