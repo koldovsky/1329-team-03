@@ -124,6 +124,10 @@
     .job-opportunities__card-middle-section {
       width: 40%;
     }
+    .job-opportunities__slogans .job-opportunities__slogan:not(:first-child):not(:last-child) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
 
   .job-opportunities__sallary {
@@ -236,7 +240,3 @@
   
 }
 
-.job-opportunities__slogans .job-opportunities__slogan:not(:first-child):not(:last-child) {
-  padding-left: 15px;
-  padding-right: 15px;
-}
