@@ -12,52 +12,7 @@
     display: block;
     position: relative;
     background-color: var(--color-primary-white);
-    padding: 60px 24px 40px 24px;
-
-    .product-gallery__header {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      margin: 0 15px;
-      padding: 0 15px;
-
-      .product-gallery__title {
-        display: block;
-        color: var(--color-accent-additional);
-        font-family: var(--font-text);
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 2.4px;
-        justify-content: center;
-      }
-
-      .product-gallery__subtitle {
-        display: block;
-        color: var(--color-text-primary);
-        font-family: var(--font-title);
-        font-size: 52px;
-        font-weight: 400;
-        margin-top: 20px;
-        justify-content: center;
-        margin-top: 20px;
-      }
-
-      .product-gallery__divider {
-        color: var(--color-accent);
-        font-family: var(--font-title-primary);
-        font-size: 52px;
-        font-weight: 400;
-      }
-
-      .product-gallery__description {
-        color: var(--color-text-body);
-        font-family: var(--font-text);
-        font-size: 19px;
-        margin-top: 25px;
-        font-weight: 600;
-      }
-    }
+    padding: 60px 24px 40px 24px;    
 
     .product-gallery__content {
       display: flex;
@@ -77,10 +32,9 @@
         position: relative;
 
         .filters__list {
-          list-style: none;
 
           .filters__title {
-            color: var(--color-filters);
+            color: var(--color-text-primary);
             font-family: var(--font-text);
             font-size: 24px;
             font-weight: 700;
@@ -89,7 +43,7 @@
           .filters__item {
             margin-bottom: 30px;
             padding-left: 0;
-            color: var(--color-filters);
+            color: var(--color-text-primary);
             font-family: var(--font-text);
             margin-bottom: 30px;
 
@@ -141,7 +95,7 @@
                   appearance: none;
                   width: 16px;
                   height: 16px;
-                  border: 1px solid var(--color-filters);
+                  border: 1px solid var(--color-text-primary);
                   /* Стилізація замість квадратика */
                   cursor: pointer;
                   transition: var(--transiton-primary-all);
@@ -211,7 +165,7 @@
               font-family: var(--font-text);
               font-size: 21px;
               font-weight: 500;
-              color: var(--color-filters);
+              color: var(--color-text-primary);
             }
 
             .product-card__price {
@@ -224,13 +178,13 @@
             .product-card__price-old {
               font-size: 21px;
               font-weight: 500;
-              color: var(--color-filters);
+              color: var(--color-text-primary);
             }
 
             .product-card__price-new {
               font-size: 20px;
               font-weight: 700;
-              color: var(--color-checkbox-checked);
+              color: var(--color-accent-additional);
             }
 
             .product-card .btn-secondary {

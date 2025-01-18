@@ -14,20 +14,14 @@
   --font-title: "Bebas Neue", sans-serif;
   --font-text: "Nunito", sans-serif;
 
-  /* color of titles */
-  --color-text-primary: rgb(39, 39, 39);
-  /* color of subtitles */
-  --color-text-secondary: rgb(77, 77, 77);
+  /* color of subtitles (a high font) and dark elements */
+  --color-primary: rgb(39, 39, 39);  /* #272727 */
   /* color of descriptions */
   --color-text-body: rgb(106, 106, 106);
   /* color of most buttons and text accents */
   --color-accent: rgb(28, 76, 151);
   /* color of prices and accent buttons */
-  --color-accent-additional: rgb(255, 123, 22);
-  /* color of buttons text*/
-  --color-text-buttons: rgb(255, 255, 255);
-  /* color of dark elements */
-  --dark-bg-color: rgb(39, 39, 39);
+  --color-accent-additional: rgb(255, 123, 22);  /* #ff7b16 */
   /* color white */
   --color-primary-white: rgb(255, 255, 255);
   /* color of additional text */
@@ -40,12 +34,8 @@
   --color-secondary-button: #464c5c;
   /* color of divider */
   --color-divider: rgba(0, 0, 0, 0.07);
-  /* color of aside part in categories */
-  --color-filters: #272727;
   /* color of bottom line */
   --color-bottom-line: rgba(33, 39, 54, 0.12);
-  /* color of checked checkbox */
-  --color-checkbox-checked: #ff7b16;
 
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;
@@ -93,59 +83,4 @@ body .overflow-hidden {
   height: 1px;
   background-color: var(--color-divider);
   margin: 15.5px 0;
-}
-
-.btn-primary {
-  display: inline-block;
-  background-color: var(--color-accent);
-  color: var(--color-text-buttons);
-  padding: 12px 21px;
-  font-family: var(--font-text);
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  margin-top: 40px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 250ms ease-in-out;
-}
-
-.btn-primary:hover {
-  background-color: var(--color-text-primary);
-}
-
-.btn-secondary {
-  display: inline-block;
-  background-color: var(--color-secondary-button);
-  color: var(--color-text-buttons);
-  padding: 12px 21px;
-  font-family: var(--font-text);
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  margin-top: 40px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 250ms ease-in-out;
-}
-
-.btn-outline-dark {
-  border-width: 2px;
-  border-radius: 8px;
-  border-color: var(--color-filters);
-  border-style: solid;
-  font-family: var(--font-text);
-  font-size: 14px;
-  padding: 10px 20px; 
-  background-color: transparent; 
-  color: var(--color-filters); 
-  font-weight: bold; 
-  transition: var(--transiton-primary-all); 
-}
-
-.btn-outline-dark:hover {
-  background-color: var(--color-filters);
-  color: var(--color-primary-white); 
 }

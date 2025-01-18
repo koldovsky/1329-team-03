@@ -54,7 +54,7 @@
 .hero__button-primary {
   display: inline-block;
   background-color: var(--color-accent);
-  color: var(--color-text-buttons);
+  color: var(--color-primary-white);
   padding: 15px 40px;
   font-family: var(--font-text);
   font-size: 15px;
@@ -251,7 +251,7 @@
 .popular-products__btn-disabled {
   display: inline-block;
   background-color: var(--color-accent);
-  color: var(--color-text-buttons);
+  color: var(--color-primary-white);
   padding: 10px 20px;
   font-family: var(--font-text);
   font-size: 14px;
@@ -272,7 +272,7 @@
   display: inline-block;
   text-align: center;
   background-color: var(--color-secondary-button);
-  color: var(--color-text-buttons);
+  color: var(--color-primary-white);
   font-family: var(--font-text);
   font-size: 14px;
   font-weight: 600;

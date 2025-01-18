@@ -28,7 +28,7 @@
   }
 
   .header__bottom-bar {
-    background-color: var(--dark-bg-color);
+    background-color: var(--color-primary);
 
     .header__bottom-bar-wrapper {
       padding-bottom: 20px;
@@ -222,7 +222,7 @@
   .header__mobile-menu-box {
     display: none;
     transition: all 0.3s ease-in-out;
-    background-color: var(--dark-bg-color);
+    background-color: var(--color-primary);
     position: fixed;
     top: 85px;
     bottom: 0;

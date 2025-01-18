@@ -62,7 +62,7 @@
   margin: auto;
   width: 93%;
   #job-opportunities__email {
-    color: var(--dark-bg-color);
+    color: var(--color-primary);
   }
 }
 
