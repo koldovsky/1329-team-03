@@ -1,17 +1,17 @@
 /* Maksym Zymyn */
 .product-gallery {
   display: flex;
+  flex-direction: column;
   vertical-align: baseline;
   width: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  position: relative;
 
   .product-gallery__container {
     display: block;
+    position: relative;
     background-color: var(--color-primary-white);
-    position: static;
     padding: 60px 24px 40px 24px;
 
     .product-gallery__header {
@@ -61,18 +61,18 @@
 
     .product-gallery__content {
       display: flex;
-      justify-content: baseline;
+      width: 100%;
       margin-top: 50px;
-      vertical-align: baseline;
       column-gap: 30px;
       row-gap: 16px;
 
       .filters {
+        width: 22.6%;
         max-width: 22.6%;
         vertical-align: baseline;
         margin: 0;
         padding: 0;
-        position: absolute;
+        position: relative;
 
         .filters__list {
           list-style: none;
@@ -82,8 +82,6 @@
             font-family: var(--font-text);
             font-size: 24px;
             font-weight: 700;
-            margin-bottom: 30px;
-            border-bottom: 1px solid var(--color-bottom-line);
           }
 
           .filters__item {
@@ -92,7 +90,20 @@
             color: var(--color-filters);
             font-family: var(--font-text);
             margin-bottom: 30px;
-            border-bottom: 1px solid var(--color-bottom-line);
+
+            &:before {
+              content: "";
+              display: block;
+              width: 100%;
+              height: 1px;
+              background-color: var(--color-bottom-line);
+              margin-top: 24px;
+            }
+
+            &:before,
+            &:last-child {
+              margin-bottom: 24px;
+            }
 
             .filter-button {
               display: flex;
@@ -114,6 +125,7 @@
             .filters__item-category-option {
               font-size: 17px;
               font-weight: 400;
+              margin-top: 16px;
 
               .filters__label {
                 display: flex;
@@ -154,58 +166,48 @@
       }
 
       .product-gallery__grid {
-        article {
-          border: 1px solid #e0e0e0;
-          border-radius: 8px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          padding: 16px;
-          text-align: center;
-          max-width: 250px;
-          margin: 16px auto;
-          background-color: #ffffff;
-      }
-      
-      article img {
+        width: 77.4%;
+        max-width: 77.4%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        position: relative;
+        width: 100%;
+        flex-wrap: wrap;
+        row-gap: 30px;
+
+        .product-card {
+          display: flex;
+          flex-direction: column;
+          border: none;
+          position: relative;
+          height: 100%;
+          max-width: 100%;
+          align-items: stretch;
+          flex-basis: 100%;
+        }
+
+        .product-card__image {
           max-width: 100%;
           height: auto;
           border-radius: 8px;
-      }
-      
-      h5 {
+        }
+
+        .product-card__title {
           margin: 12px 0;
           font-size: 1.25rem;
           color: #333;
-      }
-      
-      p {
+        }
+
+        .product-card__price-text {
           margin: 8px 0;
           font-size: 1rem;
           color: #888;
-      }
-      
-      span {
+        }
+
+        .product-card__price-new {
           font-weight: bold;
-          color: #ff5722; /* Orange color for price */
-      }
-      
-      .btn {
-          background-color: #007bff; /* Bootstrap primary color */
-          color: white;
-          border: none;
-          border-radius: 5px;
-          padding: 10px 15px;
-          cursor: pointer;
-          font-size: 1rem;
-          transition: background-color 0.3s;
-      }
-      
-      .btn:hover {
-          background-color: #0056b3; /* Darker shade on hover */
-      }
-
-
-
-      
+          color: #ff5722; 
+        }
 
         .product-card {
           position: relative;
