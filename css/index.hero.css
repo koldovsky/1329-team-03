@@ -94,13 +94,13 @@
   transition: all 250ms ease-in-out;
 }
 
+.hero__button-secondary:hover {
+  text-decoration: underline;
+}
+
 .hero a {
   color: var(--color-text-primary);
   text-decoration: none;
-}
-
-.hero__button-secondary:hover {
-  text-decoration: underline;
 }
 
 @media (min-width: 768px) {
