@@ -331,6 +331,7 @@
   text-decoration: none;
 }
 
-a {
+.hero a {
+  color: var(--color-text-primary);
   text-decoration: none;
 }

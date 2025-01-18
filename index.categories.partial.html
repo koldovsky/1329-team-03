@@ -2,7 +2,6 @@
 <section class="product-gallery">
   <div class="product-gallery__container container">
     <div class="product-gallery__header">
-      <span class="text-ui-brand-color" style="color:var(--ui-brand-color)">Categories</span>
       <h2 class="product-gallery__title">CATEGORIES</h2>
       <h3 class="product-gallery__subtitle">
         <span class="product-gallery__divider">/</span>
@@ -15,10 +14,17 @@
     </div>
     <div class="divider"></div>
     <div class="product-gallery__content">
-      <aside data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./index.categories-aside.partial.html">
-      </aside>
+      <aside
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="./index.categories-aside.partial.html"
+      ></aside>
 
-      <div data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./index.categories-cards.partial.html"></div>
+      <div
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="./index.categories-cards.partial.html"
+      ></div>
     </div>
 
     <div class="product-gallery__footer">
