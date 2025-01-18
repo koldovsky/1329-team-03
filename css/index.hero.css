@@ -94,6 +94,11 @@
   transition: all 250ms ease-in-out;
 }
 
+.hero a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
 .hero__button-secondary:hover {
   text-decoration: underline;
 }
@@ -328,10 +333,5 @@
   font-size: 21px;
   font-weight: 500;
   text-align: start;
-  text-decoration: none;
-}
-
-.hero a {
-  color: var(--color-text-primary);
   text-decoration: none;
 }
