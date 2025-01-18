@@ -86,7 +86,7 @@ body .container {
   }
 }
 
-.overflow-hidden {
+body .overflow-hidden {
   overflow: hidden;
 }
 
