@@ -16,8 +16,6 @@
       <a href="#" class="hero__button hero__button-primary">Shop Now</a>
       <div class="hero__play-wrapper">
         <img
-          width="24"
-          height="24"
           src="img/hero-index/icons/play.svg"
           alt="Play Icon"
           class="hero__play-icon"
@@ -25,54 +23,54 @@
         <a href="#" class="hero__button hero__button-secondary">Watch Video</a>
       </div>
     </div>
-    <!-- Hero Features -->
-    <div class="hero__features">
-      <ul class="hero__feature-list">
-        <li class="hero__feature-item">
-          <img
-            width="20"
-            height="24"
-            src="img/hero-index/icons/headphones.svg"
-            alt="Headphones Icon"
-            class="hero__feature-icon"
-          />
-          <span class="hero__feature-text">Wireless and Wired Headphones</span>
-        </li>
-        <li class="hero__feature-divider">|</li>
-        <li class="hero__feature-item">
-          <img
-            width="20"
-            height="24"
-            src="img/hero-index/icons/keyboard.svg"
-            alt="Keyboard Icon"
-            class="hero__feature-icon"
-          />
-          <span class="hero__feature-text">Mechanical Keyboards</span>
-        </li>
-        <li class="hero__feature-divider">|</li>
-        <li class="hero__feature-item">
-          <img
-            width="20"
-            height="24"
-            src="img/hero-index/icons/mouse.svg"
-            alt="Mouse Icon"
-            class="hero__feature-icon"
-          />
-          <span class="hero__feature-text">Optical and Laser Mice</span>
-        </li>
-        <li class="hero__feature-divider">|</li>
-        <li class="hero__feature-item">
-          <img
-            width="20"
-            height="24"
-            src="img/hero-index/icons/monitor.svg"
-            alt="Monitor Icon"
-            class="hero__feature-icon"
-          />
-          <span class="hero__feature-text">High-Resolution Monitors</span>
-        </li>
-        <li class="hero__feature-divider">|</li>
-      </ul>
+    <!-- HERO__FOOTER -->
+    <div class="hero__footer">
+      <div class="hero__footer-list">
+        <div class="hero__footer-items">
+          <div class="hero__footer-items__item">
+            <img
+              src="img/hero-index/icons/headphones.svg"
+              alt="Headphones Icon"
+              class="hero__footer-icon"
+            />
+            <span class="hero__footer-text">Wireless and Wired Headphones</span>
+          </div>
+          <div class="hero__footer-divider">|</div>
+        </div>
+        <div class="hero__footer-items">
+          <div class="hero__footer-items__item">
+            <img
+              src="img/hero-index/icons/keyboard.svg"
+              alt="Keyboard Icon"
+              class="hero__footer-icon"
+            />
+            <span class="hero__footer-text">Mechanical Keyboards</span>
+          </div>
+          <div class="hero__footer-divider">|</div>
+        </div>
+        <div class="hero__footer-items">
+          <div class="hero__footer-items__item">
+            <img
+              src="img/hero-index/icons/mouse.svg"
+              alt="Mouse Icon"
+              class="hero__footer-icon"
+            />
+            <span class="hero__footer-text">Optical and Laser Mice</span>
+          </div>
+          <div class="hero__footer-divider">|</div>
+        </div>
+        <div class="hero__footer-items">
+          <div class="hero__footer-items__item">
+            <img
+              src="img/hero-index/icons/monitor.svg"
+              alt="Monitor Icon"
+              class="hero__footer-icon"
+            />
+            <span class="hero__footer-text">High-Resolution Monitors</span>
+          </div>
+          <div class="hero__footer-divider">|</div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- BESTSELLER -->
@@ -120,16 +118,18 @@
   </div>
   <!-- POPULAR ITEMS -->
   <div class="popular-products__products-container">
-    <h2 class="popular-products__items">POPULAR ITEMS</h2>
-    <p class="popular-products__subtitle">
-      <span class="popular-products__divider">/</span>
-      POWER UP WITH THE BEST IN TECH
-      <span class="popular-products__divider">/</span>
-    </p>
-    <p class="popular-products__description">
-      Discover our best-selling items that our customers love!
-    </p>
-    <div class="divider"></div>
+    <div class="popular-products__header">
+      <h2 class="popular-products__items">POPULAR ITEMS</h2>
+      <p class="popular-products__subtitle">
+        <span class="popular-products__divider">/</span>
+        POWER UP WITH THE BEST IN TECH
+        <span class="popular-products__divider">/</span>
+      </p>
+      <p class="popular-products__description">
+        Discover our best-selling items that our customers love!
+      </p>
+      <div class="divider"></div>
+    </div>
     <div class="popular-products__list">
       <!-- PixelView Flex -->
       <article class="popular-products__products__item">
@@ -145,28 +145,19 @@
             data-test="product-card"
           >
             <a href="#">
-              <div
-                class="popular-products__badge popular-products__absolute-wrapper"
-              >
-                <!-- <button type="button" class="btn btn-secondary">Sale</button> -->
-                <div
-                  class="popular-products__badge popular-products__badge-sale"
-                  style="background: #464c5c"
-                >
-                  <span>Sale</span>
-                </div>
+              <!-- <button type="button" class="btn btn-secondary">Sale</button> -->
+              <div class="popular-products__badge popular-products__badge-sale">
+                <span>Sale</span>
               </div>
               <div class="popular-products__product-card__card-preview">
                 <img
-                  width="304"
-                  height="304"
                   class="popular-products__product-card__img-preview"
                   alt="PixelView Flex Monitor"
                   src="img/hero-index/popular/pixelview-flex.png"
                   loading="lazy"
                 />
                 <div
-                  class="popular-products__badge popular-products__badge-out-of-stock"
+                  class="popular-products__badge-bottom popular-products__badge-out-of-stock"
                 >
                   Out of stock
                 </div>
@@ -219,19 +210,12 @@
           >
             <a href="#">
               <div
-                class="popular-products__badge popular-products__absolute-wrapper"
+                class="popular-products__badge popular-products__badge-limited"
               >
-                <div
-                  class="popular-products__badge popular-products__badge-limited"
-                  style="background: #464c5c"
-                >
-                  <span>Limited</span>
-                </div>
+                <span>Limited</span>
               </div>
               <div class="popular-products__product-card__card-preview">
                 <img
-                  width="304"
-                  height="304"
                   class="popular-products__product-card__img-preview"
                   alt="NovaSound Pro 3000 Headphones"
                   src="img/hero-index/popular/novasound-pro-3000.png"
@@ -281,20 +265,11 @@
             data-test="product-card"
           >
             <a href="#">
-              <div
-                class="popular-products__badge popular-products__absolute-wrapper"
-              >
-                <div
-                  class="popular-products__badge popular-products__badge-new"
-                  style="background: #464c5c"
-                >
-                  <span>New</span>
-                </div>
+              <div class="popular-products__badge popular-products__badge-new">
+                <span>New</span>
               </div>
               <div class="popular-products__product-card__card-preview">
                 <img
-                  width="304"
-                  height="304"
                   class="popular-products__product-card__img-preview"
                   alt="QuantumBoard X1 Keyboard"
                   src="img/hero-index/popular/quantumboard-x1.png"
@@ -346,14 +321,12 @@
             data-name="AeroWave 250"
             data-test="product-card"
           >
-            <a href="#"
-              ><div
+            <a href="#">
+              <!-- <div
                 class="popular-products__badge popular-products__absolute-wrapper"
-              ></div>
+              ></div> -->
               <div class="popular-products__product-card__card-preview">
                 <img
-                  width="304"
-                  height="304"
                   class="popular-products__product-card__img-preview"
                   alt="AeroWave 250 Headphones"
                   src="img/hero-index/popular/aerowave-250.png"
@@ -403,20 +376,11 @@
             data-test="product-card"
           >
             <a href="#">
-              <div
-                class="popular-products__badge popular-products__absolute-wrapper"
-              >
-                <div
-                  class="popular-products__badge popular-products__badge-new"
-                  style="background: #464c5c"
-                >
-                  <span>New</span>
-                </div>
+              <div class="popular-products__badge popular-products__badge-new">
+                <span>New</span>
               </div>
               <div class="popular-products__product-card__card-preview">
                 <img
-                  width="304"
-                  height="304"
                   class="popular-products__product-card__img-preview"
                   alt="LumiMouse Pro"
                   src="img/hero-index/popular/lumimouse-pro.png"
@@ -471,8 +435,6 @@
             <a href="#">
               <div class="popular-products__product-card__card-preview">
                 <img
-                  width="304"
-                  height="304"
                   class="popular-products__product-card__img-preview"
                   alt="AeroBeats 500 Headphones"
                   src="img/hero-index/popular/aerobeats-500.png"
@@ -523,19 +485,12 @@
           >
             <a href="#">
               <div
-                class="popular-products__badge popular-products__absolute-wrapper"
+                class="popular-products__badge popular-products__badge-bestseller"
               >
-                <div
-                  class="popular-products__badge popular-products__badge-bestseller"
-                  style="background: #464c5c"
-                >
-                  <span>Bestseller</span>
-                </div>
+                <span>Bestseller</span>
               </div>
               <div class="popular-products__product-card__card-preview">
                 <img
-                  width="304"
-                  height="304"
                   class="popular-products__product-card__img-preview"
                   alt="SyncroMouse Elite"
                   src="img/hero-index/popular/syncromouse-elite.png"
@@ -588,20 +543,11 @@
             data-test="product-card"
           >
             <a href="#">
-              <div
-                class="popular-products__badge popular-products__absolute-wrapper"
-              >
-                <div
-                  class="popular-products__badge popular-products__badge-new"
-                  style="background: #464c5c"
-                >
-                  <span>New</span>
-                </div>
+              <div class="popular-products__badge popular-products__badge-new">
+                <span>New</span>
               </div>
               <div class="popular-products__product-card__card-preview">
                 <img
-                  width="304"
-                  height="304"
                   class="popular-products__product-card__img-preview"
                   alt="NeuroSound 700 Headphones"
                   src="img/hero-index/popular/neurosound-700.png"
@@ -653,15 +599,13 @@
             <a href="#">
               <div class="popular-products__product-card__card-preview">
                 <img
-                  width="304"
-                  height="304"
                   class="popular-products__product-card__img-preview"
                   alt="AType 300 Keyboard"
                   src="img/hero-index/popular/atype-300-keyboard.png"
                   loading="lazy"
                 />
                 <div
-                  class="popular-products__badge popular-products__badge-preorder"
+                  class="popular-products__badge-bottom popular-products__badge-preorder"
                 >
                   Pre-order
                 </div>
@@ -714,19 +658,12 @@
           >
             <a href="#">
               <div
-                class="popular-products__badge popular-products__absolute-wrapper"
+                class="popular-products__badge popular-products__badge-bestseller"
               >
-                <div
-                  class="popular-products__badge popular-products__badge-bestseller"
-                  style="background: #464c5c"
-                >
-                  <span>Bestseller</span>
-                </div>
+                <span>Bestseller</span>
               </div>
               <div class="popular-products__product-card__card-preview">
                 <img
-                  width="304"
-                  height="304"
                   class="popular-products__product-card__img-preview"
                   alt="NovaScreen Ultra  Monitor"
                   src="img/hero-index/popular/novascreen-ultra.png"
