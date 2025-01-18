@@ -15,7 +15,7 @@
 }
 
 .btn-primary:hover {
-  background-color: var(--color-text-primary);
+  background-color: var(--color-primary);
 }
 
 .btn-secondary {
@@ -37,18 +37,18 @@
 .btn-outline-dark {
   border-width: 2px;
   border-radius: 8px;
-  border-color: var(--color-text-primary);
+  border-color: var(--color-primary);
   border-style: solid;
   font-family: var(--font-text);
   font-size: 14px;
   padding: 10px 20px;
   background-color: transparent;
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   font-weight: bold;
   transition: var(--transiton-primary-all);
 }
 
 .btn-outline-dark:hover {
-  background-color: var(--color-text-primary);
+  background-color: var(--color-primary);
   color: var(--color-primary-white);
 }
