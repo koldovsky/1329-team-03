@@ -12,36 +12,77 @@
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            class="filters__item-header-button"
           >
             <path
               fill-rule="evenodd"
               clip-rule="evenodd"
               d="M5.48131 8.35371C5.77932 8.06603 6.25412 8.0744 6.5418 8.37242L12 14.0267L17.4581 8.37242C17.7458 8.0744 18.2206 8.06603 18.5186 8.35371C18.8166 8.64139 18.825 9.11619 18.5373 9.4142L12.5396 15.6274C12.3982 15.7738 12.2035 15.8565 12 15.8565C11.7965 15.8565 11.6017 15.7738 11.4604 15.6274L5.46259 9.4142C5.17491 9.11619 5.18329 8.64139 5.48131 8.35371Z"
-              fill="#da2700"
+              fill="#272727"
             ></path>
           </svg>
         </button>
       </div>
-      <ul>
-        <li>All</li>
-        <li>Monitors</li>
-        <li>Headphones</li>
-        <li>Mice</li>
-        <li>Keyboards</li>
+      <ul class="filters__item-category">
+        <li class="filters__item-category-option">All</li>
+        <li class="filters__item-category-option">Monitors</li>
+        <li class="filters__item-category-option">Headphones</li>
+        <li class="filters__item-category-option">Mice</li>
+        <li class="filters__item-category-option">Keyboards</li>
       </ul>
     </li>
+
     <li class="filters__item">
-      <h5 class="filters__item-title">Price</h5>
+      <div>
+        <button class="filter-button">
+          <h5 class="filters__item-title">Price</h5>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="filters__item-header-button"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M5.48131 8.35371C5.77932 8.06603 6.25412 8.0744 6.5418 8.37242L12 14.0267L17.4581 8.37242C17.7458 8.0744 18.2206 8.06603 18.5186 8.35371C18.8166 8.64139 18.825 9.11619 18.5373 9.4142L12.5396 15.6274C12.3982 15.7738 12.2035 15.8565 12 15.8565C11.7965 15.8565 11.6017 15.7738 11.4604 15.6274L5.46259 9.4142C5.17491 9.11619 5.18329 8.64139 5.48131 8.35371Z"
+              fill="#272727"
+            ></path>
+          </svg>
+        </button>
+      </div>
       <input type="range" min="0" max="500" />
       <div class="filters__price-inputs">
         <input type="number" name="min-price" value="0.00" />
         <input type="number" name="max-price" value="0.00" />
       </div>
     </li>
+
     <li class="filters__item">
-      <h5 class="filters__item-title">Color</h5>
-      <ul class="filters__list">
-        <li>
+      <div>
+        <button class="filter-button">
+          <h5 class="filters__item-title">Color</h5>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="filters__item-header-button"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M5.48131 8.35371C5.77932 8.06603 6.25412 8.0744 6.5418 8.37242L12 14.0267L17.4581 8.37242C17.7458 8.0744 18.2206 8.06603 18.5186 8.35371C18.8166 8.64139 18.825 9.11619 18.5373 9.4142L12.5396 15.6274C12.3982 15.7738 12.2035 15.8565 12 15.8565C11.7965 15.8565 11.6017 15.7738 11.4604 15.6274L5.46259 9.4142C5.17491 9.11619 5.18329 8.64139 5.48131 8.35371Z"
+              fill="#272727"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <ul class="filters__item-category">
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -62,7 +103,7 @@
             <span>Black</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -83,7 +124,7 @@
             <span>Blue</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -104,7 +145,7 @@
             <span>Green</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -125,7 +166,7 @@
             <span>Grey</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -146,7 +187,7 @@
             <span>Multicolor</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -167,7 +208,7 @@
             <span>Orange</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -188,7 +229,7 @@
             <span>Pink</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -209,7 +250,7 @@
             <span>Purple</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -230,7 +271,7 @@
             <span>Red</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -253,10 +294,30 @@
         </li>
       </ul>
     </li>
+
     <li class="filters__item">
-      <h5 class="filters__item-title">Connection</h5>
-      <ul class="filters__list">
-        <li>
+      <div>
+        <button class="filter-button">
+          <h5 class="filters__item-title">Connection</h5>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="filters__item-header-button"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M5.48131 8.35371C5.77932 8.06603 6.25412 8.0744 6.5418 8.37242L12 14.0267L17.4581 8.37242C17.7458 8.0744 18.2206 8.06603 18.5186 8.35371C18.8166 8.64139 18.825 9.11619 18.5373 9.4142L12.5396 15.6274C12.3982 15.7738 12.2035 15.8565 12 15.8565C11.7965 15.8565 11.6017 15.7738 11.4604 15.6274L5.46259 9.4142C5.17491 9.11619 5.18329 8.64139 5.48131 8.35371Z"
+              fill="#272727"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <ul class="filters__item-category">
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -277,7 +338,7 @@
             <span>Wired</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -300,10 +361,30 @@
         </li>
       </ul>
     </li>
+
     <li class="filters__item">
-      <h5 class="filters__item-title">Screen Size</h5>
-      <ul class="filters__list">
-        <li>
+      <div>
+        <button class="filter-button">
+          <h5 class="filters__item-title">Screen Size</h5>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="filters__item-header-button"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M5.48131 8.35371C5.77932 8.06603 6.25412 8.0744 6.5418 8.37242L12 14.0267L17.4581 8.37242C17.7458 8.0744 18.2206 8.06603 18.5186 8.35371C18.8166 8.64139 18.825 9.11619 18.5373 9.4142L12.5396 15.6274C12.3982 15.7738 12.2035 15.8565 12 15.8565C11.7965 15.8565 11.6017 15.7738 11.4604 15.6274L5.46259 9.4142C5.17491 9.11619 5.18329 8.64139 5.48131 8.35371Z"
+              fill="#272727"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <ul class="filters__item-category">
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -324,7 +405,7 @@
             <span>19''</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -345,7 +426,7 @@
             <span>21.5''</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -366,7 +447,7 @@
             <span>24''</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -387,7 +468,7 @@
             <span>27''</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -408,7 +489,7 @@
             <span>29''</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -429,7 +510,7 @@
             <span>32''</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
@@ -450,7 +531,7 @@
             <span>34''</span>
           </label>
         </li>
-        <li>
+        <li class="filters__item-category-option">
           <label class="filters__label">
             <input class="filters__checkbox" type="checkbox" name="color" />
             <svg
