@@ -87,9 +87,10 @@ ul {
 }
 
 .divider {
+  border: none;
   height: 1px;
   background-color: var(--color-divider);
-  margin: 0;
+  margin: 15.5px 0;
 }
 
 .btn-primary {
