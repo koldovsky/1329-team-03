@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 *,
 *::before,
@@ -131,4 +131,23 @@ body .overflow-hidden {
   border-radius: 8px;
   cursor: pointer;
   transition: all 250ms ease-in-out;
+}
+
+.btn-outline-dark {
+  border-width: 2px;
+  border-radius: 8px;
+  border-color: var(--color-filters);
+  border-style: solid;
+  font-family: var(--font-text);
+  font-size: 14px;
+  padding: 10px 20px; 
+  background-color: transparent; 
+  color: var(--color-filters); 
+  font-weight: bold; 
+  transition: var(--transiton-primary-all); 
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--color-filters);
+  color: var(--color-primary-white); 
 }
