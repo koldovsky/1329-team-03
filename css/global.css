@@ -47,8 +47,7 @@
   --color-bottom-line: rgba(33, 39, 54, 0.12);
   /* color of checked checkbox */
   --color-checkbox-checked: #ff7b16;
-
-
+  
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;
 }
