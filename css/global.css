@@ -24,6 +24,8 @@
   --color-accent-additional: rgb(255, 123, 22);  /* #ff7b16 */
   /* color white */
   --color-primary-white: rgb(255, 255, 255);
+  /* color additional light text */
+  --color-additional-light-text: rgb(248, 243, 239);
   /* color of additional text */
   --color-additional-text: rgb(248, 243, 239);
   /* color of header menu */
