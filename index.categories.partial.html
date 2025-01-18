@@ -1,28 +1,30 @@
 <!-- Maksym Zymyn -->
 <section class="product-gallery">
   <div class="product-gallery__container container">
-    <div class="product-gallery__header">
-      <span class="text-ui-brand-color" style="color:var(--ui-brand-color)">Categories</span>
-      <h2 class="product-gallery__title">CATEGORIES</h2>
-      <h3 class="product-gallery__subtitle">
-        <span class="product-gallery__divider">/</span>
+    <div class="section__header">
+      <h2 class="section__title">CATEGORIES</h2>
+      <h3 class="section__subtitle">
+        <span class="section__divider">/</span>
         Stay Connected, Stay Ahead
-        <span class="product-gallery__divider">/</span>
+        <span class="section__divider">/</span>
       </h3>
-      <p class="product-gallery__description">
+      <p class="section__description">
         Elevate your work and leisure with top gadgets from the best brands.
       </p>
     </div>
     <div class="divider"></div>
     <div class="product-gallery__content">
-      <aside data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./index.categories-aside.partial.html">
-      </aside>
+      <aside
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="./index.categories-aside.partial.html"
+      ></aside>
 
-      <div data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="./index.categories-cards.partial.html"></div>
-    </div>
-
-    <div class="product-gallery__footer">
-      <button class="product-gallery__load-more">Load More</button>
+      <div
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="./index.categories-cards.partial.html"
+      ></div>
     </div>
   </div>
 </section>
