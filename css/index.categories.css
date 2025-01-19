@@ -321,6 +321,10 @@
             }
           }
         }
+
+        .load-more {
+          text-align: center;
+        }
       }
     }
   }
