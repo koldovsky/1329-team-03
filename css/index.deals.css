@@ -81,7 +81,7 @@
         line-height: 26.6px;
         margin-top: 25px;
       }
-    }    
+    }
 
     .deals__content {
       margin-top: 45px;
@@ -211,62 +211,60 @@
             margin-bottom: 0px;
           }
 
-          .deals__accordion {
+
+          .accordion {
             display: flex;
             flex-direction: column;
             margin-top: 20px;
             padding: 20px 0px;
-            overflow: hidden;
+            border: none;
+            background-color: transparent;
 
-            input[type="checkbox"] {
-              display: none;
-
-              &:checked~.deals__accordion-content {
-                max-height: 214px;
-                margin-top: 20px;
-              }
+            .accordion-item {
+              border: none;
             }
 
-            .deals__accordion-header {
-              display: flex;
+            .accordion-header {
+              color: var(--color-accent);
+              font-family: var(--font-text);
+              border: none;
+            }
+
+            .accordion-button {
+              border: none;
+              background-color: transparent;
+              box-shadow: none;
+              outline: none;
               justify-content: space-between;
               color: var(--color-accent);
               font-family: var(--font-text);
-              font-size: 17px;
-              cursor: pointer;
+              font-size: 22px;
+              font-weight: 700;
+              max-width: calc(100% - 35px);
+              position: relative;
+              padding: 0;
+              margin: 0;
 
-              .deals__accordion-title {
-                flex-basis: 0%;
-                flex-grow: 1;
-                flex-shrink: 1;
-                font-size: 22px;
-                font-weight: 700;
-                max-width: calc(100% - 35px);
-                position: relative;
-                margin: 0;
 
-                @media (min-width: 768px) and (max-width: 991px) {
-                  font-size: 23px;
-                }
-
-                @media (min-width: 992px) {
-                  font-size: 24px;
-                }
+              @media (min-width: 768px) and (max-width: 991px) {
+                font-size: 23px;
               }
 
-              .deals__accordion-icon {
-                flex-basis: 15px;
-                height: 15px;
-                margin-left: 20px;
-                max-width: 15px;
+              @media (min-width: 992px) {
+                font-size: 24px;
+              }
+
+              &:not(.collapsed) {
+                background-color: transparent;
               }
             }
 
-            .deals__accordion-content {
-              max-height: 0px;
-              overflow: hidden;
-              margin-top: 0px;
-              transition: max-height 0.3s ease, margin-top 0.3s ease;
+            .accordion-collapse {
+              border: none;
+            }
+
+            .accordion-body {
+              padding: 0;
 
               .deals__specs-label {
                 color: var(--color-text-body);
@@ -289,9 +287,48 @@
                   line-height: 23.8px;
                 }
               }
+            }
+          }
 
-              .deals__counter {
-                margin-top: 30px;
+          .deals__counter {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+
+            .deals__counter-content {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 20px;
+
+              .deals__counter-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+
+                .deals__counter-icon {
+                  width: 100%;
+                  height: auto;
+                  max-width: 100px;
+                }
+
+                .deals__counter-label {
+                  margin-top: 10px;
+                  font-size: 23px;
+                  color: var(--color-primary);
+                  opacity: 0.54;
+                }
+
+                @media (max-width: 760px) {
+                  .deals__counter-icon {
+                    max-width: 80px;
+                  }
+
+                  .deals__counter-label {
+                    font-size: 12px;
+                  }
+                }
               }
             }
           }
