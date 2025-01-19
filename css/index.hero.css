@@ -264,7 +264,7 @@
 
 .bestseller2,
 .bestseller3 {
-  color: var(--color-text-buttons);
+  color: var( --color-primary-white);
 }
 
 .bestseller3 span {
