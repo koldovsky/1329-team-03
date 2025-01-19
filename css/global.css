@@ -38,6 +38,8 @@
   --color-divider: rgba(0, 0, 0, 0.07);
   /* color of bottom line */
   --color-bottom-line: rgba(33, 39, 54, 0.12);
+  /* color of input background */
+  --color-input-background: rgb(39, 39, 39, 0.12);
 
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;
@@ -46,7 +48,6 @@
 body {
   font-family: var(--font-text);
   overflow-x: hidden;
-  min-width: 320px;
 }
 
 img {
