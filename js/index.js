@@ -1,5 +1,6 @@
 function init() {
   import('./header.js');
+  import('./categories-aside.js');
 }
 
 const totalPartials = document.querySelectorAll(

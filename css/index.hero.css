@@ -21,7 +21,7 @@
 }
 
 .hero__title {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   font-family: var(--font-title);
   font-size: 60px;
   font-weight: 400;
@@ -54,7 +54,7 @@
 .hero__button-primary {
   display: inline-block;
   background-color: var(--color-accent);
-  color: var(--color-text-buttons);
+  color: var(--color-primary-white);
   padding: 15px 40px;
   font-family: var(--font-text);
   font-size: 15px;
@@ -65,9 +65,8 @@
   cursor: pointer;
   transition: all 250ms ease-in-out;
 
-  &:hover {
-    background-color: var(--color-text-primary);
-  }
+.hero__button-primary:hover {
+  background-color: var(--color-text-primary);
 }
 
 .hero__play-wrapper {
@@ -83,7 +82,7 @@
 }
 
 .hero__button-secondary {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   font-family: var(--font-text);
   font-size: 15px;
   font-weight: bold;
@@ -93,9 +92,13 @@
   cursor: pointer;
   transition: all 250ms ease-in-out;
 
-  &:hover {
-    text-decoration: underline;
-  }
+.hero__button-secondary:hover {
+  text-decoration: underline;
+}
+
+.hero a {
+  color: var(--color-text-primary);
+  text-decoration: none;
 }
 
 @media (min-width: 768px) {
@@ -289,48 +292,29 @@
 /* POPULAR ITEMS */
 
 .popular-products__header {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  text-align: center;
-}
-
-.popular-products__items {
-  color: var(--color-accent-additional);
-  font-family: var(--font-text);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 17px;
-  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
 }
 
 .popular-products__subtitle {
-  color: var(--color-text-primary);
-  font-family: var(--font-title);
   font-size: 64px;
-  font-weight: 400;
   line-height: 77px;
-  text-transform: uppercase;
+  margin: 0;
 }
 
 .popular-products__description {
-  color: var(--color-text-description);
-  font-family: var(--font-text);
-  font-size: 19px;
-  font-weight: 600;
+  margin: 0;
   line-height: 27px;
 }
 
 .popular-products__divider {
-  color: var(--color-accent);
-  font-family: var(--font-title);
   font-size: 64px;
 }
 
 .popular-products__btn-disabled {
   display: inline-block;
   background-color: var(--color-accent);
-  color: var(--color-text-buttons);
+  color: var(--color-primary-white);
   padding: 10px 20px;
   font-family: var(--font-text);
   font-size: 14px;
@@ -351,7 +335,7 @@
   display: inline-block;
   text-align: center;
   background-color: var(--color-secondary-button);
-  color: var(--color-text-buttons);
+  color: var(--color-primary-white);
   font-family: var(--font-text);
   font-size: 14px;
   font-weight: 600;
@@ -411,7 +395,7 @@
 }
 
 .popular-products__product-card__name {
-  color: var(--color-text-primary);
+  color: var(--color-primary);
   font-family: var(--font-text);
   font-size: 21px;
   font-weight: 500;
