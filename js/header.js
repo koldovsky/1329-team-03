@@ -18,12 +18,3 @@ mobileMenuLinks.forEach((link) => {
   });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const hash = window.location.hash; // Отримуємо хеш із URL (наприклад, #product-gallery)
-  if (hash) {
-    const target = document.querySelector(hash); // Знаходимо елемент із відповідним ID
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' }); // Плавно прокручуємо до елемента
-    }
-  }
-});
