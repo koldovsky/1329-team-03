@@ -11,26 +11,21 @@
 
 :root {
   scroll-behavior: smooth;
-  --font-title: "Bebas Neue", serif;
-  --font-title-primary: "Bebas Neue", sans-serif;
+  --font-title: "Bebas Neue", sans-serif;
   --font-text: "Nunito", sans-serif;
-  /* color of titles */
-  --color-text-primary: rgb(39, 39, 39);
-  /* color of subtitles */
-  --color-text-secondary: rgb(77, 77, 77);
+
+  /* color of subtitles (a high font) and dark elements */
+  --color-primary: rgb(39, 39, 39);  /* #272727 */
   /* color of descriptions */
   --color-text-body: rgb(106, 106, 106);
-  --color-text-description: #6a6a6a;
   /* color of most buttons and text accents */
   --color-accent: rgb(28, 76, 151);
   /* color of prices and accent buttons */
-  --color-accent-additional: rgb(255, 123, 22);
-  /* color of buttons text*/
-  --color-text-buttons: rgb(255, 255, 255);
-  /* color of dark elements */
-  --dark-bg-color: rgb(39, 39, 39);
+  --color-accent-additional: rgb(255, 123, 22);  /* #ff7b16 */
   /* color white */
   --color-primary-white: rgb(255, 255, 255);
+  /* color additional light text */
+  --color-additional-light-text: rgb(248, 243, 239);
   /* color of additional text */
   --color-additional-text: rgb(248, 243, 239);
   /* color of header menu */
@@ -41,7 +36,8 @@
   --color-secondary-button: #464c5c;
   /* color of divider */
   --color-divider: rgba(0, 0, 0, 0.07);
-
+  /* color of bottom line */
+  --color-bottom-line: rgba(33, 39, 54, 0.12);
 
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;
@@ -49,10 +45,8 @@
 
 body {
   font-family: var(--font-text);
-
-  @media (max-width: 320px) {
-    width: 320px;
-  }
+  overflow-x: hidden;
+  min-width: 320px;
 }
 
 img {
@@ -66,7 +60,8 @@ ul {
   margin: 0;
 }
 
-.container {
+body .container {
+  max-width: 1280px;
   width: 100%;
   padding: 0 24px;
   margin: 0 auto;
@@ -81,44 +76,13 @@ ul {
   }
 }
 
+body .overflow-hidden {
+  overflow: hidden;
+}
+
 .divider {
+  border: none;
   height: 1px;
   background-color: var(--color-divider);
-  margin: 20px 0;
-}
-
-.btn-primary {
-  display: inline-block;
-  background-color: var(--color-accent);
-  color: var(--color-text-buttons);
-  padding: 10px 20px;
-  font-family: var(--font-text);
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  margin-top: 40px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 250ms ease-in-out;
-}
-
-.btn-primary:hover {
-  background-color: var(--color-text-primary);
-}
-
-.btn-secondary {
-  display: inline-block;
-  background-color: var(--color-secondary-button);
-  color: var(--color-text-buttons);
-  padding: 10px 20px;
-  font-family: var(--font-text);
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  margin-top: 40px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 250ms ease-in-out;
+  margin: 15.5px 0;
 }

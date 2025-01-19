@@ -162,7 +162,7 @@
     justify-content: space-around;
     align-items: center;
     padding: 20px;
-    background-color: var(--dark-bg-color);
+    background-color: var(--color-primary);
     }
 
 .footer__social a {
@@ -298,6 +298,19 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+}
+.footer__bottom {
+    background-color: var(--color-primary);
+    color: var(--color-primary-white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px; 
+    font-size: 15px;
+}
+
+.footer__bottom p {
+    margin: 0;
 }
 .footer__bottom {
     background-color: var(--color-primary);
