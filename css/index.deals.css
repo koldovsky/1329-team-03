@@ -288,9 +288,48 @@
                 }
               }
             }
+          }
 
-            .deals__counter {
-              margin-top: 30px;
+          .deals__counter {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+
+            .deals__counter-content {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 20px;
+
+              .deals__counter-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+
+                .deals__counter-icon {
+                  width: 100%;
+                  height: auto;
+                  max-width: 100px;
+                }
+
+                .deals__counter-label {
+                  margin-top: 10px;
+                  font-size: 23px;
+                  color: var(--color-primary);
+                  opacity: 0.54;
+                }
+
+                @media (max-width: 760px) {
+                  .deals__counter-icon {
+                    max-width: 80px;
+                  }
+
+                  .deals__counter-label {
+                    font-size: 12px;
+                  }
+                }
+              }
             }
           }
         }
