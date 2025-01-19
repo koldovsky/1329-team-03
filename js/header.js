@@ -17,3 +17,13 @@ mobileMenuLinks.forEach((link) => {
     toggleMenuElements();
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash; // Отримуємо хеш із URL
+  if (hash) {
+    const target = document.querySelector(hash); // Шукаємо елемент із відповідним ID
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' }); // Плавно прокручуємо до елемента
+    }
+  }
+});
