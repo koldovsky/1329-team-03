@@ -7,7 +7,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: 1px solid red;
 }
 
 :root {
@@ -49,7 +48,6 @@
 body {
   font-family: var(--font-text);
   overflow-x: hidden;
-  min-width: 320px;
 }
 
 img {
