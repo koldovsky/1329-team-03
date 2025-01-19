@@ -17,3 +17,4 @@ mobileMenuLinks.forEach((link) => {
     toggleMenuElements();
   });
 });
+
