@@ -133,8 +133,19 @@
     background-color: var(--color-primary);
     color: var(--color-primary-white);
     flex-wrap: wrap;
-    border-top: 1px solid var(--color-primary-white);
+    position: relative; /* Для псевдоелемента */
 }
+
+.footer__middle::before {
+    content: ""; /* Порожній контент для псевдоелемента */
+    position: absolute; /* Абсолютне позиціонування */
+    top: 0;
+    left: 50px; /* Відступ зліва */
+    right: 50px; /* Відступ справа */
+    height: 1px; /* Висота лінії */
+    background-color: var(--color-primary-white); /* Колір лінії */
+}
+
 
 .footer__about {
     max-width: 250px;
@@ -309,12 +320,19 @@
     align-items: center;
     padding: 30px 100px;
     font-size: 15px;
-    border-top: 1px solid var(--color-primary-white);
+    position: relative;
 }
 
-.footer__bottom p {
-    margin: 0;
+.footer__bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50px;
+    right: 50px;
+    height: 1px;
+    background-color: var(--color-primary-white);
 }
+
 
 @media (max-width: 599px) {
     .footer__bottom {
