@@ -1,5 +1,4 @@
 .btn-primary {
-  display: inline-block;
   background-color: var(--color-accent);
   color: var(--color-primary-white);
   padding: 12px 21px;
@@ -12,7 +11,6 @@
   border-radius: 8px;
   cursor: pointer;
   transition: var(--transiton-primary-all);
-  align-self: flex-start;
 }
 
 .btn-primary:hover {
@@ -34,11 +32,13 @@
   color: var(--color-primary-white);
   border: none;
   cursor: pointer;
+  text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
 .btn-secondary:hover {
   background-color: var(--color-accent);
+  transition: var(--transiton-primary-all);
 }
 
 .btn-outline-dark {
