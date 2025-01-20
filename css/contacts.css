@@ -1,2 +1,4 @@
 @import "./global.css";
-@import './global.header.css';
+@import "./global.header.css";
+@import "./contacts.faq.css";
+@import "./contacts.return-warranty.css";

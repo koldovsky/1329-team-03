@@ -1,68 +1,201 @@
 <!-- Halyna Fedkiv -->
-<section class="deals">
-    <div class="deals__header">
-        <h2 class="deals__title">DEALS OF THE MONTH</h2>
-        <h3 class="deals__header">/ SMART SOLUTIONS FOR MODERN LIVING /</h3>
-        <p class="deals__header">
-            Get a smart price on smart gadgets at NextLevel!
-        </p>
+<section class="deals" id="deals">
+  <div class="deals__container">
+    <div class="deals__header section__header">
+      <p class="section__title">DEALS OF THE MONTH</p>
+      <p class="deals__subtitle section__subtitle">
+        <span class="deals__divider section__divider">/</span> SMART SOLUTIONS FOR MODERN LIVING
+        <span class="deals__divider section__divider">/</span>
+      </p>
+      <p class="section__description">
+        Get a smart price on smart gadgets at NextLevel!
+      </p>
     </div>
+    <div class="divider"></div>
     <div class="deals__content">
-        <!-- Headphones section -->
-        <div class="deals__item">
-            <div class="deals__text">
-                <h3 class="deals__category">HEADPHONES</h3>
-                <h4 class="deals__product-title">SoundStorm Pro Gaming Headset</h4>
-                <p class="deals__price">
-                    Price:
-                    <span class="deals__price-sale">$89.99</span>
-                    <del class="deals__price-orginal">$119</del>
-                </p>
-                <p class="deals__description">
-                    Elevate your gaming experience with the SoundStorm Pro Gaming Headset.
-                    This headset delivers immersive sound quality with its 53mm drivers
-                    and virtual 7.1 sound.
-                </p>
-                <p class="deals__specs-title">Key Specs:</p>
-                <ul class="deals__specs" aria-label="SoundStorm Pro Gaming Headset Key Specs">
-                    <li>Drivers: 53mm with neodymium magnets;</li>
-                    <li>Sound: Virtual 7.1 surround sound;</li>
-                    <li>Connectivity: USB and 3.5mm jack;</li>
-                    <li>Microphone: Detachable, noise-cancelling.</li>
-                </ul>
-            </div>
-            <div class="deals__image-container">
-                <img width="768" class="deals__image" src="img/deals/soundstorm-pro-gaming-headset.png"
-                    alt="SoundStorm Pro Gaming Headset" />
-            </div>
+      <!-- Item HEADPHONES -->
+      <div class="deals__item">
+        <div class="deals__image-container">
+          <img class="deals__image" src="img/deals/soundstorm-pro-gaming-headset.png"
+            alt="SoundStorm Pro Gaming Headset" />
         </div>
-        <!-- Keybords section -->
-        <div class="deals__item">
-            <div class="deals__text">
-                <h3 class="deals__category">KEYBOARDS</h3>
-                <h4 class="deals__product-title">AType 300 Keyboard Wired</h4>
-                <p class="deals__price">
-                    Price:
-                    <span class="deals__price-sale">$89.99</span>
-                    <del class="deals__price-orginal">$119</del>
-                </p>
-                <p class="deals__description">
-                    This keyboard combines a sleek, compact layout with a striking color
-                    scheme, featuring a matte black body, grey keycaps, and bold red
-                    accents on the Escape and Enter keys.
-                </p>
-                <p class="deals__specs-title">Key Specs:</p>
-                <ul class="deals__specs" aria-label="AType 300 Keyboard Key Specs">
-                    <li>Connection: Wired, USB;</li>
-                    <li>Keys Type: Mechanical;</li>
-                    <li>Compatibility: Windows, Mac;</li>
-                    <li>Special Feature: Volume control.</li>
-                </ul>
+        <div class="deals__text">
+          <p class="deals__category">HEADPHONES</p>
+          <h3 class="deals__product-title">SoundStorm Pro Gaming Headset</h3>
+          <p class="deals__price">
+            Price:
+            <span class="deals__price-sale">$89.99</span>
+            <del class="deals__price-original">$119</del>
+          </p>
+          <p class="deals__description">
+            Elevate your gaming experience with the SoundStorm Pro Gaming
+            Headset. This headset delivers immersive sound quality with its 53mm
+            drivers and virtual 7.1 sound.
+          </p>
+          <div class="accordion" id="accordion-headphones">
+            <div class="accordion-item">
+              <p class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  Key Specs:
+                </button>
+              <p>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ul class="deals__accordion-content" aria-label="SoundStorm Pro Gaming Headset Key Specs">
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Drivers: </span>53mm with
+                      neodymium magnets;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Sound: </span>Virtual 7.1
+                      surround sound;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Connectivity: </span>USB and
+                      3.5mm jack;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Microphone: </span>Detachable,
+                      noise-cancelling.
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="deals__image-container">
-                <img width="768" class="deals__image" src="img/deals/keyboard-atype300.png"
-                    alt="AType 300 Wired Keyboard" />
+          </div>
+          <div class="divider"></div>
+          <div class="deals__counter">
+            <div class="deals__counter-content">
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">529</text>
+                </svg>
+                <p class="deals__counter-label">Days</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">17</text>
+                </svg>
+                <p class="deals__counter-label">Hours</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">44</text>
+                </svg>
+                <p class="deals__counter-label">Minutes</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">16</text>
+                </svg>
+                <p class="deals__counter-label">Seconds</p>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+      <!-- Item KEYBOARDS -->
+      <div class="deals__item">
+        <div class="deals__image-container">
+          <img class="deals__image" src="img/deals/keyboard-atype300.png" alt="AType 300 Wired Keyboard" />
+        </div>
+        <div class="deals__text">
+          <p class="deals__category">KEYBOARDS</p>
+          <h3 class="deals__product-title">AType 300 Keyboard Wired</h3>
+          <p class="deals__price">
+            Price:
+            <span class="deals__price-sale">$89.99</span>
+            <del class="deals__price-original">$119</del>
+          </p>
+          <p class="deals__description">
+            This keyboard combines a sleek, compact layout with a striking color
+            scheme, featuring a matte black body, grey keycaps, and bold red
+            accents on the Escape and Enter keys.
+          </p>
+          <div class="accordion" id="accordion-keyboards">
+            <div class="accordion-item">
+              <p class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  Key Specs:
+                </button>
+              <p>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ul class="deals__accordion-content" aria-label="AType 300 Keyboard Key Specs">
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Connection: </span>Wired, USB;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Keys Type: </span>Mechanical;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Compatibility: </span>Windows, Mac;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Special Feature: </span>Volume
+                      control.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="deals__counter">
+            <div class="deals__counter-content">
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">529</text>
+                </svg>
+                <p class="deals__counter-label">Days</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">17</text>
+                </svg>
+                <p class="deals__counter-label">Hours</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">44</text>
+                </svg>
+                <p class="deals__counter-label">Minutes</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">16</text>
+                </svg>
+                <p class="deals__counter-label">Seconds</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </section>
