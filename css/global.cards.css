@@ -66,6 +66,10 @@
     margin: 0;
     color: var(--color-accent-additional);
   }
+
+  .product-card .btn-primary {
+    width: 50%;
+  }
 }
 
 @media (max-width: 469px) {
