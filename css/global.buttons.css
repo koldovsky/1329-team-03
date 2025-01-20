@@ -1,5 +1,4 @@
 .btn-primary {
-  display: inline-block;
   background-color: var(--color-accent);
   color: var(--color-primary-white);
   padding: 12px 21px;
@@ -7,7 +6,7 @@
   font-size: 14px;
   font-weight: bold;
   text-decoration: none;
-  margin-top: 40px;
+  margin-top: 24px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
