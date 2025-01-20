@@ -1,50 +1,23 @@
-<article class="popular-products__products__item">
-  <div class="popular-products__product-card__product-card-target-element">
-    <div
-      class="popular-products__product_1 ecommerce-product"
-      data-variable="true"
-      data-behavior="physical"
-      data-href="#"
-      data-name="LumiMouse Pro"
-      data-test="product-card"
-    >
-      <a href="#">
-        <div class="popular-products__badge popular-products__badge-new">
-          <span>New</span>
-        </div>
-        <div class="popular-products__product-card__card-preview">
-          <img
-            class="popular-products__product-card__img-preview"
-            alt="LumiMouse Pro"
-            src="img/hero-index/popular/lumimouse-pro.png"
-            loading="lazy"
-          /></div
-      ></a>
-      <h3 class="popular-products__product-card__card-title">
-        <a
-          href="#"
-          class="popular-products__product-card__name"
-          data-test="name"
-          >LumiMouse Pro
-        </a>
-      </h3>
-      <div class="popular-products__product-card__price-content">
-        <p class="popular-products__product-card__price">
-          <span class="popular-products__product-card__price-old"
-            ><s>$49.00 USD</s></span
-          >
-          <span
-            class="popular-products__product-card__price-current"
-            data-test="price"
-            >$42.00 USD</span
-          >
-        </p>
-      </div>
-      <div class="popular-products__product-card__button popular-products">
-        <button class="popular-products__product-card__button btn-primary">
-          Buy Now
-        </button>
-      </div>
+<article class="product-card">
+  <a href="#" class="product-card__link">
+    <img
+      class="product-card__image"
+      alt="LumiMouse Pro"
+      src="./img/hero-index/popular/lumimouse-pro.png"
+    />
+    <button type="button" class="btn btn-secondary" disabled>New</button>
+    <div class="product-card__preview">
+      <img
+        class="product-card__image"
+        alt="LumiMouse Pro"
+        src="./img/hero-index/popular/lumimouse-pro.png"
+      />
     </div>
-  </div>
+  </a>
+  <h5 class="product-card__title">
+    <a href="#" class="product-card__name">LumiMouse Pro</a>
+  </h5>
+  <div class="product-card__price-old">$49,00USD</div>
+  <div class="product-card__price-new">$42,00USD</div>
+  <button class="btn btn-primary" type="submit">Buy now</button>
 </article>
