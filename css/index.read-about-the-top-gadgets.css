@@ -3,11 +3,11 @@
     padding: 90px 0;
 
     @media (min-width: 768px) {
-            padding: 105px 0;
+        padding: 105px 0;
     }
 
     @media (min-width: 992px) {
-            padding: 120px 0;
+        padding: 120px 0;
     }
 
     .news {
@@ -54,6 +54,7 @@
     .news__information-container {
         display: grid;
         gap: 30px;
+        padding-top: 50px;
 
         .news__first-news,
         .news__second-news,
@@ -111,11 +112,11 @@
         }
 
         @media (min-width: 480px) {
-                grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
         }
-    
+
         @media (min-width: 990px) {
-                grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
         }
     }
 }
