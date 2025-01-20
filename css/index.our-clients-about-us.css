@@ -1,17 +1,16 @@
-section.testimonials {
+.testimonials__container {
     background-color: var(--color-primary-white);
+    padding: 90px 0;
 
-    .testimonials__container {
-        padding: 90px 0;
+    @media (min-width: 768px) {
+        padding: 105px 0;
+    }
 
-        @media (min-width: 770px) {
-            padding: 105px 0;
-        }
+    @media (min-width: 992px) {
+        padding: 120px 0;
+    }
 
-        @media (min-width: 990px) {
-            padding: 120px 0;
-        }
-
+    .testimonials {
         .testimonials__title {
             font-family: var(--font-text);
             color: var(--color-accent-additional);
