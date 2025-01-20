@@ -12,7 +12,6 @@
   border-radius: 8px;
   cursor: pointer;
   transition: var(--transiton-primary-all);
-  width: auto;
 }
 
 .btn-primary:hover {
