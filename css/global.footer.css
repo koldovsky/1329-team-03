@@ -66,6 +66,7 @@
     background-color: var(--color-primary);
     color: var(--color-primary-white);
     padding-left: 300px;
+
 }
 
 .footer__content {
@@ -94,9 +95,9 @@
 .footer__icons {
     display: flex;
     justify-content: flex-start;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    padding-right: 250px;
+    padding-top: 60px;
+    padding-bottom: 50px;
+    padding-right: 280px;
     
 }
 
@@ -104,7 +105,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    text-align: left;
     padding: 0 30px;
    
 }
@@ -114,7 +115,7 @@
 }
 
 .footer__icon p {
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
 }
 @media (max-width: 768px) {
@@ -163,7 +164,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
     padding-left: 300px;
     background-color: var(--color-primary);
     color: var(--color-primary-white);
@@ -186,9 +187,10 @@
 }
 
 .footer__logo {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     display: block;
     text-align: center;
+    width: 45px;
 }
 
 .footer__social {
@@ -242,7 +244,7 @@
 }
 
 .footer__items {
-    margin-left: -320px;
+    margin-left: -350px;
     font-size: 12px;
 }
 
@@ -252,8 +254,6 @@
     margin-bottom: 20px;
     font-weight: bold;
     position: relative;
-    text-align: center;
-    margin-left: 0;
 }
 
 .footer__nav-title::after {
@@ -262,9 +262,9 @@
     width: 40px;
     height: 3px;
     background-color: var(--color-accent);
-    margin-top: 10px;
-    position: absolute;
-    left: 20%;
+    margin-top: 20px;
+    position: relative;
+    left: 29%;
     transform: translateX(-50%);
 }
 
@@ -304,6 +304,7 @@
     font-weight: bold;
     position: relative;
     text-align: center;
+
 }
 
 .footer__nav-title-colum::after {
@@ -312,7 +313,7 @@
     width: 40px;
     height: 3px;
     background-color: var(--color-accent);
-    margin-top: 10px;
+    margin-top: 20px;
     position: absolute;
     left: 47%;
     transform: translateX(-50%);
@@ -324,6 +325,7 @@
     gap: 10px;
     position: relative;
     left: -300px;
+    margin-top: 30px;
 }
 
 .footer__input {
@@ -396,7 +398,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 300px;
+    padding: 10px 300px;
     font-size: 12px;
     position: relative;
 }
