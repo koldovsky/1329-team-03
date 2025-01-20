@@ -1,6 +1,5 @@
 function init() {
-  import('./header.js');
-  import('./categories-aside.js');
+  import("./header.js");
 }
 
 const totalPartials = document.querySelectorAll(
@@ -8,7 +7,7 @@ const totalPartials = document.querySelectorAll(
 ).length;
 let loadedPartialsCount = 0;
 
-document.body.addEventListener('htmx:afterOnLoad', () => {
+document.body.addEventListener("htmx:afterOnLoad", () => {
   loadedPartialsCount++;
   if (loadedPartialsCount === totalPartials) init();
 });

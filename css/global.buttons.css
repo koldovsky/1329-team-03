@@ -10,7 +10,7 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 250ms ease-in-out;
+  transition: var(--transiton-primary-all);
 }
 
 .btn-primary:hover {
@@ -18,19 +18,27 @@
 }
 
 .btn-secondary {
-  display: inline-block;
-  background-color: var(--color-secondary-button);
-  color: var(--color-primary-white);
-  padding: 12px 21px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+  display: block;
+  padding: 4px 8px;
+  border-radius: 4px;
   font-family: var(--font-text);
   font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  margin-top: 40px;
+  font-weight: 600;
+  background-color: var(--color-secondary-button);
+  color: var(--color-primary-white);
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-  transition: all 250ms ease-in-out;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-accent);
+  transition: var(--transiton-primary-all);
 }
 
 .btn-outline-dark {
