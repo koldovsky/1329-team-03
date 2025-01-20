@@ -51,7 +51,7 @@
       background: var(--badge-preorder-background);
       color: var(--badge-preorder-color);
     }
-    
+
     .popular-products__badge-out-of-stock-pro {
       background: var(----badge-out-of-stock-background);
       color: var(--badge-out-of-stock-color);
@@ -107,20 +107,6 @@
   .hidden-pro {
     display: none;
   }
-
-  .product-card__title-pro {
-    margin: 24px 0 0 0;
-    line-height: 1;
-
-    .product-card__name-pro {
-      font-family: var(--font-text);
-      font-size: 21px;
-      font-weight: 500;
-      color: var(--color-primary);
-      text-decoration: none;
-      display: inline-block;
-    }
-  }
 }
 
 @media (min-width: 470px) and (max-width: 485px) {
@@ -135,20 +121,6 @@
 
   .hidden {
     visibility: hidden;
-  }
-
-  .product-card__title-pro {
-    margin: 0;
-    line-height: 1;
-
-    .product-card__name-pro {
-      font-family: var(--font-text);
-      font-size: 21px;
-      font-weight: 500;
-      color: var(--color-primary);
-      text-decoration: none;
-      display: inline-block;
-    }
   }
 }
 
