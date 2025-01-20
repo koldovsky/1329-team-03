@@ -226,6 +226,10 @@
           gap: 30px;
         }
       }
+
+      .load-more {
+        text-align: center;
+      }
     }
   }
 }
