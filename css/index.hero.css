@@ -98,6 +98,7 @@
 @media (min-width: 768px) {
   .hero__header {
     padding: 108px 24px 30px;
+    background-position: 45% 55%;
   }
   .hero__title {
     font-size: 84px;
