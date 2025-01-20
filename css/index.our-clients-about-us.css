@@ -1,7 +1,7 @@
-section.testimonials {
+.testimonials__container {
     background-color: var(--color-primary-white);
 
-    .testimonials__container {
+    .testimonials {
         padding: 90px 0;
 
         @media (min-width: 770px) {
