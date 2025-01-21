@@ -332,7 +332,7 @@
   font-family: var(--font-text);
   font-size: 12px;
   font-weight: 700;
-  line-height: 17px;
+  line-height: 14px;
   text-transform: uppercase;
 }
 
@@ -343,7 +343,6 @@
   font-weight: 400;
   line-height: 48px;
   text-transform: uppercase;
-  margin-top: 20px;
 }
 
 .popular-products__description {
@@ -351,7 +350,7 @@
   font-family: var(--font-text);
   font-size: 19px;
   font-weight: 600;
-  line-height: 27px;
+  line-height: 29px;
 }
 
 .popular-products__divider {
