@@ -46,6 +46,7 @@
 
 .hero__button-primary {
   display: inline-block;
+  text-align: center;
   background-color: var(--color-accent);
   color: var(--color-primary-white);
   padding: 15px 40px;
@@ -75,6 +76,7 @@
 }
 
 .hero__button-secondary {
+  text-align: center;
   color: var(--color-primary);
   font-family: var(--font-text);
   font-size: 15px;
@@ -209,12 +211,11 @@
 }
 
 .featured-products__list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   align-items: center;
   justify-content: space-around;
   gap: 30px;
-  flex: 1;
 }
 
 .featured-products__item {
@@ -279,14 +280,27 @@
   .featured-products__item {
     background-position: 45% 55%;
   }
+
+  .featured-products__list {
+    grid-template-columns: repeat(2, 1fr); /* Дві колонки */
+    grid-template-rows: auto auto; /* Два ряди */
+  }
+
+  .featured-products__item:last-child {
+    grid-column: 1 / -1; /* Розтягування на всі колонки */
+  }
 }
 
 @media (min-width: 992px) {
   .featured-products__list {
-    flex-direction: row;
-    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr); /* Три колонки */
+    grid-template-rows: auto; /* Один рядок */
     max-width: 1280px;
     margin: 0 auto;
+  }
+
+  .featured-products__item:last-child {
+    grid-column: auto; /* Повертаємо звичайне розташування */
   }
 
   .featured-products__item {
