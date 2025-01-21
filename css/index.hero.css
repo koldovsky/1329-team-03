@@ -214,6 +214,7 @@
   align-items: center;
   justify-content: space-around;
   gap: 50px;
+  flex: 1;
 }
 
 .featured-products__item {
@@ -343,6 +344,15 @@
   gap: 30px;
 }
 
+@media (min-width: 992px) {
+  .popular-products__subtitle,
+  .popular-products__divider {
+    font-size: 64px;
+    line-height: 77px;
+  }
+}
+
+/* Old card */
 .products__item {
   position: relative;
   flex: 1;
@@ -476,13 +486,5 @@
   align-self: flex-start;
   &:hover {
     background-color: var(--color-primary);
-  }
-}
-
-@media (min-width: 992px) {
-  .popular-products__subtitle,
-  .popular-products__divider {
-    font-size: 64px;
-    line-height: 77px;
   }
 }
