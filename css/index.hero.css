@@ -132,72 +132,61 @@
 /* --- HERO FOOTER --- */
 .hero__footer {
   margin-top: 50px;
-}
-
-.hero__footer-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.hero__footer-items {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.hero__footer-items__item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.hero__footer-icon {
-  width: 20px;
-  height: 24px;
-}
-
-.hero__footer-text {
-  color: var(--color-text-body);
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 21px;
-}
-
-.hero__footer-divider {
-  color: var(--color-divider);
-  font-size: 24px;
-}
-
-@media (min-width: 768px) {
   .hero__footer-list {
-    flex-direction: row;
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .hero__footer-items {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .hero__footer-items__item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .hero__footer-icon {
+          width: 20px;
+          height: 24px;
+        }
+        .hero__footer-text {
+          color: var(--color-text-body);
+          font-size: 15px;
+          font-weight: 700;
+          line-height: 21px;
+        }
+      }
+      .hero__footer-divider {
+        color: var(--color-divider);
+        font-size: 24px;
+      }
+    }
   }
-
-  .hero__footer-items {
-    justify-content: space-between;
+  @media (min-width: 768px) {
+    .hero__footer-list {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .hero__footer-items {
+      justify-content: space-between;
+    }
+    .hero__footer-divider {
+      display: inline;
+      margin-left: auto;
+      font-size: 36px;
+    }
   }
-
-  .hero__footer-divider {
-    display: inline;
-    margin-left: auto;
-    font-size: 36px;
-  }
-}
-
-@media (min-width: 992px) {
-  .hero__footer-list {
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-
-  .hero__footer-divider {
-    display: inline;
-    margin-left: 30px;
-    font-size: 36px;
+  @media (min-width: 992px) {
+    .hero__footer-list {
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .hero__footer-divider {
+      display: inline;
+      margin-left: 30px;
+      font-size: 36px;
+    }
   }
 }
 
