@@ -51,11 +51,6 @@
       background: var(--badge-preorder-background);
       color: var(--badge-preorder-color);
     }
-
-    .popular-products__badge-out-of-stock-pro {
-      background: var(----badge-out-of-stock-background);
-      color: var(--badge-out-of-stock-color);
-    }
   }
 
   .product-card__title {
