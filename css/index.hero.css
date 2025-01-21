@@ -246,9 +246,9 @@
 
 .featured-products__name {
   display: inline-block;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
-  line-height: 50px;
+  line-height: 42px;
   margin-top: 20px;
   margin-bottom: 0;
 }
@@ -273,6 +273,13 @@
 
 .bestseller3 span {
   color: var(--color-accent-additional);
+}
+
+@media (min-width: 768px) {
+  .featured-products__name {
+    font-size: 36px;
+    line-height: 50px;
+  }
 }
 
 @media (min-width: 992px) {
