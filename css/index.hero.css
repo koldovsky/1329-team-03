@@ -8,7 +8,7 @@
   padding: 90px 24px 30px;
   background-image: url("./img/hero-index/hero-background.png");
   object-fit: cover;
-  background-position: center;
+  background-position: left;
   background-repeat: no-repeat;
   z-index: 1;
 }
@@ -213,7 +213,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  gap: 50px;
+  gap: 30px;
   flex: 1;
 }
 
@@ -276,9 +276,8 @@
 }
 
 @media (min-width: 768px) {
-  .featured-products__name {
-    font-size: 36px;
-    line-height: 50px;
+  .featured-products__item {
+    background-position: 45% 55%;
   }
 }
 
@@ -288,6 +287,16 @@
     justify-content: space-between;
     max-width: 1280px;
     margin: 0 auto;
+  }
+
+  .featured-products__item {
+    min-width: 270px;
+    min-height: 300px;
+  }
+
+  .featured-products__name {
+    font-size: 36px;
+    line-height: 50px;
   }
 }
 
