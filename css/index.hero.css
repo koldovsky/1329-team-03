@@ -63,20 +63,17 @@
   }
 }
 
-.hero__play-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-}
-
 .hero__play-icon {
   width: 24px;
   height: 24px;
 }
 
 .hero__button-secondary {
+  display: flex;
+  flex-direction: row;
   text-align: center;
+  justify-content: space-around;
+  gap: 8px;
   color: var(--color-primary);
   font-family: var(--font-text);
   font-size: 15px;
