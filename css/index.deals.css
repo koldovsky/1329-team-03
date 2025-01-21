@@ -17,11 +17,16 @@
       padding: 105px 32px;
     }
 
-    @media (min-width: 992px) and (max-width: 1279px) {
+    @media (min-width: 992px) and (max-width: 1200px) {
       padding: 120px 40px;
     }
 
-    @media (min-width: 1280px) {
+    @media (min-width: 1201px) {
+      padding: 120px 40px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 1279px) {
       padding: 120px 15px;
       margin: 0 auto;
     }
@@ -320,6 +325,18 @@
                   width: 100%;
                   height: auto;
                   max-width: 100px;
+
+                  .deals__counter-rect {
+                    stroke: var(--color-accent);
+                    stroke-width: 1;
+                    fill: none;
+                  }
+                  
+                  .deals__counter-text {
+                    font-size: 36px;
+                    font-family: var(--font-title);
+                    fill: var(--color-primary);
+                  }
                 }
 
                 .deals__counter-label {
