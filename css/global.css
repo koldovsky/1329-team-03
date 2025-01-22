@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* outline: 1px solid red; */
 }
 
 :root {
@@ -15,13 +16,13 @@
   --font-text: "Nunito", sans-serif;
 
   /* color of subtitles (a high font) and dark elements */
-  --color-primary: rgb(39, 39, 39);  /* #272727 */
+  --color-primary: rgb(39, 39, 39); /* #272727 */
   /* color of descriptions */
   --color-text-body: rgb(106, 106, 106);
   /* color of most buttons and text accents */
   --color-accent: rgb(28, 76, 151);
   /* color of prices and accent buttons */
-  --color-accent-additional: rgb(255, 123, 22);  /* #ff7b16 */
+  --color-accent-additional: rgb(255, 123, 22); /* #ff7b16 */
   /* color white */
   --color-primary-white: rgb(255, 255, 255);
   /* color additional light text */
@@ -38,6 +39,16 @@
   --color-divider: rgba(0, 0, 0, 0.07);
   /* color of bottom line */
   --color-bottom-line: rgba(33, 39, 54, 0.12);
+  /* color of input background */
+  --color-input-background: rgb(39, 39, 39, 0.12);
+  /* background color of preorder button */
+  --badge-preorder-background: #e2ffdd;
+  /* color of preorder button */
+  --badge-preorder-color: #61a854;
+  /* background color of out-of-stock button */
+  --badge-out-of-stock-background: #ffddd9;
+  /* color of out-of-stock button */
+  --badge-out-of-stock-color: #cc3833;
 
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;
@@ -46,7 +57,6 @@
 body {
   font-family: var(--font-text);
   overflow-x: hidden;
-  min-width: 320px;
 }
 
 img {

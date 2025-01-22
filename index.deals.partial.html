@@ -1,5 +1,5 @@
 <!-- Halyna Fedkiv -->
-<section class="deals">
+<section class="deals" id="deals">
   <div class="deals__container">
     <div class="deals__header section__header">
       <p class="section__title">DEALS OF THE MONTH</p>
@@ -13,14 +13,11 @@
     </div>
     <div class="divider"></div>
     <div class="deals__content">
-      <!-- Item one -->
+      <!-- Item HEADPHONES -->
       <div class="deals__item">
         <div class="deals__image-container">
-          <img
-            class="deals__image"
-            src="img/deals/soundstorm-pro-gaming-headset.png"
-            alt="SoundStorm Pro Gaming Headset"
-          />
+          <img class="deals__image" src="img/deals/soundstorm-pro-gaming-headset.png"
+            alt="SoundStorm Pro Gaming Headset" />
         </div>
         <div class="deals__text">
           <p class="deals__category">HEADPHONES</p>
@@ -35,47 +32,85 @@
             Headset. This headset delivers immersive sound quality with its 53mm
             drivers and virtual 7.1 sound.
           </p>
-          <div class="deals__accordion">
-            <input type="checkbox" id="item-1" />
-            <label for="item-1" class="deals__accordion-header">
-              <p class="deals__accordion-title">Key Specs:</p>
-              <div class="deals__accordion-icon"></div>
-            </label>
-            <ul
-              class="deals__accordion-content"
-              aria-label="SoundStorm Pro Gaming Headset Key Specs"
-            >
-              <li class="deals__specs-item">
-                ● <span class="deals__specs-label">Drivers: </span>53mm with
-                neodymium magnets;
-              </li>
-              <li class="deals__specs-item">
-                ● <span class="deals__specs-label">Sound: </span>Virtual 7.1
-                surround sound;
-              </li>
-              <li class="deals__specs-item">
-                ● <span class="deals__specs-label">Connectivity: </span>USB and
-                3.5mm jack;
-              </li>
-              <li class="deals__specs-item">
-                ●
-                <span class="deals__specs-label">Microphone: </span>Detachable,
-                noise-cancelling.
-              </li>
-            </ul>
+          <div class="accordion" id="accordion-headphones">
+            <div class="accordion-item">
+              <p class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="false" aria-controls="collapseOne">
+                  Key Specs:
+                </button>
+              <p>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ul class="deals__accordion-content" aria-label="SoundStorm Pro Gaming Headset Key Specs">
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Drivers: </span>53mm with
+                      neodymium magnets;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Sound: </span>Virtual 7.1
+                      surround sound;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Connectivity: </span>USB and
+                      3.5mm jack;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Microphone: </span>Detachable,
+                      noise-cancelling.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="divider"></div>
-          <div class="deals__counter"></div>
+          <div class="deals__counter">
+            <div class="deals__counter-content">
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">529</text>
+                </svg>
+                <p class="deals__counter-label">Days</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">17</text>
+                </svg>
+                <p class="deals__counter-label">Hours</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">44</text>
+                </svg>
+                <p class="deals__counter-label">Minutes</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">16</text>
+                </svg>
+                <p class="deals__counter-label">Seconds</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- Item two -->
+      <!-- Item KEYBOARDS -->
       <div class="deals__item">
         <div class="deals__image-container">
-          <img
-            class="deals__image"
-            src="img/deals/keyboard-atype300.png"
-            alt="AType 300 Wired Keyboard"
-          />
+          <img class="deals__image" src="img/deals/keyboard-atype300.png" alt="AType 300 Wired Keyboard" />
         </div>
         <div class="deals__text">
           <p class="deals__category">KEYBOARDS</p>
@@ -90,40 +125,77 @@
             scheme, featuring a matte black body, grey keycaps, and bold red
             accents on the Escape and Enter keys.
           </p>
-          <div class="deals__accordion">
-            <input type="checkbox" id="item-2" />
-            <label for="item-2" class="deals__accordion-header">
-              <p class="deals__accordion-title">Key Specs:</p>
-
-              <div class="deals__accordion-icon"></div>
-            </label>
-            <ul
-              class="deals__accordion-content"
-              aria-label="AType 300 Keyboard Key Specs"
-            >
-              <li class="deals__specs-item">
-                ● <span class="deals__specs-label">Connection: </span>Wired,
-                USB;
-              </li>
-              <li class="deals__specs-item">
-                ● <span class="deals__specs-label">Keys Type: </span>Mechanical;
-              </li>
-              <li class="deals__specs-item">
-                ●
-                <span class="deals__specs-label">Compatibility: </span>Windows,
-                Mac;
-              </li>
-              <li class="deals__specs-item">
-                ●
-                <span class="deals__specs-label">Special Feature: </span>Volume
-                control.
-              </li>
-            </ul>
+          <div class="accordion" id="accordion-keyboards">
+            <div class="accordion-item">
+              <p class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
+                  Key Specs:
+                </button>
+              <p>
+              <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <ul class="deals__accordion-content" aria-label="AType 300 Keyboard Key Specs">
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Connection: </span>Wired, USB;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Keys Type: </span>Mechanical;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Compatibility: </span>Windows, Mac;
+                    </li>
+                    <li class="deals__specs-item"><span class="deals__specs-label"> Special Feature: </span>Volume
+                      control.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="deals__counter">
+            <div class="deals__counter-content">
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">529</text>
+                </svg>
+                <p class="deals__counter-label">Days</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">17</text>
+                </svg>
+                <p class="deals__counter-label">Hours</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">44</text>
+                </svg>
+                <p class="deals__counter-label">Minutes</p>
+              </div>
+              <div class="deals__counter-item">
+                <svg class="deals__counter-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true">
+                  <rect x="10" y="10" width="100" height="100" rx="5" stroke="var(--color-accent)" stroke-width="1"
+                    fill="none"></rect>
+                  <text x="50%" y="50%" text-anchor="middle" dy=".3em" font-size="36" font-family="var(--font-title)"
+                    fill="var(--color-primary)">16</text>
+                </svg>
+                <p class="deals__counter-label">Seconds</p>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="divider"></div>
-        <div class="deals__counter"></div>
       </div>
     </div>
-  </div>
 </section>
