@@ -44,3 +44,31 @@
 .discount-club__cta-button:hover {
   background-color: #272727;
 }
+.discount-club__bottom {
+width: 1219px;
+height: 303px;
+padding: 40px 0px 60px;
+display: flex;
+}
+.discount-club__card {
+  width: 235;
+  height: 203;
+  text-align: left;
+}
+.discount-club__icon {
+  width: 70px;
+  height: 70px;
+}
+.discount-club__card-title {
+  font-family: var(--font-text);
+  font-size: 24px;
+  color: #272727;
+}
+.discount-club__card-description {
+  font-size: 17px;
+  color: #6A6A6A;
+}
+.discount-club__card-description span {
+  width: 226px;
+  height: 46px;
+}
