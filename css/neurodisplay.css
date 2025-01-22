@@ -2,7 +2,7 @@
     background-color: var(--color-additional-text);
 }
 
-neurodisplay__title{
+.neurodisplay__title{
     font-size: 40px;
 }
 
