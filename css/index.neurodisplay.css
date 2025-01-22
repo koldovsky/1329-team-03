@@ -1,5 +1,6 @@
 .neurodisplay__content{
-    background-color: var(--color-additional-text);
+    display: block;
+    color: var(--color-additional-text);
 }
 
 .neurodisplay__title{
@@ -7,22 +8,22 @@
 }
 
 .neurodisplay__status{
-    background-color: var(--color-accent-additional);
+    color: var(--color-accent-additional);
     font-size: 12px;
     font-family: Nunito, sans-serif;
 }
 
 .neurodisplay__price{
     font-size: 30px;
-    background-color: var(--color-accent-additional);
+    color: var(--color-accent-additional);
 }
 
 .neurodisplay__description, .neurodisplay__specs-item{
-    background-color: var(--color-accent-additional);
+    color: var(--color-accent-additional);
 }
 
 .neurodisplay__specs-title{
-    background-color: var(--color-accent);
+    color: var(--color-accent);
     font-size: 22px;
 }
 
