@@ -236,21 +236,21 @@
 
 @media (max-width: 375px) {
   .product-gallery__container {
-    padding: 40px 16px; 
-    width: 100%; 
+    padding: 40px 16px;
+    width: 100%;
   }
 
   .product-gallery__content {
-    gap: 8px; 
+    gap: 8px;
   }
 
   .filters {
-    width: 100%; 
-    max-width: 100%; 
+    width: 100%;
+    max-width: 100%;
   }
 
   .product-gallery__items {
-    width: 100%; 
+    width: 100%;
   }
 }
 

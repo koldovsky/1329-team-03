@@ -1,5 +1,4 @@
 .btn-primary {
-  display: block;
   background-color: var(--color-accent);
   color: var(--color-primary-white);
   padding: 12px 21px;
@@ -12,10 +11,30 @@
   border-radius: 8px;
   cursor: pointer;
   transition: var(--transiton-primary-all);
+  align-self: flex-start;
 }
 
 .btn-primary:hover {
   background-color: var(--color-primary);
+}
+
+.btn[disabled],
+.btn-disabled {
+  background-color: var(--color-accent);
+  color: var(--color-primary-white);
+  padding: 12px 21px;
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: not-allowed;
+  transition: var(--transiton-primary-all);
+  align-self: flex-start;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .btn-secondary {
