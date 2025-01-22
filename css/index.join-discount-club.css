@@ -1,31 +1,31 @@
 .discount-club__top {
   justify-content: center;
   width: 1120px;
-  height: 387px; 
+  height: 387px;
   background-image: url("img/join-discount-club/background-discount-club.webp"); /* Фонове зображення */
-  background-size: cover; 
+  background-size: cover;
   background-position: center;
   border-radius: 7px;
 }
 .discount-club__title {
-    font-family: var(--font-title);
-    color: #272727; 
-    text-align: left;
-    font-size: 64px;
+  font-family: var(--font-title);
+  color: #272727;
+  text-align: left;
+  font-size: 64px;
 }
 .discount-club__title span {
-    color: #FE7A15;
-    text-align: center;
+  color: #fe7a15;
+  text-align: center;
 }
 .discount-club__description {
   font-family: var(--font-text);
   font-size: 19px;
-  color: #4D4D4D;
+  color: #4d4d4d;
 }
 .discount-club__note {
   font-family: var(--font-text);
   font-size: 15px;
-  color: #6A6A6A;
+  color: #6a6a6a;
 }
 .discount-club__cta-button {
   background-color: var(--color-accent);
