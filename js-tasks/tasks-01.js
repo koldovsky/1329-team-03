@@ -17,6 +17,11 @@ function makeNegative(num) {
   return -num;
 }
 
+// те саме трішки по іншому
+function makeNegative(num) {
+  return num > 0 ? -num : num;
+}
+
 // Game Move https://www.codewars.com/kata/grasshopper-terminal-game-move-function/train/javascript
 
 function move(position, roll) {
@@ -36,6 +41,11 @@ function greet(name, owner) {
   return "Hello guest";
 }
 
+// Можна записати трошки коротше
+function greet(name, owner) {
+  return name === owner ? 'Hello boss' : 'Hello guest';
+}
+
 // Keep Hydrated https://www.codewars.com/kata/keep-hydrated-1/train/javascript
 
 function litres(time) {
@@ -44,6 +54,12 @@ function litres(time) {
   // Відкидаємо дробову частину
   return result - (result % 1);
 }
+
+// Інший варіант
+function litres(time) {
+  return Math.floor(time * 0.5);
+}
+
 
 // Opposites Attract https://www.codewars.com/kata/555086d53eac039a2a000083/train/javascript
 
@@ -64,3 +80,10 @@ function lovefunc(flower1, flower2) {
   // Перевіряємо умову, коли на квітках різні (парне та непарне) числа квіток
   return flower1 % 2 !== flower2 % 2;
 }
+
+// Трохи коротший варіант
+function lovefunc(flower1, flower2) {
+  return (flower1 % 2 !== flower2 % 2);
+}
+
+
