@@ -1,3 +1,46 @@
+.discount-club__top {
+  justify-content: center;
+  width: 1120px;
+  height: 387px; 
+  background-image: url("img/join-discount-club/background-discount-club.webp"); /* Фонове зображення */
+  background-size: cover; 
+  background-position: center;
+  border-radius: 7px;
+}
 .discount-club__title {
-    color: orange;
+    font-family: var(--font-title);
+    color: #272727; 
+    text-align: left;
+    font-size: 64px;
+}
+.discount-club__title span {
+    color: #FE7A15;
+    text-align: center;
+}
+.discount-club__description {
+  font-family: var(--font-text);
+  font-size: 19px;
+  color: #4D4D4D;
+}
+.discount-club__note {
+  font-family: var(--font-text);
+  font-size: 15px;
+  color: #6A6A6A;
+}
+.discount-club__cta-button {
+  background-color: var(--color-accent);
+  color: var(--color-primary-white);
+  text-decoration: none;
+  font-family: var(--font-text);
+  font-size: 15.4px;
+  font-weight: 600;
+  text-align: center;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.discount-club__cta-button:hover {
+  background-color: #272727;
 }
