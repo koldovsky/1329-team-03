@@ -17,10 +17,14 @@ function makeNegative(num) {
   return -num;
 }
 
-// те саме трішки по іншому
+// Те саме трішки по іншому
 function makeNegative(num) {
   return num > 0 ? -num : num;
 }
+// num > 0: Перевіряємо, чи число позитивне.
+// Якщо так, повертаємо від'ємне значення числа (-num).
+// Якщо ні (число вже від'ємне або дорівнює 0), повертаємо його без змін.
+
 
 // Game Move https://www.codewars.com/kata/grasshopper-terminal-game-move-function/train/javascript
 
@@ -45,6 +49,11 @@ function greet(name, owner) {
 function greet(name, owner) {
   return name === owner ? 'Hello boss' : 'Hello guest';
 }
+// 1.	name === owner — перевіряє, чи ім'я збігається з власником.
+// 2.	Використовуємо тернарний оператор ? ::
+// Якщо умова виконується (name === owner), повертається 'Hello boss'.
+// Інакше повертається 'Hello guest'.
+
 
 // Keep Hydrated https://www.codewars.com/kata/keep-hydrated-1/train/javascript
 
@@ -59,6 +68,8 @@ function litres(time) {
 function litres(time) {
   return Math.floor(time * 0.5);
 }
+// 1.	time * 0.5 — обчислює кількість літрів води, які Натану потрібно випити за даний час (по 0.5 літра за годину).
+// 2.	Math.floor() — округлює значення до найменшого цілого числа (до меншого).
 
 
 // Opposites Attract https://www.codewars.com/kata/555086d53eac039a2a000083/train/javascript
