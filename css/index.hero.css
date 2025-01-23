@@ -5,9 +5,9 @@
   position: relative;
   display: block;
   min-width: 320px;
-  background-size: url("./img/hero-index/hero-background.png");
-  object-fit: cover;
-  background-position: left;
+  background-image: url("./img/hero-index/hero-background.png");
+  background-size: cover;
+  background-position: 35% 65%;
   background-repeat: no-repeat;
   z-index: 1;
 }
@@ -93,6 +93,12 @@
   }
 }
 
+.hero__title,
+.hero__description,
+.hero__buttons {
+  width: 68%;
+}
+
 .hero a {
   color: var(--color-primary);
   text-decoration: none;
@@ -101,7 +107,7 @@
 @media (min-width: 768px) {
   .hero__header {
     padding: 108px 0 30px;
-    background-position: 45% 55%;
+    background-position: 35% 65%;
   }
   .hero__title {
     font-size: 84px;

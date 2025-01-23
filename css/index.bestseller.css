@@ -15,7 +15,7 @@
 
 .featured-products__item {
   position: relative;
-  min-width: 270px;
+  min-width: 220px;
   min-height: 200px;
   word-wrap: break-word;
   width: 100%;
