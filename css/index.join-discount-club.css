@@ -1,17 +1,24 @@
 .discount-club__top {
   justify-content: center;
-  width: 1120px;
+  width: 1170px;
   height: 387px;
-  background-image: url("img/join-discount-club/background-discount-club.webp"); /* Фонове зображення */
+  background-image: url("img/join-discount-club/background-discount-club.webp");
   background-size: cover;
   background-position: center;
   border-radius: 7px;
+  margin: 50px 0px 0px;
+}
+.discount-club__title-block {
+  width: 1050px;
+  height: 77px;
 }
 .discount-club__title {
   font-family: var(--font-title);
   color: #272727;
   text-align: left;
   font-size: 64px;
+  padding-top: 55px;
+  padding-left: 60px;
 }
 .discount-club__title span {
   color: #fe7a15;
@@ -21,11 +28,20 @@
   font-family: var(--font-text);
   font-size: 19px;
   color: #4d4d4d;
+  padding-top: 18px;
+}
+.discount-club__description span {
+  padding-left: 60px;
+  font-weight: 600;
 }
 .discount-club__note {
   font-family: var(--font-text);
   font-size: 15px;
   color: #6a6a6a;
+  padding-top: 10px;
+}
+.discount-club__note em {
+  padding-left: 60px;
 }
 .discount-club__cta-button {
   background-color: var(--color-accent);
@@ -35,38 +51,57 @@
   font-size: 15.4px;
   font-weight: 600;
   text-align: center;
-  padding: 12px 24px;
+  padding: 16px 38px;
   border: none;
-  border-radius: 4px;
+  border-radius: 7px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  position: relative;
+  top: 36px;
+  left: 60px;
 }
 .discount-club__cta-button:hover {
   background-color: #272727;
 }
 .discount-club__bottom {
-width: 1219px;
-height: 303px;
-padding: 40px 0px 60px;
-display: flex;
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  position: relative;
+  top: 50px;
 }
 .discount-club__card {
-  width: 235;
-  height: 203;
-  text-align: left;
+  width: 308px;
+  height: 203px;
+  padding: 0px 30px;
+  flex-direction: column;
+  position: relative;
+  left: -30px;
 }
 .discount-club__icon {
   width: 70px;
   height: 70px;
+  margin: 0 20 0;
 }
 .discount-club__card-title {
   font-family: var(--font-text);
   font-size: 24px;
   color: #272727;
+  font-weight: 700;
+  margin: 17px 0px 0px;
+}
+.discount-club__card-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 5px;
+  background-color: #1b4c97;
+  margin: 17px 0px 0px;
 }
 .discount-club__card-description {
   font-size: 17px;
-  color: #6A6A6A;
+  color: #6a6a6a;
+  margin: 17px 0px 0px;
 }
 .discount-club__card-description span {
   width: 226px;
