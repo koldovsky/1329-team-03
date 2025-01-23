@@ -268,7 +268,7 @@
 }
 
 /* Old card */
-.products__item {
+/* .products__item {
   position: relative;
   flex: 1;
   display: flex;
@@ -402,4 +402,4 @@
   &:hover {
     background-color: var(--color-primary);
   }
-}
+} */
