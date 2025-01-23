@@ -1,10 +1,8 @@
 /* POPULAR ITEMS */
-.popular-products__products-container {
+.popular-products__products-content {
   display: block;
   padding: 30px 24px 60px;
   margin-top: 45px;
-  max-width: 1280px;
-  margin: 0 auto;
 }
 
 .popular-products__header {
