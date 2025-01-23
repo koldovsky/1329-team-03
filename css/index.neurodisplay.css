@@ -10,6 +10,7 @@
 .neurodisplay__status{
     color: var(--color-accent-additional);
     font-size: 12px;
+    font-weight: 700px;
     font-family: Nunito, sans-serif;
 }
 
