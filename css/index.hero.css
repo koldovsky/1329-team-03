@@ -274,10 +274,6 @@
 }
 
 @media (min-width: 768px) {
-  .featured-products__item {
-    background-position: 45% 55%;
-  }
-
   .featured-products__list {
     grid-template-columns: repeat(2, 1fr); /* Дві колонки */
     grid-template-rows: auto auto; /* Два ряди */
@@ -285,6 +281,10 @@
 
   .featured-products__item:last-child {
     grid-column: 1 / -1; /* Розтягування на всі колонки */
+  }
+
+  .featured-products__item {
+    background-position: 45% 55%;
   }
 }
 
