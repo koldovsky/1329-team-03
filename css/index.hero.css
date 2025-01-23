@@ -5,7 +5,7 @@
   position: relative;
   display: block;
   min-width: 320px;
-  background-image: url("./img/hero-index/hero-background.png");
+  background-image: url("../img/hero-index/hero-background.png");
   background-size: cover;
   background-position: 35% 65%;
   background-repeat: no-repeat;

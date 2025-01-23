@@ -1,4 +1,7 @@
 /* POPULAR ITEMS */
+.popular-items {
+  display: block;
+}
 .popular-products__products-content {
   display: block;
   padding: 30px 0 60px;
