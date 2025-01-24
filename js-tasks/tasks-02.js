@@ -7,12 +7,13 @@ function stringToArray(string) {
 // https://www.codewars.com/kata/dna-to-rna-conversion/train/javascript
 function DNAtoRNA(dna) {
   // Заміна всіх символів "T" у рядку dna на "U"
-  return dna.replace(/T/g, "U");
+  return dna.replaceAll("T", "U");
 }
 
+// Або
 function DNAtoRNA(dna) {
   // Заміна всіх символів "T" у рядку dna на "U"
-  return dna.replaceAll("T", "U");
+  return dna.replace(/T/g, "U");
 }
 
 // Додатковий варіант
@@ -47,19 +48,6 @@ function DNAtoRNA(dna) {
     result.push(char.replace("T", "U"));
   }
   return result.join("");
-}
-
-// Або
-function DNAtoRNA(dna) {
-  let rna = [];
-  for (let i = 0; i < dna.length; i++) {
-    if (dna[i] === "T") {
-      rna[i] = "U";
-      continue;
-    }
-    rna[i] = dna[i];
-  }
-  return rna.join("");
 }
 
 // https://www.codewars.com/kata/577a98a6ae28071780000989/train/javascript
@@ -101,7 +89,7 @@ function min(arr, toReturn) {
 // Або
 function min(arr, toReturn) {
   return toReturn === "value"
-    ? (minValue = Math.min(...arr))
+    ? minValue = Math.min(...arr)
     : arr.indexOf(minValue);
 }
 
@@ -134,9 +122,8 @@ function getRealFloor(n) {
     return n;
   } else if (n < 13) {
     return n - 1;
-  } else {
-    return n - 2;
-  }
+  } 
+  return n - 2;
 }
 
 // Додатковий варіант
@@ -162,7 +149,7 @@ function past(h, m, s) {
   return (h * 3600 + m * 60 + s) * 1000;
 }
 
-// Додатковий варіант
+// Додатковий варіант 
 function past(h, m, s) {
   return new Date(0).setHours(h, m, s) - new Date(0);
 }
@@ -177,6 +164,7 @@ function isDivisible(n, x, y) {
   return n % x === 0 && n % y === 0;
 }
 
+// Або
 function isDivisible(n, x, y) {
   return (n % x) + (n % y) === 0;
 }
