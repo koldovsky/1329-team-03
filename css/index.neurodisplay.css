@@ -62,6 +62,7 @@
 }
 
 .neurodisplay__specs-item{
+margin: 0;
 color: var(--color-text-body);
 font-family: var(--font-text);
 display: block;
@@ -79,9 +80,10 @@ margin-top: 20px;
 .neurodisplay__button{
     display: flex;
     margin-top: 35px;
+    box-sizing: border-box;
 }
 
-.buton_order{
+.button_order{
     display: inline-block;
     font-size: 14px;
     font-weight: 700;
@@ -93,5 +95,4 @@ margin-top: 20px;
     background-color: var(--color-accent-additional);
     color: var(--color-primary-white);
     border: 1px solid var(--color-accent-additional);
-    /* transition: all 250ms ease-in-out; */
 }
