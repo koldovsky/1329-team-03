@@ -1,12 +1,77 @@
-// Convert a string to an array
+// https://www.codewars.com/kata/convert-a-string-to-an-array/train/javascript
 function stringToArray(string) {
+  // Розбити рядок на масив по роздільнику
   return string.split(" ");
 }
 
-// DNA to RNA Conversion
+// https://www.codewars.com/kata/dna-to-rna-conversion/train/javascript
 function DNAtoRNA(dna) {
-  return dna.replaceAll(/T/g, "U");
+  // Заміна всіх символів "T" у рядку dna на "U"
+  return dna.replace(/T/g, "U");
 }
+
+function DNAtoRNA(dna) {
+  // Заміна всіх символів "T" у рядку dna на "U"
+  return dna.replaceAll("T", "U");
+}
+
+// Додатковий варіант
+function DNAtoRNA(dna) {
+  // Розбиваємо рядок на масив частин, використовуючи символ "T" як роздільник -
+  // замість "T" не буде нічого, замість "TТ" буде "" і так далі.
+  // Об'єднуємо елементи масиву назад у рядок -
+  // у місці з'єднання частин з'явиться "U", замість "" буде "UU" і так далі.
+  return dna.split("T").join("U");
+}
+
+// Додатковий варіант
+function DNAtoRNA(dna) {
+  // Розбити рядок на масив символів
+  // const dnaArray = dna.split("");
+  // Повернути новий масив, замінивши "T" на "U"
+  // const dnaReplace = dnaArray.map((el) => el.replace("T", "U"));
+  // Масив символів об'єднати в рядок
+  // return dnaReplace.join("");
+
+  // Короткий запис
+  return dna
+    .split("")
+    .map((el) => el.replace("T", "U"))
+    .join("");
+}
+
+// Або
+function DNAtoRNA(dna) {
+  const result = [];
+  for (char of dna) {
+    result.push(char.replace("T", "U"));
+  }
+  return result.join("");
+}
+
+//
+function DNAtoRNA(dna) {
+  let rna = [];
+  for (let i = 0; i < dna.length; i++) {
+    if (dna[i] === "T") {
+      rna[i] = "U";
+      continue;
+    }
+    rna[i] = dna[i];
+  }
+  return rna.join("");
+}
+
+// https://www.codewars.com/kata/577a98a6ae28071780000989/train/javascript
+
+// https://www.codewars.com/kata/544a54fd18b8e06d240005c0/train/javascript
+
+// Double Integer    https://www.codewars.com/kata/53ee5429ba190077850011d4/train/javascript
+// Twice as old    https://www.codewars.com/kata/5b853229cfde412a470000d0/train/javascript
+// Return n-th even number    https://www.codewars.com/kata/5933a1f8552bc2750a0000ed/train/javascript
+// What's the real floor     https://www.codewars.com/kata/574b3b1599d8f897470018f6/train/javascript
+// Clock    https://www.codewars.com/kata/55f9bca8ecaa9eac7100004a/train/javascript
+// Is n divisible by x and y    https://www.codewars.com/kata/5545f109004975ea66000086/train/javascript
 
 // Find Maximum and Minimum Values of a List
 var min = function (list) {
