@@ -4,10 +4,14 @@
 }
 
 .neurodisplay__title{
-    font-size: 40px;
-    color: --color-input-background;
-    font-family: "Bebas Neue", sans-serif;
-    line-height: 48px;
+    display: block;
+    color: var(--color-primary);
+    font-family: var(--font-title);
+    font-weight: 400;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-size: 42px;
+    
 }
 
 .slash{
@@ -16,24 +20,34 @@
 
 .neurodisplay__status{
     color: var(--color-accent-additional);
+    font-family: var(--font-text);
     font-size: 12px;
     font-weight: 700px;
-    letter-spacing: 2.4 px;
+    line-height: 16.8px;
+    margin: 0;
+    letter-spacing: 2.4px;
     text-transform: uppercase;
-    font-family: Nunito, sans-serif;
 }
 
 .neurodisplay__price{
-    font-size: 30px;
+    display: block;
+    margin: 0px;
     color: var(--color-accent-additional);
-    font-weight: 700;
+    font-family: var(--font-text);
+    font-size: 30px;
     line-height: 42px;
+    font-weight: 700;
 }
 
 .neurodisplay__description{
-    color: --color-text-body;
+    display: block;
+    color: var(--color-text-body);
+    font-family: var(--font-text);
     font-size: 17px;
     line-height: 23.8px;
+    /* font-weight: 400; */
+    margin-top: 25px;
+    margin-bottom: 0;
 }
 
 .neurodisplay__specs-title{
