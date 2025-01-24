@@ -30,19 +30,19 @@
 }
 
 .neurodisplay__price{
-    display: block;
-    margin: 0px;
     color: var(--color-accent-additional);
     font-family: var(--font-text);
+    display: block;
+    margin: 0px;
     font-size: 30px;
     line-height: 42px;
     font-weight: 700;
 }
 
 .neurodisplay__description{
-    display: block;
     color: var(--color-text-body);
     font-family: var(--font-text);
+    display: block;
     font-size: 17px;
     line-height: 23.8px;
     /* font-weight: 400; */
@@ -52,17 +52,46 @@
 
 .neurodisplay__specs-title{
     color: var(--color-accent);
+    font-family: var(--font-text);
+    display: block;
+    font-weight: 700;
     font-size: 22px;
-    font-weight: 700px;
-    line-height: 29px;
+    line-height: 28.6px;
+    margin-top: 20px;
+    margin-bottom: 0;
 }
 
 .neurodisplay__specs-item{
-    color: var(--color-accent-additional);
+color: var(--color-text-body);
+font-family: var(--font-text);
+display: block;
+font-size: 14px;
+line-height: 19.6px;
+margin-top: 20px;
 }
 
 
 .neurodisplay__specs-item_bold{
     font-weight: 700;
     line-height: 19.6 px;
+}
+
+.neurodisplay__button{
+    display: flex;
+    margin-top: 35px;
+}
+
+.buton_order{
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 12px 21px;
+    font-family: var(--font-text);
+    background-color: var(--color-accent-additional);
+    color: var(--color-primary-white);
+    border: 1px solid var(--color-accent-additional);
+    /* transition: all 250ms ease-in-out; */
 }
