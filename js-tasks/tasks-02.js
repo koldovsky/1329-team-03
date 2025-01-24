@@ -49,7 +49,7 @@ function DNAtoRNA(dna) {
   return result.join("");
 }
 
-//
+// Або
 function DNAtoRNA(dna) {
   let rna = [];
   for (let i = 0; i < dna.length; i++) {
@@ -72,14 +72,38 @@ var max = function (list) {
   return Math.max(...list);
 };
 
-// Smallest value of an array
-function min(arr, toReturn) {
-  return toReturn === "value"
-    ? Math.min(...arr)
-    : arr.indexOf(Math.min(...arr));
-}
+// Додатковий варіант
+var min = function (list) {
+  return list.reduce((a, b) => (a < b ? a : b));
+};
+
+var max = function (list) {
+  return list.reduce((a, b) => (a > b ? a : b));
+};
+
+// Або
+var min = function (list) {
+  return list.sort((a, b) => a - b)[0];
+};
+
+var max = function (list) {
+  return list.sort((a, b) => b - a)[0];
+  // Або
+  // return list.sort((a, b) => a - b)[list.length-1];
+};
 
 // https://www.codewars.com/kata/544a54fd18b8e06d240005c0/train/javascript
+function min(arr, toReturn) {
+  const minValue = Math.min(...arr);
+  return toReturn === "value" ? minValue : arr.indexOf(minValue);
+}
+
+// Або
+function min(arr, toReturn) {
+  return toReturn === "value"
+    ? (minValue = Math.min(...arr))
+    : arr.indexOf(minValue);
+}
 
 // Double Integer    https://www.codewars.com/kata/53ee5429ba190077850011d4/train/javascript
 // Twice as old    https://www.codewars.com/kata/5b853229cfde412a470000d0/train/javascript
@@ -87,8 +111,6 @@ function min(arr, toReturn) {
 // What's the real floor     https://www.codewars.com/kata/574b3b1599d8f897470018f6/train/javascript
 // Clock    https://www.codewars.com/kata/55f9bca8ecaa9eac7100004a/train/javascript
 // Is n divisible by x and y    https://www.codewars.com/kata/5545f109004975ea66000086/train/javascript
-
-
 
 // You Can't Code Under Pressure #1
 function doubleInteger(i) {
