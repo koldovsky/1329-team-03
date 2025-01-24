@@ -106,29 +106,29 @@ function min(arr, toReturn) {
 }
 
 // Double Integer    https://www.codewars.com/kata/53ee5429ba190077850011d4/train/javascript
-// Twice as old    https://www.codewars.com/kata/5b853229cfde412a470000d0/train/javascript
-// Return n-th even number    https://www.codewars.com/kata/5933a1f8552bc2750a0000ed/train/javascript
-// What's the real floor     https://www.codewars.com/kata/574b3b1599d8f897470018f6/train/javascript
-// Clock    https://www.codewars.com/kata/55f9bca8ecaa9eac7100004a/train/javascript
-// Is n divisible by x and y    https://www.codewars.com/kata/5545f109004975ea66000086/train/javascript
-
-// You Can't Code Under Pressure #1
 function doubleInteger(i) {
-  // i will be an integer. Double it and return it.
   return i * 2;
 }
 
-// Twice as old
+// Twice as old    https://www.codewars.com/kata/5b853229cfde412a470000d0/train/javascript
 function twiceAsOld(dadYearsOld, sonYearsOld) {
+  // Math.abs гарантує, що відповідь буде завжди додатною
   return Math.abs(dadYearsOld - sonYearsOld * 2);
 }
 
-// Get Nth Even Number
+// Додатковий варіант
+function twiceAsOld(dadYearsOld, sonYearsOld) {
+  return dadYearsOld > 2 * sonYearsOld
+    ? dadYearsOld - 2 * sonYearsOld
+    : 2 * sonYearsOld - dadYearsOld;
+}
+
+// Return n-th even number    https://www.codewars.com/kata/5933a1f8552bc2750a0000ed/train/javascript
 function nthEven(n) {
   return (n - 1) * 2;
 }
 
-// What's the real floor?
+// What's the real floor     https://www.codewars.com/kata/574b3b1599d8f897470018f6/train/javascript
 function getRealFloor(n) {
   if (n <= 0) {
     return n;
@@ -139,12 +139,44 @@ function getRealFloor(n) {
   }
 }
 
-// Beginner Series #2 Clock
+// Додатковий варіант
+function getRealFloor(n) {
+  return n > 13 ? n - 2 : n - (n >= 1);
+}
+
+// Або
+function getRealFloor(n) {
+  if (n <= 0) {
+    return n;
+  }
+  return n - (n >= 13 ? 2 : 1);
+}
+
+// Або
+function getRealFloor(n) {
+  return n > 13 ? n - 2 : n > 0 ? n - 1 : n;
+}
+
+// Clock    https://www.codewars.com/kata/55f9bca8ecaa9eac7100004a/train/javascript
 function past(h, m, s) {
   return (h * 3600 + m * 60 + s) * 1000;
 }
 
-// Is n divisible by x and y?
+// Додатковий варіант
+function past(h, m, s) {
+  return new Date(0).setHours(h, m, s) - new Date(0);
+}
+
+// Або
+function past(h, m, s) {
+  return new Date().setHours(h, m, s) - new Date().setHours(0, 0, 0);
+}
+
+// Is n divisible by x and y    https://www.codewars.com/kata/5545f109004975ea66000086/train/javascript
 function isDivisible(n, x, y) {
-  return n % x == 0 && n % y == 0;
+  return n % x === 0 && n % y === 0;
+}
+
+function isDivisible(n, x, y) {
+  return (n % x) + (n % y) === 0;
 }
