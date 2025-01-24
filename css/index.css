@@ -4,12 +4,11 @@
 @import "./global.buttons.css";
 @import "./global.cards.css";
 @import "./index.hero.css";
+@import "./index.bestseller.css";
+@import "./index.index.popular-items.css";
 @import "./index.categories.css";
 @import "./index.deals.css";
 @import "./index.new-product.css";
-@import "./index.categories.css";
-@import "./global.section-header.css";
-@import "./global.buttons.css";
 @import "./index.latest_products.css";
 @import "./index.neurodisplay.css";
 @import "./index.our-clients-about-us.css";
