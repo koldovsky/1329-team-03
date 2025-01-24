@@ -61,14 +61,17 @@
     margin-bottom: 0;
 }
 
-.neurodisplay__specs-item{
-margin: 0;
+.neurodisplay__specs{
 color: var(--color-text-body);
 font-family: var(--font-text);
 display: block;
 font-size: 14px;
 line-height: 19.6px;
 margin-top: 20px;
+}
+
+.neurodisplay__specs-item{
+    margin: 0;
 }
 
 
