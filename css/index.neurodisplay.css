@@ -7,17 +7,22 @@
     display: block;
     margin: 0;
     padding: 0;
+    min-width: 320px;
 }
 
 .neurodisplay__content{
     display: flex;
     max-width: 100%;
-    fledx-direction: column;
+    flex-direction: column;
+    /* vertical-align: baseline; */
 }
 
 .neurodisplay_image-container{
     position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
     margin: 0;
+    padding-top: 60%;
 }
 
 .neurodisplay__title{
