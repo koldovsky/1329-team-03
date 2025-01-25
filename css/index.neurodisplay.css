@@ -17,6 +17,8 @@
     align-items: center;
     max-width: 100%;
     flex-wrap: wrap;
+    padding: 0 30px;
+    color: var(--color-bg-second)
 }
 
 .neurodisplay_image-container{
@@ -126,6 +128,7 @@ margin-top: 20px;
 }
 
 .button_order{
+    border: none;
     display: inline-block;
     font-size: 14px;
     font-weight: 700;
@@ -137,4 +140,10 @@ margin-top: 20px;
     background-color: var(--color-accent-additional);
     color: var(--color-primary-white);
     border: 1px solid var(--color-accent-additional);
+
+    &:hover {
+        cursor: pointer;
+        background-color: var(--color-primary);
+        border: 1px solid var(--color-primary);
+    }
 }

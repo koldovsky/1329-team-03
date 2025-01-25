@@ -214,7 +214,6 @@
 
 
             .button {
-              border: none;
               display: inline-block;
               font-family: var(--font-text);
               background-color: var(--color-accent-additional);
