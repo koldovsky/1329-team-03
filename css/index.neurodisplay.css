@@ -32,12 +32,6 @@ neurodisplay__text_container{
 
 .neurodisplay_image{
     min-height: 32px;
-    align-self: stretch;
-    object-position: 100% 49.809%;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    object-fit: cover;
 }
 
 .neurodisplay__text_container{
