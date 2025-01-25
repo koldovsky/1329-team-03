@@ -1,6 +1,23 @@
-.neurodisplay__content{
+.neurodisplay{
     display: block;
-    color: var(--color-additional-text);
+    position: relative;
+}
+
+.neurodisplay__container{
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.neurodisplay__content{
+    display: flex;
+    max-width: 100%;
+    fledx-direction: column;
+}
+
+.neurodisplay_image-container{
+    position: relative;
+    margin: 0;
 }
 
 .neurodisplay__title{
@@ -22,7 +39,7 @@
     color: var(--color-accent-additional);
     font-family: var(--font-text);
     font-size: 12px;
-    font-weight: 700px;
+    font-weight: 700;
     line-height: 16.8px;
     margin: 0;
     letter-spacing: 2.4px;
