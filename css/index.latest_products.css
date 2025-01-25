@@ -1,3 +1,10 @@
-.latest-products__backround{
-    background: url('../img/last_products/last_products.png') 0 0 no-repeat;
+.latest_products{
+    background: url('../img/last_products/last_products.png');
+    background-size: cover;
+    background-position: 35% 65%;
+    background-repeat: no-repeat;
+    z-index: 1;
+    position: relative;
+    display: block;
+    min-width: 320px;
 }
