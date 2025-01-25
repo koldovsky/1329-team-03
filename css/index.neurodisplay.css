@@ -18,7 +18,7 @@
     max-width: 100%;
     flex-wrap: wrap;
     padding: 0 30px;
-    color: var(--color-bg-second)
+    background: var(--color-bg-second);
 }
 
 .neurodisplay_image-container{
@@ -125,10 +125,10 @@ margin-top: 20px;
 .neurodisplay__button{
     display: flex;
     margin-top: 35px;
+    border: none;
 }
 
 .button_order{
-    border: none;
     display: inline-block;
     font-size: 14px;
     font-weight: 700;
