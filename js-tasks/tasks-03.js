@@ -76,3 +76,41 @@ function buildFun(n) {
   // Повертається масив функцій
   return res;
 }
+
+// https://www.codewars.com/kata/fun-with-es6-classes-number-2-animals-and-inheritance/train/javascript
+class Shark extends Animal {
+  constructor(name, age, status) {
+    super(name, age, 0, "shark", status); // Кількість ніг 0 і вид "shark"
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, age, status) {
+    super(name, age, 4, "cat", status); // Кількість ніг 4 і вид "cat"
+    // Метод introduce для кота з додаванням "Meow meow!"
+    // Створення методу таким чином не дозволяє успадковувати його в підкласах
+    // this.introduce = () => super.introduce() + '  Meow meow!';
+    // Або
+    // this.introduce = () => `${super.introduce()}  Meow meow!`;
+  }
+
+  // Створення методу таким чином дозволяє успадковувати його в підкласах
+  introduce() {
+    return `${super.introduce()}  Meow meow!`;
+    // Або
+    // return super.introduce() + '  Meow meow!'
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, age, status, master) {
+    super(name, age, 4, "dog", status); // Кількість ніг 4 і вид "dog"
+    this.master = master;
+    // Створення методу таким чином не дозволяє успадковувати його в підкласах
+    // this.greetMaster = () => 'Hello' + " " + master;
+  }
+
+  greetMaster() {
+    return `Hello ${this.master}`;
+  }
+}
