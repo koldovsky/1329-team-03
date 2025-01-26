@@ -3,7 +3,6 @@
     background-size: cover;
     background-position: 35% 65%;
     background-repeat: no-repeat;
-    z-index: 1;
     position: relative;
     display: block;
     min-width: 320px;
@@ -58,7 +57,7 @@ padding: 90px 0 30px;
     color: var(--color-menu-items); 
     font-size: 17px;
     line-height: 23.8px;
-    padding: 0 15px;
+    padding: 0;
     list-style: none;
 }
 
