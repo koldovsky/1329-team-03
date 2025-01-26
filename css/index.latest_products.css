@@ -14,14 +14,16 @@
 }
 
 .latest-products__play-icon{
+    display: block;
     min-width: 100px;
+    padding: 0;
 }
 
 .latest-products__title{
     font-size: 109px;
     color: var( --color-menu-items);
     text-align: left;
-    
+    font-family: var(--font-text);
 }
 
 .latest-products__description{
@@ -30,4 +32,5 @@
     font-size: 19px;
     font-weight: 600;
     line-height: 26.6 px;
+    font-family: var(--font-text);
 }
