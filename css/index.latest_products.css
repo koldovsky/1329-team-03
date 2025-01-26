@@ -13,10 +13,12 @@
     padding: 0 15px;
 }
 
-.latest-products__play-icon{
-    display: block;
-    min-width: 100px;
-    padding: 0;
+.triangle{
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid orange;
 }
 
 .latest-products__title{
