@@ -40,6 +40,8 @@ padding: 90px 0 30px;
     font-family: var(--font-title);
     text-align: start;
     margin-bottom: 40px;
+    margin: 0;
+    padding: 0;
 }
 
 .latest-products__description{
