@@ -52,12 +52,14 @@ position: relative;
 }
 
 .latest-products__description{
-    color: var( --color-menu-items);
-    text-align: left;
+    color: var(--color-menu-items);
     font-size: 19px;
     font-weight: 600;
-    line-height: 26.6 px;
+    line-height: 26.6px;
     font-family: var(--font-text);
+    margin: 15px 0;
+    text-align: left;
+    position: relative;
     z-index: 3;
 }
 
