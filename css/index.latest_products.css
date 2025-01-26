@@ -15,14 +15,14 @@ position: relative;
   min-width: 320px;
   padding: 130px 40px;
   justify-content: flex-start;
-  width: 50%;
+  width: 56%;
 }
 
 .latest-products__content{
 position: relative;
 display: block;
 min-width: 320px;
-padding: 0 30px;
+/* padding: 0 30px; */
 }
 
 .latest-products_icon{
@@ -50,6 +50,7 @@ padding: 0 30px;
     font-weight: 600;
     line-height: 26.6 px;
     font-family: var(--font-text);
+    margin: 20px 0;
 }
 
 .latest-products__list{
@@ -63,8 +64,10 @@ padding: 0 30px;
 
 .latest-products__list-item{
     position: relative; 
-    padding-left: 12px; 
-    margin-right: 20px;
+    padding-left: 15px; 
+    margin-right: 25px;
+    text-transform: uppercase;
+    text-decoration: line-through;
 }
 
 .latest-products__list-item::before{
