@@ -1,7 +1,7 @@
 .latest_products{
     background: url('../img/last_products/last_products.png');
     background-size: cover;
-    background-position: 457% 65%;
+    background-position: 35% 65%;
     background-repeat: no-repeat;
     position: relative;
     display: block;
@@ -38,7 +38,7 @@ padding: 90px 0 30px;
     color: var( --color-menu-items);
     font-family: var(--font-title);
     text-align: start;
-    margin-bottom: 30px;    
+    margin-bottom: 30px;
     margin: 0;
     padding: 0;
 }
