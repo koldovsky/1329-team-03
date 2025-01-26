@@ -13,14 +13,6 @@
     padding: 0 15px;
 }
 
-.triangle{
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid orange;
-}
-
 .latest-products__title{
     font-size: 109px;
     color: var( --color-menu-items);
