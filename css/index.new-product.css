@@ -4,7 +4,6 @@
   display: block;
   position: relative;
 
-
   .new-product__container {
     display: block;
     background-color: var(--color-primary-white);
@@ -12,12 +11,11 @@
     margin: 0;
     padding: 0;
 
-
-    @media (min-width:767px) and (max-width:991px) {
+    @media (min-width: 767px) and (max-width: 991px) {
       padding: 105px 0px;
     }
 
-    @media (min-width:992px) {
+    @media (min-width: 992px) {
       padding: 120px 0px;
     }
 
@@ -27,12 +25,10 @@
       flex-direction: column-reverse;
       vertical-align: baseline;
 
-
-      @media (min-width:768px) {
+      @media (min-width: 768px) {
         flex-direction: row-reverse;
         flex-grow: 1;
       }
-
 
       .new-product__image-container {
         position: relative;
@@ -42,8 +38,7 @@
         margin: 0;
         padding-top: 60%;
 
-
-        @media (min-width: 768px) and (max-width:991px) {
+        @media (min-width: 768px) and (max-width: 991px) {
           flex-basis: 50%;
           max-width: 50%;
           margin: -105px 0px;
@@ -56,7 +51,6 @@
           padding-top: 0px;
         }
 
-
         .new-product__image {
           min-height: 32px;
           align-self: stretch;
@@ -65,7 +59,6 @@
           left: 0;
           position: absolute;
           object-fit: cover;
-
 
           @media (min-width: 768px) {
             height: 100%;
@@ -78,13 +71,11 @@
         display: block;
         padding: 90px 30px;
 
-
         @media (min-width: 768px) {
           flex-basis: 50%;
           max-width: 50%;
           padding: 0px 30px;
         }
-
 
         .new-product__text {
           display: flex;
@@ -93,7 +84,6 @@
           text-align: left;
           overflow-wrap: break-word;
           max-width: 100%;
-
 
           .new-product__subtitle {
             display: block;
@@ -106,7 +96,6 @@
             margin: 0;
           }
 
-
           .new-product__title {
             display: block;
             color: var(--color-primary);
@@ -115,23 +104,22 @@
             margin-top: 20px;
             margin-bottom: 0px;
 
-
             .new-product__devider {
               color: var(--color-accent);
               font-family: var(--font-title);
             }
 
-            @media (max-width:767px) {
+            @media (max-width: 767px) {
               font-size: 40px;
               line-height: 48px;
             }
 
-            @media (min-width:768px) and (max-width:991px) {
+            @media (min-width: 768px) and (max-width: 991px) {
               font-size: 52px;
               line-height: 62.4px;
             }
 
-            @media (min-width:992px) {
+            @media (min-width: 992px) {
               font-size: 64px;
               line-height: 76.8px;
             }
@@ -146,12 +134,12 @@
             line-height: 42px;
             margin: 0px;
 
-            @media (min-width:768px) and (max-width:991px) {
+            @media (min-width: 768px) and (max-width: 991px) {
               font-size: 33px;
               line-height: 46.2px;
             }
 
-            @media (min-width:992px) {
+            @media (min-width: 992px) {
               font-size: 36px;
               line-height: 50.4px;
             }
@@ -177,8 +165,7 @@
             margin-top: 20px;
             margin-bottom: 0;
 
-
-            @media (min-width:768px) {
+            @media (min-width: 768px) {
               font-size: 23px;
               line-height: 29.9px;
             }
@@ -192,41 +179,37 @@
             line-height: 19.6px;
             margin-top: 20px;
 
-            @media (min-width:992px) {
+            @media (min-width: 992px) {
               font-size: 15px;
               line-height: 21px;
             }
 
-
             .new-product__specs-label {
               font-weight: 700;
             }
-
           }
 
           .new-product__button {
             display: flex;
             margin-top: 35px;
 
-            @media (min-width:992px) {
+            @media (min-width: 992px) {
               margin-top: 40px;
             }
-
 
             .button {
               display: inline-block;
               font-family: var(--font-text);
+              background-color: var(--color-accent-additional);
+              border: 1px solid var(--color-accent-additional);
+              color: var(--color-primary-white);
               font-size: 14px;
               font-weight: 700;
               text-align: center;
               text-decoration: none;
               border-radius: 8px;
-              background-color: var(--color-accent-additional);
-              color: var(--color-primary-white);
-              border: 1px solid var(--color-accent-additional);
               padding: 12px 21px;
-              transition: all 250ms ease-in-out;
-
+              transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
 
               &:hover {
                 cursor: pointer;
