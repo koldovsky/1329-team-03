@@ -26,7 +26,7 @@
     color: var( --color-menu-items);
     text-align: left;
     font-family: var(--font-title);
-    text-align-last: left;
+    text-align: left;
 }
 
 .latest-products__description{
@@ -44,6 +44,12 @@ color: var( --color-menu-items);
 font-size: 17px;
 line-height: 23.8px;
 padding: 0 15px;
+list-style: none;
+}
+
+.latest-products__list latest-products__list-item{
+    position: relative; 
+    padding-left: 12px;
 }
 
 .latest-products__list latest-products__list-item::before{
