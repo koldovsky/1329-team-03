@@ -35,7 +35,7 @@ min-width: 320px;
 
 .latest-products__title{
     font-size: 109px;
-    color: var( --color-menu-items);
+    color: var( --color-primary-white);
     font-family: var(--font-title);
     text-align: start;
     margin-bottom: 30px;
@@ -50,14 +50,14 @@ min-width: 320px;
     font-weight: 600;
     line-height: 26.6 px;
     font-family: var(--font-text);
-    margin: 20px 0;
+    margin: 35px 0;
 }
 
 .latest-products__list{
     display: flex; 
-    color: var(--color-menu-items); 
-    font-size: 17px;
-    line-height: 23.8px;
+    color: var(--color-primary-white); 
+    font-size: 12px;
+    line-height: 16.8px;
     padding: 0;
     list-style: none;
 }
@@ -67,7 +67,7 @@ min-width: 320px;
     padding-left: 15px; 
     margin-right: 25px;
     text-transform: uppercase;
-    text-decoration: line-through;
+    text-decoration: underline;
 }
 
 .latest-products__list-item::before{
