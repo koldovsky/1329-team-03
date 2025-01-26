@@ -271,32 +271,29 @@
               font-family: var(--font-text);
               font-size: 22px;
               font-weight: 700;
-              max-width: calc(100% - 35px);
+              max-width: 100%;
               position: relative;
               padding: 0;
               margin: 0;
 
-              background-image: none !important;
-
               &::after {
-                content: none !important;
+                background-image: none !important;
               }
 
               &::after {
-                content: "+";
+                content: "-";
                 position: absolute;
-                top: 50%;
                 right: 0;
-                transform: translateY(-50%) rotate(0deg);
-                width: 15px;
-                height: 15px;
+                transform: translateY(-50%);
+                width: 18px;
+                height: 18px;
                 color: var(--color-primary);
                 opacity: 0.8;
                 transition: transform 0.3s ease;
               }
 
               &.collapsed::after {
-                content: "-";
+                content: "+";
               }
 
               @media (min-width: 768px) and (max-width: 991px) {
