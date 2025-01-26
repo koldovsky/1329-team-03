@@ -13,6 +13,14 @@
     padding: 0 15px;
 }
 
+.latest-products_icon{
+    width: 100px;
+}
+
+.latest-products_path{
+    
+}
+
 .latest-products__title{
     font-size: 109px;
     color: var( --color-menu-items);
