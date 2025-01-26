@@ -7,20 +7,23 @@
     position: relative;
     display: block;
     min-width: 320px;
+    z-index: 1;
 }
 
 .latest_products__container{
 position: relative;
   display: block;
   min-width: 320px;
-  padding: 90px 0 30px;
+  padding: 0 40px;
   justify-content: flex-start;
+  width: 50%;
 }
 
 .latest-products__content{
-    text-align: left; 
-    padding: 0 15px;
-    display: block;
+position: relative;
+display: block;
+min-width: 320px;
+padding: 90px 0 30px;
 }
 
 .latest-products_icon{
@@ -34,10 +37,9 @@ position: relative;
 .latest-products__title{
     font-size: 109px;
     color: var( --color-menu-items);
-    text-align: left;
     font-family: var(--font-title);
-    text-align: left;
-    line-height: 27px;
+    text-align: start;
+    margin-bottom: 40px;
 }
 
 .latest-products__description{
