@@ -18,14 +18,14 @@
 }
 
 .latest-products_path{
-    
+    color: var(--color-accent-additional);
 }
 
 .latest-products__title{
     font-size: 109px;
     color: var( --color-menu-items);
     text-align: left;
-    font-family: var(--font-text);
+    font-family: var(--font-title);
 }
 
 .latest-products__description{
@@ -35,4 +35,24 @@
     font-weight: 600;
     line-height: 26.6 px;
     font-family: var(--font-text);
+}
+
+.latest-products__list{
+display: flex;
+color: var( --color-menu-items); 
+font-size: 17px;
+line-height: 23.8px;
+padding: 0 15px;
+}
+
+.latest-products__list li::before{
+  content: ''; 
+  width: 6px; 
+  height: 6px; 
+  background-color: var(--color-accent-additional); 
+  border-radius: 50%; 
+  position: absolute; 
+  left: 0;
+  top: 50%; 
+  transform: translateY(-50%);
 }
