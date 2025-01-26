@@ -76,6 +76,7 @@ min-width: 320px;
     height: 6px; 
     background-color: var(--color-accent-additional);
     font-family: var(--font-text); 
+    font-weight: 700;
     border-radius: 50%; 
     position: absolute; 
     left: 0; 
