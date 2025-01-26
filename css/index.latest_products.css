@@ -19,12 +19,20 @@ position: relative;
 
 .latest-products__content{
     text-align: left; 
-    padding: 0 15px;
-    display: block;
+    padding: 0 15px;    
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
 }
 
 .latest-products_icon{
-    width: 100px;
+    width: 50px; 
+    height: auto;
+    position: absolute; 
+    top: 0; 
+    left: 15px; 
+    z-index: 2;
 }
 
 .latest-products_path{
@@ -34,12 +42,13 @@ position: relative;
 .latest-products__title{
     font-size: 109px;
     color: var( --color-menu-items);
-    text-align: left;
     font-family: var(--font-title);
     text-align: left;
     line-height: 27px;
     max-width: 700px; 
     margin: 0 auto 15px 0; 
+    z-index: 3;
+    position: relative;
 }
 
 .latest-products__description{
@@ -49,6 +58,7 @@ position: relative;
     font-weight: 600;
     line-height: 26.6 px;
     font-family: var(--font-text);
+    z-index: 3;
 }
 
 .latest-products__list{
