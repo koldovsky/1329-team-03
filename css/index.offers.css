@@ -1,0 +1,18 @@
+.offers__group-one {
+  padding: 0 24px;
+
+  .offers__item-one {
+    padding: 0 15px;
+    background-image: url(../img/offers/free-shipping-background.webp);
+    min-height: 586px;
+    background-size: cover;
+  }
+
+  .offers__item-two {
+    padding: 0 15px;
+    margin-top: 50px;
+    background-image: url(../img/offers/air-pulse-background.webp);
+    min-height: 396.2px;
+    background-size: cover;
+  }
+}

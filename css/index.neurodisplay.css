@@ -9,40 +9,74 @@
     min-width: 320px;
     margin: 0;
     padding: 0;
+
+    @media (min-width: 767px) and (max-width: 991px) {
+        padding: 105px 0px;
+    } 
+    @media (min-width: 992px) {
+        padding: 120px 0px;
+    }
 }
 
-.neurodisplay__content{
-    display: flex; 
+.neurodisplay__content {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 100%;
     flex-wrap: wrap;
-    padding: 0 30px;
     background: var(--color-bg-second);
+    vertical-align: baseline;
+
+    /* Зображення збоку до адаптації */
+    flex-direction: row;
+
+    @media (max-width: 768px) {
+        /* Зображення переходить під текст */
+        flex-direction: column;
+    }
 }
 
-.neurodisplay_image-container{
+.neurodisplay_image-container {
     flex: 1;
-    max-width: 50%; 
+    max-width: 50%; /* Зображення займає 50% ширини */
     position: relative;
     overflow: hidden;
-    padding-top: 60%; 
+    padding-top: 60%; /* Зберігаємо пропорції зображення */
+    margin: 0;
+
+    @media (max-width: 768px) {
+        /* Зображення займає всю ширину на мобільних пристроях */
+        flex-basis: 100%;
+        max-width: 100%;
+        padding-top: 0;
+    }
 }
 
-.neurodisplay_image{
-    min-height: 32px;
-    align-self: stretch;
-    object-position: 49.809% 100%;
-    bottom: 0;
-    left: 0;
+.neurodisplay_image {
+    width: 100%; /* Зображення розтягується на всю ширину контейнера */
+    height: auto; /* Зберігаємо пропорції зображення */
     position: absolute;
-    object-fit: cover;
+    top: 0;
+    left: 0;
+
+    @media (max-width: 768px) {
+        position: static; /* Виправляємо позиціонування для мобільних пристроїв */
+        width: 100%;
+        height: auto;
+    }
 }
 
-.neurodisplay__text_container{
-    flex: 1; 
-    max-width: 50%; 
-    padding: 0 20px; 
+.neurodisplay__text_container {
+    flex: 1;
+    max-width: 50%; /* Текст займає 50% ширини */
+    padding: 0 20px;
+
+    @media (max-width: 768px) {
+        /* Текст займає всю ширину на мобільних пристроях */
+        flex-basis: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
 }
 
 .neurodisplay__title{
@@ -79,6 +113,16 @@
     font-size: 30px;
     line-height: 42px;
     font-weight: 700;
+
+    @media (min-width: 768px) and (max-width: 991px) {
+        font-size: 33px;
+        line-height: 46.2px;
+}
+
+@media (min-width: 992px) {
+        font-size: 36px;
+        line-height: 50.4px;
+}
 }
 
 .neurodisplay__description{

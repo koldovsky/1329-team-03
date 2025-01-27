@@ -56,6 +56,7 @@ min-width: 320px;
 .latest-products__list{
     display: flex; 
     color: var(--color-primary-white); 
+    font-family: var(--font-text); 
     font-size: 12px;
     line-height: 16.8px;
     padding: 0;
@@ -70,8 +71,6 @@ min-width: 320px;
     text-decoration: underline;
     font-weight: 700;
     letter-spacing: 2.4px;
-    background-color: var(--color-accent-additional);
-    font-family: var(--font-text); 
 }
 
 .latest-products__list-item::before{
@@ -83,4 +82,5 @@ min-width: 320px;
     left: 0; 
     top: 50%; 
     transform: translateY(-50%);
+    background-color: var(--color-accent-additional);
 }
