@@ -27,7 +27,7 @@
     background: var(--color-bg-second);
     vertical-align: baseline;
 
-    /* Зображення збоку тексту до адаптації */
+    /* Зображення збоку до адаптації */
     flex-direction: row;
 
     @media (max-width: 768px) {
@@ -41,7 +41,7 @@
     max-width: 50%; /* Зображення займає 50% ширини */
     position: relative;
     overflow: hidden;
-    padding-top: 60%; /* Пропорції для зображення */
+    padding-top: 60%; /* Зберігаємо пропорції зображення */
     margin: 0;
 
     @media (max-width: 768px) {
@@ -52,19 +52,18 @@
     }
 }
 
-.neurodisplay_image{
-    min-height: 32px;
-    align-self: stretch;
-    object-position: 49.809% 100%;
-    bottom: 0;
-    left: 0;
+.neurodisplay_image {
+    width: 100%; /* Зображення розтягується на всю ширину контейнера */
+    height: auto; /* Зберігаємо пропорції зображення */
     position: absolute;
-    object-fit: cover;
+    top: 0;
+    left: 0;
 
-    @media (min-width: 768px) {
-        height: 100%;
-        object-position: 49.809% 29.148%;
-}
+    @media (max-width: 768px) {
+        position: static; /* Виправляємо позиціонування для мобільних пристроїв */
+        width: 100%;
+        height: auto;
+    }
 }
 
 .neurodisplay__text_container {
