@@ -125,7 +125,7 @@ margin-top: 20px;
 .neurodisplay__button{
     display: flex;
     margin-top: 35px;
-    
+    border: none;
 }
 
 .button_order{
