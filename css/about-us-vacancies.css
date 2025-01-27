@@ -66,7 +66,7 @@
   }
 }
 
-.job-opportunities__vacancies {
+.job-opportunities__vacancies, .job-opportunities__search {
   @media (min-width: 320px) {
     width: 90%;
   }
@@ -238,5 +238,79 @@
     color: var(--color-text-body);
   }
   
+}
+/* search section */
+.job-opportunities__search {
+  padding: 20px;
+  background-color: var(--color-primary-white);
+  margin-bottom: 30px;
+}
+
+.job-opportunities__search-container {
+  max-width: 300px;
+  margin: left;
+  text-align: left;
+}
+
+.job-opportunities__search-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.job-opportunities__search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.job-opportunities__search-label {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-opportunities__search-input,
+.job-opportunities__search-select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid var(--color-text-body);
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.job-opportunities__search-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-opportunities__search-clear,
+.job-opportunities__search-submit {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.job-opportunities__search-clear {
+  background-color: var(--color-text-body);
+  color: var(--color-primary-white);
+}
+
+.job-opportunities__search-submit {
+  background-color: var(--color-accent);
+  color: var(--color-primary-white);
+}
+
+.job-opportunities__search-result {
+  font-size: 14px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.job-opportunities__search-result strong {
+  font-weight: 700;
 }
 
