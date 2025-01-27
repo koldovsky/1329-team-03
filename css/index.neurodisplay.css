@@ -9,6 +9,13 @@
     min-width: 320px;
     margin: 0;
     padding: 0;
+
+    @media (min-width: 767px) and (max-width: 991px) {
+        padding: 105px 0px;
+    } 
+    @media (min-width: 992px) {
+        padding: 120px 0px;
+    }
 }
 
 .neurodisplay__content{
@@ -17,7 +24,6 @@
     align-items: center;
     max-width: 100%;
     flex-wrap: wrap;
-    padding: 0 30px;
     background: var(--color-bg-second);
 }
 
