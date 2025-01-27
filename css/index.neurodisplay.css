@@ -1,67 +1,134 @@
-.neurodisplay {
+.neurodisplay{
     display: block;
     position: relative;
     overflow: hidden;
 }
 
-.neurodisplay__container {
+.neurodisplay__container{
     display: block;
     min-width: 320px;
     margin: 0;
     padding: 0;
 }
 
-.neurodisplay__content {
-    display: flex;
+.neurodisplay__content{
+    display: flex; 
     justify-content: space-between;
     align-items: center;
+    max-width: 100%;
     flex-wrap: wrap;
     padding: 0 30px;
     background: var(--color-bg-second);
 }
 
-.neurodisplay_image-container {
+.neurodisplay_image-container{
     flex: 1;
-    width: 100%; /* Забезпечує адаптивну ширину */
-    max-width: 50%; /* Максимальна ширина для більших екранів */
+    max-width: 50%; 
     position: relative;
     overflow: hidden;
-    aspect-ratio: 16 / 9; /* Використання aspect-ratio для коректного співвідношення сторін */
-    box-sizing: border-box;
+    padding-top: 60%; 
 }
 
-.neurodisplay_image {
-    width: 100%; /* Зображення займає всю ширину контейнера */
-    height: 100%; /* Зображення заповнює контейнер */
-    position: absolute;
-    top: 0;
+.neurodisplay_image{
+    min-height: 32px;
+    align-self: stretch;
+    object-position: 49.809% 100%;
+    bottom: 0;
     left: 0;
-    object-fit: cover; /* Зображення обрізається пропорційно */
-    object-position: center;
+    position: absolute;
+    object-fit: cover;
 }
 
-.neurodisplay__text_container {
-    flex: 1;
-    max-width: 50%;
-    padding: 0 20px;
+.neurodisplay__text_container{
+    flex: 1; 
+    max-width: 50%; 
+    padding: 0 20px; 
 }
 
-.neurodisplay__title {
+.neurodisplay__title{
     display: block;
     color: var(--color-primary);
     font-family: var(--font-title);
     font-weight: 400;
     margin-top: 20px;
-    margin-bottom: 0;
+    margin-bottom: 0px;
     font-size: 42px;
+    
 }
 
-.slash {
+.slash{
+    color: --color-accent;
+}
+
+.neurodisplay__status{
+    color: var(--color-accent-additional);
+    font-family: var(--font-text);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16.8px;
+    margin: 0;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+}
+
+.neurodisplay__price{
+    color: var(--color-accent-additional);
+    font-family: var(--font-text);
+    display: block;
+    margin: 0px;
+    font-size: 30px;
+    line-height: 42px;
+    font-weight: 700;
+}
+
+.neurodisplay__description{
+    color: var(--color-text-body);
+    font-family: var(--font-text);
+    display: block;
+    font-size: 17px;
+    line-height: 23.8px;
+    /* font-weight: 400; */
+    margin-top: 25px;
+    margin-bottom: 0;
+}
+
+.neurodisplay__specs-title{
     color: var(--color-accent);
+    font-family: var(--font-text);
+    display: block;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 28.6px;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.neurodisplay__specs{
+color: var(--color-text-body);
+font-family: var(--font-text);
+display: block;
+font-size: 14px;
+line-height: 19.6px;
+margin-top: 20px;
+}
+
+.neurodisplay__specs-item{
+    margin: 0;
 }
 
 
-.button_order {
+.neurodisplay__specs-item_bold{
+    font-weight: 700;
+    line-height: 19.6 px;
+}
+
+.neurodisplay__button{
+    display: flex;
+    margin-top: 35px;
+    
+}
+
+.button_order{
     display: inline-block;
     font-size: 14px;
     font-weight: 700;
@@ -73,78 +140,10 @@
     background-color: var(--color-accent-additional);
     color: var(--color-primary-white);
     border: 1px solid var(--color-accent-additional);
-}
 
-.button_order:hover {
-    cursor: pointer;
-    background-color: var(--color-primary);
-    border: 1px solid var(--color-primary);
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .neurodisplay__content {
-        flex-direction: column;
-        padding: 0 20px;
-    }
-
-    .neurodisplay_image-container,
-    .neurodisplay__text_container {
-        max-width: 100%;
-    }
-
-    .neurodisplay__title {
-        font-size: 30px;
-    }
-
-    .neurodisplay__price {
-        font-size: 24px;
-    }
-
-    .neurodisplay__description {
-        font-size: 16px;
-    }
-
-    .neurodisplay__specs-title {
-        font-size: 18px;
-    }
-
-    .neurodisplay__specs {
-        font-size: 12px;
-    }
-
-    .button_order {
-        width: 100%;
-        margin-top: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .neurodisplay_image-container {
-        aspect-ratio: 4 / 3; /* Інше співвідношення для мобільних пристроїв */
-    }
-
-    .neurodisplay__title {
-        font-size: 24px;
-    }
-
-    .neurodisplay__price {
-        font-size: 20px;
-    }
-
-    .neurodisplay__description {
-        font-size: 14px;
-    }
-
-    .neurodisplay__specs-title {
-        font-size: 16px;
-    }
-
-    .neurodisplay__specs {
-        font-size: 10px;
-    }
-
-    .button_order {
-        padding: 10px 15px;
+    &:hover {
+        cursor: pointer;
+        background-color: var(--color-primary);
+        border: 1px solid var(--color-primary);
     }
 }
