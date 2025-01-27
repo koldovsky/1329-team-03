@@ -60,15 +60,6 @@
     color: var(--color-accent);
 }
 
-.neurodisplay__status,
-.neurodisplay__price,
-.neurodisplay__description,
-.neurodisplay__specs-title,
-.neurodisplay__specs,
-.neurodisplay__specs-item,
-.neurodisplay__button {
-    /* Збережено початкові стилі */
-}
 
 .button_order {
     display: inline-block;
