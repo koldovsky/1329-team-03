@@ -44,7 +44,7 @@
           margin: -105px 0px;
         }
 
-        @media (max-width: 992px) {
+        @media (min-width: 992px) {
           flex-basis: 50%;
           max-width: 50%;
           margin: -120px 0px;
