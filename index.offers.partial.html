@@ -1,73 +1,125 @@
 <!-- Домініка Сливка -->
 <section class="offers">
   <div class="offers__group">
-    <div class="offers__item">
-      <p class="offers__title">Free shipping on orders $100+</p>
-      <p class="offers__description">
-        Get advantage of our quick delivery to your door!
+    <article
+      class="offers__item1"
+      style="background-image: url('img/offers/free-shipping-background.webp')"
+      aria-hidden="true"
+    >
+      <div class="offers__item__content">
+        <p class="offers__title">
+          Free shipping on orders <span class="price-accent">$100+</span>
+        </p>
+        <p class="offers__description">
+          Get advantage of our quick delivery to your door!
+        </p>
+        <ul class="offers__list">
+          <li class="offers__list-item">
+            <em>Free delivery applies to standard shipping;</em>
+          </li>
+          <li class="offers__list-item">
+            <em>Get your items delivered straight to your door;</em>
+          </li>
+          <li class="offers__list-item">
+            <em>Transparent and straightforward shipping terms;</em>
+          </li>
+          <li class="offers__list-item">
+            <em>Specialty items may not qualify for free shipping.</em>
+          </li>
+        </ul>
+        <button
+          class="offers__button"
+          onclick="window.location.href='contacts.html';"
+        >
+          About Delivery
+        </button>
+      </div>
+    </article>
+    <article
+      class="offers__item2"
+      style="background-image: url('img/offers/air-pulse-background.webp')"
+      aria-hidden="true"
+    >
+      <div class="offers__item_content">
+        <p class="offers__title">
+          AirPulse <span class="price_accent_additional">R255 X</span> Wireless
+        </p>
+        <p class="offers__price">
+          <s class="offers__price--old">$240.00</s
+          ><span class="price_accent">$185.00</span>
+        </p>
+        <p class="offers__note">
+          <em>* Promo price until 30 November, 2024</em>
+        </p>
+        <button class="offers__button" onclick="window.location.href='#';">
+          Learn More
+        </button>
+      </div>
+    </article>
+  </div>
+  <article
+    class="offers__item3"
+    style="background-image: url('img/offers/discount-banner-bg.png')"
+    aria-hidden="true"
+  >
+    <div class="offers__item_content">
+      <p class="offers__title">
+        Up to 30% off on selected gear and accessories for designers
       </p>
-      <ul class="offers__list">
-        <li class="offers__list-item">
-          <em>Free delivery applies to standard shipping;</em>
-        </li>
-        <li class="offers__list-item">
-          <em>Get your items delivered straight to your door;</em>
-        </li>
-        <li class="offers__list-item">
-          <em>Transparent and straightforward shipping terms;</em>
-        </li>
-        <li class="offers__list-item">
-          <em>Specialty items may not qualify for free shipping.</em>
-        </li>
-      </ul>
+      <p class="offers__description">
+        Don't miss out on our summer sale! The offer ends soon.
+      </p>
       <button
         class="offers__button"
-        onclick="window.location.href='contacts.html';"
+        onclick="window.location.href='index.categories.partial.html';"
       >
-        About Delivery
+        Shop Now
       </button>
     </div>
-    <div class="offers__item">
-      <p class="offers__title">AirPulse R255 X Wireless</p>
-      <p class="offers__price">
-        <s class="offers__price--old">$240.00</s
-        ><span class="offers__price--new">$185.00</span>
-      </p>
-      <p class="offers__note"><em>* Promo price until 30 November, 2024</em></p>
-      <button class="offers__button" onclick="window.location.href='#';">
-        Learn More
-      </button>
-    </div>
-  </div>
-  <div class="offers__item">
-    <p class="offers__title">
-      Up to 30% off on selected gear and accessories for designers
-    </p>
-    <p class="offers__description">
-      Don't miss out on our summer sale! The offer ends soon.
-    </p>
-    <button
-      class="offers__button"
-      onclick="window.location.href='index.categories.partial.html';"
-    >
-      Shop Now
-    </button>
-  </div>
+  </article>
   <div class="offers__group">
-    <div class="offers__item">
-      <p class="offers__title">Wireless Sale</p>
-      <p class="offers__description">Multipurpose assistance for online.</p>
-    </div>
-    <div class="offers__item">
-      <p class="offers__badge">BEST SELLER</p>
-      <p class="offers__title">KeyGo X104 only for $259</p>
-      <p class="offers__price"><s class="offers__price--old">280</s></p>
-      <p class="offers__description">Multipurpose assistance for online.</p>
-    </div>
-    <div class="offers__item">
-      <p class="offers__badge">BEST SELLER</p>
-      <p class="offers__title">Monitor NovaScreen</p>
-      <p class="offers__price">starting from $199.99</p>
-    </div>
+    <article
+      class="offers__item4"
+      style="background-image: url('img/offers/wireless-sale-bg.webp')"
+      aria-hidden="true"
+    >
+      <div class="offers__item_content">
+        <p class="offers__title">Wireless Sale</p>
+        <p class="offers__description">Multipurpose assistance for online.</p>
+        <div id="countdown">
+          <div><span id="days"></span> Days</div>
+          <div><span id="hours"></span> Hours</div>
+          <div><span id="minutes"></span> Minutes</div>
+          <div><span id="seconds"></span> Seconds</div>
+        </div>
+      </div>
+    </article>
+    <article
+      class="offers__item5"
+      style="background-image: url('img/offers/keygo-bg.webp')"
+      aria-hidden="true"
+    >
+      <div class="offers__item_content">
+        <p class="offers__badge">BEST SELLER</p>
+        <p class="offers__title">
+          KeyGo X104 only for <span class="price_accent_additional">$259</span>
+        </p>
+        <p class="offers__price"><s class="offers__price--old">280</s></p>
+        <p class="offers__description">Multipurpose assistance for online.</p>
+      </div>
+    </article>
+    <article
+      class="offers__item6"
+      style="background-image: url('img/offers/monitor-bg.webp')"
+      aria-hidden="true"
+    >
+      <div class="offers__item_content">
+        <p class="offers__badge">BEST SELLER</p>
+        <p class="offers__title">Monitor NovaScreen</p>
+        <p class="offers__price">
+          starting from <span class="price-accent">$199.99</span>
+        </p>
+      </div>
+    </article>
   </div>
 </section>
