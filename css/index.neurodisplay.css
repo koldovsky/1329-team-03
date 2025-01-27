@@ -18,31 +18,48 @@
     }
 }
 
-.neurodisplay__content{
-    display: flex; 
+.neurodisplay__content {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 100%;
     flex-wrap: wrap;
     background: var(--color-bg-second);
+    vertical-align: baseline;
 
+    @media (max-width: 767px) {
+        flex-direction: column; /* Зображення переходить нижче тексту */
+    }
     @media (min-width: 768px) {
-        flex-direction: row-reverse;
-        flex-grow: 1;
+        flex-direction: column-reverse; /* Порядок для планшетів */
+    }
+    @media (min-width: 992px) {
+        flex-direction: row-reverse; /* Повернення до базового порядку для великих екранів */
     }
 }
 
-.neurodisplay_image-container{
+.neurodisplay_image-container {
     flex: 1;
-    max-width: 50%; 
+    max-width: 50%;
     position: relative;
     overflow: hidden;
-    padding-top: 60%; 
+    padding-top: 60%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    vertical-align: baseline;
+
+    @media (max-width: 767px) {
+        flex-basis: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
 
     @media (min-width: 768px) and (max-width: 991px) {
-        flex-basis: 50%;
-        max-width: 50%;
-        margin: -105px 0px;
+        flex-basis: 100%; /* Зображення займає всю ширину */
+        max-width: 100%; /* Гарантуємо повну ширину */
+        margin: 0;
+        padding-top: 50%; /* Пропорції можна налаштувати */
     }
 
     @media (min-width: 992px) {
