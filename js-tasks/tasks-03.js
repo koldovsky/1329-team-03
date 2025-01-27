@@ -20,18 +20,18 @@ function giveMeFive(obj) {
   return arr;
 }
 
-// Додатковий спосіб - менш ефективно
-function giveMeFive(obj) {
-  const result = [];
-  for (const key in obj) {
-    [key, obj[key]].forEach((k) => {
-      if (k.length == 5) {
-        result.push(k);
-      }
-    });
-  }
-  return result;
-}
+// Додатковий спосіб - менш ефективно - на кожному кроці створюється додатковий масив [key, obj[key]]
+// function giveMeFive(obj) {
+//   const result = [];
+//   for (const key in obj) {
+//     [key, obj[key]].forEach((k) => {
+//       if (k.length === 5) {
+//         result.push(k);
+//       }
+//     });
+//   }
+//   return result;
+// }
 
 // Додатковий спосіб, але метод filter повертає новий масив із відфільтрованими елементами
 function giveMeFive(obj) {
@@ -45,31 +45,26 @@ function giveMeFive(obj) {
 // https://www.codewars.com/kata/understanding-closures-the-basics/train/javascript
 // Функція buildFun створює масив функцій, де кожна функція при виклику повертає значення індексу,
 // на якому вона була створена.
+// Створення масиву з n елементів
+// Перший параметр в map, — це значення елемента масиву на кожній ітерації - невикористовуємо.
+// Другий параметр i — це індекс елемента масиву в поточній ітерації.
+// Для кожного елемента масиву ми створюємо нову функцію: () => i.
 function buildFun(n) {
-  return Array.from(
-    // Створення масиву з n елементів
-    { length: n },
-    // Перший параметр в map, — це значення елемента масиву на кожній ітерації - невикористовуємо.
-    // Другий параметр i — це індекс елемента масиву в поточній ітерації.
-    // Для кожного елемента масиву ми створюємо нову функцію: () => i.
-    // Функція, яка передається в Array.from і застосовується до кожного елемента нового масиву,
-    // повертає нову функцію, яка при виклику віддасть значення індексу i
-    (_, i) => () => i
-  );
+  return Array.from({ length: n }, (_, i) => () => i);
 }
 
-// Або
-function buildFun(n) {
-  return Array.from({ length: n }).map((_, i) => () => i);
-}
+// Або, але метод map повертає новий масив
+// function buildFun(n) {
+//   return Array.from({ length: n }).map((_, i) => () => i);
+// }
 
 // Додатковий спосіб
+// Кожна функція повертає значення змінної i - є замиканням (closure),
+// оскільки вона має доступ до змінної i навіть після завершення виконання циклу.
 function buildFun(n) {
   var res = [];
 
   for (let i = 0; i < n; i++) {
-    // Кожна функція повертає значення змінної i - є замиканням (closure),
-    // оскільки вона має доступ до змінної i навіть після завершення виконання циклу.
     res.push(() => i);
   }
 
@@ -87,18 +82,13 @@ class Shark extends Animal {
 class Cat extends Animal {
   constructor(name, age, status) {
     super(name, age, 4, "cat", status); // Кількість ніг 4 і вид "cat"
-    // Метод introduce для кота з додаванням "Meow meow!"
-    // Створення методу таким чином не дозволяє успадковувати його в підкласах
-    // this.introduce = () => super.introduce() + '  Meow meow!';
-    // Або
+    // Або, але створення методу таким чином не дозволяє успадковувати його в підкласах
     // this.introduce = () => `${super.introduce()}  Meow meow!`;
   }
 
   // Створення методу таким чином дозволяє успадковувати його в підкласах
   introduce() {
     return `${super.introduce()}  Meow meow!`;
-    // Або
-    // return super.introduce() + '  Meow meow!'
   }
 }
 
@@ -106,10 +96,11 @@ class Dog extends Animal {
   constructor(name, age, status, master) {
     super(name, age, 4, "dog", status); // Кількість ніг 4 і вид "dog"
     this.master = master;
-    // Створення методу таким чином не дозволяє успадковувати його в підкласах
+    // Або, але створення методу таким чином не дозволяє успадковувати його в підкласах
     // this.greetMaster = () => 'Hello' + " " + master;
   }
 
+  // Створення методу таким чином дозволяє успадковувати його в підкласах
   greetMaster() {
     return `Hello ${this.master}`;
   }
