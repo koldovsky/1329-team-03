@@ -69,19 +69,14 @@
 
 .neurodisplay__text_container {
     flex: 1;
-    max-width: 50%;
+    max-width: 50%; /* Текст займає 50% ширини */
     padding: 0 20px;
 
-    @media (max-width: 767px) {
-        flex-basis: 100%; /* Текст займає всю ширину */
-        max-width: 100%; /* Гарантуємо повну ширину */
-        padding: 20px;
-    }
-
-    @media (min-width: 768px) and (max-width: 991px) {
+    @media (max-width: 768px) {
+        /* Текст займає всю ширину на мобільних пристроях */
         flex-basis: 100%;
         max-width: 100%;
-        padding: 30px;
+        padding: 20px;
     }
 }
 
