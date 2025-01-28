@@ -365,7 +365,7 @@
                     fill: none;
                   }
 
-                  .deals__countdown-text {
+                  .countdown-days, .countdown-hours, .countdown-minutes, .countdown-seconds{
                     font-size: 36px;
                     font-family: var(--font-title);
                     fill: var(--color-primary);

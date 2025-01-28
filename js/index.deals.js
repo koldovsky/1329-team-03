@@ -1,19 +1,21 @@
-function startCountdown() {
-  const endDate = new Date("2025-02-13T23:59:59");
-  const daysEl = document.getElementById("deals-days");
-  const hoursEl = document.getElementById("deals-hours");
-  const minutesEl = document.getElementById("deals-minutes");
-  const secondsEl = document.getElementById("deals-seconds");
+function startCountdown(id, targetDate) {
+  const countdownEl = document.getElementById(id);
+  if (!countdownEl) return;
+
+  const daysEl = countdownEl.querySelector(".countdown-days");
+  const hoursEl = countdownEl.querySelector(".countdown-hours");
+  const minutesEl = countdownEl.querySelector(".countdown-minutes");
+  const secondsEl = countdownEl.querySelector(".countdown-seconds");
 
   function updateCountdown() {
     const now = new Date();
-    const diff = endDate - now;
+    const diff = new Date(targetDate) - now;
 
     if (diff <= 0) {
-      daysEl.textContent = "0";
-      hoursEl.textContent = "0";
-      minutesEl.textContent = "0";
-      secondsEl.textContent = "0";
+      daysEl.textContent = "00";
+      hoursEl.textContent = "00";
+      minutesEl.textContent = "00";
+      secondsEl.textContent = "00";
       return;
     }
 
@@ -32,4 +34,7 @@ function startCountdown() {
   setInterval(updateCountdown, 1000);
 }
 
-startCountdown();
+// Initialize multiple countdowns with different IDs and target dates
+startCountdown("deals__countdown-headphones", "2025-01-31T23:59:59");
+startCountdown("deals__countdown-keyboards", "2025-02-13T00:00:00");
+
