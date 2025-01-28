@@ -1,18 +1,69 @@
-.offers__group-one {
-  padding: 0 24px;
+/* .offers {
+  display: block;
+  .offers__group-one {
 
-  .offers__item-one {
-    padding: 0 15px;
-    background-image: url(../img/offers/free-shipping-background.webp);
-    min-height: 586px;
-    background-size: cover;
+    display: grid;
+    gap: 20px;
+
+    .offers__item-one {
+      padding: 0 15px;
+      background-image: url(../img/offers/free-shipping-background.webp);
+      min-height: 586px;
+      background-size: cover;
+    }
+
+    .offers__item-two {
+      padding: 0 15px;
+      margin-top: 50px;
+      background-image: url(../img/offers/air-pulse-background.webp);
+      min-height: 396.2px;
+      background-size: cover;
+    }
+
+  }
+}
+
+@media (min-width: 640px) {
+  .offers__group-one {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .offers__item-two {
-    padding: 0 15px;
-    margin-top: 50px;
-    background-image: url(../img/offers/air-pulse-background.webp);
-    min-height: 396.2px;
-    background-size: cover;
+} */
+
+.offers {
+  display: block;
+}
+.offers_container {
+  padding: 0 15px;
+}
+
+.offers__group-one {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.offers__item {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+.offers__content {
+  display: flex;
+  /* flex-direction: column; */
+  min-height: 586px;
+  max-width: none;
+  padding: 0px 15px;
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .offers__group-one {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
   }
 }
