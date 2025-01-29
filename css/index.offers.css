@@ -1,40 +1,6 @@
-/* .offers {
+.offers__section-one {
   display: block;
-  .offers__group-one {
-
-    display: grid;
-    gap: 20px;
-
-    .offers__item-one {
-      padding: 0 15px;
-      background-image: url(../img/offers/free-shipping-background.webp);
-      min-height: 586px;
-      background-size: cover;
-    }
-
-    .offers__item-two {
-      padding: 0 15px;
-      margin-top: 50px;
-      background-image: url(../img/offers/air-pulse-background.webp);
-      min-height: 396.2px;
-      background-size: cover;
-    }
-
-  }
-}
-
-@media (min-width: 640px) {
-  .offers__group-one {
-    grid-template-columns: 1fr 1fr;
-  }
-
-} */
-
-.offers {
-  display: block;
-}
-.offers_container {
-  padding: 0 15px;
+  padding: 10px 24px 30px;
 }
 
 .offers__group-one {
@@ -42,28 +8,136 @@
   grid-template-columns: 1fr;
   align-items: center;
   justify-content: space-around;
+  gap: 30px;
 }
 
 .offers__item {
   position: relative;
+  min-width: 272px;
+  min-height: 460px;
+  word-wrap: break-word;
   width: 100%;
+  height: 100%;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-position: 20% 80%;
   border-radius: 10px;
 }
 
 .offers__content {
   display: flex;
-  /* flex-direction: column; */
-  min-height: 586px;
+  flex-direction: column;
   max-width: none;
-  padding: 0px 15px;
+  padding: 46px 30px;
+  text-align: left;
+  /* height: 100%; */
+}
+
+.offers__title {
+  display: inline-block;
+  color: var(--color-primary);
+  font-family: var(--font-text);
+  font-size: 30px;
+  font-weight: bold;
   text-align: left;
 }
 
-@media (min-width: 640px) {
+.offers__price-accent-big {
+  display: inline-block;
+  color: var(--color-accent);
+  font-family: var(--font-text);
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+}
+.offers__price-accent-small {
+  display: inline-block;
+  color: var(--color-accent);
+  font-family: var(--font-text);
+  font-size: 23px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.offers__description-grey {
+  display: inline-block;
+  color: #4d4d4d;
+  font-family: var(--font-text);
+  font-size: 19px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.offers__list {
+  display: inline-block;
+  list-style-type: disc;
+  color: var(--color-text-body);
+  font-family: var(--font-text);
+  font-size: 14px;
+  text-align: left;
+}
+
+.offers__list li::marker {
+  color: var(--color-accent);
+}
+
+.btn-primary-orange {
+  background-color: var(--color-accent-additional);
+  color: var(--color-primary-white);
+  padding: 12px 21px;
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transiton-primary-all);
+  align-self: flex-start;
+}
+
+.btn-primary-orange:hover {
+  background-color: var(--color-primary);
+}
+
+.offers__title-light {
+  display: inline-block;
+  color: var(--color-primary-white);
+  font-family: var(--font-text);
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.offers__price-accent_additional {
+  display: inline-block;
+  color: var(--color-accent-additional);
+  font-family: var(--font-text);
+  font-size: 30px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.offers__light-text {
+  display: inline-block;
+  color: var(--color-primary-white);
+  font-family: var(--font-text);
+  font-size: 14px;
+  text-align: left;
+}
+
+.offers__price-accent-small {
+  display: inline-block;
+  color: var(--color-accent);
+  font-family: var(--font-text);
+  font-size: 23px;
+  font-weight: bold;
+  text-align: left;
+}
+
+@media (min-width: 480px) {
   .offers__group-one {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
   }
 }
