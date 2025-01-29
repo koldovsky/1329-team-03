@@ -1,5 +1,6 @@
 function init() {
   import("./header.js");
+  import("./index.hero.js");
   import("./index.deals.js");
 }
 
