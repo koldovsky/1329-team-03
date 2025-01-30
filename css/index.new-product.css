@@ -8,8 +8,8 @@
     display: block;
     background-color: var(--color-primary-white);
     min-width: 320px;
-    max-width: 1200px;
-    margin: 0;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
     padding: 0;
 
     @media (min-width: 767px) and (max-width: 991px) {
