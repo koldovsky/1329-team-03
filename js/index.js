@@ -3,6 +3,7 @@ function init() {
   import("./index.hero.js");
   import("./index.deals.js");
   import("./footer.js");
+  import("./index.categories-aside.accordion.js");
 }
 
 const totalPartials = document.querySelectorAll(
