@@ -1,2 +1,6 @@
-//const footer = document.querySelector("h2.footer__title");
-//footer.innerText = "Hello";
+const clockContainer = document.querySelector(".reward-line__clock");
+function updateClock() {
+    clockContainer.innerText = new Date().toLocaleTimeString("uk");
+}
+
+setInterval(updateClock, 1000);

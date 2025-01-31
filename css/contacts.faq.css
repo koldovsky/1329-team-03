@@ -77,6 +77,7 @@
 
           &.active::after {
             content: "-";
+            transform: translateY(-50%) rotate(180deg);
           }
         }
 
@@ -84,7 +85,9 @@
           margin-top: 20px;
           font-size: 1.1rem;
           color: var(--color-text-body);
-          display: none;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
         }
       }
     }
