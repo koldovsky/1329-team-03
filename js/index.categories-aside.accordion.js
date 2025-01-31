@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   // Отримуємо всі акордеони
   const accordionButtons = document.querySelectorAll(
     ".filters__item .filter-button"
