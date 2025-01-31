@@ -24,54 +24,6 @@ async function fetchcards() {
   }
 }
 
-/* Функція для відображення таймера в панелі фільтрів */
-function renderCountdownTimer() {
-  // Створюємо контейнер для таймера
-  const countdownContainer = document.createElement("div");
-  countdownContainer.classList.add("filters__countdown");
-  countdownContainer.id = "filters__countdown";
-
-  // Створюємо контент для таймера
-  countdownContainer.innerHTML = `
-    <div class="filters__countdown-content">
-      <div class="filters__countdown-item">
-        <svg class="filters__countdown-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect class="filters__countdown-rect" x="10" y="10" width="100" height="100" rx="5"></rect>
-          <text class="countdown-days" x="50%" y="50%" text-anchor="middle">00</text>
-          <text class="filters__countdown-label" x="50%" y="50%" dy="28" text-anchor="middle">Days</text>
-        </svg>
-      </div>
-      <div class="filters__countdown-item">
-        <svg class="filters__countdown-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect class="filters__countdown-rect" x="10" y="10" width="100" height="100" rx="5"></rect>
-          <text class="countdown-hours" x="50%" y="50%" text-anchor="middle">00</text>
-          <text class="filters__countdown-label" x="50%" y="50%" dy="28" text-anchor="middle">Hours</text>
-        </svg>
-      </div>
-      <div class="filters__countdown-item">
-        <svg class="filters__countdown-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect class="filters__countdown-rect" x="10" y="10" width="100" height="100" rx="5"></rect>
-          <text class="countdown-minutes" x="50%" y="50%" text-anchor="middle">00</text>
-          <text class="filters__countdown-label" x="50%" y="50%" dy="28" text-anchor="middle">Minutes</text>
-        </svg>
-      </div>
-      <div class="filters__countdown-item">
-        <svg class="filters__countdown-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect class="filters__countdown-rect" x="10" y="10" width="100" height="100" rx="5"></rect>
-          <text class="countdown-seconds" x="50%" y="50%" text-anchor="middle">00</text>
-          <text class="filters__countdown-label" x="50%" y="50%" dy="28" text-anchor="middle">Seconds</text>
-        </svg>
-      </div>
-    </div>
-  `;
-
-  // Додаємо таймер в панель фільтрів
-  const filterPanel = document.querySelector(".filters__panel");
-  if (filterPanel) {
-    filterPanel.appendChild(countdownContainer); // Додаємо таймер до панелі фільтрів
-  }
-}
-
 /* Функція для відображення товарів на сторінці */
 function rendercards(cards) {
   // Знаходимо контейнер, де будуть відображатись картки товарів
