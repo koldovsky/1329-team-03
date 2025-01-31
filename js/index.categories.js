@@ -91,49 +91,42 @@ function rendercards(cards) {
     }`;
 
     // Встановлюємо внутрішній HTML для кожної картки
+    // Якщо картка має промо-мітку, показуємо її
     cardElement.innerHTML = `
-        <!-- Контейнер для зображення картки -->
-        <div class="card__image-container">
-          <!-- Якщо картка має промо-мітку, показуємо її -->
+        <div class="card__image-container">          
           ${
             card.promoLabel
-              ? `<span class="card__label">${card.promoLabel}</span>` // Відображаємо промо-мітку
-              : "" // Якщо немає промо-мітки, нічого не виводимо
-          }
-          <!-- Зображення товару -->
+              ? `<span class="card__label">${card.promoLabel}</span>` 
+              : "" 
+          }          
           <img
-            src="${card.image}"  <!-- Джерело зображення картки -->
-            alt="${card.name}"    <!-- Опис зображення (назва товару) -->
-            class="card__image"   <!-- Клас для стилізації зображення -->
+            src="${card.image}" 
+            alt="${card.name}"   
+            class="card__image" 
           />
         </div>
         
-        <!-- Інформація про картку: назва, ціна тощо -->
         <div class="card__info">
           <h2 class="card__name">
             <a href="#" class="card__name-link">${
               card.name
-            }</a> <!-- Назва товару з посиланням -->
+            }</a> 
           </h2>
           
-          <!-- Контейнер для цін товару -->
           <div class="card__price-container">
-            <!-- Якщо є стара ціна, показуємо її як застарілу -->
             ${
               card.oldPrice
                 ? `<p class="card__price card__price--old">$${card.oldPrice.toFixed(
                     2
-                  )} USD</p>` // Форматуємо стару ціну до 2 знаків після коми
-                : "" // Якщо старої ціни немає, нічого не виводимо
+                  )} USD</p>` 
+                : "" 
             }
             
             <!-- Поточна ціна товару -->
             <p class="card__price">$${card.price.toFixed(
               2
-            )} USD</p> <!-- Форматуємо поточну ціну -->
+            )} USD</p> 
           </div>
-          
-          <!-- Кнопка для покупки товару -->
           <button class="card__button card__button--cart">Buy Now</button>
         </div>
     `;
@@ -155,7 +148,8 @@ function getFilteredcards() {
 /* Фільтрує картки за поточним станом фільтрів */
 function filtercards(cards) {
   return cards.filter((card) => {
-    // Перевірка категорії картки. Якщо категорія не "all" (усі), то перевіряємо чи співпадає категорія картки з поточною
+    // Перевірка категорії картки. Якщо категорія не "all" (усі), то перевіряємо 
+    // чи співпадає категорія картки з поточною
     if (
       filterState.category !== "all" &&
       card.category.toLowerCase() !== filterState.category.toLowerCase()
@@ -171,7 +165,8 @@ function filtercards(cards) {
       return false; // Якщо ціна картки не в межах фільтрації, виключаємо її
     }
 
-    // Перевірка кольорів картки. Якщо фільтри містять кольори, то перевіряємо, чи є хоча б один колір картки в фільтрі
+    // Перевірка кольорів картки. Якщо фільтри містять кольори, то перевіряємо, 
+    // чи є хоча б один колір картки в фільтрі
     if (
       filterState.colors.size > 0 &&
       !card.colors.some((color) => filterState.colors.has(color.toLowerCase()))
@@ -179,7 +174,8 @@ function filtercards(cards) {
       return false; // Якщо немає жодного кольору, який є в фільтрі, виключаємо картку
     }
 
-    // Перевірка з'єднань картки. Якщо фільтри містять з'єднання, то перевіряємо, чи є хоча б одне з'єднання картки в фільтрі
+    // Перевірка з'єднань картки. Якщо фільтри містять з'єднання, то перевіряємо, 
+    // чи є хоча б одне з'єднання картки в фільтрі
     if (
       filterState.connections.size > 0 &&
       !card.connections.some((conn) =>
@@ -189,7 +185,8 @@ function filtercards(cards) {
       return false; // Якщо немає жодного з'єднання, яке є в фільтрі, виключаємо картку
     }
 
-    // Перевірка розміру екрану картки. Якщо фільтри містять певні розміри екрана, перевіряємо чи містить картка необхідний розмір
+    // Перевірка розміру екрану картки. Якщо фільтри містять певні розміри екрана, перевіряємо 
+    // чи містить картка необхідний розмір
     if (
       filterState.screenSizes.size > 0 &&
       !filterState.screenSizes.has(String(card.screenSize))
@@ -341,41 +338,37 @@ function createPriceRange(minPrice, maxPrice) {
   return `
     <div class="filters__range">
       <div class="filters__range-slider">
-        <!-- Слайдер для діапазону цін -->
         <div class="filters__range-progress"></div>
         
         <div class="filters__range-inputs">
-          <!-- Вхід для мінімальної ціни (слайдер) -->
           <input
             type="range"
             class="filters__range-input filters__range-input--min"
-            min="${minPrice}"   <!-- Мінімальне значення слайдера -->
-            max="${maxPrice}"   <!-- Максимальне значення слайдера -->
-            value="${minPrice}" <!-- Початкове значення для мінімальної ціни -->
-            step="1"            <!-- Крок слайдера (одиниця) -->
+            min="${minPrice}"   
+            max="${maxPrice}"  
+            value="${minPrice}" 
+            step="1"      
           />
-          
-          <!-- Вхід для максимальної ціни (слайдер) -->
+
           <input
             type="range"
             class="filters__range-input filters__range-input--max"
-            min="${minPrice}"   <!-- Мінімальне значення слайдера -->
-            max="${maxPrice}"   <!-- Максимальне значення слайдера -->
-            value="${maxPrice}" <!-- Початкове значення для максимальної ціни -->
-            step="1"            <!-- Крок слайдера (одиниця) -->
+            min="${minPrice}"  
+            max="${maxPrice}"
+            value="${maxPrice}"
+            step="1"         
           />
         </div>
       </div>
-      
-      <!-- Виведення значень діапазону цін -->
+
       <div class="filters__range-values">
         <div class="filters__range-value">$${minPrice.toFixed(
           2
-        )}</div>   <!-- Мінімальна ціна -->
-        <div class="filters__range-dash">-</div>                            <!-- Роздільник між цінами -->
+        )}</div>   
+        <div class="filters__range-dash">-</div>                         
         <div class="filters__range-value">$${maxPrice.toFixed(
           2
-        )}</div>   <!-- Максимальна ціна -->
+        )}</div>  
       </div>
     </div>
   `;
