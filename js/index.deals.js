@@ -1,7 +1,6 @@
 // Halyna Fedkiv
 function startCountdown(id, targetDate) {
   const countdownEl = document.getElementById(id);
-  if (!countdownEl) return;
 
   const daysEl = countdownEl.querySelector(".countdown-days");
   const hoursEl = countdownEl.querySelector(".countdown-hours");
