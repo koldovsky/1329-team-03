@@ -77,6 +77,7 @@
 
           &.active::after {
             content: "-";
+            transform: translateY(-50%) rotate(180deg);
           }
         }
 
@@ -87,11 +88,6 @@
           max-height: 0;
           overflow: hidden;
           transition: max-height 0.3s ease;
-
-          &.active::after {
-            content: "-";
-            transform: translateY(-50%) rotate(180deg);
-          }
         }
       }
     }
