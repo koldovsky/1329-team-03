@@ -11,7 +11,8 @@
 }
 
 /* Delete */
-html {
+html, section, header, footer, main {
+  max-width: 100vw;
   overflow-x: hidden;
 }
 
