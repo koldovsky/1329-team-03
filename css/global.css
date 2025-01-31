@@ -18,7 +18,7 @@
   /* color of subtitles (a high font) and dark elements */
   --color-primary: rgb(39, 39, 39); /* #272727 */
   /* color of descriptions */
-  --color-text-body: rgb(106, 106, 106);
+  --color-text-body: rgb(106, 106, 106); 
   /* color of most buttons and text accents */
   --color-accent: rgb(28, 76, 151);
   /* color of prices and accent buttons */
@@ -35,6 +35,10 @@
   --color-bg-second: rgb(248, 243, 239);
   /* color of secondary button's background */
   --color-secondary-button: #464c5c;
+  /* color of card label background */
+  --card-label-background: #333;
+  /* color of card's shadow */
+  --card-box-shadow: rgba(0, 0, 0, 0.1);
   /* color of divider */
   --color-divider: rgba(0, 0, 0, 0.07);
   /* color of bottom line */
@@ -48,7 +52,7 @@
   /* background color of out-of-stock button */
   --badge-out-of-stock-background: #ffddd9;
   /* color of out-of-stock button */
-  --badge-out-of-stock-color: #cc3833;
+  --badge-out-of-stock-color: #cc3833; 
 
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;

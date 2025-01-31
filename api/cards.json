@@ -1,12 +1,12 @@
 {
-  "products": [
+  "cards": [
     {
       "id": 1,
       "name": "AeroBeats 500",
       "price": 124.0,
       "oldPrice": null,
       "category": "headphones",
-      "image": "./images/products/aero-beats-500.png",
+      "image": "./img/hero-index/popular/aerobeats-500.png",
       "promoLabel": "sale",
       "colors": ["black", "white"],
       "connections": ["wired"]
@@ -17,7 +17,7 @@
       "price": 39.0,
       "oldPrice": 49.0,
       "category": "mice",
-      "image": "./images/products/aero-track-300.png",
+      "image": "./img/categories-cards/aerotrack.png",
       "promoLabel": null,
       "colors": ["black"],
       "connections": ["wired", "bluetooth"]
@@ -28,7 +28,7 @@
       "price": 95.0,
       "oldPrice": null,
       "category": "headphones",
-      "image": "./images/products/aero-wave-250.png",
+      "image": "./img/hero-index/popular/aerowave-250.png",
       "promoLabel": null,
       "colors": ["green", "orange"],
       "connections": ["wired", "bluetooth"]
@@ -39,7 +39,7 @@
       "price": 32.0,
       "oldPrice": 38.0,
       "category": "mice",
-      "image": "./images/products/grip-x5.png",
+      "image": "./img/categories-cards/aerogrip.png",
       "promoLabel": null,
       "colors": ["red", "black"],
       "connections": ["wired", "bluetooth"]
@@ -50,7 +50,7 @@
       "price": 42.0,
       "oldPrice": 49.0,
       "category": "mice",
-      "image": "./images/products/lumi-mouse-pro.png",
+      "image": "./img/hero-index/popular/lumimouse-pro.png",
       "promoLabel": "new",
       "colors": ["pink"],
       "connections": ["wired", "bluetooth"]
@@ -61,7 +61,7 @@
       "price": 199.99,
       "oldPrice": null,
       "category": "monitors",
-      "image": "./images/products/lumi-vision.png",
+      "image": "./img/categories-cards/lumivision.png",
       "promoLabel": null,
       "screenSize": 24,
       "colors": ["black"],
@@ -73,7 +73,7 @@
       "price": 65.0,
       "oldPrice": 72.0,
       "category": "keyboards",
-      "image": "./images/products/neuro-key-1000.png",
+      "image": "./img/categories-cards/neurokey.png",
       "promoLabel": "sale",
       "colors": ["blue", "black"],
       "connections": ["wired", "bluetooth"]
@@ -84,7 +84,7 @@
       "price": 105.0,
       "oldPrice": null,
       "category": "headphones",
-      "image": "./images/products/neuro-sound-700.png",
+      "image": "./img/hero-index/popular/neurosound-700.png",
       "promoLabel": "new",
       "colors": ["white"],
       "connections": ["wired", "bluetooth"]
@@ -95,7 +95,7 @@
       "price": 35.0,
       "oldPrice": 40.0,
       "category": "mice",
-      "image": "./images/products/nova-mouse-2000.png",
+      "image": "./img/categories-cards/novamouse.png",
       "promoLabel": "free shipping",
       "colors": ["black"],
       "connections": ["wired", "bluetooth"]
@@ -106,7 +106,7 @@
       "price": 210.0,
       "oldPrice": null,
       "category": "monitors",
-      "image": "./images/products/nova-screen-ultra.png",
+      "image": "./img/hero-index/popular/novascreen-ultra.png",
       "promoLabel": "bestseller",
       "screenSize": 27,
       "colors": ["white"],
@@ -118,7 +118,7 @@
       "price": 92.0,
       "oldPrice": null,
       "category": "headphones",
-      "image": "./images/products/nova-sound-pro-3000.png",
+      "image": "./img/hero-index/popular/novasound-pro-3000.png",
       "promoLabel": "limited",
       "colors": ["orange"],
       "connections": ["wired", "bluetooth"]
@@ -129,7 +129,7 @@
       "price": 54.0,
       "oldPrice": 60.0,
       "category": "keyboards",
-      "image": "./images/products/quantum-board-x1.png",
+      "image": "./img/hero-index/popular/quantumboard-x1.png",
       "promoLabel": "new",
       "colors": ["white"],
       "connections": ["wired", "bluetooth"]

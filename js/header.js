@@ -1,6 +1,6 @@
 const burgerIcon = document.querySelector("#js-burger");
 const mobileMenuBox = document.querySelector("#js-mobile-menu-box");
-const mobileMenuLinks = mobileMenuBox.querySelectorAll("a");
+// const mobileMenuLinks = mobileMenuBox.querySelectorAll("a");
 
 function toggleMenuElements() {
   document.body.classList.toggle("overflow-hidden");
@@ -12,8 +12,8 @@ burgerIcon.addEventListener("click", () => {
   toggleMenuElements();
 });
 
-mobileMenuLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    toggleMenuElements();
-  });
-});
+// mobileMenuLinks.forEach((link) => {
+//   link.addEventListener("click", () => {
+//     toggleMenuElements();
+//   });
+// });

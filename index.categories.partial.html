@@ -1,6 +1,6 @@
 <!-- Maksym Zymyn -->
-<section class="product-gallery" id="product-gallery">
-  <div class="product-gallery__container container">
+<section class="categories">
+  <div class="categories__container container">
     <div class="section__header">
       <h2 class="section__title">CATEGORIES</h2>
       <h3 class="section__subtitle">
@@ -13,18 +13,29 @@
       </p>
     </div>
     <div class="divider"></div>
-    <div class="product-gallery__content">
-      <aside
-        data-hx-trigger="load"
-        data-hx-swap="outerHTML"
-        data-hx-get="./index.categories-aside.partial.html"
-      ></aside>
-
-      <div
-        data-hx-trigger="load"
-        data-hx-swap="outerHTML"
-        data-hx-get="./index.categories-cards.partial.html"
-      ></div>
+    <div class="filters__toggle">
+      <span class="filters__toggle-icon">
+        <img src="./img/categories-aside/filters.svg" alt="Filters" />
+      </span>
+      <span class="filters__toggle-text">Filters</span>
+    </div>
+    <div class="categories__container">
+      <div class="categories__filters">
+        <div class="filters__container">
+          <div class="filters__header">
+            <h3 class="filters__title">Filters</h3>
+            <button class="filters__close">&times;</button>
+          </div>
+          <div class="filters__content"></div>
+        </div>
+        <div class="filters__actions">
+          <button class="filters__apply-button">Apply filters: 0</button>
+          <button class="filters__clear-button">Clear all</button>
+        </div>
+      </div>
+      <div class="categories__content">
+        <section class="cards"></section>
+      </div>
     </div>
   </div>
 </section>
