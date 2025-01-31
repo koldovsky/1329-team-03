@@ -1,29 +1,24 @@
-/* Загальні стилі для футера */
 .footer {
     background-color: var(--color-primary);
     color: var(--color-primary-white);
     font-size: 14px;
     line-height: 1.6;
-
 }
 
-/* Секція reward */
 .footer__reward {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     background-color: var(--color-accent);
-    padding: 20px;
     text-align: left;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px 0;
     color: var(--color-primary-white);
 }
 
 .reward-line {
-    margin: 0px;
-    padding: 0px 30px;
+    margin: 0;
+    padding: 0 120px;
     font-size: 16px;
     color: var(--color-primary-white);
 }
@@ -36,13 +31,11 @@
     text-align: center;
 }
 
-
 .footer__reward-text .reward-line:first-of-type {
     font-weight: bold;
     text-align: left;
     font-size: 20px;
     padding-right: 90px;
-
 }
 
 .footer__reward-text strong {
@@ -50,17 +43,16 @@
     text-decoration: underline;
 }
 
-
 @media (max-width: 768px) {
     .footer__reward {
         flex-direction: column;
         align-items: flex-start;
-        padding: 20px 0px;
+        padding: 20px 0;
     }
 
     .reward-line {
         padding: 0 15px;
-        margin: 50px 0px 0px;
+        margin: 50px 0 0;
         font-size: 19px;
     }
 
@@ -74,17 +66,16 @@
         font-size: 22px;
         padding: 0 15px;
         flex-direction: row;
-        margin: 0px;
+        margin: 0;
     }
 }
+
 .reward-line__clock {
-    color:var(--color-accent-additional);
+    color: var(--color-accent-additional);
     font-size: 20px;
     font-weight: bold;
 }
 
-
-/* Секція top */
 .footer__top {
     display: flex;
     flex-direction: column;
@@ -113,7 +104,6 @@
     text-decoration: underline;
 }
 
-/* Секція icons */
 .footer__icons {
     display: flex;
     justify-content: center;
@@ -125,15 +115,13 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 0px 20px;
-    margin: 60px 0px 0px;
+    padding: 0 20px;
+    margin: 60px 0 0;
 }
 
 .footer__icon p {
     font-size: 14px;
-    margin: 0px;
-    margin: 20px;
-
+    margin: 20px 0;
 }
 
 @media (min-width: 768px) {
@@ -144,7 +132,6 @@
         text-align: left;
         padding: 120px 7% 60px;
     }
-    
 
     .footer__title {
         font-size: 64px;
@@ -177,30 +164,23 @@
     }
 }
 
-/* Секція middle */
 .footer__middle {
     display: flex;
     justify-content: space-between;
-    padding: 60px 24px 50px;
+    padding: 60px 60px 50px;
     gap: 20px;
-    text-align: center;
     margin: 0 19px;
-    position: relative; 
+    position: relative;
 }
 
 .footer__middle::before {
     content: "";
-    width: calc(100% - 160px); 
-    height: 1px; 
-    background-color: var(--color-primary-white); 
-    position: absolute; 
-    top: 0; 
-    left: 80px;
-}
-
-
-.footer__text {
-    text-align: center;
+    width: 90%;
+    height: 1px;
+    background-color: var(--color-primary-white);
+    position: absolute;
+    top: 0;
+    left: 5%;
 }
 
 @media (max-width: 768px) {
@@ -210,7 +190,7 @@
         align-items: center;
         padding: 60px 24px 50px;
         text-align: center;
-   }
+    }
 }
 
 .footer__about {
@@ -220,6 +200,10 @@
 .footer__logo {
     margin: 0 auto 20px;
     width: 55px;
+}
+
+.footer__text {
+    text-align: center;
 }
 
 .footer__social {
@@ -245,15 +229,11 @@
     fill: var(--color-accent-additional);
 }
 
-
-
-/* Навігація */
-
 .footer__navigation,
 .footer__items,
 .footer__subscribe,
 .footer__about {
-    flex: 1 1 calc(25% - 20px);
+    flex: 1 1 calc(25%);
 }
 
 .footer__navigation {
@@ -266,7 +246,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .footer__nav-title {
@@ -274,6 +253,7 @@
     font-weight: bold;
     margin-bottom: 15px;
     position: relative;
+    text-align: center;
 }
 
 .footer__nav-title::after {
@@ -306,7 +286,6 @@
     color: var(--color-accent-additional);
 }
 
-/* Форма підписки */
 .footer__form {
     display: flex;
     flex-direction: column;
@@ -337,7 +316,6 @@
     background-color: var(--color-accent);
 }
 
-/* Секція bottom */
 .footer__bottom {
     display: flex;
     flex-direction: column;
@@ -350,7 +328,7 @@
 
 .footer__bottom::before {
     content: "";
-    width: 100%;
+    width: 90%;
     height: 1px;
     background-color: var(--color-primary-white);
     margin-bottom: 10px;
