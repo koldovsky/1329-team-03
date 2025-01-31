@@ -1,3 +1,4 @@
+// Halyna Fedkiv
 function startCountdown(id, targetDate) {
   const countdownEl = document.getElementById(id);
   if (!countdownEl) return;
@@ -37,4 +38,3 @@ function startCountdown(id, targetDate) {
 // Initialize multiple countdowns with different IDs and target dates
 startCountdown("deals__countdown-headphones", "2025-01-31T23:59:59");
 startCountdown("deals__countdown-keyboards", "2025-02-13T00:00:00");
-

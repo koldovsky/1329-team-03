@@ -157,6 +157,16 @@
             }
 
             .filters__item-category {
+              height: 0;
+              visibility: hidden;
+              opacity: 0;
+
+              .filters__item-category--show-list {
+                visibility: visible;
+                height: auto;
+                opacity: 1;
+              }
+
               .filters__item-category-option {
                 font-size: 17px;
                 font-weight: 400;
