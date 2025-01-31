@@ -157,6 +157,16 @@
             }
 
             .filters__item-category {
+              height: 0;
+              visibility: hidden;
+              opacity: 0;
+
+              .filters__item-category--show-list {
+                visibility: visible;
+                height: auto;
+                opacity: 1;
+              }
+
               .filters__item-category-option {
                 font-size: 17px;
                 font-weight: 400;
@@ -204,68 +214,6 @@
                   .filters__item-category-option-text {
                     margin-top: 2px;
                   }
-                }
-              }
-            }
-          }
-        }
-
-        .filters__countdown {
-          display: block;
-          margin-top: 30px;
-          text-align: center;
-
-          .filters__countdown-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-
-            .filters__countdown-item {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              width: 100%;
-
-              .filters__countdown-icon {
-                width: 100%;
-                height: auto;
-                max-width: 100px;
-
-                .filters__countdown-rect {
-                  stroke: var(--color-accent);
-                  stroke-width: 1;
-                  fill: none;
-                }
-
-                .countdown-days,
-                .countdown-hours,
-                .countdown-minutes,
-                .countdown-seconds {
-                  font-size: 36px;
-                  font-family: var(--font-title);
-                  fill: var(--color-primary);
-                }
-              }
-
-              .filters__countdown-label {
-                margin-top: 10px;
-                font-size: 23px;
-                color: var(--color-primary);
-                opacity: 0.54;
-
-                @media (min-width: 480px) {
-                  font-size: 18px;
-                }
-              }
-
-              @media (max-width: 760px) {
-                .filters__countdown-icon {
-                  max-width: 80px;
-                }
-
-                .filters__countdown-label {
-                  font-size: 12px;
                 }
               }
             }
