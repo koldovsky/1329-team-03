@@ -4,6 +4,7 @@ const mobileMenuLinks = mobileMenuBox.querySelectorAll('a');
 
 function toggleMenuElements() {
   document.body.classList.toggle('overflow-hidden');
+  document.querySelector('html').classList.toggle('overflow-hidden');
   burgerIcon.classList.toggle('header__burger--open');
   mobileMenuBox.classList.toggle('header__mobile-menu-box--open');
 }
