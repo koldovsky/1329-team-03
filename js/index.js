@@ -5,7 +5,6 @@ function init() {
   import("./footer.js");
   import("./index.categories-aside.accordion.js");
   import("./index.categories-aside.js");
-  import("./index.about-us.js");
 }
 
 
