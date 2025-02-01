@@ -1,10 +1,11 @@
 function init() {
-  import("./header.js");
-  import("./index.hero.js");
-  import("./index.deals.js");
-  import("./footer.js");
-  import("./index.categories.js");
-  import("./index.about-us.js");
+  import('./header.js');
+  import('./index.hero.js');
+  import('./index.deals.js');
+  import('./footer.js');
+  import('./index.categories.js');
+  import('./index.about-us.js');
+  import('./scroll-to-top.js');
 }
 
 const totalPartials = document.querySelectorAll(
@@ -12,7 +13,7 @@ const totalPartials = document.querySelectorAll(
 ).length;
 let loadedPartialsCount = 0;
 
-document.body.addEventListener("htmx:afterOnLoad", () => {
+document.body.addEventListener('htmx:afterOnLoad', () => {
   loadedPartialsCount++;
   if (loadedPartialsCount === totalPartials) init();
 });
