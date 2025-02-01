@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 *,
 *::before,
@@ -11,15 +11,18 @@
 }
 
 /* деякі незроблені секції на мобільному все ламають, тому обмежив це */
-html, section, footer, main {
+html,
+section,
+footer,
+main {
   max-width: 100vw;
   overflow-x: hidden;
 }
 
 :root {
   scroll-behavior: smooth;
-  --font-title: "Bebas Neue", sans-serif;
-  --font-text: "Nunito", sans-serif;
+  --font-title: 'Bebas Neue', sans-serif;
+  --font-text: 'Nunito', sans-serif;
 
   /* color of subtitles (a high font) and dark elements */
   --color-primary: rgb(39, 39, 39); /* #272727 */
@@ -55,6 +58,14 @@ html, section, footer, main {
   --badge-out-of-stock-background: #ffddd9;
   /* color of out-of-stock button */
   --badge-out-of-stock-color: #cc3833;
+  /* Header colors */
+  --color-header-primary-bg: #272727;
+  --color-primary-logo: #ff7c14;
+  --color-header-main-menu: rgba(255, 255, 255, 0.76);
+  --color-header-additional-menu: #ffffff;
+  --color-header-light-accent: #f8f3ef;
+  --color-header-brand: #ff7b16;
+  --color-header-secondary-accent: #1C4C97;
 
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;
