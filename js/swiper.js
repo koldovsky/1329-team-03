@@ -1,4 +1,3 @@
-// Ініціалізація Swiper
 document.addEventListener("DOMContentLoaded", function () {
   var swiper = new Swiper('.swiper', {
       slidesPerView: getSlidesPerView(),
@@ -18,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   });
 
-  // Функція для визначення кількості слайдів
+
   function getSlidesPerView() {
       let width = window.innerWidth;
       if (width >= 1470) return 7;
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return 1;
   }
 
-  // Оновлення параметрів при зміні розміру екрану
   window.addEventListener('resize', function () {
       swiper.params.slidesPerView = getSlidesPerView();
       swiper.update();
