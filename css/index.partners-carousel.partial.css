@@ -1,12 +1,36 @@
-/* .partners-carousel__container{
-    display: block;
-} */
-
-.partners-carousel__list .partners-carousel__item .partners-carousel__link{
-display: block;
-width: 130 px;
+.partners-carousel{
+    width: 55%;
+    height: 100px;
 }
 
-.partners-carousel__list .partners-carousel__link .partners-carousel__image{
-    width: 100%;
+.partners-carousel-slide{
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.partners-carousel-slide img{
+    width: 90px;
+}
+
+.partners-carousel-block{
+/* background: #29201b; */
+background: #f1ece9;
+padding: 10px;
+border-radius: 10px;
+}
+
+@media (max-width: 760px) {
+      .partners-carousel-button-next {
+        right: 20px;
+        transform: rotate(90deg);
+      }
+
+      .partners-carousel-button-prev {
+        left: 20px;
+        transform: rotate(90deg);
+      }
+    }
