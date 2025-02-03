@@ -1,6 +1,6 @@
 var swiper = new Carousel('.partners-carousel', {
-    //   slidesPerView: 7,
-    //   direction: getDirection(),
+       slidesPerView: 7,
+       direction: getDirection(),
       direction: 'horizontal',
       navigation: {
         nextEl: '.partners-carousel-button-next',
@@ -15,16 +15,16 @@ var swiper = new Carousel('.partners-carousel', {
       500: { slidesPerView: 2 },
       0: { slidesPerView: 1 }
         },
-    //   on: {
-    //     resize: function () {
-    //       swiper.changeDirection(getDirection());
-    //     },
-    //   },
+       on: {
+         resize: function () {
+           swiper.changeDirection(getDirection());
+         },
+       },
     });
 
-    // function getDirection() {
-    //   let windowWidth = window.innerWidth;
-    //   let direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+     function getDirection() {
+       let windowWidth = window.innerWidth;
+       let direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
 
-    //   return direction;
-    // }
+       return direction;
+     }
