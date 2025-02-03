@@ -1,30 +1,35 @@
+// Ініціалізація Swiper
 var swiper = new Swiper('.swiper', {
-  //   slidesPerView: 7,
-  //   direction: getDirection(),
-    direction: 'horizontal',
-    navigation: {
+  slidesPerView: getSlidesPerView(), // Автоматичне визначення кількості слайдів
+  spaceBetween: 10, // Відстань між слайдами
+  loop: true, // Безкінечне прокручування
+  navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
-    },
-    loop: true, // безкінечне прокручування
-    breakpoints: {
-      1470: { slidesPerView: 7,},
-    1150: { slidesPerView: 5, },
-    900: { slidesPerView: 4,  },
-    700: { slidesPerView: 3,  },
-    500: { slidesPerView: 2 },
-    0: { slidesPerView: 1 }
-      },
-  //   on: {
-  //     resize: function () {
-  //       swiper.changeDirection(getDirection());
-  //     },
-  //   },
-  });
+  },
+  breakpoints: {
+      1470: { slidesPerView: 7, spaceBetween: 10 },
+      1150: { slidesPerView: 5, spaceBetween: 10 },
+      900: { slidesPerView: 4, spaceBetween: 10 },
+      700: { slidesPerView: 3, spaceBetween: 10 },
+      500: { slidesPerView: 2, spaceBetween: 10 },
+      0: { slidesPerView: 1, spaceBetween: 10 }
+  }
+});
 
-  // function getDirection() {
-  //   let windowWidth = window.innerWidth;
-  //   let direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+// Функція для визначення кількості слайдів
+function getSlidesPerView() {
+  let width = window.innerWidth;
+  if (width >= 1470) return 7;
+  if (width >= 1150) return 5;
+  if (width >= 900) return 4;
+  if (width >= 700) return 3;
+  if (width >= 500) return 2;
+  return 1;
+}
 
-  //   return direction;
-  // }
+// Оновлення параметрів при зміні розміру екрану
+window.addEventListener('resize', function () {
+  swiper.params.slidesPerView = getSlidesPerView();
+  swiper.update();
+});

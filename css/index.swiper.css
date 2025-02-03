@@ -1,52 +1,63 @@
-
-.swiper-button-next,
-.swiper-button-prev {
-width: 25px;
-height: 25px;
-top: 70%;
-transform: translateY(-50%);
-background-color: #3c64a3; 
-border-radius: 50%; 
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-font-size: 11px;
-color: #fff;
-}
-
-
+/* Контейнер слайдера */
 .swiper {
-  width: 55%;
-  height: 100px;
+  width: 80%;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto;
   position: relative;
 }
 
+/* Обгортка слайдів */
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Окремий слайд */
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.swiper-slide img{
- width: 90px;
-}
-.swiper-slide-block {
-    /* background: #29201b; */
-    background: #f1ece9;
-    padding: 10px;
-    border-radius: 10px;
-}
-/* @media (max-width: 760px) {
-  .swiper-button-next {
-    right: 20px;
-    transform: rotate(90deg);
-  }
 
-  .swiper-button-prev {
-    left: 20px;
-    transform: rotate(90deg);
+/* Контейнер зображення */
+.swiper-slide-block {
+  background: #f1ece9;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* Розмір зображень */
+.swiper-slide img {
+  width: 100px;
+  height: auto;
+}
+
+/* Кнопки навігації */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  background-color: #3c64a3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Іконки кнопок */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 768px) {
+  .swiper {
+      width: 90%;
   }
-} */
+  .swiper-slide img {
+      width: 80px;
+  }
+}
