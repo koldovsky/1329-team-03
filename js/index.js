@@ -5,6 +5,7 @@ function init() {
   import('./footer.js');
   import('./index.categories.js');
   import('./scroll-to-top.js');
+  import('./partners-carousel.js');
 }
 
 const totalPartials = document.querySelectorAll(
