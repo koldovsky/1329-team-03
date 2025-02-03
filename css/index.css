@@ -5,7 +5,7 @@
 @import "./global.cards.css";
 @import "./index.hero.css";
 @import "./index.bestseller.css";
-@import "./index.index.popular-items.css";
+@import "./index.popular-items.css";
 @import "./index.categories.css";
 @import "./index.deals.css";
 @import "./index.new-product.css";
@@ -17,4 +17,5 @@
 @import "./index.join-discount-club.css";
 @import "./index.sale.css";
 @import "./global.footer.css";
-@import "./index.partners-carousel.partial.css"
+@import "./index.swiper.css";
+@import "./global.scroll-to-top.partial.css"
