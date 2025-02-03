@@ -1,7 +1,7 @@
 function init() {
   import('./header.js');
   import('./index.hero.js');
-  import('./index.deals.js');
+  import('./index.countdown.js');
   import('./footer.js');
   import('./index.categories.js');
   import('./scroll-to-top.js');
