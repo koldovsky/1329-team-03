@@ -198,7 +198,7 @@
               margin-top: 40px;
             }
 
-            .button {
+            .category-link {
               display: inline-block;
               font-family: var(--font-text);
               background-color: var(--color-accent-additional);
