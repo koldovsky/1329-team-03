@@ -87,7 +87,7 @@ function renderCards(cards) {
     // Ловимо клік на кнопці "Buy Now" і додаємо товар в кошик
     const addProductToCartButton = cardElement.querySelector('.card__button--cart');
     addProductToCartButton.addEventListener('click', () => {
-      addProductToCart(product.name, product.price);
+      addProductToCart(card.name, card.price);
     });
 
     // Додаємо створену картку в контейнер карток на сторінці
