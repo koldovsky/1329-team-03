@@ -1,6 +1,6 @@
 /* Максим Зимин */
 
-import { addToCart } from './global.cart.js';
+import { addProductToCart } from './global.cart.js';
 
 /* Об'єкт стану фільтрації товарів */
 const filterState = {
@@ -26,7 +26,6 @@ async function fetchCards() {
   }
 }
 
-/* Функція для відображення товарів на сторінці */
 function renderCards(cards) {
   // Знаходимо контейнер, де будуть відображатись картки товарів
   const cardsContainer = document.querySelector(".cards");
@@ -86,9 +85,9 @@ function renderCards(cards) {
     `;
 
     // Ловимо клік на кнопці "Buy Now" і додаємо товар в кошик
-    const addToCartButton = productElement.querySelector('.product__button--cart');
-    addToCartButton.addEventListener('click', () => {
-      addToCart(product.name, product.price);
+    const addProductToCartButton = cardElement.querySelector('.card__button--cart');
+    addProductToCartButton.addEventListener('click', () => {
+      addProductToCart(product.name, product.price);
     });
 
     // Додаємо створену картку в контейнер карток на сторінці
@@ -96,7 +95,6 @@ function renderCards(cards) {
   });
 }
 
-/* Фільтрує картки за поточним станом фільтрів */
 function filterCards(cards) {
   return cards.filter((card) => {
     // Перевірка категорії картки. Якщо категорія не "all" (усі), то перевіряємо 
@@ -222,14 +220,7 @@ function resetFilters() {
   updateCards(window.cards);
 }
 
-/**
- * Створює HTML-код для групи фільтрів
- * @param {string} title - Назва групи фільтрів
- * @param {string} content - Контент для групи фільтрів
- * @returns {string} - HTML-код для групи фільтрів
- */
 function createFilterGroup(title, content) {
-  // Формуємо HTML для групи фільтрів з вказаною назвою і контентом
   return `
     <div class="filters__group">
       <div class="accordion__button">
@@ -243,15 +234,9 @@ function createFilterGroup(title, content) {
   `;
 }
 
-/**
- * Створює HTML-код для групи опцій фільтра
- * @param {Array} options - Масив опцій для фільтра
- * @param {string} filterType - Тип фільтра
- * @param {boolean} isCheckbox - Чи використовувати чекбокси (за замовчуванням true)
- * @returns {string} - HTML-код для групи опцій фільтра
- */
 function createOptionsGroup(options, filterType, isCheckbox = true) {
   // Перетворюємо масив опцій на HTML-код
+  // isCheckbox - Чи використовувати чекбокси (за замовчуванням true)
   const optionsHTML = options
     .map((option) => {
       // Якщо isCheckbox true, створюємо чекбокс для кожної опції
@@ -274,19 +259,11 @@ function createOptionsGroup(options, filterType, isCheckbox = true) {
     })
     .join(""); // Об'єднуємо всі елементи в одну строку
 
-  // Повертаємо HTML для групи опцій
   return `<div class="filters__option-group">${optionsHTML}</div>`;
 }
 
-/**
- * Створює HTML-код для діапазону цін
- * @param {number} minPrice - Мінімальна ціна
- * @param {number} maxPrice - Максимальна ціна
- * @returns {string} - HTML-код для діапазону цін
- */
 function createPriceRange(minPrice, maxPrice) {
-  // Формуємо HTML для діапазону цін
-  return `
+  return (`
     <div class="filters__range">
       <div class="filters__range-slider">
         <div class="filters__range-progress"></div>
@@ -322,13 +299,10 @@ function createPriceRange(minPrice, maxPrice) {
         )}</div>  
       </div>
     </div>
-  `;
+  `);
 }
 
-/**
- * Ініціалізує функціональність слайдера діапазону цін
- */
-function initializeRangeSlider() {
+function initializePriceRangeSlider() {
   // Отримуємо елементи слайдерів мінімальної і максимальної ціни
   const rangeMin = document.querySelector(".filters__range-input--min");
   const rangeMax = document.querySelector(".filters__range-input--max");
@@ -426,10 +400,6 @@ function initializeAccordion() {
   });
 }
 
-/**
- * Ініціалізація обробників фільтрів
- * @param {Array} cards - Масив карток, які відображаються
- */
 function initializeFilterHandlers(cards) {
   // Отримуємо всі опції фільтрації за категорією
   const categoryOptions = document.querySelectorAll(
@@ -450,7 +420,6 @@ function initializeFilterHandlers(cards) {
       // Оновлюємо стан фільтра
       filterState.category = option.dataset.value;
 
-      // Оновлюємо картки за новими фільтрами
       updateCards(cards);
     });
   });
@@ -562,14 +531,12 @@ function generateFilters(cards) {
     screenSizesFilter;
 
   // Ініціалізуємо додаткові елементи (повзунок, акардіон)
-  initializeRangeSlider();
+  initializePriceRangeSlider();
   initializeAccordion();
   initializeFilterHandlers(cards);
 }
 
-/**
- * Ініціалізація обробників для мобільної бічної панелі фільтрів
- */
+/* Ініціалізація обробників для мобільної бічної панелі фільтрів */
 function initializeMobileSidebar() {
   // Отримуємо елементи для мобільної панелі
   const filterToggle = document.getElementById("filtersToggle");
@@ -608,9 +575,6 @@ function initializeMobileSidebar() {
   }
 }
 
-/**
- * Ініціалізація всього
- */
 async function initialize() {
   // Отримуємо картки з даними
   const cards = await fetchCards();
@@ -618,10 +582,7 @@ async function initialize() {
   // Зберігаємо картки в глобальній змінній
   window.cards = cards;
 
-  // Відображаємо картки
   renderCards(cards);
-
-  // Генеруємо фільтри на основі карток
   generateFilters(cards);
 
   // Ініціалізуємо мобільну панель
@@ -634,5 +595,4 @@ async function initialize() {
   }
 }
 
-// Викликаємо ініціалізацію
 initialize();
