@@ -18,4 +18,5 @@
 @import "./index.sale.css";
 @import "./global.footer.css";
 @import "./index.swiper.css";
-@import "./global.scroll-to-top.partial.css"
+@import "./global.scroll-to-top.partial.css";
+@import "./global.cart.css"

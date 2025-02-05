@@ -1,32 +1,25 @@
-// Cart state
+/* Максим Зимин */
+
+// Стан корзини
 let cart = [];
 
-// Templates
+// HTML шаблони
 let cartItemTemplate = "";
 let cartIconTemplate = "";
 let cartModalTemplate = "";
 
-// DOM Elements
+// DOM елементи
 let cartCountElement;
 let cartModal;
 let cartItemsElement;
 let totalAmountElement;
 
-/**
- * Check if cart structure exists in DOM
- * @returns {boolean} - True if cart structure exists, false otherwise
- */
 function isCartStructureExists() {
     const cartIcon = document.querySelector('.cart-icon');
     const cartModal = document.querySelector('.cart-modal');
     return !!(cartIcon && cartModal);
 }
 
-/**
- * Load HTML template
- * @param {string} path - Path to the template
- * @returns {string} - HTML template
- */
 async function loadTemplate(path) {
     try {
         const response = await fetch(path);
@@ -38,38 +31,36 @@ async function loadTemplate(path) {
     }
 }
 
-/**
- * Initialize templates
- */
 async function initializeTemplates() {
     cartItemTemplate = await loadTemplate("./js/templates/cart-item.html");
     cartIconTemplate = await loadTemplate("./js/templates/cart-icon.html");
     cartModalTemplate = await loadTemplate("./js/templates/cart-modal.html");
     
-    // Add cart structure to DOM if it doesn't exist
+    // Додати корзину до DOM, якщо ще немає
     if (!isCartStructureExists()) {
         document.body.insertAdjacentHTML("beforeend", cartIconTemplate);
         document.body.insertAdjacentHTML("beforeend", cartModalTemplate);
     }
 }
 
-/**
- * Initialize DOM elements
- * @returns {boolean} - True if all elements are found, false otherwise
- */
 function initializeCartElements() {
     cartCountElement = document.getElementById("cartCount");
     cartModal = document.getElementById("cartModal");
     cartItemsElement = document.getElementById("cartItems");
     totalAmountElement = document.getElementById("totalAmount");
 
-    if (!cartCountElement)
+    if (!cartCountElement) {
         console.error("Cart count element (#cartCount) not found");
-    if (!cartModal) console.error("Cart modal (#cartModal) not found");
-    if (!cartItemsElement)
+    }
+    if (!cartModal) {
+        console.error("Cart modal (#cartModal) not found");
+    }
+    if (!cartItemsElement) {
         console.error("Cart items element (#cartItems) not found");
-    if (!totalAmountElement)
+    } 
+    if (!totalAmountElement) {
         console.error("Total amount element (#totalAmount) not found");
+    }
 
     if (
         !cartCountElement ||
@@ -84,10 +75,8 @@ function initializeCartElements() {
 }
 
 /**
- * Render template
- * @param {string} template - HTML template
- * @param {object} data - Data to replace in the template
- * @returns {string} - Rendered template
+    Функція приймає шаблон та об'єкт даних, які потрібно вставити в шаблон.
+    Дані є змінними, які вставляються в шаблон (ключ-змінна: значення).
  */
 function renderTemplate(template, data) {
     return template.replace(/\{\{(\w+|[\w+-]+)\}\}/g, (match, key) => {
@@ -103,16 +92,12 @@ function renderTemplate(template, data) {
     });
 }
 
-/**
- * Save cart to localStorage
- */
+/* Зберегти корзину в localStorage */
 function saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-/**
- * Load cart from localStorage
- */
+/* Завантажити корзину з localStorage */
 function loadCart() {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
@@ -121,12 +106,7 @@ function loadCart() {
     }
 }
 
-/**
- * Add product to cart
- * @param {string} productName - Product name
- * @param {number} price - Product price
- */
-function addToCart(productName, price) {
+function addProductToCart(productName, price) {
     if (!initializeCartElements()) return;
 
     const existingProduct = cart.find((item) => item.name === productName);
@@ -140,7 +120,7 @@ function addToCart(productName, price) {
         });
     }
 
-    // Add animation
+    // Додати анімацію до іконки корзини
     const cartIcon = document.querySelector(".cart-icon");
     cartIcon.classList.add("cart-icon--bounce");
     setTimeout(() => {
@@ -152,9 +132,6 @@ function addToCart(productName, price) {
     showNotification(`${productName} added to cart!`);
 }
 
-/**
- * Update cart display
- */
 function updateCart() {
     if (!initializeCartElements()) return;
 
@@ -186,16 +163,11 @@ function updateCart() {
     }
 }
 
-/**
- * Update quantity of product in cart
- * @param {string} productName - Product name
- * @param {number} newQuantity - New quantity
- */
-function updateQuantity(productName, newQuantity) {
+function updateQuantityOfProductsInCart(productName, newQuantity) {
     if (!initializeCartElements()) return;
 
     if (newQuantity <= 0) {
-        removeFromCart(productName);
+        removeProductFromCart(productName);
         return;
     }
 
@@ -207,11 +179,7 @@ function updateQuantity(productName, newQuantity) {
     }
 }
 
-/**
- * Remove product from cart
- * @param {string} productName - Product name
- */
-function removeFromCart(productName) {
+function removeProductFromCart(productName) {
     if (!initializeCartElements()) return;
 
     cart = cart.filter((item) => item.name !== productName);
@@ -220,9 +188,6 @@ function removeFromCart(productName) {
     showNotification(`${productName} removed from cart`);
 }
 
-/**
- * Clear entire cart
- */
 function clearCart() {
     if (!initializeCartElements()) return;
 
@@ -232,10 +197,6 @@ function clearCart() {
     showNotification("Cart cleared");
 }
 
-/**
- * Show notification
- * @param {string} message - Notification message
- */
 function showNotification(message) {
     const notification = document.createElement("div");
     notification.className = "notification";
@@ -255,9 +216,7 @@ function showNotification(message) {
     }, 2000);
 }
 
-/**
- * Toggle cart modal
-*/
+/* Перемикач корзини */
 function toggleCart() {
     if (!initializeCartElements()) return;
 
@@ -270,10 +229,6 @@ function toggleCart() {
     }
 }
 
-/**
- * Handle cart action
- * @param {Event} event - Event object
- */
 function handleCartAction(event) {
     const target = event.target.closest('[data-action]');
     if (!target) return;
@@ -283,11 +238,11 @@ function handleCartAction(event) {
     const quantity = target.dataset.quantity;
 
     switch (action) {
-        case 'updateQuantity':
-            updateQuantity(product, parseInt(quantity));
+        case 'updateQuantityOfProductsInCart':
+            updateQuantityOfProductsInCart(product, parseInt(quantity));
             break;
-        case 'removeFromCart':
-            removeFromCart(product);
+        case 'removeProductFromCart':
+            removeProductFromCart(product);
             break;
         case 'clearCart':
             clearCart();
@@ -298,9 +253,6 @@ function handleCartAction(event) {
     }
 }
 
-/**
- * Initialize cart
- */
 async function initializeCart() {
     await initializeTemplates();
     
@@ -318,4 +270,4 @@ async function initializeCart() {
 initializeCart();
 
 // Export only necessary functions for external use
-export { addToCart };
+export { addProductToCart };

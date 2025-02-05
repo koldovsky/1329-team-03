@@ -1,5 +1,7 @@
 /* Максим Зимин */
 
+import { addToCart } from './global.cart.js';
+
 /* Об'єкт стану фільтрації товарів */
 const filterState = {
   category: "all",
@@ -25,7 +27,7 @@ async function fetchcards() {
 }
 
 /* Функція для відображення товарів на сторінці */
-function rendercards(cards) {
+function renderCards(cards) {
   // Знаходимо контейнер, де будуть відображатись картки товарів
   const cardsContainer = document.querySelector(".cards");
 
@@ -82,6 +84,12 @@ function rendercards(cards) {
           <button class="card__button card__button--cart">Buy Now</button>
         </div>
     `;
+
+    // Ловимо клік на кнопці "Buy Now" і додаємо товар в кошик
+    const addToCartButton = productElement.querySelector('.product__button--cart');
+    addToCartButton.addEventListener('click', () => {
+      addToCart(product.name, product.price);
+    });
 
     // Додаємо створену картку в контейнер карток на сторінці
     cardsContainer.appendChild(cardElement);
@@ -157,7 +165,7 @@ function updatecards(cards) {
   const filteredcards = filtercards(cards);
 
   // Відображаємо відфільтровані картки на сторінці
-  rendercards(filteredcards);
+  renderCards(filteredcards);
 
   // Знаходимо кнопку "Apply filters" для оновлення тексту
   const applyButton = document.querySelector(".filters__apply-button");
@@ -620,7 +628,7 @@ async function initialize() {
   window.cards = cards;
 
   // Відображаємо картки
-  rendercards(cards);
+  renderCards(cards);
 
   // Генеруємо фільтри на основі карток
   generateFilters(cards);

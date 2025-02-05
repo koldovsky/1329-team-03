@@ -7,6 +7,7 @@ function init() {
   import('./scroll-to-top.js');
   import('./swiper.js');
   import('./index.footer-contact-form.js');
+  import('./global.cart.js');
 }
 
 const totalPartials = document.querySelectorAll(
