@@ -12,7 +12,7 @@ const filterState = {
 };
 
 /* Функція для отримання товарів з JSON-файлу */
-async function fetchcards() {
+async function fetchCards() {
   try {
     const response = await fetch("./api/cards.json");
     if (!response.ok) {
@@ -96,17 +96,8 @@ function renderCards(cards) {
   });
 }
 
-/* Отримати відфільтровані картки на основі поточного стану фільтрації */
-function getFilteredcards() {
-  // Викликаємо функцію filtercards, передаючи масив карток, які зберігаються в window.cards або порожній масив, якщо їх немає
-  // Масив карток (cards) зберігається в глобальному об'єкті window.
-  // Це дозволяє зробити ці картки доступними з будь-якої точки на сторінці,
-  // навіть якщо вони були завантажені асинхронно
-  return filtercards(window.cards || []);
-}
-
 /* Фільтрує картки за поточним станом фільтрів */
-function filtercards(cards) {
+function filterCards(cards) {
   return cards.filter((card) => {
     // Перевірка категорії картки. Якщо категорія не "all" (усі), то перевіряємо 
     // чи співпадає категорія картки з поточною
@@ -160,9 +151,9 @@ function filtercards(cards) {
 }
 
 /* Оновлює відображення карток на основі поточного стану фільтрів */
-function updatecards(cards) {
-  // Отримуємо відфільтровані картки за допомогою функції filtercards
-  const filteredcards = filtercards(cards);
+function updateCards(cards) {
+  // Отримуємо відфільтровані картки за допомогою функції filterCards
+  const filteredcards = filterCards(cards);
 
   // Відображаємо відфільтровані картки на сторінці
   renderCards(filteredcards);
@@ -228,7 +219,7 @@ function resetFilters() {
   }
 
   // Оновлюємо відображення карток після скидання фільтрів
-  updatecards(window.cards);
+  updateCards(window.cards);
 }
 
 /**
@@ -393,7 +384,7 @@ function initializeRangeSlider() {
     }
     // Оновлюємо слайдер та картки
     updateProgress();
-    updatecards(window.cards);
+    updateCards(window.cards);
   });
 
   // Слухач події для максимального слайдера
@@ -407,7 +398,7 @@ function initializeRangeSlider() {
     }
     // Оновлюємо слайдер та картки
     updateProgress();
-    updatecards(window.cards);
+    updateCards(window.cards);
   });
 
   // Ініціалізація прогресу слайдера при завантаженні
@@ -460,7 +451,7 @@ function initializeFilterHandlers(cards) {
       filterState.category = option.dataset.value;
 
       // Оновлюємо картки за новими фільтрами
-      updatecards(cards);
+      updateCards(cards);
     });
   });
 
@@ -471,7 +462,7 @@ function initializeFilterHandlers(cards) {
       const type = e.target.dataset.rangeType; // Тип діапазону (min або max)
       const value = parseFloat(e.target.value); // Значення діапазону
       filterState.priceRange[type] = value; // Оновлюємо значення в стані фільтра
-      updatecards(cards); // Оновлюємо картки за новими фільтрами
+      updateCards(cards); // Оновлюємо картки за новими фільтрами
     });
   });
 
@@ -487,7 +478,7 @@ function initializeFilterHandlers(cards) {
       } else {
         filterState[filterType].delete(value);
       }
-      updatecards(cards); // Оновлюємо картки за новими фільтрами
+      updateCards(cards); // Оновлюємо картки за новими фільтрами
     });
   });
 }
@@ -622,7 +613,7 @@ function initializeMobileSidebar() {
  */
 async function initialize() {
   // Отримуємо картки з даними
-  const cards = await fetchcards();
+  const cards = await fetchCards();
 
   // Зберігаємо картки в глобальній змінній
   window.cards = cards;
