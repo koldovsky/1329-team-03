@@ -118,10 +118,20 @@
         </div>
         <div class="footer__subscribe">
             <h3 class="footer__nav-title">Subscribe</h3>
-            <form class="footer__form" action="#" method="POST">
-                <label for="email" class="visually-hidden">Enter your email to subscribe</label>
-                <input id="email" type="email" placeholder="Email" class="footer__input" required />
-                <button class="footer__button" type="submit">Subscribe</button>
+            <form method="POST" id="contact-form">
+                <input type="hidden" name="access_key" value="b0c23397-edd9-44ce-92a7-aa75d47c5ca2">
+            
+                <input type="text" name="name" placeholder="Enter your name" required />
+            
+                <input type="email" name="email" placeholder="Enter your email" required />
+            
+                <textarea name="message" placeholder="Enter your message" required></textarea>
+            
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+            
+                <button type="submit">Submit</button>
+            
+                <div id="contact-form-result"></div>
             </form>
         </div>
     </div>
