@@ -1,0 +1,31 @@
+<div class="cart">
+  <div class="cart-icon" data-action="toggleCart">
+    <img src="./img/cart/cart.svg" alt="Cart" class="cart-bag-icon" />
+    <span class="cart-count" id="cartCount">0</span>
+  </div>
+
+  <div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <p>Shopping Cart</p>
+        <button class="cart-close" data-action="toggleCart">
+          <img src="./img/cart/close.svg" alt="Close" width="24" height="24" />
+        </button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-empty">Your cart is empty</div>
+      <div class="cart-total">
+        Total: <span id="totalAmount">$0.00 USD</span>
+      </div>
+      <div class="cart-actions">
+        <button
+          class="cart-button cart-button--secondary"
+          data-action="clearCart"
+        >
+          Clear Cart
+        </button>
+        <button class="cart-button cart-button--primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

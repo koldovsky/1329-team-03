@@ -16,6 +16,16 @@
   font-size: 64px;
   font-family: var(--font-title);
 }
+@media (max-width: 990px) {
+  .sale__description {
+    font-size: 52px;
+  }
+}
+@media (max-width: 770px) {
+  .sale__description {
+    font-size: 40px;
+  }
+}
 .sale__description span {
 color: #1c4c97;
 }
@@ -24,4 +34,9 @@ color: #1c4c97;
   font-weight: 600;
   color: #6a6a6a;
   font-size: 19px;
+}
+@media (max-width: 770px) {
+  .sale__note {
+    font-weight: normal;
+  }
 }
