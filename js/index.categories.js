@@ -38,6 +38,11 @@ function renderCards(cards) {
     // Створюємо новий елемент <article> для кожної картки
     const cardElement = document.createElement("article");
 
+    const isOutOfStock =
+      card.status === "Wireless - Out of stock" ||
+      card.status === "Wired - Out of stock" ||
+      card.status === "Out of stock";
+
     // Додаємо клас "card" до кожної картки, якщо картка має промо-мітку (promoLabel), додаємо ще клас "card--promo"
     cardElement.className = `card${
       card.promoLabel ? " card--promo" : "" // Перевірка на наявність промо-мітки
@@ -52,11 +57,15 @@ function renderCards(cards) {
               ? `<span class="card__label">${card.promoLabel}</span>`
               : ""
           }          
-          <img
-            src="${card.image}" 
-            alt="${card.name}"   
-            class="card__image" 
-          />
+          <img src="${card.image}" alt="${card.name}" class="card__image" />
+          ${
+            isOutOfStock
+              ? `
+            <div class="badge-bottom-pro badge-out-of-stock-pro">
+              <span class="out-of-stock">${card.status}</span>
+            </div>`
+              : ""
+          }
         </div>
         
         <div class="card__info">
@@ -75,8 +84,10 @@ function renderCards(cards) {
             
             <!-- Поточна ціна товару -->
             <p class="card__price">$${card.price.toFixed(2)} USD</p> 
-          </div>
-          <button class="card__button card__button--cart">Buy Now</button>
+          </div>   
+          <button class="card__button card__button--cart" ${
+            isOutOfStock ? "disabled" : ""
+          }>Buy Now</button>       
         </div>
     `;
 
@@ -84,9 +95,11 @@ function renderCards(cards) {
     const addProductToCartButton = cardElement.querySelector(
       ".card__button--cart"
     );
-    addProductToCartButton.addEventListener("click", () => {
-      addProductToCart(card.name, card.price);
-    });
+    if (!isOutOfStock) {
+      addProductToCartButton.addEventListener("click", () => {
+        addProductToCart(card.name, card.price);
+      });
+    }
 
     // Додаємо створену картку в контейнер карток на сторінці
     cardsContainer.appendChild(cardElement);
@@ -469,7 +482,7 @@ function generateFilters(cards) {
   const connections = [
     ...new Set(
       cards
-        .filter((p) => p.category.toLowerCase() !== "monitors") 
+        .filter((p) => p.category.toLowerCase() !== "monitors")
         .flatMap((p) => p.connections)
     ),
   ];
