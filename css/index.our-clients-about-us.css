@@ -64,4 +64,70 @@
             }
         }
     }
+
+    .testimonials__navigation {
+        .testimonials__content {
+            padding: 0 15px;
+
+            .testimonials__article {
+                padding: 0 27px;
+
+                @media (min-width: 768px) {
+                    padding: 0 28px;
+                }
+
+                @media (min-width: 992px) {
+                    padding: 0 30px;
+                }
+
+                .testimonials__icon-container {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-content: center;
+                    margin-bottom: 20px;
+
+                    .testimonials__icon {
+                        display: block;
+                        min-width: 50px;
+                        color: var(--color-header-brand);
+                    }
+                }
+
+                .testimonials__author {
+                    font-family: var(--font-text);
+                    color: var(--color-header-primary-bg);
+                    font-size: 22px;
+                    font-weight: bold;
+                    text-align: center;
+                    margin-bottom: 20px;
+
+                    @media (min-width: 768px) {
+                        font-size: 23px;
+                    }
+
+                    @media (min-width: 992px) {
+                        font-size: 24px;
+                    }
+                }
+
+                .testimonials__text {
+                    font-family: var(--font-text);
+                    color: var(--color-text-body);
+                    font-size: 17px;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+
+                .testimonials__date {
+                    font-family: var(--font-text);
+                    color: var(--color-header-secondary-accent);
+                    font-size: 14px;
+                    font-weight: bold;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
 }
