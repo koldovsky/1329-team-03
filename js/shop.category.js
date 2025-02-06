@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    fetch("../api/cards.json")
+    fetch("./api/cards.json")
       .then((response) => response.json())
       .then((data) => {
         const products = data.cards;
