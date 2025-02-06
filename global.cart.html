@@ -4,40 +4,6 @@
     <span class="cart-count" id="cartCount">0</span>
   </div>
 
-  <div class="cart-item">
-    <div class="cart-item__info">
-      <p class="cart-item__name">{{name}}</p>
-      <p class="cart-item__price">${{price}} USD</p>
-    </div>
-    <div class="cart-item__controls">
-      <button
-        class="cart-item__button"
-        data-action="updateQuantity"
-        data-card="{{name}}"
-        data-quantity="{{quantity-1}}"
-      >
-        -
-      </button>
-      <span class="cart-item__quantity">{{quantity}}</span>
-      <button
-        class="cart-item__button"
-        data-action="updateQuantity"
-        data-card="{{name}}"
-        data-quantity="{{quantity+1}}"
-      >
-        +
-      </button>
-      <button
-        class="cart-item__button cart-item__button--remove"
-        data-action="removeFromCart"
-        data-card="{{name}}"
-      >
-        <img src="./img/cart/trash.svg" alt="Remove" width="14" height="18" />
-      </button>
-    </div>
-    <p class="cart-item__total">${{total}} USD</p>
-  </div>
-
   <div class="cart-modal" id="cartModal">
     <div class="cart-content">
       <div class="cart-header">
