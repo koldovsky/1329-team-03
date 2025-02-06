@@ -1,6 +1,6 @@
 /* Максим Зимин */
 
-import { addProductToCart } from './global.cart.js';
+import { addProductToCart } from "./global.cart.js";
 
 /* Об'єкт стану фільтрації товарів */
 const filterState = {
@@ -49,8 +49,8 @@ function renderCards(cards) {
         <div class="card__image-container">          
           ${
             card.promoLabel
-              ? `<span class="card__label">${card.promoLabel}</span>` 
-              : "" 
+              ? `<span class="card__label">${card.promoLabel}</span>`
+              : ""
           }          
           <img
             src="${card.image}" 
@@ -61,9 +61,7 @@ function renderCards(cards) {
         
         <div class="card__info">
           <h2 class="card__name">
-            <a href="#" class="card__name-link">${
-              card.name
-            }</a> 
+            <a href="#" class="card__name-link">${card.name}</a> 
           </h2>
           
           <div class="card__price-container">
@@ -71,22 +69,22 @@ function renderCards(cards) {
               card.oldPrice
                 ? `<p class="card__price card__price--old">$${card.oldPrice.toFixed(
                     2
-                  )} USD</p>` 
-                : "" 
+                  )} USD</p>`
+                : ""
             }
             
             <!-- Поточна ціна товару -->
-            <p class="card__price">$${card.price.toFixed(
-              2
-            )} USD</p> 
+            <p class="card__price">$${card.price.toFixed(2)} USD</p> 
           </div>
           <button class="card__button card__button--cart">Buy Now</button>
         </div>
     `;
 
     // Ловимо клік на кнопці "Buy Now" і додаємо товар в кошик
-    const addProductToCartButton = cardElement.querySelector('.card__button--cart');
-    addProductToCartButton.addEventListener('click', () => {
+    const addProductToCartButton = cardElement.querySelector(
+      ".card__button--cart"
+    );
+    addProductToCartButton.addEventListener("click", () => {
       addProductToCart(card.name, card.price);
     });
 
@@ -97,7 +95,7 @@ function renderCards(cards) {
 
 function filterCards(cards) {
   return cards.filter((card) => {
-    // Перевірка категорії картки. Якщо категорія не "all" (усі), то перевіряємо 
+    // Перевірка категорії картки. Якщо категорія не "all" (усі), то перевіряємо
     // чи співпадає категорія картки з поточною
     if (
       filterState.category !== "all" &&
@@ -114,7 +112,7 @@ function filterCards(cards) {
       return false; // Якщо ціна картки не в межах фільтрації, виключаємо її
     }
 
-    // Перевірка кольорів картки. Якщо фільтри містять кольори, то перевіряємо, 
+    // Перевірка кольорів картки. Якщо фільтри містять кольори, то перевіряємо,
     // чи є хоча б один колір картки в фільтрі
     if (
       filterState.colors.size > 0 &&
@@ -123,7 +121,7 @@ function filterCards(cards) {
       return false; // Якщо немає жодного кольору, який є в фільтрі, виключаємо картку
     }
 
-    // Перевірка з'єднань картки. Якщо фільтри містять з'єднання, то перевіряємо, 
+    // Перевірка з'єднань картки. Якщо фільтри містять з'єднання, то перевіряємо,
     // чи є хоча б одне з'єднання картки в фільтрі
     if (
       filterState.connections.size > 0 &&
@@ -134,11 +132,11 @@ function filterCards(cards) {
       return false; // Якщо немає жодного з'єднання, яке є в фільтрі, виключаємо картку
     }
 
-    // Перевірка розміру екрану картки. Якщо фільтри містять певні розміри екрана, перевіряємо 
+    // Перевірка розміру екрану картки. Якщо фільтри містять певні розміри екрана, перевіряємо
     // чи містить картка необхідний розмір
     if (
       filterState.screenSizes.size > 0 &&
-      !filterState.screenSizes.has(String(card.screenSize))
+      !filterState.screenSizes.has(String(card.screenSizes))
     ) {
       return false; // Якщо розмір екрану картки не підходить під фільтри, виключаємо її
     }
@@ -263,7 +261,7 @@ function createOptionsGroup(options, filterType, isCheckbox = true) {
 }
 
 function createPriceRange(minPrice, maxPrice) {
-  return (`
+  return `
     <div class="filters__range">
       <div class="filters__range-slider">
         <div class="filters__range-progress"></div>
@@ -290,16 +288,12 @@ function createPriceRange(minPrice, maxPrice) {
       </div>
 
       <div class="filters__range-values">
-        <div class="filters__range-value">$${minPrice.toFixed(
-          2
-        )}</div>   
+        <div class="filters__range-value">$${minPrice.toFixed(2)}</div>   
         <div class="filters__range-dash">-</div>                         
-        <div class="filters__range-value">$${maxPrice.toFixed(
-          2
-        )}</div>  
+        <div class="filters__range-value">$${maxPrice.toFixed(2)}</div>  
       </div>
     </div>
-  `);
+  `;
 }
 
 function initializePriceRangeSlider() {
@@ -470,7 +464,15 @@ function generateFilters(cards) {
   // Визначаємо доступні категорії та кольори
   const categories = ["All", ...new Set(cards.map((p) => p.category))];
   const colors = [...new Set(cards.flatMap((p) => p.colors))];
-  const connections = [...new Set(cards.flatMap((p) => p.connections))];
+
+  // Виключаємо монітори з підрахунку з'єднань
+  const connections = [
+    ...new Set(
+      cards
+        .filter((p) => p.category.toLowerCase() !== "monitors") 
+        .flatMap((p) => p.connections)
+    ),
+  ];
 
   // Генерація фільтру за категоріями
   const categoriesFilter = createFilterGroup(
@@ -510,7 +512,7 @@ function generateFilters(cards) {
   let screenSizesFilter = "";
   const monitors = cards.filter((p) => p.category === "monitors");
   if (monitors.length > 0) {
-    const screenSizes = [...new Set(monitors.map((p) => p.screenSize))].sort(
+    const screenSizes = [...new Set(monitors.map((p) => p.screenSizes))].sort(
       (a, b) => a - b
     );
     screenSizesFilter = createFilterGroup(
