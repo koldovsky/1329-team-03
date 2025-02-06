@@ -38,8 +38,6 @@
       flex-basis: 100%;
       text-align: center;
 
-      /* Можна винести в global.css" як тег h2 */
-
       .deals__title {
         display: block;
         color: var(--color-accent-additional);
@@ -51,8 +49,6 @@
         margin: 0;
       }
 
-      /* Можна винести в global.css" як тег h3 */
-
       .deals__subtitle {
         display: block;
         color: var(--color-text-primary);
@@ -63,7 +59,7 @@
         margin-top: 20px;
         margin-bottom: 0;
 
-        .__subtitle-divider {
+        .deals__divider {
           color: var(--color-accent);
         }
 
@@ -365,7 +361,10 @@
                     fill: none;
                   }
 
-                  .countdown-days, .countdown-hours, .countdown-minutes, .countdown-seconds{
+                  .countdown-days,
+                  .countdown-hours,
+                  .countdown-minutes,
+                  .countdown-seconds {
                     font-size: 36px;
                     font-family: var(--font-title);
                     fill: var(--color-primary);
