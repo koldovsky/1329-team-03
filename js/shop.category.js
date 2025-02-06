@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get("category") || "default";
 
-    const productsContainer = document.querySelector(".cards");
+    const productsContainer = document.querySelector(".products-gallery");
 
     if (!productsContainer) {
-      console.error("❌ productsContainer ('.cards') not found!");
+      console.error("❌ productsContainer ('.products-gallery') not found!");
       return;
     }
 
