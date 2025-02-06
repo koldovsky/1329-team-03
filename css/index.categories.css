@@ -427,14 +427,27 @@
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          padding: 20px;
+          padding: 18px;
           position: relative;
           text-align: center;
+          min-height: 425px;
+
+          @media (min-width: 850px) and (max-width: 955px) {
+            min-height: 450px;
+          }
+
+          @media (min-width: 1050px) {
+            min-height: 450px;
+          }
+
+          @media (min-width: 1100px) {
+            min-height: 360px;
+          }
 
           .card__image-container {
             position: relative; 
             height: auto;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             max-width: 100%;
 
             .card__image {
@@ -446,12 +459,10 @@
               position: absolute; 
             }
 
-            .badge-out-of-stock-pro {
+            .badge-out-of-stock-pro, .pre-order-pro {
               bottom: 0; 
               left: 0; 
               right: 0; 
-              background-color: var(--badge-out-of-stock-background);
-              color: var(--badge-out-of-stock-color); 
               padding: 5px; 
               text-align: center; 
               font-weight: bold; 
@@ -460,7 +471,16 @@
               z-index: 10; 
             }
 
-            .out-of-stock {
+            .badge-out-of-stock-pro {
+              background-color: var(--badge-out-of-stock-background);
+              color: var(--badge-out-of-stock-color); 
+            }
+
+            .pre-order-pro{
+              background-color: var(--badge-preorder-background);
+              color: var(--badge-preorder-color); 
+            }
+            .out-of-stock, .pre-order {
               margin: 0; 
             }
           }
@@ -483,7 +503,7 @@
             align-items: self-start;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 0;
             height: 100%;
             justify-content: flex-start; 
             text-align: left;
@@ -493,7 +513,12 @@
             .card__name {
               font-size: 1.15rem;
               font-weight: 500;
-              margin: 10px 0;
+              margin-top: 5px;
+              margin-bottom: 16px;
+
+              @media (min-width: 736px) {
+                margin-bottom: 10px;
+              }
 
               .card__name-link {
                 color: var(--color-primary);
@@ -509,6 +534,7 @@
               justify-content: flex-start;
               margin-top: auto;
               width: 100%;
+              margin-bottom: 45px; 
 
               .card__price {
                 color: var(--color-accent-additional);
@@ -533,7 +559,9 @@
 
             .card__button {
               position: absolute;
-              margin-top: 80%;
+              bottom: 0;  
+              left: 48px; 
+              transform: translateX(-50%); 
               background-color: var(--color-accent);
               color: var(--color-primary-white);
               border: none;

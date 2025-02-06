@@ -43,6 +43,9 @@ function renderCards(cards) {
       card.status === "Wired - Out of stock" ||
       card.status === "Out of stock";
 
+    const isPreOrder =
+      card.status === "Pre-order";
+
     // Додаємо клас "card" до кожної картки, якщо картка має промо-мітку (promoLabel), додаємо ще клас "card--promo"
     cardElement.className = `card${
       card.promoLabel ? " card--promo" : "" // Перевірка на наявність промо-мітки
@@ -63,6 +66,14 @@ function renderCards(cards) {
               ? `
             <div class="badge-bottom-pro badge-out-of-stock-pro">
               <span class="out-of-stock">${card.status}</span>
+            </div>`
+              : ""
+          }
+           ${
+            isPreOrder
+              ? `
+            <div class="badge-bottom-pro pre-order-pro">
+              <span class="pre-order">${card.status}</span>
             </div>`
               : ""
           }
