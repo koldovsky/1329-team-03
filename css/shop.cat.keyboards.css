@@ -118,7 +118,6 @@
 
         .products-gallery {
           margin-top: 25px;
-          margin-top: 25px;
           display: grid;
           gap: 30px;
           grid-template-columns: repeat(1, minmax(200px, 2fr));
