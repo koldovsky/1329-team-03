@@ -62,7 +62,7 @@
     width: 100%;
     margin-bottom: 40px;
     margin-top: 30px;
-    gap: 30px;
+    gap: 40px;
   }
 
   .popular-products__badge-bottom-pro {
@@ -91,6 +91,11 @@
   .badge__pre-order {
     background: var(--badge-preorder-background);
     color: var(--badge-preorder-color);
+  }
+
+  .popular-products__choose-currency {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .popular-products__currency-label {
