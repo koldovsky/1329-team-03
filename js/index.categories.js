@@ -533,28 +533,20 @@ function generateFilters(cards) {
     )
   );
 
-  // Генерація фільтру за розміром екрану для моніторів
-  let screenSizesFilter = "";
-  const monitors = cards.filter((p) => p.category === "monitors");
-  
-  if (monitors.length > 0) {
-    const screenSizes = [
-      ...new Set(monitors.flatMap((p) => p.screenSizes)) // Розгортання масивів, якщо вони вкладені
-    ].sort((a, b) => a - b);
-  
-    screenSizesFilter = createFilterGroup(
-      "Screen Size",
-      createOptionsGroup(screenSizes.map((size) => `${size}"`), "screenSizes")
-    );
-  }  
-
   // Додаємо всі фільтри в контейнер
   filtersContainer.innerHTML =
     categoriesFilter +
     priceFilter +
     colorsFilter +
-    connectionsFilter +
-    screenSizesFilter;
+    connectionsFilter;
+
+  // Виділяємо категорію "All" жирним шрифтом за замовчуванням
+  const allCategoryOption = document.querySelector(
+    '.filters__option[data-value="all"]'
+  );
+  if (allCategoryOption) {
+    allCategoryOption.classList.add("filters__option--active");
+  }
 
   // Ініціалізуємо додаткові елементи (повзунок, акардіон)
   initializePriceRangeSlider();
