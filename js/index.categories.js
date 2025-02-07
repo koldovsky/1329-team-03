@@ -1,6 +1,6 @@
 /* Максим Зимин */
 
-import { addProductToCart } from './global.cart.js';
+import { addProductToCart } from "./global.cart.js";
 
 /* Об'єкт стану фільтрації товарів */
 const filterState = {
@@ -38,6 +38,15 @@ function renderCards(cards) {
     // Створюємо новий елемент <article> для кожної картки
     const cardElement = document.createElement("article");
 
+    const isOutOfStock =
+      card.status === "Wireless - Out of stock" ||
+      card.status === "Wired - Out of stock" ||
+      card.status === "Out of stock";
+
+    const isPreOrder =
+      card.status === "Pre-order" || 
+      card.status === "Wireless - Coming soon";
+
     // Додаємо клас "card" до кожної картки, якщо картка має промо-мітку (promoLabel), додаємо ще клас "card--promo"
     cardElement.className = `card${
       card.promoLabel ? " card--promo" : "" // Перевірка на наявність промо-мітки
@@ -49,21 +58,31 @@ function renderCards(cards) {
         <div class="card__image-container">          
           ${
             card.promoLabel
-              ? `<span class="card__label">${card.promoLabel}</span>` 
-              : "" 
+              ? `<span class="card__label">${card.promoLabel}</span>`
+              : ""
           }          
-          <img
-            src="${card.image}" 
-            alt="${card.name}"   
-            class="card__image" 
-          />
+          <img src="${card.image}" alt="${card.name}" class="card__image" />
+          ${
+            isOutOfStock
+              ? `
+            <div class="badge-bottom-pro badge-out-of-stock-pro">
+              <span class="out-of-stock">${card.status}</span>
+            </div>`
+              : ""
+          }
+           ${
+            isPreOrder
+              ? `
+            <div class="badge-bottom-pro pre-order-pro">
+              <span class="pre-order">${card.status}</span>
+            </div>`
+              : ""
+          }
         </div>
         
         <div class="card__info">
           <h2 class="card__name">
-            <a href="#" class="card__name-link">${
-              card.name
-            }</a> 
+            <a href="#" class="card__name-link">${card.name}</a> 
           </h2>
           
           <div class="card__price-container">
@@ -71,24 +90,28 @@ function renderCards(cards) {
               card.oldPrice
                 ? `<p class="card__price card__price--old">$${card.oldPrice.toFixed(
                     2
-                  )} USD</p>` 
-                : "" 
+                  )} USD</p>`
+                : ""
             }
             
             <!-- Поточна ціна товару -->
-            <p class="card__price">$${card.price.toFixed(
-              2
-            )} USD</p> 
-          </div>
-          <button class="card__button card__button--cart">Buy Now</button>
+            <p class="card__price">$${card.price.toFixed(2)} USD</p> 
+          </div>   
+          <button class="card__button card__button--cart" ${
+            isOutOfStock ? "disabled" : ""
+          }>Buy Now</button>       
         </div>
     `;
 
     // Ловимо клік на кнопці "Buy Now" і додаємо товар в кошик
-    const addProductToCartButton = cardElement.querySelector('.card__button--cart');
-    addProductToCartButton.addEventListener('click', () => {
-      addProductToCart(card.name, card.price);
-    });
+    const addProductToCartButton = cardElement.querySelector(
+      ".card__button--cart"
+    );
+    if (!isOutOfStock) {
+      addProductToCartButton.addEventListener("click", () => {
+        addProductToCart(card.name, card.price);
+      });
+    }
 
     // Додаємо створену картку в контейнер карток на сторінці
     cardsContainer.appendChild(cardElement);
@@ -97,7 +120,7 @@ function renderCards(cards) {
 
 function filterCards(cards) {
   return cards.filter((card) => {
-    // Перевірка категорії картки. Якщо категорія не "all" (усі), то перевіряємо 
+    // Перевірка категорії картки. Якщо категорія не "all" (усі), то перевіряємо
     // чи співпадає категорія картки з поточною
     if (
       filterState.category !== "all" &&
@@ -114,7 +137,7 @@ function filterCards(cards) {
       return false; // Якщо ціна картки не в межах фільтрації, виключаємо її
     }
 
-    // Перевірка кольорів картки. Якщо фільтри містять кольори, то перевіряємо, 
+    // Перевірка кольорів картки. Якщо фільтри містять кольори, то перевіряємо,
     // чи є хоча б один колір картки в фільтрі
     if (
       filterState.colors.size > 0 &&
@@ -123,7 +146,7 @@ function filterCards(cards) {
       return false; // Якщо немає жодного кольору, який є в фільтрі, виключаємо картку
     }
 
-    // Перевірка з'єднань картки. Якщо фільтри містять з'єднання, то перевіряємо, 
+    // Перевірка з'єднань картки. Якщо фільтри містять з'єднання, то перевіряємо,
     // чи є хоча б одне з'єднання картки в фільтрі
     if (
       filterState.connections.size > 0 &&
@@ -134,11 +157,11 @@ function filterCards(cards) {
       return false; // Якщо немає жодного з'єднання, яке є в фільтрі, виключаємо картку
     }
 
-    // Перевірка розміру екрану картки. Якщо фільтри містять певні розміри екрана, перевіряємо 
+    // Перевірка розміру екрану картки. Якщо фільтри містять певні розміри екрана, перевіряємо
     // чи містить картка необхідний розмір
     if (
       filterState.screenSizes.size > 0 &&
-      !filterState.screenSizes.has(String(card.screenSize))
+      !filterState.screenSizes.has(String(card.screenSizes))
     ) {
       return false; // Якщо розмір екрану картки не підходить під фільтри, виключаємо її
     }
@@ -263,7 +286,7 @@ function createOptionsGroup(options, filterType, isCheckbox = true) {
 }
 
 function createPriceRange(minPrice, maxPrice) {
-  return (`
+  return `
     <div class="filters__range">
       <div class="filters__range-slider">
         <div class="filters__range-progress"></div>
@@ -290,16 +313,12 @@ function createPriceRange(minPrice, maxPrice) {
       </div>
 
       <div class="filters__range-values">
-        <div class="filters__range-value">$${minPrice.toFixed(
-          2
-        )}</div>   
+        <div class="filters__range-value">$${minPrice.toFixed(2)}</div>   
         <div class="filters__range-dash">-</div>                         
-        <div class="filters__range-value">$${maxPrice.toFixed(
-          2
-        )}</div>  
+        <div class="filters__range-value">$${maxPrice.toFixed(2)}</div>  
       </div>
     </div>
-  `);
+  `;
 }
 
 function initializePriceRangeSlider() {
@@ -470,7 +489,15 @@ function generateFilters(cards) {
   // Визначаємо доступні категорії та кольори
   const categories = ["All", ...new Set(cards.map((p) => p.category))];
   const colors = [...new Set(cards.flatMap((p) => p.colors))];
-  const connections = [...new Set(cards.flatMap((p) => p.connections))];
+
+  // Виключаємо монітори з підрахунку з'єднань
+  const connections = [
+    ...new Set(
+      cards
+        .filter((p) => p.category.toLowerCase() !== "monitors")
+        .flatMap((p) => p.connections)
+    ),
+  ];
 
   // Генерація фільтру за категоріями
   const categoriesFilter = createFilterGroup(
@@ -506,29 +533,20 @@ function generateFilters(cards) {
     )
   );
 
-  // Генерація фільтру за розміром екрану для моніторів
-  let screenSizesFilter = "";
-  const monitors = cards.filter((p) => p.category === "monitors");
-  if (monitors.length > 0) {
-    const screenSizes = [...new Set(monitors.map((p) => p.screenSize))].sort(
-      (a, b) => a - b
-    );
-    screenSizesFilter = createFilterGroup(
-      "Screen Size",
-      createOptionsGroup(
-        screenSizes.map((size) => `${size}"`),
-        "screenSizes"
-      )
-    );
-  }
-
   // Додаємо всі фільтри в контейнер
   filtersContainer.innerHTML =
     categoriesFilter +
     priceFilter +
     colorsFilter +
-    connectionsFilter +
-    screenSizesFilter;
+    connectionsFilter;
+
+  // Виділяємо категорію "All" жирним шрифтом за замовчуванням
+  const allCategoryOption = document.querySelector(
+    '.filters__option[data-value="all"]'
+  );
+  if (allCategoryOption) {
+    allCategoryOption.classList.add("filters__option--active");
+  }
 
   // Ініціалізуємо додаткові елементи (повзунок, акардіон)
   initializePriceRangeSlider();
