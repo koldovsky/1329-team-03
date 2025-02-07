@@ -44,8 +44,7 @@ function renderCards(cards) {
       card.status === "Out of stock";
 
     const isPreOrder =
-      card.status === "Pre-order" || 
-      card.status === "Wireless - Coming soon";
+      card.status === "Pre-order" || card.status === "Wireless - Coming soon";
 
     // Додаємо клас "card" до кожної картки, якщо картка має промо-мітку (promoLabel), додаємо ще клас "card--promo"
     cardElement.className = `card${
@@ -71,13 +70,13 @@ function renderCards(cards) {
               : ""
           }
            ${
-            isPreOrder
-              ? `
+             isPreOrder
+               ? `
             <div class="badge-bottom-pro pre-order-pro">
               <span class="pre-order">${card.status}</span>
             </div>`
-              : ""
-          }
+               : ""
+           }
         </div>
         
         <div class="card__info">
@@ -533,12 +532,24 @@ function generateFilters(cards) {
     )
   );
 
+  // Генерація фільтру за розміром екрану для моніторів
+  let screenSizesFilter = "";
+  const monitors = cards.filter((p) => p.category === "monitors");
+  
+  if (monitors.length > 0) {
+    const screenSizes = [
+      ...new Set(monitors.flatMap((p) => p.screenSizes)) // Розгортання масивів, якщо вони вкладені
+    ].sort((a, b) => a - b);
+  
+    screenSizesFilter = createFilterGroup(
+      "Screen Size",
+      createOptionsGroup(screenSizes.map((size) => `${size}"`), "screenSizes")
+    );
+  }
+
   // Додаємо всі фільтри в контейнер
   filtersContainer.innerHTML =
-    categoriesFilter +
-    priceFilter +
-    colorsFilter +
-    connectionsFilter;
+    categoriesFilter + priceFilter + colorsFilter + connectionsFilter + screenSizesFilter;
 
   // Виділяємо категорію "All" жирним шрифтом за замовчуванням
   const allCategoryOption = document.querySelector(
