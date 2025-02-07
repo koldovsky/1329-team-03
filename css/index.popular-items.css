@@ -126,6 +126,11 @@
   transition: var(--transiton-primary-all);
   }
 
+  #currency-select:focus {
+    outline: none;
+    border-color: none;
+  }
+
   .popular-products__button {
     display: flex;
     justify-content: center;
