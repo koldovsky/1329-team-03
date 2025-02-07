@@ -536,18 +536,17 @@ function generateFilters(cards) {
   // Генерація фільтру за розміром екрану для моніторів
   let screenSizesFilter = "";
   const monitors = cards.filter((p) => p.category === "monitors");
+  
   if (monitors.length > 0) {
-    const screenSizes = [...new Set(monitors.map((p) => p.screenSizes))].sort(
-      (a, b) => a - b
-    );
+    const screenSizes = [
+      ...new Set(monitors.flatMap((p) => p.screenSizes)) // Розгортання масивів, якщо вони вкладені
+    ].sort((a, b) => a - b);
+  
     screenSizesFilter = createFilterGroup(
       "Screen Size",
-      createOptionsGroup(
-        screenSizes.map((size) => `${size}"`),
-        "screenSizes"
-      )
+      createOptionsGroup(screenSizes.map((size) => `${size}"`), "screenSizes")
     );
-  }
+  }  
 
   // Додаємо всі фільтри в контейнер
   filtersContainer.innerHTML =
