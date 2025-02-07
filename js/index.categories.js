@@ -11,6 +11,9 @@ const filterState = {
   screenSizes: new Set(),
 };
 
+const CARDS_PER_PAGE = 12;
+let displayedCards = 0;
+
 /* Функція для отримання товарів з JSON-файлу */
 async function fetchCards() {
   try {
@@ -19,7 +22,7 @@ async function fetchCards() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    return data.cards;
+    return data.cards.filter(card => card.all === true); // Фільтруємо картки
   } catch (error) {
     console.error("Error loading cards:", error);
     return [];
@@ -27,162 +30,99 @@ async function fetchCards() {
 }
 
 function renderCards(cards) {
-  // Знаходимо контейнер, де будуть відображатись картки товарів
   const cardsContainer = document.querySelector(".cards");
+  cardsContainer.innerHTML = ""; // Очищаємо контейнер
 
-  // Очищаємо контейнер, щоб уникнути дублювання карток при повторному виклику функції
-  cardsContainer.innerHTML = "";
-
-  // Перебираємо кожну картку з масиву "cards"
   cards.forEach((card) => {
-    // Створюємо новий елемент <article> для кожної картки
     const cardElement = document.createElement("article");
-
-    const isOutOfStock =
-      card.status === "Wireless - Out of stock" ||
-      card.status === "Wired - Out of stock" ||
-      card.status === "Out of stock";
-
-    const isPreOrder =
-      card.status === "Pre-order" || card.status === "Wireless - Coming soon";
-
-    // Додаємо клас "card" до кожної картки, якщо картка має промо-мітку (promoLabel), додаємо ще клас "card--promo"
-    cardElement.className = `card${
-      card.promoLabel ? " card--promo" : "" // Перевірка на наявність промо-мітки
-    }`;
-
-    // Встановлюємо внутрішній HTML для кожної картки
-    // Якщо картка має промо-мітку, показуємо її
+    cardElement.className = `card${card.promoLabel ? " card--promo" : ""}`;
     cardElement.innerHTML = `
-        <div class="card__image-container">          
-          ${
-            card.promoLabel
-              ? `<span class="card__label">${card.promoLabel}</span>`
-              : ""
-          }          
-          <img src="${card.image}" alt="${card.name}" class="card__image" />
-          ${
-            isOutOfStock
-              ? `
-            <div class="badge-bottom-pro badge-out-of-stock-pro">
-              <span class="out-of-stock">${card.status}</span>
-            </div>`
-              : ""
-          }
-           ${
-             isPreOrder
-               ? `
-            <div class="badge-bottom-pro pre-order-pro">
-              <span class="pre-order">${card.status}</span>
-            </div>`
-               : ""
-           }
-        </div>
-        
-        <div class="card__info">
-          <h2 class="card__name">
-            <a href="#" class="card__name-link">${card.name}</a> 
-          </h2>
-          
-          <div class="card__price-container">
-            ${
-              card.oldPrice
-                ? `<p class="card__price card__price--old">$${card.oldPrice.toFixed(
-                    2
-                  )} USD</p>`
-                : ""
-            }
-            
-            <!-- Поточна ціна товару -->
-            <p class="card__price">$${card.price.toFixed(2)} USD</p> 
-          </div>   
-          <button class="card__button card__button--cart" ${
-            isOutOfStock ? "disabled" : ""
-          }>Buy Now</button>       
-        </div>
+      <div class="card__image-container">          
+        ${card.promoLabel ? `<span class="card__label">${card.promoLabel}</span>` : ""}          
+        <img src="${card.image}" alt="${card.name}" class="card__image" />
+        ${card.status === "Out of stock" ? `<div class="badge-bottom-pro badge-out-of-stock-pro"><span class="out-of-stock">${card.status}</span></div>` : ""}
+      </div>
+      <div class="card__info">
+        <h2 class="card__name"><a href="#" class="card__name-link">${card.name}</a></h2>
+        <div class="card__price-container">
+          ${card.oldPrice ? `<p class="card__price card__price--old">$${card.oldPrice.toFixed(2)} USD</p>` : ""}
+          <p class="card__price">$${card.price.toFixed(2)} USD</p>
+        </div>   
+        <button class="card__button card__button--cart" ${card.status === "Out of stock" ? "disabled" : ""}>Buy Now</button>       
+      </div>
     `;
 
-    // Ловимо клік на кнопці "Buy Now" і додаємо товар в кошик
-    const addProductToCartButton = cardElement.querySelector(
-      ".card__button--cart"
-    );
-    if (!isOutOfStock) {
+    const addProductToCartButton = cardElement.querySelector(".card__button--cart");
+    if (card.status !== "Out of stock") {
       addProductToCartButton.addEventListener("click", () => {
         addProductToCart(card.name, card.price);
       });
     }
 
-    // Додаємо створену картку в контейнер карток на сторінці
     cardsContainer.appendChild(cardElement);
   });
 }
 
 function filterCards(cards) {
   return cards.filter((card) => {
-    // Перевірка категорії картки. Якщо категорія не "all" (усі), то перевіряємо
-    // чи співпадає категорія картки з поточною
+    if (!card.all) return false; // Відфільтровуємо картки, де card.all !== true
+
+    // Інші умови фільтрації
     if (
       filterState.category !== "all" &&
       card.category.toLowerCase() !== filterState.category.toLowerCase()
     ) {
-      return false; // Якщо категорії не співпадають, виключаємо картку
+      return false;
     }
-
-    // Перевірка ціни картки. Якщо ціна картки поза діапазоном встановлених меж, виключаємо картку
     if (
       card.price < filterState.priceRange.min ||
       card.price > filterState.priceRange.max
     ) {
-      return false; // Якщо ціна картки не в межах фільтрації, виключаємо її
+      return false;
     }
-
-    // Перевірка кольорів картки. Якщо фільтри містять кольори, то перевіряємо,
-    // чи є хоча б один колір картки в фільтрі
     if (
       filterState.colors.size > 0 &&
       !card.colors.some((color) => filterState.colors.has(color.toLowerCase()))
     ) {
-      return false; // Якщо немає жодного кольору, який є в фільтрі, виключаємо картку
+      return false;
     }
-
-    // Перевірка з'єднань картки. Якщо фільтри містять з'єднання, то перевіряємо,
-    // чи є хоча б одне з'єднання картки в фільтрі
     if (
       filterState.connections.size > 0 &&
-      !card.connections.some((conn) =>
-        filterState.connections.has(conn.toLowerCase())
-      )
+      !card.connections.some((conn) => filterState.connections.has(conn.toLowerCase()))
     ) {
-      return false; // Якщо немає жодного з'єднання, яке є в фільтрі, виключаємо картку
+      return false;
     }
-
-    // Перевірка розміру екрану картки. Якщо фільтри містять певні розміри екрана, перевіряємо
-    // чи містить картка необхідний розмір
     if (
       filterState.screenSizes.size > 0 &&
       !filterState.screenSizes.has(String(card.screenSizes))
     ) {
-      return false; // Якщо розмір екрану картки не підходить під фільтри, виключаємо її
+      return false;
     }
 
-    // Якщо жоден з фільтрів не виключив картку, повертаємо її
     return true;
   });
 }
 
 /* Оновлює відображення карток на основі поточного стану фільтрів */
 function updateCards(cards) {
-  // Отримуємо відфільтровані картки за допомогою функції filterCards
-  const filteredcards = filterCards(cards);
+  const filteredCards = filterCards(cards); // Фільтруємо картки
+  displayedCards = CARDS_PER_PAGE; // Скидаємо лічильник відображених карток до 12
 
-  // Відображаємо відфільтровані картки на сторінці
-  renderCards(filteredcards);
+  // Відображаємо перші 12 карток
+  renderCards(filteredCards.slice(0, displayedCards));
 
-  // Знаходимо кнопку "Apply filters" для оновлення тексту
+  // Оновлюємо текст кнопки "Apply filters"
   const applyButton = document.querySelector(".filters__apply-button");
   if (applyButton) {
-    // Оновлюємо текст кнопки, вказуючи кількість карток після фільтрації
-    applyButton.textContent = `Apply filters: ${filteredcards.length}`;
+    applyButton.textContent = `Apply filters: ${filteredCards.length}`;
+  }
+
+  // Оновлюємо стан кнопки "Load More"
+  const loadMoreButton = document.querySelector(".btn-outline-dark");
+  if (filteredCards.length <= displayedCards) {
+    loadMoreButton.style.display = "none"; // Приховати, якщо всі картки вже відображені
+  } else {
+    loadMoreButton.style.display = "block"; // Показати, якщо є ще картки
   }
 }
 
@@ -535,21 +475,28 @@ function generateFilters(cards) {
   // Генерація фільтру за розміром екрану для моніторів
   let screenSizesFilter = "";
   const monitors = cards.filter((p) => p.category === "monitors");
-  
+
   if (monitors.length > 0) {
     const screenSizes = [
-      ...new Set(monitors.flatMap((p) => p.screenSizes)) // Розгортання масивів, якщо вони вкладені
+      ...new Set(monitors.flatMap((p) => p.screenSizes)), // Розгортання масивів, якщо вони вкладені
     ].sort((a, b) => a - b);
-  
+
     screenSizesFilter = createFilterGroup(
       "Screen Size",
-      createOptionsGroup(screenSizes.map((size) => `${size}"`), "screenSizes")
+      createOptionsGroup(
+        screenSizes.map((size) => `${size}"`),
+        "screenSizes"
+      )
     );
   }
 
   // Додаємо всі фільтри в контейнер
   filtersContainer.innerHTML =
-    categoriesFilter + priceFilter + colorsFilter + connectionsFilter + screenSizesFilter;
+    categoriesFilter +
+    priceFilter +
+    colorsFilter +
+    connectionsFilter +
+    screenSizesFilter;
 
   // Виділяємо категорію "All" жирним шрифтом за замовчуванням
   const allCategoryOption = document.querySelector(
@@ -604,6 +551,25 @@ function initializeMobileSidebar() {
   }
 }
 
+async function loadMoreCards() {
+  const cards = window.cards; // Отримуємо всі картки
+  const filteredCards = filterCards(cards); // Фільтруємо картки
+
+  // Збільшуємо кількість відображених карток на 12
+  displayedCards += CARDS_PER_PAGE;
+
+  // Відображаємо наступні картки
+  renderCards(filteredCards.slice(0, displayedCards));
+
+  // Оновлюємо стан кнопки "Load More"
+  const loadMoreButton = document.querySelector(".btn-outline-dark");
+  if (displayedCards >= filteredCards.length) {
+    loadMoreButton.style.display = "none"; // Приховати, якщо всі картки відображені
+  } else {
+    loadMoreButton.style.display = "block"; // Показати, якщо є ще картки
+  }
+}
+
 async function initialize() {
   // Отримуємо картки з даними
   const cards = await fetchCards();
@@ -611,17 +577,29 @@ async function initialize() {
   // Зберігаємо картки в глобальній змінній
   window.cards = cards;
 
-  renderCards(cards);
-  generateFilters(cards);
+  // Відображаємо перші 12 карток
+  const filteredCards = filterCards(cards);
+  renderCards(filteredCards.slice(0, CARDS_PER_PAGE));
 
-  // Ініціалізуємо мобільну панель
-  initializeMobileSidebar();
+  // Оновлюємо стан кнопки "Load More"
+  const loadMoreButton = document.querySelector(".btn-outline-dark");
+  if (filteredCards.length <= CARDS_PER_PAGE) {
+    loadMoreButton.style.display = "none"; // Приховати, якщо всі картки вже відображені
+  } else {
+    loadMoreButton.style.display = "block"; // Показати, якщо є ще картки
+  }
+
+  // Генеруємо фільтри
+  generateFilters(cards);
 
   // Оновлюємо текст кнопки застосування фільтрів
   const applyButton = document.querySelector(".filters__apply-button");
   if (applyButton) {
-    applyButton.textContent = `Apply filters: ${cards.length}`;
+    applyButton.textContent = `Apply filters: ${filteredCards.length}`;
   }
+
+  // Додаємо слухача події для кнопки Load More
+  loadMoreButton.addEventListener("click", loadMoreCards);
 }
 
 initialize();
