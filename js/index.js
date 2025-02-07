@@ -9,6 +9,7 @@ function init() {
   import('./swiper.js');
   import('./index.footer-contact-form.js');
   import('./global.cart.js');
+  import('./index.news.js');
 }
 
 const totalPartials = document.querySelectorAll(
