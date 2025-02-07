@@ -122,7 +122,7 @@
   }
 
 #currency-select:hover {
-  background-color: var(--color-accent);
+  background-color: var(--color-primary);
   transition: var(--transiton-primary-all);
   }
 
