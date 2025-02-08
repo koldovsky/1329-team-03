@@ -230,7 +230,7 @@
 
       .cart-button--primary {
         background-color: var(--color-accent);
-        color: var(----color-primary-white);
+        color: var(--color-primary-white);
         flex: 2;
       }
 
