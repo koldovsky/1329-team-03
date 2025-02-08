@@ -518,7 +518,6 @@ input[type=submit]:hover {
   font-size: 14px;
 }
 
-/* Блок с деталями */
 .job-opportunities__mini-job-details {
   text-align: right;
   color: var(--color-text-body);

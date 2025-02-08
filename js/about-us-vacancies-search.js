@@ -37,10 +37,6 @@ function renderJobsNumber() {
   jobsNumberList.textContent = miniVacancies.length;
 }
 
-// function sortMiniVacancies() {
-//     document.querySelectorAll(".job-opportunities__search-label").forEach()
-// }
-
 document
   .querySelectorAll(".job-opportunities__search-select")
   .forEach((droplist) => {
@@ -62,7 +58,6 @@ document
       .forEach((miniCard) => {
         const cardText = miniCard.outerHTML.toLowerCase();
 
-        // Проверяем, соответствуют ли все выбранные фильтры тексту карточки
         const isMatching =
         filters.every((val) => val === "all") ||
           filters.every((keyword) => cardText.includes(keyword.toLowerCase()))
