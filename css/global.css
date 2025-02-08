@@ -82,6 +82,9 @@ main {
   --cart-shadow-modal: 0 0 10px rgba(0, 0, 0, 0.2);
   --cart-shadow-light: 0 0 10px rgba(0, 0, 0, 0.1);
 
+  --slider-color: black;
+  --slider-input-background-color: #d3d3d3;
+
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;
 }

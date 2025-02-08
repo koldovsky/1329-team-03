@@ -123,10 +123,14 @@ function filterCards(cards) {
       card.category.toLowerCase() === filterState.category.toLowerCase()
     ) {
       // Перевірка цінового діапазону
-      if (
-        card.price < filterState.priceRange.min ||
-        card.price > filterState.priceRange.max
-      ) {
+      const minPrice = parseFloat(filterState.priceRange.min);
+      const maxPrice = parseFloat(filterState.priceRange.max);
+      const cardPrice = parseFloat(card.price);
+
+      if (cardPrice < minPrice || cardPrice > maxPrice) {
+        console.log("Min Price:", filterState.priceRange.min);
+        console.log("Max Price:", filterState.priceRange.max);
+        console.log("Card Price:", card.price);
         return false;
       }
 
@@ -203,6 +207,10 @@ function resetFilters() {
   filterState.screenSizes.clear();
 
   // Визначаємо мінімальні і максимальні ціни на основі карток у window.cards
+  window.cards = data.map((card) => ({
+    ...card,
+    price: parseFloat(card.price), 
+  }));
   const prices = window.cards.map((p) => p.price);
   filterState.priceRange = {
     min: Math.min(...prices), // Мінімальна ціна
@@ -299,97 +307,74 @@ function createOptionsGroup(options, filterType, isCheckbox = true) {
  */
 function createPriceRange(minPrice, maxPrice) {
   return `
-    <div class="filters__range">
-      <div class="filters__range-slider">
-        <div class="filters__range-progress"></div>
-        <div class="filters__range-inputs">
-          <input
-            type="range"
-            class="filters__range-input filters__range-input--min"
-            min="${minPrice}"
-            max="${maxPrice}"
-            value="${minPrice}"
-            step="1"
-          />
-          <input
-            type="range"
-            class="filters__range-input filters__range-input--max"
-            min="${minPrice}"
-            max="${maxPrice}"
-            value="${maxPrice}"
-            step="1"
-          />
-        </div>
-      </div>
-      <div class="filters__range-values">
-        <div class="filters__range-value">$${minPrice.toFixed(2)}</div>
-        <div class="filters__range-dash">-</div>
-        <div class="filters__range-value">$${maxPrice.toFixed(2)}</div>
+    <div class="price-slider-wrapper">
+      <div class="noUi-slider" id="priceSlider"></div>
+      <div class="price-inputs">
+        <input type="number" id="minPriceInput" value="32.00" class="price-input">
+        <input type="number" id="maxPriceInput" value="225.00" class="price-input">
       </div>
     </div>
   `;
 }
 
-/**
- * Initialize range slider functionality
- */
 function initializePriceRangeSlider() {
-  const rangeMin = document.querySelector(".filters__range-input--min");
-  const rangeMax = document.querySelector(".filters__range-input--max");
-  const progress = document.querySelector(".filters__range-progress");
-  const valueMin = document.querySelector(
-    ".filters__range-values .filters__range-value:first-child"
-  );
-  const valueMax = document.querySelector(
-    ".filters__range-values .filters__range-value:last-child"
-  );
+  const minPriceInput = document.getElementById("minPriceInput");
+  const maxPriceInput = document.getElementById("maxPriceInput");
+  const priceSlider = document.getElementById("priceSlider");
 
-  if (!rangeMin || !rangeMax || !progress || !valueMin || !valueMax) {
-    console.log("Range slider elements not found");
-    return;
-  }
-
-  function updateProgress() {
-    const min = parseInt(rangeMin.value);
-    const max = parseInt(rangeMax.value);
-    const minPercent =
-      ((min - rangeMin.min) / (rangeMin.max - rangeMin.min)) * 100;
-    const maxPercent =
-      ((max - rangeMax.min) / (rangeMax.max - rangeMax.min)) * 100;
-
-    progress.style.left = `${minPercent}%`;
-    progress.style.width = `${maxPercent - minPercent}%`;
-
-    valueMin.textContent = `$${min.toFixed(2)}`;
-    valueMax.textContent = `$${max.toFixed(2)}`;
-
-    filterState.priceRange.min = min;
-    filterState.priceRange.max = max;
-  }
-
-  rangeMin.addEventListener("input", (e) => {
-    const minVal = parseInt(rangeMin.value);
-    const maxVal = parseInt(rangeMax.value);
-
-    if (maxVal - minVal < 0) {
-      rangeMin.value = maxVal;
-    }
-    updateProgress();
-    updateProducts(window.products);
+  // Ініціалізація noUiSlider
+  noUiSlider.create(priceSlider, {
+    start: [filterState.priceRange.min, filterState.priceRange.max], // Використовуємо поточні значення
+    connect: true,
+    range: {
+      min: 0,
+      max: 500,
+    },
+    step: 0.01,
+    format: {
+      to: (value) => value.toFixed(2),
+      from: (value) => parseFloat(value),
+    },
   });
 
-  rangeMax.addEventListener("input", (e) => {
-    const minVal = parseInt(rangeMin.value);
-    const maxVal = parseInt(rangeMax.value);
-
-    if (maxVal - minVal < 0) {
-      rangeMax.value = minVal;
+  // Оновлення інпутів при зміні значення слайдера
+  priceSlider.noUiSlider.on("update", function (values, handle) {
+    if (handle === 0) {
+      minPriceInput.value = values[0];
+    } else {
+      maxPriceInput.value = values[1];
     }
-    updateProgress();
-    updateProducts(window.products);
   });
 
-  updateProgress();
+  // Оновлення значень в `filterState` і фільтрація карток при зміні слайдера
+  priceSlider.noUiSlider.on("change", function (values) {
+    filterState.priceRange.min = parseFloat(values[0]);
+    filterState.priceRange.max = parseFloat(values[1]);
+    updateCards(window.cards);
+  });
+
+  // Оновлення слайдера при зміні значень в інпутах
+  minPriceInput.addEventListener("input", function () {
+    const minValue = parseFloat(minPriceInput.value);
+    const maxValue = parseFloat(maxPriceInput.value);
+
+    if (minValue >= maxValue) {
+      minPriceInput.value = maxValue;
+    }
+
+    priceSlider.noUiSlider.set([minPriceInput.value, maxValue]);
+  });
+
+  maxPriceInput.addEventListener("input", function () {
+    const minValue = parseFloat(minPriceInput.value);
+    const maxValue = parseFloat(maxPriceInput.value);
+
+    if (maxValue <= minValue) {
+      maxPriceInput.value = minValue;
+    }
+
+    priceSlider.noUiSlider.set([minValue, maxPriceInput.value]);
+  });
 }
 
 function initializeAccordion() {
@@ -611,6 +596,7 @@ function initializeMobileSidebar() {
 
 async function loadMoreCards() {
   const cards = window.cards; // Отримуємо всі картки
+
   const filteredCards = filterCards(cards); // Фільтруємо картки
 
   // Збільшуємо кількість відображених карток на 12
@@ -666,7 +652,7 @@ async function initialize() {
   // Генеруємо фільтри
   generateFilters(cards);
 
-  // Оновлюємо текст кнопки застосування фільтрів
+  initializeMobileSidebar();
   const applyButton = document.querySelector(".filters__apply-button");
   if (applyButton) {
     applyButton.textContent = `Apply filters: ${filteredCards.length}`;
