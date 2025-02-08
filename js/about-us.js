@@ -1,5 +1,6 @@
 function init() {
     import("./about-us-vacancies.js");
+    import("./about-us-vacancies-search.js");
   }
   
   const totalPartials = document.querySelectorAll(

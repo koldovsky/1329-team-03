@@ -1,0 +1,32 @@
+[
+    {
+    "id": 1,
+    "companyLogo": "img/about-us/headphones-logo.svg",
+    "title": "In-Store Tech Specialist",
+    "location": "San Francisco, CA",
+    "country": "USA",
+    "employmentType": "Full time",
+    "salary": "$55,000",
+    "experience": "5 years of experience"
+    },
+    {
+    "id": 2,
+    "companyLogo": "img/about-us/headphones-logo.svg",
+    "title": "In-Store Sales Associate",
+    "location": "San Francisco, CA",
+    "country": "USA",
+    "employmentType": "Full-time",
+    "salary": "$35,000",
+    "experience": "1 year of experience"
+    },
+    {
+    "id": 3,
+    "companyLogo": "img/about-us/headphones-logo.svg",
+    "title": "Customer Support Agent",
+    "location": "Remote position",
+    "country": "remote",
+    "employmentType": "Full-time",
+    "salary": "$40,000",
+    "experience": "2 years of experience"
+    }
+]
