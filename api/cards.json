@@ -11,7 +11,8 @@
       "promoLabel": null,
       "status": "In stock",
       "colors": ["white"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 2,
@@ -24,7 +25,8 @@
       "promoLabel": null,
       "status": "In stock",
       "colors": ["black"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     }, 
     {
       "id": 3,
@@ -37,7 +39,8 @@
       "promoLabel": null,
       "status": "In stock",
       "colors": ["orange"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     }, 
     {
       "id": 4,
@@ -50,7 +53,8 @@
       "promoLabel": null,
       "status": "In stock",
       "colors": ["black"],
-      "connections": ["wired"]
+      "connections": ["wired"],
+      "screenSizes": []
     },
     {
       "id": 5,
@@ -63,7 +67,8 @@
       "promoLabel": null,
       "status": "Wireless - Out of stock",
       "colors": ["black"],
-      "connections": ["wireless"]
+      "connections": ["wireless"],
+      "screenSizes": []
     },
     {
       "id": 6,
@@ -76,7 +81,8 @@
       "promoLabel": null,
       "status": "In stock",
       "colors": ["blue"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 7,
@@ -89,7 +95,8 @@
       "promoLabel": null,
       "status": "In stock",
       "colors": ["pink"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 8,
@@ -102,7 +109,8 @@
       "promoLabel": null,
       "status": "In stock",
       "colors": ["multicolor"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 9,
@@ -115,7 +123,8 @@
       "promoLabel": null,
       "status": "In stock",
       "colors": ["black"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 10,
@@ -128,7 +137,8 @@
       "promoLabel": null,
       "status": "In stock",
       "colors": ["pink"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 11,
@@ -141,7 +151,8 @@
       "promoLabel": "sale",
       "status": "In stock",
       "colors": ["red"],
-      "connections": ["wired"]
+      "connections": ["wired"],
+      "screenSizes": []
     },
     {
       "id": 12,
@@ -154,7 +165,8 @@
       "promoLabel": "sale",
       "status": "Wireless - Coming soon",
       "colors": ["red"],
-      "connections": ["wireless"]
+      "connections": ["wireless"],
+      "screenSizes": []
     },
     {
       "id": 13,
@@ -167,7 +179,8 @@
       "promoLabel": "sale",
       "status": "In stock",
       "colors": ["black"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 14,
@@ -180,7 +193,8 @@
       "promoLabel": "sale",
       "status": "In stock",
       "colors": ["green"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 15,
@@ -193,7 +207,8 @@
       "promoLabel": "new",
       "status": "In stock",
       "colors": ["pink"],
-      "connections": ["wireless"]
+      "connections": ["wireless"],
+      "screenSizes": []
     },
     {
       "id": 16,
@@ -206,7 +221,8 @@
       "promoLabel": "new",
       "status": "Wired - Out of stock",
       "colors": ["pink"],
-      "connections": ["wired"]
+      "connections": ["wired"],
+      "screenSizes": []
     },
     {
       "id": 17,
@@ -219,7 +235,8 @@
       "promoLabel": "new",
       "status": "In stock",
       "colors": ["blue"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 18,
@@ -232,7 +249,8 @@
       "promoLabel": "new",
       "status": "In stock",
       "colors": ["grey"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 19,
@@ -243,9 +261,10 @@
       "all": true,
       "image": "./img/categories-cards/lumivision.png",
       "promoLabel": null,
-      "status": "In stock",
-      "screenSizes": [24, 34, 38],
-      "colors": ["black", "white"]
+      "status": "In stock",      
+      "colors": ["black", "white"],
+      "connections": [],
+      "screenSizes": ["24", "34", "38"]
     },
     {
       "id": 20,
@@ -258,7 +277,8 @@
       "promoLabel": "sale",
       "status": "In stock",
       "colors": ["blue"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 21,
@@ -271,7 +291,8 @@
       "promoLabel": "sale",
       "status": "In stock",
       "colors": ["black"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 22,
@@ -284,7 +305,8 @@
       "promoLabel": "new",
       "status": "In stock",
       "colors": ["green", "white"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 23,
@@ -297,7 +319,8 @@
       "promoLabel": "free shipping",
       "status": "In stock",
       "colors": ["black"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 24,
@@ -310,7 +333,8 @@
       "promoLabel": "free shipping",
       "status": "In stock",
       "colors": ["orange"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 25,
@@ -323,7 +347,8 @@
       "promoLabel": "free shipping",
       "status": "In stock",
       "colors": ["red"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 26,
@@ -334,9 +359,10 @@
       "all": true,
       "image": "./img/hero-index/popular/novascreen-ultra.png",
       "promoLabel": "bestseller",
-      "status": "In stock",
-      "screenSizes": [27, 29, 34],
-      "colors": ["black", "white"]
+      "status": "In stock",      
+      "colors": ["black", "white"],
+      "connections": [],
+      "screenSizes": ["27", "29", "34"]
     },
     {
       "id": 27,
@@ -349,7 +375,8 @@
       "promoLabel": "limited",
       "status": "In stock",
       "colors": ["orange", "black", "red"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 28,
@@ -362,7 +389,8 @@
       "promoLabel": "new",
       "status": "In stock",
       "colors": ["black", "multicolor"],
-      "connections": ["wired"]
+      "connections": ["wired"],
+      "screenSizes": []
     },
     {
       "id": 29,
@@ -375,7 +403,8 @@
       "promoLabel": "new",
       "status": "Wireless - Out of stock",
       "colors": ["black"],
-      "connections": ["wireless"]
+      "connections": ["wireless"],
+      "screenSizes": []
     },
     {
       "id": 30,
@@ -387,8 +416,9 @@
       "image": "./img/categories-cards/quantum-screen.png",
       "promoLabel": "new",
       "status": "In stock",
-      "screenSizes": [24, 27, 32],
-      "colors": ["black", "white"]
+      "colors": ["black", "white"],
+      "connections": [],
+      "screenSizes": ["24", "27", "32"]
     },
     {
       "id": 31,
@@ -401,7 +431,8 @@
       "promoLabel": "bestseller",
       "status": "In stock",
       "colors": ["red"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 32,
@@ -414,7 +445,8 @@
       "promoLabel": "bestseller",
       "status": "In stock",
       "colors": ["black"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 33,
@@ -427,7 +459,8 @@
       "promoLabel": "bestseller",
       "status": "In stock",
       "colors": ["purple"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 34,
@@ -438,9 +471,10 @@
       "all": true,
       "image": "./img/categories-cards/syncview.png",
       "promoLabel": "sale",
-      "status": "In stock",
-      "screenSizes": [19, 21.5, 24],
-      "colors": ["black", "white"]
+      "status": "In stock",      
+      "colors": ["black", "white"],
+      "connections": [],
+      "screenSizes": ["19", "21.5", "24"]
     },
     {
       "id": 35,
@@ -453,7 +487,8 @@
       "promoLabel": null,
       "status": "In stock",
       "colors": ["black", "grey"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 36,
@@ -466,7 +501,8 @@
       "promoLabel": null,
       "status": "In stock",
       "colors": ["multicolor", "black"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 37,
@@ -479,7 +515,8 @@
       "promoLabel": null,
       "status": "Pre-order",
       "colors": ["black", "white"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 38,
@@ -490,9 +527,10 @@
       "all": true,
       "image": "./img/categories-cards/neurodisplay.png",
       "promoLabel": "new",
-      "status": "Pre-order",
-      "screenSizes": [27, 32, 34],
-      "colors": ["black", "white"]
+      "status": "Pre-order",      
+      "colors": ["black", "white"],
+      "connections": [],
+      "screenSizes": ["27", "32", "34"]
     },
     {
       "id": 39,
@@ -505,7 +543,8 @@
       "promoLabel": "sale",
       "status": "Pre-order",
       "colors": ["pink"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 40,
@@ -518,7 +557,8 @@
       "promoLabel": "sale",
       "status": "Pre-order",
       "colors": ["orange"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 41,
@@ -531,7 +571,8 @@
       "promoLabel": "sale",
       "status": "Pre-order",
       "colors": ["red"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 42,
@@ -544,7 +585,8 @@
       "promoLabel": "new",
       "status": "Pre-order",
       "colors": ["multicolor", "black"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 43,
@@ -557,7 +599,8 @@
       "promoLabel": null,
       "status": "Pre-order",
       "colors": ["pink"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 44,
@@ -570,7 +613,8 @@
       "promoLabel": null,
       "status": "Pre-order",
       "colors": ["orange"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 45,
@@ -583,7 +627,8 @@
       "promoLabel": null,
       "status": "Pre-order",
       "colors": ["red"],
-      "connections": ["wired", "wireless"]
+      "connections": ["wired", "wireless"],
+      "screenSizes": []
     },
     {
       "id": 46,
@@ -594,9 +639,10 @@
       "all": true,
       "image": "./img/hero-index/popular/pixelview-flex.png",
       "promoLabel": "sale",
-      "status": "Out of stock",
-      "screenSizes": [21.5, 24, 27],
-      "colors": ["black", "white"]
+      "status": "Out of stock",      
+      "colors": ["black", "white"],
+      "connections": [],
+      "screenSizes": ["21.5", "24", "27"]
     }
   ]
 }
