@@ -374,7 +374,7 @@
       "image": "./img/hero-index/popular/quantumboard-x1.png",
       "promoLabel": "new",
       "status": "Wireless - Out of stock",
-      "colors": "black",
+      "colors": ["black"],
       "connections": ["wireless"]
     },
     {

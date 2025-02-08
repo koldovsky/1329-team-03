@@ -22,7 +22,7 @@ async function fetchCards() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-    return data.cards.filter(card => card.all === true); // Фільтруємо картки
+    return data.cards;
   } catch (error) {
     console.error("Error loading cards:", error);
     return [];
@@ -30,44 +30,101 @@ async function fetchCards() {
 }
 
 function renderCards(cards) {
+  // Знаходимо контейнер, де будуть відображатись картки товарів
   const cardsContainer = document.querySelector(".cards");
-  cardsContainer.innerHTML = ""; // Очищаємо контейнер
 
+  // Очищаємо контейнер, щоб уникнути дублювання карток при повторному виклику функції
+  cardsContainer.innerHTML = "";
+
+  // Перебираємо кожну картку з масиву "cards"
   cards.forEach((card) => {
+    // Створюємо новий елемент <article> для кожної картки
     const cardElement = document.createElement("article");
-    cardElement.className = `card${card.promoLabel ? " card--promo" : ""}`;
+
+    const isOutOfStock =
+      card.status === "Wireless - Out of stock" ||
+      card.status === "Wired - Out of stock" ||
+      card.status === "Out of stock";
+
+    const isPreOrder =
+      card.status === "Pre-order" || card.status === "Wireless - Coming soon";
+
+    // Додаємо клас "card" до кожної картки, якщо картка має промо-мітку (promoLabel), додаємо ще клас "card--promo"
+    cardElement.className = `card${
+      card.promoLabel ? " card--promo" : "" // Перевірка на наявність промо-мітки
+    }`;
+
+    // Встановлюємо внутрішній HTML для кожної картки
+    // Якщо картка має промо-мітку, показуємо її
     cardElement.innerHTML = `
-      <div class="card__image-container">          
-        ${card.promoLabel ? `<span class="card__label">${card.promoLabel}</span>` : ""}          
-        <img src="${card.image}" alt="${card.name}" class="card__image" />
-        ${card.status === "Out of stock" ? `<div class="badge-bottom-pro badge-out-of-stock-pro"><span class="out-of-stock">${card.status}</span></div>` : ""}
-      </div>
-      <div class="card__info">
-        <h2 class="card__name"><a href="#" class="card__name-link">${card.name}</a></h2>
-        <div class="card__price-container">
-          ${card.oldPrice ? `<p class="card__price card__price--old">$${card.oldPrice.toFixed(2)} USD</p>` : ""}
-          <p class="card__price">$${card.price.toFixed(2)} USD</p>
-        </div>   
-        <button class="card__button card__button--cart" ${card.status === "Out of stock" ? "disabled" : ""}>Buy Now</button>       
-      </div>
+        <div class="card__image-container">          
+          ${
+            card.promoLabel
+              ? `<span class="card__label">${card.promoLabel}</span>`
+              : ""
+          }          
+          <img src="${card.image}" alt="${card.name}" class="card__image" />
+          ${
+            isOutOfStock
+              ? `
+            <div class="badge-bottom-pro badge-out-of-stock-pro">
+              <span class="out-of-stock">${card.status}</span>
+            </div>`
+              : ""
+          }
+           ${
+             isPreOrder
+               ? `
+            <div class="badge-bottom-pro pre-order-pro">
+              <span class="pre-order">${card.status}</span>
+            </div>`
+               : ""
+           }
+        </div>
+        
+        <div class="card__info">
+          <h2 class="card__name">
+            <a href="#" class="card__name-link">${card.name}</a> 
+          </h2>
+          
+          <div class="card__price-container">
+            ${
+              card.oldPrice
+                ? `<p class="card__price card__price--old">$${card.oldPrice.toFixed(
+                    2
+                  )} USD</p>`
+                : ""
+            }
+            
+            <!-- Поточна ціна товару -->
+            <p class="card__price">$${card.price.toFixed(2)} USD</p> 
+          </div>   
+          <button class="card__button card__button--cart" ${
+            isOutOfStock ? "disabled" : ""
+          }>Buy Now</button>       
+        </div>
     `;
 
-    const addProductToCartButton = cardElement.querySelector(".card__button--cart");
-    if (card.status !== "Out of stock") {
+    // Ловимо клік на кнопці "Buy Now" і додаємо товар в кошик
+    const addProductToCartButton = cardElement.querySelector(
+      ".card__button--cart"
+    );
+    if (!isOutOfStock) {
       addProductToCartButton.addEventListener("click", () => {
         addProductToCart(card.name, card.price);
       });
     }
 
+    // Додаємо створену картку в контейнер карток на сторінці
     cardsContainer.appendChild(cardElement);
   });
 }
 
 function filterCards(cards) {
+  if (filterState.category === "all") {
+    return cards.filter((card) => card.all);
+  }
   return cards.filter((card) => {
-    if (!card.all) return false; // Відфільтровуємо картки, де card.all !== true
-
-    // Інші умови фільтрації
     if (
       filterState.category !== "all" &&
       card.category.toLowerCase() !== filterState.category.toLowerCase()
@@ -82,13 +139,17 @@ function filterCards(cards) {
     }
     if (
       filterState.colors.size > 0 &&
-      !card.colors.some((color) => filterState.colors.has(color.toLowerCase()))
+      Array.isArray(card.colors) && // Перевірка, чи card.colors є масивом
+      !card.colors.some((color) => filterState.colors.has(color.toLowerCase())) // Перевірка, чи хоча б один колір є в Set
     ) {
+      console.log("Виключено товар через колір:", card);
       return false;
     }
     if (
       filterState.connections.size > 0 &&
-      !card.connections.some((conn) => filterState.connections.has(conn.toLowerCase()))
+      !card.connections.some((conn) =>
+        filterState.connections.has(conn.toLowerCase())
+      )
     ) {
       return false;
     }
