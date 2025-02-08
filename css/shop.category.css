@@ -1,10 +1,10 @@
 /* Halyna Fedkiv */
-.keyboards {
+.category {
   display: block;
   background-color: var(--color-primary-white);
   position: relative;
 
-  .keyboards__container {
+  .category__container {
     padding: 90px 24px;
     min-width: 320px;
     max-width: 1200px;
@@ -23,18 +23,18 @@
       padding: 100px 15px;
     }
 
-    .keyboards__header {
+    .category__header {
       display: block;
       justify-content: center;
 
-      .keyboards__header-content {
+      .category__header-content {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         max-width: 100%;
         text-align: left;
 
-        .keyboards__header-homepage {
+        .category__header-homepage {
           display: block;
 
           .header-homepage {
@@ -47,7 +47,7 @@
             line-height: 23.8px;
           }
         }
-        .keyboards__header-title {
+        .category__header-title {
           display: block;
           position: relative;
 
@@ -70,7 +70,7 @@
           }
         }
 
-        .keyboards__header-description {
+        .category__header-description {
           display: block;
           position: relative;
           margin-top: 16px;
@@ -83,7 +83,7 @@
         }
       }
     }
-    .keyboards__content {
+    .category__content {
       display: block;
       margin-top: 45px;
 
@@ -91,7 +91,7 @@
         margin-top: 50px;
       }
 
-      .keyboards__products {
+      .category__products {
         display: flex;
         flex-basis: 100%;
         flex-direction: column;
@@ -101,7 +101,7 @@
         column-gap: 30px;
         row-gap: 16px;
 
-        .keyboards__products-title {
+        .category__products-title {
           font-size: 30px;
           font-weight: 700;
           font-family: var(--font-text);
