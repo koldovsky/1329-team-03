@@ -393,7 +393,10 @@
 
     /* Контейнер для карток товарів */
     .categories__content {
+      position: relative;
       display: flex;
+      flex-direction: column;
+      align-items: center;
 
       @media (min-width: 992px) {
         max-width: 78%; /* Вміст займає 78% ширини */
@@ -578,10 +581,17 @@
                 cursor: not-allowed; 
                 background-color: var(--color-text-body); 
               }
-            }
+            }          
           }
         }
-      }
-    }
-  }
+      } 
+      
+      .load-more {
+        margin-top: 20px; 
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }     
+    }    
+  }  
 }

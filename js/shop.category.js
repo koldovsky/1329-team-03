@@ -33,15 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
           const productHTML = `
             <article class="product-card">
           <a href="#" class="product-card__link">
-            <img
-              class="product-card__image"
-              alt="${product.name}"
-              src="${product.image}"
-              onerror="this.onerror=null; this.src='img/placeholder.png';"
-            />
+
             ${
               product.promoLabel
-                ? `<button type="button" class="btn btn-secondary">${product.promoLabel}</button>`
+                ? `<div class="category__ribbon"><div class="btn btn-secondary">${product.promoLabel}</div></div>`
                 : ""
             }
             ${
@@ -56,6 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>`
                 : ""
             }
+
+            <div class="image__container"><img
+              class="product-card__image"
+              alt="${product.name}"
+              src="${product.image}"
+              onerror="this.onerror=null; this.src='img/placeholder.png';"
+            /></div>
+
           </a>
           <h5 class="product-card__title">
             <a href="#" class="product-card__name">${product.name}</a>
@@ -72,13 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
               2
             )} USD</div>
           </div>
-          <button class="btn ${
+          <div class="category__button" ><a class="btn ${
             product.stockStatus === "out of stock"
               ? "btn-disabled"
               : "btn-primary"
-          }" type="button" ${
+          }" type="submit" ${
             product.stockStatus === "out of stock" ? "disabled" : ""
-          }>Buy now</button>
+          }>Buy</a></div>
         </article>
           `;
 

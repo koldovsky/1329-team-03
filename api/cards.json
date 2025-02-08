@@ -374,7 +374,7 @@
       "image": "./img/hero-index/popular/quantumboard-x1.png",
       "promoLabel": "new",
       "status": "Wireless - Out of stock",
-      "colors": "black",
+      "colors": ["black"],
       "connections": ["wireless"]
     },
     {
@@ -432,7 +432,7 @@
     {
       "id": 34,
       "name": "SyncView",
-      "price": 225.99,
+      "price": 225.00,
       "oldPrice": 240.0,
       "category": "monitors",
       "all": true,
