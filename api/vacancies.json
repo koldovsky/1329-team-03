@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "jobTitle": "In-Store Tech Specialist",
     "employmentType": "Full-time",
     "experienceRequired": "5 years of experience",
@@ -25,6 +26,7 @@
     "benefitIcon": "img/about-us/check-mark.svg"
   },
   {
+    "id": 2,
     "jobTitle": "In-Store Sales Associate",
     "employmentType": "Full-time",
     "experienceRequired": "1 year of experience",
@@ -50,6 +52,7 @@
     "benefitIcon": "img/about-us/check-mark.svg"
   },
   {
+    "id": 3,
     "jobTitle": "Customer Support Agent",
     "employmentType": "Full-time",
     "experienceRequired": "2 years of experience",
