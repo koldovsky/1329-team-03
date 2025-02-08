@@ -18,10 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         productsContainer.innerHTML = "";
 
-        // Filter products by category
-        const filteredProducts = products.filter(
-          (product) => product.category === category
-        );
+        // Filter products by category, reduce duplicates
+        const filteredProducts = products
+          .filter((product) => product.category === category)
+          .reduce((unique, product) => {
+            if (!unique.some((item) => item.name === product.name)) {
+              unique.push(product);
+            }
+            return unique;
+          }, []);
 
         if (filteredProducts.length === 0) {
           productsContainer.innerHTML = "<p>No products found.</p>";
@@ -63,17 +68,19 @@ document.addEventListener("DOMContentLoaded", () => {
           <h5 class="product-card__title">
             <a href="#" class="product-card__name">${product.name}</a>
           </h5>
-          <div class="prices">
-            ${
-              product.oldPrice
-                ? `<div class="product-card__price-old">$${product.oldPrice.toFixed(
-                    2
-                  )} USD</div>`
-                : '<div class="product-card__price-old hidden">----------</div>'
-            }
-            <div class="product-card__price-new">$${product.price.toFixed(
-              2
-            )} USD</div>
+          <div class="prices__container">
+            <div class="prices">
+              ${
+                product.oldPrice
+                  ? `<div class="product-card__price-old">$${product.oldPrice.toFixed(
+                      2
+                    )} USD</div>`
+                  : ""
+              }
+              <div class="product-card__price-new">$${product.price.toFixed(
+                2
+              )} USD</div>
+            </div>
           </div>
           <div class="category__button" ><a class="btn ${
             product.stockStatus === "out of stock"
@@ -98,6 +105,5 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(loadFilteredProducts, 50);
   });
 
-  // Also run once after page load
   loadFilteredProducts();
 });

@@ -84,53 +84,53 @@ function renderProducts(products, rate = 1, currencySymbol = "$") {
 
   productsContainer.innerHTML = productsHTML;
 
-  let cart = []; // Масив для товарів у кошику
+  // let cart = []; // Масив для товарів у кошику
 
-  function addProductToCart(name, price) {
-    const product = { name, price }; // Створюємо об'єкт товару
-    cart.push(product); // Додаємо у масив кошика
-    updateCartUI(); // Оновлюємо інтерфейс кошика
-  }
+  // function addProductToCart(name, price) {
+  //   const product = { name, price }; // Створюємо об'єкт товару
+  //   cart.push(product); // Додаємо у масив кошика
+  //   updateCartUI(); // Оновлюємо інтерфейс кошика
+  // }
 
-  // Функція для оновлення HTML кошика
-  function updateCartUI() {
-    const cartContainer = document.querySelector(".cart-items"); // Контейнер кошика
-    cartContainer.innerHTML = ""; // Очищаємо перед оновленням
+  // // Функція для оновлення HTML кошика
+  // function updateCartUI() {
+  //   const cartContainer = document.querySelector(".cart-items"); // Контейнер кошика
+  //   cartContainer.innerHTML = ""; // Очищаємо перед оновленням
 
-    if (cart.length === 0) {
-      cartContainer.innerHTML = "<p>🛒 Кошик порожній</p>";
-      return;
-    }
+  //   if (cart.length === 0) {
+  //     cartContainer.innerHTML = "<p>🛒 Кошик порожній</p>";
+  //     return;
+  //   }
 
-    cart.forEach((item, index) => {
-      const cartItem = document.createElement("div");
-      cartItem.classList.add("cart-item");
-      cartItem.innerHTML = `
-        <span>${item.name} - $${item.price.toFixed(2)}</span>
-        <button class="remove-item" data-index="${index}">❌</button>
-      `;
-      cartContainer.appendChild(cartItem);
-    });
+  //   cart.forEach((item, index) => {
+  //     const cartItem = document.createElement("div");
+  //     cartItem.classList.add("cart-item");
+  //     cartItem.innerHTML = `
+  //       <span>${item.name} - $${item.price.toFixed(2)}</span>
+  //       <button class="remove-item" data-index="${index}">❌</button>
+  //     `;
+  //     cartContainer.appendChild(cartItem);
+  //   });
 
-    // Додаємо обробник подій для кнопок видалення
-    document.querySelectorAll(".remove-item").forEach((button) => {
-      button.addEventListener("click", (event) => {
-        const index = event.target.dataset.index;
-        cart.splice(index, 1); // Видаляємо товар
-        updateCartUI(); // Оновлюємо відображення кошика
-      });
-    });
-  }
+  //   // Додаємо обробник подій для кнопок видалення
+  //   document.querySelectorAll(".remove-item").forEach((button) => {
+  //     button.addEventListener("click", (event) => {
+  //       const index = event.target.dataset.index;
+  //       cart.splice(index, 1); // Видаляємо товар
+  //       updateCartUI(); // Оновлюємо відображення кошика
+  //     });
+  //   });
+  // }
 
-  // Додаємо подію на всі кнопки "Buy now"
-  document.querySelectorAll(".card__button--cart").forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const name = event.target.dataset.name;
-      const price = parseFloat(event.target.dataset.price);
-      console.log(`✅ Додаємо в кошик: ${name} - ${price}`); // Перевірка в консолі
-      addProductToCart(name, price);
-    });
-  });
+  // // Додаємо подію на всі кнопки "Buy now"
+  // document.querySelectorAll(".card__button--cart").forEach((button) => {
+  //   button.addEventListener("click", (event) => {
+  //     const name = event.target.dataset.name;
+  //     const price = parseFloat(event.target.dataset.price);
+  //     console.log(`✅ Додаємо в кошик: ${name} - ${price}`); // Перевірка в консолі
+  //     addProductToCart(name, price);
+  //   });
+  // });
 }
 
 // Функція зміни валюти
