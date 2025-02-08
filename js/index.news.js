@@ -44,12 +44,12 @@ function renderComment(index) {
 }
 
 function nextComment() {
-  currentIndex = (currentIndex + 1) % comments.length;
+  currentIndex = currentIndex < comments.length - 1 ? currentIndex + 1 : currentIndex;
   renderComment(currentIndex);
 }
 
 function prevComment() {
-  currentIndex = (currentIndex - 1 + comments.length) % comments.length;
+  currentIndex = currentIndex > 0 ? currentIndex - 1 : currentIndex;
   renderComment(currentIndex);
 }
 

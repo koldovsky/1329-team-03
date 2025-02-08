@@ -67,16 +67,22 @@
 
   .testimonials__navigation {
     display: flex;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
     margin: auto;
+
+    @media (min-width: 768px) {
+      justify-content: space-around;
+    }
 
     .testimonials__content {
       padding: 0 15px;
-      flex: 1; 
+      flex: 1;
       text-align: center;
       min-width: 260px;
       max-width: 700px;
+      min-height: 150px;
+
 
       .testimonials__article {
         padding: 0 27px;
