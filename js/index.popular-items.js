@@ -60,16 +60,16 @@ function renderProducts(products, rate = 1, currencySymbol = "$") {
                 : '<div class="product-card__price-old hidden">----------</div>'
             }
             <div class="product-card__price-new">${currencySymbol}${(
-              product.price * rate
-            ).toFixed(2)}</div>
+      product.price * rate
+    ).toFixed(2)}</div>
           </div>
           <button class="btn ${
             product.stockStatus === "out of stock"
               ? "btn-disabled"
               : "btn-primary"
-          } card__button--cart" type="button" data-name="${product.name}" data-price="${
-      product.price * rate
-    }" ${
+          } card__button--cart" type="button" data-name="${
+      product.name
+    }" data-price="${product.price * rate}" ${
       product.stockStatus === "out of stock" ? "disabled" : ""
     }>Buy now</button>
         </article>
@@ -91,18 +91,17 @@ function renderProducts(products, rate = 1, currencySymbol = "$") {
     cart.push(product); // Додаємо у масив кошика
     updateCartUI(); // Оновлюємо інтерфейс кошика
   }
-  
-  
+
   // Функція для оновлення HTML кошика
   function updateCartUI() {
     const cartContainer = document.querySelector(".cart-items"); // Контейнер кошика
     cartContainer.innerHTML = ""; // Очищаємо перед оновленням
-  
+
     if (cart.length === 0) {
       cartContainer.innerHTML = "<p>🛒 Кошик порожній</p>";
       return;
     }
-  
+
     cart.forEach((item, index) => {
       const cartItem = document.createElement("div");
       cartItem.classList.add("cart-item");
@@ -112,7 +111,7 @@ function renderProducts(products, rate = 1, currencySymbol = "$") {
       `;
       cartContainer.appendChild(cartItem);
     });
-  
+
     // Додаємо обробник подій для кнопок видалення
     document.querySelectorAll(".remove-item").forEach((button) => {
       button.addEventListener("click", (event) => {
