@@ -5,7 +5,7 @@ import { addProductToCart } from "./global.cart.js";
 /* Об'єкт стану фільтрації товарів */
 const filterState = {
   category: "all",
-  priceRange: { min: 32.0, max: 225.99 },
+  priceRange: { min: 32.0, max: 225.00 },
   colors: new Set(),
   connections: new Set(),
   screenSizes: new Set(),
@@ -327,8 +327,8 @@ function initializePriceRangeSlider() {
     start: [filterState.priceRange.min, filterState.priceRange.max], // Використовуємо поточні значення
     connect: true,
     range: {
-      min: 0,
-      max: 500,
+      min: 32,
+      max: 225,
     },
     step: 0.01,
     format: {
@@ -355,25 +355,41 @@ function initializePriceRangeSlider() {
 
   // Оновлення слайдера при зміні значень в інпутах
   minPriceInput.addEventListener("input", function () {
-    const minValue = parseFloat(minPriceInput.value);
+    let minValue = parseFloat(minPriceInput.value);
     const maxValue = parseFloat(maxPriceInput.value);
 
-    if (minValue >= maxValue) {
-      minPriceInput.value = maxValue;
+    // Перевірка меж
+    if (minValue < 32) {
+      minValue = 32; // Мінімальне значення
+    } else if (minValue > 225) {
+      minValue = 225; // Максимальне значення
     }
 
-    priceSlider.noUiSlider.set([minPriceInput.value, maxValue]);
+    if (minValue >= maxValue) {
+      minValue = maxValue; // Запобігаємо введенню мінімальної ціни більшої за максимальну
+    }
+
+    minPriceInput.value = minValue;
+    priceSlider.noUiSlider.set([minValue, maxValue]);
   });
 
   maxPriceInput.addEventListener("input", function () {
     const minValue = parseFloat(minPriceInput.value);
-    const maxValue = parseFloat(maxPriceInput.value);
+    let maxValue = parseFloat(maxPriceInput.value);
 
-    if (maxValue <= minValue) {
-      maxPriceInput.value = minValue;
+    // Перевірка меж
+    if (maxValue > 225) {
+      maxValue = 225; // Максимальне значення
+    } else if (maxValue < 32) {
+      maxValue = 32; // Мінімальне значення
     }
 
-    priceSlider.noUiSlider.set([minValue, maxPriceInput.value]);
+    if (maxValue <= minValue) {
+      maxValue = minValue; // Запобігаємо введенню максимальної ціни меншої за мінімальну
+    }
+
+    maxPriceInput.value = maxValue;
+    priceSlider.noUiSlider.set([minValue, maxValue]);
   });
 }
 
