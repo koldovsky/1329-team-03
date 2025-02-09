@@ -88,12 +88,6 @@
   width: 100%;
 }
 
-/* Основний блок Swiper */
-.swiper {
-  width: 80%;
-  max-width: 1200px;
-}
-
 /* Обгортка слайдів */
 .swiper-wrapper {
   display: flex;
