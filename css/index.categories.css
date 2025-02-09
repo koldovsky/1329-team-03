@@ -47,11 +47,7 @@
         z-index: 1000; /* Встановлює верхній рівень для коректного відображення */
 
         &.filters--open {
-          .filters__actions {
-            left: 0;
-            position: fixed;
-            transition: left 0.3s ease;
-          }
+          left: 0;
         }
 
         @media (min-width: 992px) {
@@ -242,6 +238,14 @@
           }
         }
 
+        &.filters--open {
+          .filters__actions {
+            left: 0;
+            position: fixed;
+            transition: left 0.3s ease;
+          }
+        }
+
         .filters__actions {
           align-items: center;
           background-color: var(--color-primary-white);
@@ -285,10 +289,29 @@
           }
         }
 
+        .countdown__title {
+          display: block;
+          color: var(--color-accent);
+          font-family: var(--font-title);
+          font-size: 40px;
+          font-weight: 700;
+          margin-top: 20px;
+          justify-content: center;
+          text-align: center;
+
+          @media (max-width: 991px) {
+            display: none;
+          }
+        }
+
         .filters__countdown {
           display: block;
-          margin-top: 30px;
+          margin-top: 16px;
           text-align: center;
+
+          @media (max-width: 991px) {
+            display: none;
+          }
 
           .filters__countdown-content {
             display: grid;
@@ -328,20 +351,6 @@
                 font-size: 23px;
                 color: var(--color-primary);
                 opacity: 0.54;
-
-                @media (min-width: 480px) {
-                  font-size: 18px;
-                }
-              }
-
-              @media (max-width: 760px) {
-                .filters__countdown-icon {
-                  max-width: 80px;
-                }
-
-                .filters__countdown-label {
-                  font-size: 12px;
-                }
               }
             }
           }
