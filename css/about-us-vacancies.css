@@ -492,11 +492,11 @@ input[type=submit]:hover {
   display: flex;
   margin: auto;
   gap: 16px;
-  background: white;
+  background: var(--color-primary-white);
   padding: 16px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px var(--color-additional-text);
+  border: 1px solid var(--color-additional-text);
 }
 
 .job-opportunities__job-mini-card-inner {

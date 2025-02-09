@@ -14,7 +14,7 @@ function renderMiniVacanciesCards() {
       
           <div class="job-opportunities__mini-job-info">
               <h2 class="job-opportunities__mini-job-title">${vacancy.title}</h2>
-              <p class="job-opportunities__mini-job-location" > ${vacancy.country}, ${vacancy.location}</p>
+              <p class="job-opportunities__mini-job-location" country = "${vacancy.country}" > ${vacancy.location}</p>
           </div>
        
           <div class="job-opportunities__mini-job-details">
@@ -36,7 +36,7 @@ function renderJobsNumber() {
   const jobsNumberList = document.getElementById("jobs-found-count");
   jobsNumberList.textContent = miniVacancies.length;
 }
-
+function updateFilters(){
 document
   .querySelectorAll(".job-opportunities__search-select")
   .forEach((droplist) => {
@@ -47,7 +47,8 @@ document
       console.log(filters);
     });
   });
-
+}
+function executeFiltering(){
 document
   .querySelector(".job-opportunities__search-submit")
   .addEventListener("click", (event) => {
@@ -65,6 +66,15 @@ document
         miniCard.style.display = isMatching ? "" : "none";
       });
   });
+}
+  function clearFormProcessor(){
+  document.querySelector(".job-opportunities__search-form").addEventListener("reset", () => {
+      filters = [];
+  });
+}
 
 renderMiniVacanciesCards(miniVacancies);
 renderJobsNumber();
+updateFilters();
+clearFormProcessor();
+executeFiltering();
