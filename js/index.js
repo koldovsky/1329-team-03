@@ -5,6 +5,7 @@ function init() {
   import('./index.countdown.js');
   import('./footer.js');
   import('./index.categories.js');
+  import('./index.news.js');
   import('./scroll-to-top.js');
 }
 
