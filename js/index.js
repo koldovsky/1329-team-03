@@ -6,7 +6,6 @@ function init() {
   import('./footer.js');
   import('./index.categories.js');
   import('./scroll-to-top.js');
-  import('./index.sale.js')
 }
 
 const totalPartials = document.querySelectorAll(
