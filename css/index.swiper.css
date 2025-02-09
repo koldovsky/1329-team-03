@@ -71,15 +71,6 @@
   color: #fff;
 }
 
-/* Адаптивність */
-@media (max-width: 768px) {
-  .swiper {
-      width: 90%;
-  }
-  .swiper-slide img {
-      width: 80px;
-  }
-}
 /* Контейнер для слайдера */
 .swiper-container {
   display: flex;
@@ -143,14 +134,4 @@
 .swiper-button-prev::after {
   font-size: 18px;
   color: #fff;
-}
-
-/* Адаптивність */
-@media (max-width: 768px) {
-  .swiper {
-      width: 90%;
-  }
-  .swiper-slide img {
-      width: 80px;
-  }
 }
