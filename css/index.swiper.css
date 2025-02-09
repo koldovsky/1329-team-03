@@ -4,12 +4,13 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  max-width: 100%;
 }
 
 /* Основний блок Swiper */
 .swiper {
-  width: 80%;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Обгортка слайдів */
@@ -24,6 +25,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 }
 
 /* Контейнер зображення та тексту */
