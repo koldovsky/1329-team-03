@@ -47,7 +47,11 @@
         z-index: 1000; /* Встановлює верхній рівень для коректного відображення */
 
         &.filters--open {
-          left: 0; /* Відображає панель */
+          .filters__actions {
+            left: 0;
+            position: fixed;
+            transition: left 0.3s ease;
+          }
         }
 
         @media (min-width: 992px) {
@@ -79,7 +83,7 @@
             font-size: 2rem;
 
             @media (min-width: 992px) {
-              display: none; /* Закриваюча кнопка ховається на великих екранах */
+              display: none;
             }
           }
         }
@@ -169,7 +173,9 @@
             /* Видаляємо можливі стилі noUiSlider, які можуть перекривати чорний фон */
             #priceSlider .noUi-base,
             #priceSlider .noUi-target {
-              background: var(--slider-color) !important; /* Примусове застосування чорного */
+              background: var(
+                --slider-color
+              ) !important; /* Примусове застосування чорного */
             }
 
             /* Активна частина діапазону (смуга між бігунками) */
@@ -233,14 +239,6 @@
             opacity: 0.5;
             cursor: not-allowed;
             pointer-events: none;
-          }
-        }
-
-        &.filters--open {
-          .filters__actions {
-            left: 0;
-            position: fixed;
-            transition: left 0.3s ease;
           }
         }
 
@@ -361,6 +359,44 @@
       @media (min-width: 992px) {
         max-width: 78%; /* Вміст займає 78% ширини */
         width: 100%;
+      }
+
+      .cards__choose-currency {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        .cards__currency-label {
+          color: var(--color-text-body);
+          font-family: var(--font-text);
+          font-size: 17px;
+          font-weight: 600;
+          line-height: 29px;
+        }
+
+        #cards-currency-select {
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-family: var(--font-text);
+          font-size: 14px;
+          font-weight: 600;
+          text-align: center;
+          background-color: var(--color-header-brand);
+          color: var(--color-primary-white);
+          border: none;
+          cursor: pointer;
+          text-decoration: none;
+          transition: background-color 0.3s ease;
+        }
+
+        #cards-currency-select:hover {
+          background-color: var(--color-accent);
+          transition: var(--transiton-primary-all);
+        }
+
+        #cards-currency-select:focus {
+          outline: none;
+          border-color: none;
+        }
       }
 
       .cards {

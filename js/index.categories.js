@@ -13,6 +13,7 @@ const filterState = {
 
 const CARDS_PER_PAGE = 12;
 let displayedCards = 0;
+let currencies;
 
 /* Функція для отримання товарів з JSON-файлу */
 async function fetchCards() {
@@ -29,7 +30,7 @@ async function fetchCards() {
   }
 }
 
-function renderCards(cards) {
+function renderCards(cards, rate = 1, currencySymbol = "$") {
   // Знаходимо контейнер, де будуть відображатись картки товарів
   const cardsContainer = document.querySelector(".cards");
 
@@ -82,18 +83,18 @@ function renderCards(cards) {
           <h2 class="card__name">
             <a href="#" class="card__name-link">${card.name}</a> 
           </h2>
-          
-          <div class="card__price-container">
-            ${
-              card.oldPrice
-                ? `<p class="card__price card__price--old">$${card.oldPrice.toFixed(
-                    2
-                  )} USD</p>`
-                : ""
-            }
-            
-            <p class="card__price">$${card.price.toFixed(2)} USD</p> 
-          </div>   
+        <div class="card__price-container">
+        ${
+          card.oldPrice
+            ? `<p class="card__price card__price--old">${currencySymbol}${(
+                card.oldPrice * rate
+              ).toFixed(2)}</p>`
+            : ""
+        }
+        <p class="card__price">${currencySymbol}${(card.price * rate).toFixed(
+      2
+    )}</p>
+      </div> 
           <button class="card__button card__button--cart" ${
             isOutOfStock ? "disabled" : ""
           }>Buy Now</button>       
@@ -113,6 +114,20 @@ function renderCards(cards) {
     // Додаємо створену картку в контейнер карток на сторінці
     cardsContainer.appendChild(cardElement);
   });
+}
+
+// Функція зміни валюти
+async function changeCurrency(cards) {
+  const currencyName = document.querySelector(".cards__currency").value;
+  if (!currencies) {
+    const response = await fetch(
+      "https://api.exchangerate-api.com/v4/latest/USD"
+    );
+    currencies = await response.json();
+  }
+  const rate = currencies.rates[currencyName];
+  const currencySymbol = currencyName === "USD" ? "$" : currencyName;
+  renderCards(cards, rate, currencySymbol);
 }
 
 function filterCards(cards) {
@@ -521,7 +536,7 @@ function generateFilters(cards) {
     createOptionsGroup(
       colors.map((c) => c.charAt(0).toUpperCase() + c.slice(1)),
       "colors"
-    ), 
+    ),
     "colors"
   );
 
@@ -571,16 +586,13 @@ function generateFilters(cards) {
   initializeFilterHandlers(cards);
 }
 
-/* Ініціалізація обробників для мобільної бічної панелі фільтрів */
 function initializeMobileSidebar() {
-  // Отримуємо елементи для мобільної панелі
   const filterToggle = document.getElementById("filtersToggle");
   const filtersSidebar = document.getElementById("filtersSidebar");
   const filtersClose = document.getElementById("filtersClose");
   const applyButton = document.querySelector(".filters__apply-button");
   const clearButton = document.querySelector(".filters__clear-button");
 
-  // Обробник для кнопки відкриття бічної панелі
   if (filterToggle && filtersSidebar) {
     filterToggle.addEventListener("click", function () {
       filtersSidebar.classList.add("filters--open");
@@ -588,7 +600,6 @@ function initializeMobileSidebar() {
     });
   }
 
-  // Обробник для кнопки закриття бічної панелі
   if (filtersClose) {
     filtersClose.addEventListener("click", function () {
       filtersSidebar.classList.remove("filters--open");
@@ -596,7 +607,6 @@ function initializeMobileSidebar() {
     });
   }
 
-  // Обробник для кнопки застосування фільтрів
   if (applyButton) {
     applyButton.addEventListener("click", () => {
       filtersSidebar.classList.remove("filters--open");
@@ -604,7 +614,6 @@ function initializeMobileSidebar() {
     });
   }
 
-  // Обробник для кнопки очищення фільтрів
   if (clearButton) {
     clearButton.addEventListener("click", resetFilters);
   }
@@ -639,7 +648,10 @@ function updateFilterVisibility(category) {
   );
 
   // Якщо вибрана категорія "монітори", показуємо фільтр по розмірам екранів, ховаємо фільтр по з'єднаннях
-  if (category.toLowerCase() === "monitors" || category.toLowerCase() === "all") {
+  if (
+    category.toLowerCase() === "monitors" ||
+    category.toLowerCase() === "all"
+  ) {
     if (connectionsFilter) connectionsFilter.style.display = "none";
     if (screenSizesFilter) screenSizesFilter.style.display = "block";
   } else {
@@ -671,10 +683,14 @@ async function initialize() {
   // Генеруємо фільтри
   generateFilters(cards);
 
+  document
+    .querySelector(".cards__currency")
+    .addEventListener("change", () => changeCurrency(filteredCards));
+
   initializeMobileSidebar();
   const applyButton = document.querySelector(".filters__apply-button");
   if (applyButton) {
-    applyButton.textContent = `Apply filters: ${filteredCards.length}`;
+    applyButton.textContent = `Apply filters: ${cards.length}`;
   }
 
   // Додаємо слухача події для кнопки Load More
