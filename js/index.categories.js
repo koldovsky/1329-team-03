@@ -5,7 +5,7 @@ import { addProductToCart } from "./global.cart.js";
 /* Об'єкт стану фільтрації товарів */
 const filterState = {
   category: "all",
-  priceRange: { min: 32.0, max: 225.00 },
+  priceRange: { min: 32.0, max: 225.0 },
   colors: new Set(),
   connections: new Set(),
   screenSizes: new Set(),
@@ -209,7 +209,7 @@ function resetFilters() {
   // Визначаємо мінімальні і максимальні ціни на основі карток у window.cards
   window.cards = data.map((card) => ({
     ...card,
-    price: parseFloat(card.price), 
+    price: parseFloat(card.price),
   }));
   const prices = window.cards.map((p) => p.price);
   filterState.priceRange = {
@@ -435,12 +435,7 @@ function initializeFilterHandlers(cards) {
       filterState.category = option.dataset.value;
 
       // Оновлюємо видимість фільтрів
-      categoryOptions.forEach((category) => {
-        category.addEventListener("change", (event) => {
-          const selectedCategory = event.target.value;
-          updateFilters(selectedCategory);
-        });
-      });
+      updateFilterVisibility(filterState.category);
 
       updateCards(cards);
     });
@@ -511,12 +506,14 @@ function generateFilters(cards) {
       categories.map((c) => c.charAt(0).toUpperCase() + c.slice(1)),
       "category",
       false
-    )
+    ),
+    "category"
   );
 
   const priceFilter = createFilterGroup(
     "Price",
-    createPriceRange(filterState.priceRange.min, filterState.priceRange.max)
+    createPriceRange(filterState.priceRange.min, filterState.priceRange.max),
+    "price"
   );
 
   const colorsFilter = createFilterGroup(
@@ -524,7 +521,8 @@ function generateFilters(cards) {
     createOptionsGroup(
       colors.map((c) => c.charAt(0).toUpperCase() + c.slice(1)),
       "colors"
-    )
+    ), 
+    "colors"
   );
 
   let screenSizesFilter = "";
@@ -536,7 +534,8 @@ function generateFilters(cards) {
       createOptionsGroup(
         screenSizes.map((size) => `${size}`),
         "screenSizes"
-      )
+      ),
+      "screenSizes"
     );
   }
 
@@ -545,7 +544,8 @@ function generateFilters(cards) {
     createOptionsGroup(
       connections.map((c) => c.charAt(0).toUpperCase() + c.slice(1)),
       "connections"
-    )
+    ),
+    "connections"
   );
 
   // Оновлюємо видимість фільтрів на основі поточної категорії
@@ -630,20 +630,23 @@ async function loadMoreCards() {
   }
 }
 
-function updateFilterVisibility(selectedCategory) {
-  document.querySelectorAll(".filters__group").forEach((group) => {
-    const filterType = group.getAttribute("data-filter-group");
+function updateFilterVisibility(category) {
+  const connectionsFilter = document.querySelector(
+    '[data-filter-group="connections"]'
+  );
+  const screenSizesFilter = document.querySelector(
+    '[data-filter-group="screenSizes"]'
+  );
 
-    if (
-      (selectedCategory === "Monitors" && filterType === "connection") ||
-      (["Headphones", "Mice", "Keyboards"].includes(selectedCategory) &&
-        filterType === "screen_size")
-    ) {
-      group.style.display = "none";
-    } else {
-      group.style.display = "block";
-    }
-  });
+  // Якщо вибрана категорія "монітори", показуємо фільтр по розмірам екранів, ховаємо фільтр по з'єднаннях
+  if (category.toLowerCase() === "monitors" || category.toLowerCase() === "all") {
+    if (connectionsFilter) connectionsFilter.style.display = "none";
+    if (screenSizesFilter) screenSizesFilter.style.display = "block";
+  } else {
+    // Для інших категорій, ховаємо фільтр по розмірам екранів і показуємо фільтр по з'єднаннях
+    if (connectionsFilter) connectionsFilter.style.display = "block";
+    if (screenSizesFilter) screenSizesFilter.style.display = "none";
+  }
 }
 
 async function initialize() {
