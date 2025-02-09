@@ -81,6 +81,15 @@ main {
   --cart-color-background-modal: rgba(0, 0, 0, 0.5);
   --cart-shadow-modal: 0 0 10px rgba(0, 0, 0, 0.2);
   --cart-shadow-light: 0 0 10px rgba(0, 0, 0, 0.1);
+  --order-button-disabled-background-color: #dcdcdc;
+  --order-button-disabled-color: #888888;
+  --cart-color-danger-background-color: #ffe6e6;
+
+  --slider-color: black;
+  --slider-input-background-color: #d3d3d3;
+  --slide-background:rgba(39, 39, 39, 0.03);
+
+
 
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;

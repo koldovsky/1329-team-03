@@ -124,6 +124,45 @@
     overflow-y: auto;
     box-shadow: var(--cart-shadow-modal);
 
+    .customer-info {
+      margin-top: 20px;
+    }
+
+    .customer-info textarea,
+    .customer-info input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid var(--cart-color-border-light);
+      border-radius: 4px;
+    }
+
+    .customer-info input.warning {
+      border: 2px solid var(--cart-color-danger);
+      background-color: var(--cart-color-danger-background-color);
+    }
+
+    .warning-message {
+      display: none;
+    }
+
+    .customer-info input.warning + .warning-message {
+      color: var(--cart-color-danger-hover);
+      font-size: 12px;
+      margin-top: 5px;
+      display: block;
+    }
+
+    .customer-info input:focus,
+    .customer-info textarea:focus {
+      border-color: var(--color-accent);
+      outline: none;
+    }
+
+    .promo-code {
+      margin: 15px 0;
+    }
+
     .cart-items {
       margin: 15px 0;
       .cart-item {
@@ -199,6 +238,7 @@
         }
       }
     }
+
     .cart-empty {
       text-align: center;
       padding: 20px;
@@ -216,22 +256,23 @@
 
     .cart-actions {
       display: flex;
+      justify-content: center;
       gap: 10px;
       margin-top: 15px;
+      width: auto;
 
       .cart-button {
         padding: 10px 20px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        font-weight: 500;
+        font-weight: 700;
         transition: all 0.2s ease;
       }
 
       .cart-button--primary {
-        background-color: var(--color-accent);
+        background-color: var(--color-accent-additional);
         color: var(--color-primary-white);
-        flex: 2;
       }
 
       .cart-button--primary:hover {
@@ -246,6 +287,12 @@
 
       .cart-button--secondary:hover {
         background-color: var(--cart-color-border);
+      }
+
+      button[disabled] {
+        background-color: var(--order-button-disabled-background-color);
+        color: var(--order-button-disabled-color);
+        cursor: not-allowed;
       }
     }
   }

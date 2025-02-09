@@ -45,13 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 : ""
             }
             ${
-              product.stockStatus
-                ? `<div class="popular-products__badge-bottom-pro popular-products__badge-${product.stockStatus.replace(
+              product.status && product.status.toLowerCase() !== "In stock"
+                ? `<div class="popular-products__badge-bottom-pro popular-products__badge-${product.status.replace(
                     " ",
                     "-"
                   )}-pro">
-                  <div class="badge__${product.stockStatus.replace(" ", "-")}">
-                    ${product.stockStatus}
+                  <div class="badge__${product.status.toLowerCase().replace(" ", "-")}">
+                    ${product.status}
                   </div>
                 </div>`
                 : ""

@@ -5,11 +5,8 @@ function init() {
   import('./index.countdown.js');
   import('./footer.js');
   import('./index.categories.js');
-  import('./scroll-to-top.js');
-  import('./swiper.js');
-  import('./index.footer-contact-form.js');
-  import('./global.cart.js');
   import('./index.news.js');
+  import('./scroll-to-top.js');
 }
 
 const totalPartials = document.querySelectorAll(

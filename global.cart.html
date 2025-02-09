@@ -6,6 +6,7 @@
 
   <div class="cart-modal" id="cartModal">
     <div class="cart-content">
+      <div class="cart-header-bg"></div>
       <div class="cart-header">
         <p>Shopping Cart</p>
         <button class="cart-close" data-action="toggleCart">
@@ -14,17 +15,54 @@
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-empty">Your cart is empty</div>
+
+      <div class="promo-code" id="promo-code" style="display: none">
+        <input type="text" placeholder="Promo code" />
+      </div>
       <div class="cart-total">
         Total: <span id="totalAmount">$0.00 USD</span>
       </div>
+      <div class="customer-info" id="customer-info" style="display: none">
+        <input
+          type="text"
+          id="customerName"
+          class="customer-name"
+          placeholder="Enter your name"
+        />
+        <span class="warning-message" id="nameWarningMessage"
+          >This field is required!</span
+        >
+
+        <input
+          type="email"
+          id="customerEmail"
+          class="customer-email"
+          placeholder="Enter your email"
+        />
+        <span class="warning-message" id="emailWarningMessage"
+          >This field is required!</span
+        >
+
+        <input
+          type="tel"
+          id="customerPhone"
+          class="customer-phone"
+          placeholder="Enter your phone number"
+        />
+        <span class="warning-message" id="phoneWarningMessage"
+          >This field is required!</span
+        >
+        <textarea placeholder="Your comment"></textarea>
+      </div>
+
       <div class="cart-actions">
         <button
-          class="cart-button cart-button--secondary"
-          data-action="clearCart"
+          class="cart-button cart-button--primary"
+          id="orderButton"
+          disabled
         >
-          Clear Cart
+          Order
         </button>
-        <button class="cart-button cart-button--primary">Submit</button>
       </div>
     </div>
   </div>

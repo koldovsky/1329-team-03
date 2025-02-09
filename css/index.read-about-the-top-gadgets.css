@@ -53,8 +53,19 @@
 
     .news__information-container {
         display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-content: center;
         gap: 30px;
         padding-top: 50px;
+
+        @media (min-width: 480px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (min-width: 990px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
 
         .news__first-news,
         .news__second-news,
@@ -109,14 +120,6 @@
                     background-color: var(--color-primary);
                 }
             }
-        }
-
-        @media (min-width: 480px) {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        @media (min-width: 990px) {
-            grid-template-columns: 1fr 1fr 1fr;
         }
     }
 }
