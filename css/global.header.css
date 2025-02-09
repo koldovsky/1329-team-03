@@ -147,7 +147,7 @@
 
   .header__mobile-menu--open {
     visibility: visible;
-    z-index: 100;
+    z-index: 9999;
     width: 100%;
     opacity: 1;
   }

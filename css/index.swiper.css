@@ -1,0 +1,82 @@
+/* Контейнер для слайдера */
+.swiper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  transform: none;
+}
+
+/* Основний блок Swiper */
+.swiper {
+  width: 100%;
+  max-width: 100%;
+  transform: none;
+  display: flex;
+  align-items: center;
+  background: var( --color-header-light-accent);
+}
+
+/* Обгортка слайдів */
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+  transform: none;
+}
+
+/* Окремий слайд */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--slide-background);
+  width: 130px;
+  height: 80px;
+}
+
+/* Контейнер зображення та тексту */
+.swiper-slide-block {
+  background: #f1ece9;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+/* Кнопки навігації */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  background-color: #3c64a3;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 10;
+}
+
+/* Іконки кнопок */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Розмір зображень */
+.swiper-slide img {
+  /* width: 100px; */
+  height: auto;
+}
+
+/* Текст під зображенням */
+.swiper-slide span {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333;
+}
+

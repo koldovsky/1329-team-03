@@ -1,4 +1,5 @@
 @import "./global.css";
 @import "./global.header.css";
 @import "./global.footer.css";
-@import "./shop.cat.keyboards.css";
+@import "./shop.category.css";
+@import "./global.cards.css";

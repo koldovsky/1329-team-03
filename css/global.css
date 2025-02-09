@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 *,
 *::before,
@@ -21,8 +21,8 @@ main {
 
 :root {
   scroll-behavior: smooth;
-  --font-title: 'Bebas Neue', sans-serif;
-  --font-text: 'Nunito', sans-serif;
+  --font-title: "Bebas Neue", sans-serif;
+  --font-text: "Nunito", sans-serif;
 
   /* color of subtitles (a high font) and dark elements */
   --color-primary: rgb(39, 39, 39); /* #272727 */
@@ -65,7 +65,26 @@ main {
   --color-header-additional-menu: #ffffff;
   --color-header-light-accent: #f8f3ef;
   --color-header-brand: #ff7b16;
-  --color-header-secondary-accent: #1C4C97;
+  --color-header-secondary-accent: #1c4c97;
+  /* Cart colors */
+  --cart-color-danger: #ff4444;
+  --cart-color-danger-hover: #ff2222;
+  --cart-product-label-background: #333;
+  --cart-color-text: #1a1f36;
+  --cart-color-text-secondary: #9199ab;
+  --cart-color-text-light: #666;
+  --cart-color-border: #e6e8ec;
+  --cart-color-border-light: #eee;
+  --cart-color-border-input: #ddd;
+  --cart-color-background-secondary: #f5f5f5;
+  --cart-color-background-hover: rgba(145, 153, 171, 0.1); /* #9199AB */
+  --cart-color-background-modal: rgba(0, 0, 0, 0.5);
+  --cart-shadow-modal: 0 0 10px rgba(0, 0, 0, 0.2);
+  --cart-shadow-light: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  --slider-color: black;
+  --slider-input-background-color: #d3d3d3;
+  --slide-background:rgba(39, 39, 39, 0.03);
 
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;

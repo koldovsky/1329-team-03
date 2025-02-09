@@ -38,8 +38,6 @@
       flex-basis: 100%;
       text-align: center;
 
-      /* Можна винести в global.css" як тег h2 */
-
       .deals__title {
         display: block;
         color: var(--color-accent-additional);
@@ -51,8 +49,6 @@
         margin: 0;
       }
 
-      /* Можна винести в global.css" як тег h3 */
-
       .deals__subtitle {
         display: block;
         color: var(--color-text-primary);
@@ -63,7 +59,7 @@
         margin-top: 20px;
         margin-bottom: 0;
 
-        .__subtitle-divider {
+        .deals__divider {
           color: var(--color-accent);
         }
 
@@ -277,23 +273,26 @@
               margin: 0;
 
               &::after {
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 background-image: none !important;
-              }
-
-              &::after {
+                width: 27.2px;
+                height: 27.2px;
                 content: "-";
                 position: absolute;
                 right: 0;
+                top: 50%;
                 transform: translateY(-50%);
-                width: 18px;
-                height: 18px;
                 color: var(--color-primary);
                 opacity: 0.8;
-                transition: transform 0.3s ease;
+                font-size: 27.2px;
+                transition: transform 0.3s ease-in-out;
               }
 
               &.collapsed::after {
                 content: "+";
+                transform: translateY(-50%) rotate(180deg);
               }
 
               @media (min-width: 768px) and (max-width: 991px) {
@@ -332,65 +331,6 @@
                   color: var(--color-accent-additional);
                   font-size: 17px;
                   line-height: 23.8px;
-                }
-              }
-            }
-          }
-
-          .deals__countdown {
-            display: block;
-            margin-top: 30px;
-            text-align: center;
-
-            .deals__countdown-content {
-              display: grid;
-              grid-template-columns: repeat(4, 1fr);
-              gap: 20px;
-
-              .deals__countdown-item {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-
-                .deals__countdown-icon {
-                  width: 100%;
-                  height: auto;
-                  max-width: 100px;
-
-                  .deals__countdown-rect {
-                    stroke: var(--color-accent);
-                    stroke-width: 1;
-                    fill: none;
-                  }
-
-                  .countdown-days, .countdown-hours, .countdown-minutes, .countdown-seconds{
-                    font-size: 36px;
-                    font-family: var(--font-title);
-                    fill: var(--color-primary);
-                  }
-                }
-
-                .deals__countdown-label {
-                  margin-top: 10px;
-                  font-size: 23px;
-                  color: var(--color-primary);
-                  opacity: 0.54;
-
-                  @media (min-width: 480px) {
-                    font-size: 18px;
-                  }
-                }
-
-                @media (max-width: 760px) {
-                  .deals__countdown-icon {
-                    max-width: 80px;
-                  }
-
-                  .deals__countdown-label {
-                    font-size: 12px;
-                  }
                 }
               }
             }

@@ -8,7 +8,7 @@
     display: block;
     background-color: var(--color-primary-white);
     min-width: 320px;
-    max-width: 1200px;
+    /*max-width: 1200px;*/
     margin: 0 auto;
     padding: 0;
 
@@ -81,10 +81,12 @@
         .new-product__text {
           display: flex;
           flex-direction: column;
+          flex-basis: 100%;
           justify-content: flex-start;
           text-align: left;
           overflow-wrap: break-word;
           max-width: 100%;
+          min-width: 0;
 
           .new-product__subtitle {
             display: block;
@@ -198,7 +200,7 @@
               margin-top: 40px;
             }
 
-            .button {
+            .category-link {
               display: inline-block;
               font-family: var(--font-text);
               background-color: var(--color-accent-additional);

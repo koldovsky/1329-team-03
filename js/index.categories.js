@@ -1,5 +1,7 @@
 /* Максим Зимин */
 
+import { addProductToCart } from "./global.cart.js";
+
 /* Об'єкт стану фільтрації товарів */
 const filterState = {
   category: "all",
@@ -9,8 +11,11 @@ const filterState = {
   screenSizes: new Set(),
 };
 
+const CARDS_PER_PAGE = 12;
+let displayedCards = 0;
+
 /* Функція для отримання товарів з JSON-файлу */
-async function fetchcards() {
+async function fetchCards() {
   try {
     const response = await fetch("./api/cards.json");
     if (!response.ok) {
@@ -24,8 +29,7 @@ async function fetchcards() {
   }
 }
 
-/* Функція для відображення товарів на сторінці */
-function rendercards(cards) {
+function renderCards(cards) {
   // Знаходимо контейнер, де будуть відображатись картки товарів
   const cardsContainer = document.querySelector(".cards");
 
@@ -37,10 +41,16 @@ function rendercards(cards) {
     // Створюємо новий елемент <article> для кожної картки
     const cardElement = document.createElement("article");
 
+    const isOutOfStock =
+      card.status === "Wireless - Out of stock" ||
+      card.status === "Wired - Out of stock" ||
+      card.status === "Out of stock";
+
+    const isPreOrder =
+      card.status === "Pre-order" || card.status === "Wireless - Coming soon";
+
     // Додаємо клас "card" до кожної картки, якщо картка має промо-мітку (promoLabel), додаємо ще клас "card--promo"
-    cardElement.className = `card${
-      card.promoLabel ? " card--promo" : "" // Перевірка на наявність промо-мітки
-    }`;
+    cardElement.className = `card${card.promoLabel ? " card--promo" : ""}`; // Перевірка на наявність промо-мітки
 
     // Встановлюємо внутрішній HTML для кожної картки
     // Якщо картка має промо-мітку, показуємо її
@@ -48,21 +58,29 @@ function rendercards(cards) {
         <div class="card__image-container">          
           ${
             card.promoLabel
-              ? `<span class="card__label">${card.promoLabel}</span>` 
-              : "" 
+              ? `<span class="card__label">${card.promoLabel}</span>`
+              : ""
           }          
-          <img
-            src="${card.image}" 
-            alt="${card.name}"   
-            class="card__image" 
-          />
+          <img src="${card.image}" alt="${card.name}" class="card__image" />
+          ${
+            isOutOfStock
+              ? `<div class="badge-bottom-pro badge-out-of-stock-pro">
+                  <span class="out-of-stock">${card.status}</span>
+                </div>`
+              : ""
+          }
+           ${
+             isPreOrder
+               ? `<div class="badge-bottom-pro pre-order-pro">
+                  <span class="pre-order">${card.status}</span>
+                </div>`
+               : ""
+           }
         </div>
         
         <div class="card__info">
           <h2 class="card__name">
-            <a href="#" class="card__name-link">${
-              card.name
-            }</a> 
+            <a href="#" class="card__name-link">${card.name}</a> 
           </h2>
           
           <div class="card__price-container">
@@ -70,100 +88,111 @@ function rendercards(cards) {
               card.oldPrice
                 ? `<p class="card__price card__price--old">$${card.oldPrice.toFixed(
                     2
-                  )} USD</p>` 
-                : "" 
+                  )} USD</p>`
+                : ""
             }
             
-            <!-- Поточна ціна товару -->
-            <p class="card__price">$${card.price.toFixed(
-              2
-            )} USD</p> 
-          </div>
-          <button class="card__button card__button--cart">Buy Now</button>
+            <p class="card__price">$${card.price.toFixed(2)} USD</p> 
+          </div>   
+          <button class="card__button card__button--cart" ${
+            isOutOfStock ? "disabled" : ""
+          }>Buy Now</button>       
         </div>
-    `;
+        `;
+
+    // Ловимо клік на кнопці "Buy Now" і додаємо товар в кошик
+    const addProductToCartButton = cardElement.querySelector(
+      ".card__button--cart"
+    );
+    if (!isOutOfStock) {
+      addProductToCartButton.addEventListener("click", () => {
+        addProductToCart(card.name, card.price);
+      });
+    }
 
     // Додаємо створену картку в контейнер карток на сторінці
     cardsContainer.appendChild(cardElement);
   });
 }
 
-/* Отримати відфільтровані картки на основі поточного стану фільтрації */
-function getFilteredcards() {
-  // Викликаємо функцію filtercards, передаючи масив карток, які зберігаються в window.cards або порожній масив, якщо їх немає
-  // Масив карток (cards) зберігається в глобальному об'єкті window.
-  // Це дозволяє зробити ці картки доступними з будь-якої точки на сторінці,
-  // навіть якщо вони були завантажені асинхронно
-  return filtercards(window.cards || []);
-}
-
-/* Фільтрує картки за поточним станом фільтрів */
-function filtercards(cards) {
+function filterCards(cards) {
   return cards.filter((card) => {
-    // Перевірка категорії картки. Якщо категорія не "all" (усі), то перевіряємо 
-    // чи співпадає категорія картки з поточною
+    // Якщо категорія "all", пропускаємо фільтрацію за категорією
     if (
-      filterState.category !== "all" &&
-      card.category.toLowerCase() !== filterState.category.toLowerCase()
+      filterState.category === "all" ||
+      card.category.toLowerCase() === filterState.category.toLowerCase()
     ) {
-      return false; // Якщо категорії не співпадають, виключаємо картку
-    }
+      // Перевірка цінового діапазону
+      const minPrice = parseFloat(filterState.priceRange.min);
+      const maxPrice = parseFloat(filterState.priceRange.max);
+      const cardPrice = parseFloat(card.price);
 
-    // Перевірка ціни картки. Якщо ціна картки поза діапазоном встановлених меж, виключаємо картку
-    if (
-      card.price < filterState.priceRange.min ||
-      card.price > filterState.priceRange.max
-    ) {
-      return false; // Якщо ціна картки не в межах фільтрації, виключаємо її
-    }
+      if (cardPrice < minPrice || cardPrice > maxPrice) {
+        console.log("Min Price:", filterState.priceRange.min);
+        console.log("Max Price:", filterState.priceRange.max);
+        console.log("Card Price:", card.price);
+        return false;
+      }
 
-    // Перевірка кольорів картки. Якщо фільтри містять кольори, то перевіряємо, 
-    // чи є хоча б один колір картки в фільтрі
-    if (
-      filterState.colors.size > 0 &&
-      !card.colors.some((color) => filterState.colors.has(color.toLowerCase()))
-    ) {
-      return false; // Якщо немає жодного кольору, який є в фільтрі, виключаємо картку
-    }
+      // Перевірка кольорів
+      if (
+        filterState.colors.size > 0 &&
+        Array.isArray(card.colors) && // Перевірка, чи card.colors є масивом
+        !card.colors.some((color) =>
+          filterState.colors.has(color.toLowerCase())
+        ) // Перевірка, чи хоча б один колір є в Set
+      ) {
+        return false;
+      }
 
-    // Перевірка з'єднань картки. Якщо фільтри містять з'єднання, то перевіряємо, 
-    // чи є хоча б одне з'єднання картки в фільтрі
-    if (
-      filterState.connections.size > 0 &&
-      !card.connections.some((conn) =>
-        filterState.connections.has(conn.toLowerCase())
-      )
-    ) {
-      return false; // Якщо немає жодного з'єднання, яке є в фільтрі, виключаємо картку
-    }
+      // Перевірка з'єднань
+      if (
+        filterState.connections.size > 0 &&
+        !card.connections.some((conn) =>
+          filterState.connections.has(conn.toLowerCase())
+        )
+      ) {
+        return false;
+      }
 
-    // Перевірка розміру екрану картки. Якщо фільтри містять певні розміри екрана, перевіряємо 
-    // чи містить картка необхідний розмір
-    if (
-      filterState.screenSizes.size > 0 &&
-      !filterState.screenSizes.has(String(card.screenSize))
-    ) {
-      return false; // Якщо розмір екрану картки не підходить під фільтри, виключаємо її
-    }
+      // Перевірка розмірів екранів
+      if (
+        filterState.screenSizes.size > 0 &&
+        !card.screenSizes.some(
+          (size) => filterState.screenSizes.has(size) // Перевірка наявності розміру в Set
+        )
+      ) {
+        return false;
+      }
 
-    // Якщо жоден з фільтрів не виключив картку, повертаємо її
-    return true;
+      // Якщо всі фільтри пройшли, повертаємо true
+      return true;
+    }
+    // Якщо картка не підходить під умови, повертаємо false
+    return false;
   });
 }
 
 /* Оновлює відображення карток на основі поточного стану фільтрів */
-function updatecards(cards) {
-  // Отримуємо відфільтровані картки за допомогою функції filtercards
-  const filteredcards = filtercards(cards);
+function updateCards(cards) {
+  const filteredCards = filterCards(cards); // Фільтруємо картки
+  displayedCards = CARDS_PER_PAGE; // Скидаємо лічильник відображених карток до 12
 
-  // Відображаємо відфільтровані картки на сторінці
-  rendercards(filteredcards);
+  // Відображаємо перші 12 карток
+  renderCards(filteredCards.slice(0, displayedCards));
 
-  // Знаходимо кнопку "Apply filters" для оновлення тексту
+  // Оновлюємо текст кнопки "Apply filters"
   const applyButton = document.querySelector(".filters__apply-button");
   if (applyButton) {
-    // Оновлюємо текст кнопки, вказуючи кількість карток після фільтрації
-    applyButton.textContent = `Apply filters: ${filteredcards.length}`;
+    applyButton.textContent = `Apply filters: ${filteredCards.length}`;
+  }
+
+  // Оновлюємо стан кнопки "Load More"
+  const loadMoreButton = document.querySelector(".btn-outline-dark");
+  if (filteredCards.length <= displayedCards) {
+    loadMoreButton.style.display = "none"; // Приховати, якщо всі картки вже відображені
+  } else {
+    loadMoreButton.style.display = "block"; // Показати, якщо є ще картки
   }
 }
 
@@ -178,6 +207,10 @@ function resetFilters() {
   filterState.screenSizes.clear();
 
   // Визначаємо мінімальні і максимальні ціни на основі карток у window.cards
+  window.cards = data.map((card) => ({
+    ...card,
+    price: parseFloat(card.price), 
+  }));
   const prices = window.cards.map((p) => p.price);
   filterState.priceRange = {
     min: Math.min(...prices), // Мінімальна ціна
@@ -220,19 +253,12 @@ function resetFilters() {
   }
 
   // Оновлюємо відображення карток після скидання фільтрів
-  updatecards(window.cards);
+  updateCards(window.cards);
 }
 
-/**
- * Створює HTML-код для групи фільтрів
- * @param {string} title - Назва групи фільтрів
- * @param {string} content - Контент для групи фільтрів
- * @returns {string} - HTML-код для групи фільтрів
- */
-function createFilterGroup(title, content) {
-  // Формуємо HTML для групи фільтрів з вказаною назвою і контентом
+function createFilterGroup(title, content, filterType) {
   return `
-    <div class="filters__group">
+    <div class="filters__group" data-filter-group="${filterType}">
       <div class="accordion__button">
         <span class="accordion__button-text">${title}</span>
         <img src="./img/categories-aside/arrow.svg" alt="Arrow" class="accordion__arrow" />
@@ -244,166 +270,111 @@ function createFilterGroup(title, content) {
   `;
 }
 
-/**
- * Створює HTML-код для групи опцій фільтра
- * @param {Array} options - Масив опцій для фільтра
- * @param {string} filterType - Тип фільтра
- * @param {boolean} isCheckbox - Чи використовувати чекбокси (за замовчуванням true)
- * @returns {string} - HTML-код для групи опцій фільтра
- */
 function createOptionsGroup(options, filterType, isCheckbox = true) {
-  // Перетворюємо масив опцій на HTML-код
   const optionsHTML = options
     .map((option) => {
-      // Якщо isCheckbox true, створюємо чекбокс для кожної опції
       if (isCheckbox) {
-        return ` 
-        <div class="filters__option">
-          <label class="filters__option-label">
-            <input type="checkbox" data-filter="${filterType}" value="${option.toLowerCase()}" /> ${option}
-          </label>
-        </div>
-      `;
+        return `
+          <div class="filters__option">
+            <label class="filters__option-label">
+              <input
+                type="checkbox"
+                data-filter="${filterType}"
+                value="${option.toLowerCase()}"
+              /> 
+              ${option}
+            </label>
+          </div>`;
       }
-
-      // Якщо isCheckbox false, створюємо інший тип елементу (наприклад, <p>) для опції
-      return ` 
-      <div class="filters__option" data-filter="${filterType}" data-value="${option.toLowerCase()}">
-        <p class="filters__option-label">${option}</p>
-      </div>
-    `;
+      return `
+        <div
+          class="filters__option"
+          data-filter="${filterType}"
+          data-value="${option.toLowerCase()}"
+        >
+          <p class="filters__option-label">${option}</p>
+        </div>`;
     })
-    .join(""); // Об'єднуємо всі елементи в одну строку
+    .join("");
 
-  // Повертаємо HTML для групи опцій
   return `<div class="filters__option-group">${optionsHTML}</div>`;
 }
 
 /**
- * Створює HTML-код для діапазону цін
- * @param {number} minPrice - Мінімальна ціна
- * @param {number} maxPrice - Максимальна ціна
- * @returns {string} - HTML-код для діапазону цін
+ * Create price range HTML
+ * @param {number} minPrice - Minimum price
+ * @param {number} maxPrice - Maximum price
  */
 function createPriceRange(minPrice, maxPrice) {
-  // Формуємо HTML для діапазону цін
   return `
-    <div class="filters__range">
-      <div class="filters__range-slider">
-        <div class="filters__range-progress"></div>
-        
-        <div class="filters__range-inputs">
-          <input
-            type="range"
-            class="filters__range-input filters__range-input--min"
-            min="${minPrice}"   
-            max="${maxPrice}"  
-            value="${minPrice}" 
-            step="1"      
-          />
-
-          <input
-            type="range"
-            class="filters__range-input filters__range-input--max"
-            min="${minPrice}"  
-            max="${maxPrice}"
-            value="${maxPrice}"
-            step="1"         
-          />
-        </div>
-      </div>
-
-      <div class="filters__range-values">
-        <div class="filters__range-value">$${minPrice.toFixed(
-          2
-        )}</div>   
-        <div class="filters__range-dash">-</div>                         
-        <div class="filters__range-value">$${maxPrice.toFixed(
-          2
-        )}</div>  
+    <div class="price-slider-wrapper">
+      <div class="noUi-slider" id="priceSlider"></div>
+      <div class="price-inputs">
+        <input type="number" id="minPriceInput" value="32.00" class="price-input">
+        <input type="number" id="maxPriceInput" value="225.00" class="price-input">
       </div>
     </div>
   `;
 }
 
-/**
- * Ініціалізує функціональність слайдера діапазону цін
- */
-function initializeRangeSlider() {
-  // Отримуємо елементи слайдерів мінімальної і максимальної ціни
-  const rangeMin = document.querySelector(".filters__range-input--min");
-  const rangeMax = document.querySelector(".filters__range-input--max");
-  // Отримуємо елемент для прогресу між слайдерами
-  const progress = document.querySelector(".filters__range-progress");
-  // Отримуємо елементи для відображення мінімального і максимального значення
-  const valueMin = document.querySelector(
-    ".filters__range-values .filters__range-value:first-child"
-  );
-  const valueMax = document.querySelector(
-    ".filters__range-values .filters__range-value:last-child"
-  );
+function initializePriceRangeSlider() {
+  const minPriceInput = document.getElementById("minPriceInput");
+  const maxPriceInput = document.getElementById("maxPriceInput");
+  const priceSlider = document.getElementById("priceSlider");
 
-  // Якщо не вдалося знайти всі елементи, виводимо повідомлення про помилку
-  if (!rangeMin || !rangeMax || !progress || !valueMin || !valueMax) {
-    console.log("Range slider elements not found");
-    return;
-  }
-
-  // Функція для оновлення прогресу слайдера і відображення значень
-  function updateProgress() {
-    // Отримуємо значення слайдерів
-    const min = parseInt(rangeMin.value);
-    const max = parseInt(rangeMax.value);
-
-    // Обчислюємо відсоткове значення для мінімального і максимального слайдера
-    const minPercent =
-      ((min - rangeMin.min) / (rangeMin.max - rangeMin.min)) * 100;
-    const maxPercent =
-      ((max - rangeMax.min) / (rangeMax.max - rangeMax.min)) * 100;
-
-    // Оновлюємо стилі прогресу між слайдерами
-    progress.style.left = `${minPercent}%`;
-    progress.style.width = `${maxPercent - minPercent}%`;
-
-    // Оновлюємо текстові значення мінімальної і максимальної ціни
-    valueMin.textContent = `$${min.toFixed(2)}`;
-    valueMax.textContent = `$${max.toFixed(2)}`;
-
-    // Оновлюємо стан фільтру з новими значеннями діапазону цін
-    filterState.priceRange.min = min;
-    filterState.priceRange.max = max;
-  }
-
-  // Слухач події для мінімального слайдера
-  rangeMin.addEventListener("input", (e) => {
-    const minVal = parseInt(rangeMin.value);
-    const maxVal = parseInt(rangeMax.value);
-
-    // Перевірка: якщо мінімальна ціна більша за максимальну, обмежуємо мінімальну ціну
-    if (maxVal - minVal < 0) {
-      rangeMin.value = maxVal;
-    }
-    // Оновлюємо слайдер та картки
-    updateProgress();
-    updatecards(window.cards);
+  // Ініціалізація noUiSlider
+  noUiSlider.create(priceSlider, {
+    start: [filterState.priceRange.min, filterState.priceRange.max], // Використовуємо поточні значення
+    connect: true,
+    range: {
+      min: 0,
+      max: 500,
+    },
+    step: 0.01,
+    format: {
+      to: (value) => value.toFixed(2),
+      from: (value) => parseFloat(value),
+    },
   });
 
-  // Слухач події для максимального слайдера
-  rangeMax.addEventListener("input", (e) => {
-    const minVal = parseInt(rangeMin.value);
-    const maxVal = parseInt(rangeMax.value);
-
-    // Перевірка: якщо максимальна ціна менша за мінімальну, обмежуємо максимальну ціну
-    if (maxVal - minVal < 0) {
-      rangeMax.value = minVal;
+  // Оновлення інпутів при зміні значення слайдера
+  priceSlider.noUiSlider.on("update", function (values, handle) {
+    if (handle === 0) {
+      minPriceInput.value = values[0];
+    } else {
+      maxPriceInput.value = values[1];
     }
-    // Оновлюємо слайдер та картки
-    updateProgress();
-    updatecards(window.cards);
   });
 
-  // Ініціалізація прогресу слайдера при завантаженні
-  updateProgress();
+  // Оновлення значень в `filterState` і фільтрація карток при зміні слайдера
+  priceSlider.noUiSlider.on("change", function (values) {
+    filterState.priceRange.min = parseFloat(values[0]);
+    filterState.priceRange.max = parseFloat(values[1]);
+    updateCards(window.cards);
+  });
+
+  // Оновлення слайдера при зміні значень в інпутах
+  minPriceInput.addEventListener("input", function () {
+    const minValue = parseFloat(minPriceInput.value);
+    const maxValue = parseFloat(maxPriceInput.value);
+
+    if (minValue >= maxValue) {
+      minPriceInput.value = maxValue;
+    }
+
+    priceSlider.noUiSlider.set([minPriceInput.value, maxValue]);
+  });
+
+  maxPriceInput.addEventListener("input", function () {
+    const minValue = parseFloat(minPriceInput.value);
+    const maxValue = parseFloat(maxPriceInput.value);
+
+    if (maxValue <= minValue) {
+      maxPriceInput.value = minValue;
+    }
+
+    priceSlider.noUiSlider.set([minValue, maxPriceInput.value]);
+  });
 }
 
 function initializeAccordion() {
@@ -427,10 +398,6 @@ function initializeAccordion() {
   });
 }
 
-/**
- * Ініціалізація обробників фільтрів
- * @param {Array} cards - Масив карток, які відображаються
- */
 function initializeFilterHandlers(cards) {
   // Отримуємо всі опції фільтрації за категорією
   const categoryOptions = document.querySelectorAll(
@@ -451,8 +418,15 @@ function initializeFilterHandlers(cards) {
       // Оновлюємо стан фільтра
       filterState.category = option.dataset.value;
 
-      // Оновлюємо картки за новими фільтрами
-      updatecards(cards);
+      // Оновлюємо видимість фільтрів
+      categoryOptions.forEach((category) => {
+        category.addEventListener("change", (event) => {
+          const selectedCategory = event.target.value;
+          updateFilters(selectedCategory);
+        });
+      });
+
+      updateCards(cards);
     });
   });
 
@@ -463,7 +437,7 @@ function initializeFilterHandlers(cards) {
       const type = e.target.dataset.rangeType; // Тип діапазону (min або max)
       const value = parseFloat(e.target.value); // Значення діапазону
       filterState.priceRange[type] = value; // Оновлюємо значення в стані фільтра
-      updatecards(cards); // Оновлюємо картки за новими фільтрами
+      updateCards(cards); // Оновлюємо картки за новими фільтрами
     });
   });
 
@@ -479,7 +453,7 @@ function initializeFilterHandlers(cards) {
       } else {
         filterState[filterType].delete(value);
       }
-      updatecards(cards); // Оновлюємо картки за новими фільтрами
+      updateCards(cards); // Оновлюємо картки за новими фільтрами
     });
   });
 }
@@ -489,22 +463,32 @@ function initializeFilterHandlers(cards) {
  * @param {Array} cards - Масив карток
  */
 function generateFilters(cards) {
-  // Отримуємо контейнер для фільтрів
   const filtersContainer = document.querySelector(".filters__content");
-
-  // Визначаємо мінімальну та максимальну ціну для фільтра ціни
   const prices = cards.map((p) => p.price);
   filterState.priceRange = {
     min: Math.min(...prices),
     max: Math.max(...prices),
   };
 
-  // Визначаємо доступні категорії та кольори
   const categories = ["All", ...new Set(cards.map((p) => p.category))];
   const colors = [...new Set(cards.flatMap((p) => p.colors))];
-  const connections = [...new Set(cards.flatMap((p) => p.connections))];
 
-  // Генерація фільтру за категоріями
+  const connections = [
+    ...new Set(
+      cards
+        .filter((p) => p.category.toLowerCase() !== "monitors")
+        .flatMap((p) => p.connections)
+    ),
+  ];
+
+  const screenSizes = [
+    ...new Set(
+      cards
+        .filter((p) => p.category.toLowerCase() === "monitors")
+        .flatMap((p) => p.screenSizes)
+    ),
+  ].sort((a, b) => a - b);
+
   const categoriesFilter = createFilterGroup(
     "Category",
     createOptionsGroup(
@@ -514,13 +498,11 @@ function generateFilters(cards) {
     )
   );
 
-  // Генерація фільтру за ціною
   const priceFilter = createFilterGroup(
     "Price",
     createPriceRange(filterState.priceRange.min, filterState.priceRange.max)
   );
 
-  // Генерація фільтру за кольором
   const colorsFilter = createFilterGroup(
     "Color",
     createOptionsGroup(
@@ -529,7 +511,19 @@ function generateFilters(cards) {
     )
   );
 
-  // Генерація фільтру за з'єднаннями
+  let screenSizesFilter = "";
+  const monitors = cards.filter((p) => p.category.toLowerCase() === "monitors");
+
+  if (monitors.length > 0) {
+    screenSizesFilter = createFilterGroup(
+      "Screen Size",
+      createOptionsGroup(
+        screenSizes.map((size) => `${size}`),
+        "screenSizes"
+      )
+    );
+  }
+
   const connectionsFilter = createFilterGroup(
     "Connection",
     createOptionsGroup(
@@ -538,39 +532,30 @@ function generateFilters(cards) {
     )
   );
 
-  // Генерація фільтру за розміром екрану для моніторів
-  let screenSizesFilter = "";
-  const monitors = cards.filter((p) => p.category === "monitors");
-  if (monitors.length > 0) {
-    const screenSizes = [...new Set(monitors.map((p) => p.screenSize))].sort(
-      (a, b) => a - b
-    );
-    screenSizesFilter = createFilterGroup(
-      "Screen Size",
-      createOptionsGroup(
-        screenSizes.map((size) => `${size}"`),
-        "screenSizes"
-      )
-    );
-  }
+  // Оновлюємо видимість фільтрів на основі поточної категорії
+  updateFilterVisibility(filterState.category);
 
   // Додаємо всі фільтри в контейнер
   filtersContainer.innerHTML =
     categoriesFilter +
     priceFilter +
     colorsFilter +
-    connectionsFilter +
-    screenSizesFilter;
+    (filterState.category !== "monitors" ? connectionsFilter : "") +
+    (monitors.length > 0 ? screenSizesFilter : "");
 
-  // Ініціалізуємо додаткові елементи (повзунок, акардіон)
-  initializeRangeSlider();
+  const allCategoryOption = document.querySelector(
+    '.filters__option[data-value="all"]'
+  );
+  if (allCategoryOption) {
+    allCategoryOption.classList.add("filters__option--active");
+  }
+
+  initializePriceRangeSlider();
   initializeAccordion();
   initializeFilterHandlers(cards);
 }
 
-/**
- * Ініціалізація обробників для мобільної бічної панелі фільтрів
- */
+/* Ініціалізація обробників для мобільної бічної панелі фільтрів */
 function initializeMobileSidebar() {
   // Отримуємо елементи для мобільної панелі
   const filterToggle = document.getElementById("filtersToggle");
@@ -609,31 +594,72 @@ function initializeMobileSidebar() {
   }
 }
 
-/**
- * Ініціалізація всього
- */
+async function loadMoreCards() {
+  const cards = window.cards; // Отримуємо всі картки
+
+  const filteredCards = filterCards(cards); // Фільтруємо картки
+
+  // Збільшуємо кількість відображених карток на 12
+  displayedCards += CARDS_PER_PAGE;
+
+  // Відображаємо наступні картки
+  renderCards(filteredCards.slice(0, displayedCards));
+
+  // Оновлюємо стан кнопки "Load More"
+  const loadMoreButton = document.querySelector(".btn-outline-dark");
+  if (displayedCards >= filteredCards.length) {
+    loadMoreButton.style.display = "none"; // Приховати, якщо всі картки відображені
+  } else {
+    loadMoreButton.style.display = "block"; // Показати, якщо є ще картки
+  }
+}
+
+function updateFilterVisibility(selectedCategory) {
+  document.querySelectorAll(".filters__group").forEach((group) => {
+    const filterType = group.getAttribute("data-filter-group");
+
+    if (
+      (selectedCategory === "Monitors" && filterType === "connection") ||
+      (["Headphones", "Mice", "Keyboards"].includes(selectedCategory) &&
+        filterType === "screen_size")
+    ) {
+      group.style.display = "none";
+    } else {
+      group.style.display = "block";
+    }
+  });
+}
+
 async function initialize() {
   // Отримуємо картки з даними
-  const cards = await fetchcards();
+  const cards = await fetchCards();
 
   // Зберігаємо картки в глобальній змінній
   window.cards = cards;
 
-  // Відображаємо картки
-  rendercards(cards);
+  // Відображаємо перші 12 карток
+  const filteredCards = filterCards(cards);
+  renderCards(filteredCards.slice(0, CARDS_PER_PAGE));
 
-  // Генеруємо фільтри на основі карток
+  // Оновлюємо стан кнопки "Load More"
+  const loadMoreButton = document.querySelector(".btn-outline-dark");
+  if (filteredCards.length <= CARDS_PER_PAGE) {
+    loadMoreButton.style.display = "none"; // Приховати, якщо всі картки вже відображені
+  } else {
+    loadMoreButton.style.display = "block"; // Показати, якщо є ще картки
+  }
+
+  // Генеруємо фільтри
   generateFilters(cards);
 
-  // Ініціалізуємо мобільну панель
   initializeMobileSidebar();
-
-  // Оновлюємо текст кнопки застосування фільтрів
   const applyButton = document.querySelector(".filters__apply-button");
   if (applyButton) {
-    applyButton.textContent = `Apply filters: ${cards.length}`;
+    applyButton.textContent = `Apply filters: ${filteredCards.length}`;
   }
+
+  // Додаємо слухача події для кнопки Load More
+  loadMoreButton.addEventListener("click", loadMoreCards);
 }
 
-// Викликаємо ініціалізацію
 initialize();
