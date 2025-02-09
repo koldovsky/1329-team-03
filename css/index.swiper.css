@@ -15,6 +15,7 @@
   transform: none;
   display: flex;
   align-items: center;
+  background: var( --color-header-light-accent);
 }
 
 /* Обгортка слайдів */
@@ -30,7 +31,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  background: var(--slide-background);
 }
 
 /* Контейнер зображення та тексту */
@@ -65,7 +66,7 @@
 
 /* Розмір зображень */
 .swiper-slide img {
-  width: 90px;
+  width: 100px;
   height: auto;
 }
 
