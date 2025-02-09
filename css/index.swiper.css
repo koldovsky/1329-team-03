@@ -32,6 +32,8 @@
   align-items: center;
   flex-direction: column;
   background: var(--slide-background);
+  width: 130px;
+  height: 80px;
 }
 
 /* Контейнер зображення та тексту */
@@ -66,7 +68,7 @@
 
 /* Розмір зображень */
 .swiper-slide img {
-  width: 100px;
+  /* width: 100px; */
   height: auto;
 }
 
