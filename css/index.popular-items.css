@@ -102,7 +102,17 @@
     padding: 0;
     margin: 0;
     border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Забезпечує рівномірний розподіл */
+    height: 100%; /* Робить картку повної висоти */
+
   }
+
+  .popular-products__list > .product-card .btn-primary {
+    margin-top: auto; /* Прижимає кнопку донизу */
+    align-self: flex-start; /* Вирівнює кнопку ліворуч */
+}
 
   .popular-products__currency-label {
     color: var(--color-text-body);
