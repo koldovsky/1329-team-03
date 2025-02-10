@@ -1,7 +1,6 @@
 /* Максим Зимин */
 
 let cart = [];
-let currencies;
 
 // DOM елементи
 const cartCountElement = document.getElementById("cartCount");
@@ -33,9 +32,7 @@ function updateCart() {
   cart.forEach((item) => {
     totalItems += item.quantity;
     const convertedPrice = (item.price * currencyRate).toFixed(2);
-    const convertedTotal = (item.price * item.quantity * currencyRate).toFixed(
-      2
-    );
+    const convertedTotal = (item.price * item.quantity * currencyRate).toFixed(2);
 
     totalPrice += item.price * item.quantity * currencyRate;
 
