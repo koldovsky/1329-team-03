@@ -28,6 +28,7 @@
     font-size: 12px;
     font-weight: 700;
     line-height: 14px;
+    letter-spacing: 2.4px;
     text-transform: uppercase;
   }
   
@@ -62,7 +63,7 @@
     width: 100%;
     margin-bottom: 40px;
     margin-top: 30px;
-    gap: 40px;
+    gap: 30px;
   }
 
   .popular-products__badge-bottom-pro {
@@ -97,6 +98,23 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
+  .popular-products__list > .product-card {
+    padding: 0;
+    margin: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Забезпечує рівномірний розподіл */
+    height: 100%; /* Робить картку повної висоти */
+
+  }
+
+  .popular-products__list > .product-card .btn-primary {
+    margin-top: 24px; /* Додає відступ від контенту зверху */
+    align-self: flex-start; /* Вирівнює кнопку ліворуч */
+    margin-bottom: 0; /* Переконуємось, що кнопка не має зайвих відступів знизу */
+}
 
   .popular-products__currency-label {
     color: var(--color-text-body);
@@ -135,8 +153,8 @@
   @media (min-width: 768px) {
     .popular-products__subtitle,
     .popular-products__divider {
-      font-size: 48px;
-      line-height: 58px;
+      font-size: 52px;
+      line-height: 62px;
     }
 
 }
