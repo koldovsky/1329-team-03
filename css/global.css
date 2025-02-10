@@ -58,6 +58,10 @@ main {
   --badge-out-of-stock-background: #ffddd9;
   /* color of out-of-stock button */
   --badge-out-of-stock-color: #cc3833;
+  /* color of success message */
+  --color-success: rgb(0, 128, 0);
+  /* color of error message */
+  --color-error: rgb(255, 0, 0);
   /* Header colors */
   --color-header-primary-bg: #272727;
   --color-primary-logo: #ff7c14;
@@ -87,9 +91,7 @@ main {
 
   --slider-color: black;
   --slider-input-background-color: #d3d3d3;
-  --slide-background:rgba(39, 39, 39, 0.03);
-
-
+  --slide-background: rgba(39, 39, 39, 0.03);
 
   /* transition for all  */
   --transiton-primary-all: all 0.3s ease-in-out;
