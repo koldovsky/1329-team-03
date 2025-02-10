@@ -548,6 +548,50 @@ function generateFilters(cards) {
   initializeFilterHandlers(cards);
 }
 
+function resetFiltersMobile() {
+  filterState.category = "all";
+  filterState.priceRange = { min: 32.0, max: 225.0 };
+  filterState.colors.clear();
+  filterState.connections.clear();
+  filterState.screenSizes.clear();
+
+  // Скидаємо всі чекбокси
+  document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
+  // Скидаємо ползунки діапазону цін
+  document.getElementById("minPriceInput").value = 32.0;
+  document.getElementById("maxPriceInput").value = 225.0;
+
+  // Скидаємо слайдер цін
+  const priceSlider = document.getElementById("priceSlider");
+  if (priceSlider && priceSlider.noUiSlider) {
+    priceSlider.noUiSlider.set([32.0, 225.0]);
+  }
+
+  document
+    .querySelectorAll('.filters__option[data-filter="category"]')
+    .forEach((option) => option.classList.remove("filters__option--active"));
+
+  const allCategoryOption = document.querySelector(
+    '.filters__option[data-value="all"]'
+  );
+  const connectionsFilter = document.querySelector(
+    '[data-filter-group="connections"]'
+  );
+  const screenSizesFilter = document.querySelector(
+    '[data-filter-group="screenSizes"]'
+  );
+  if (allCategoryOption) {
+    allCategoryOption.classList.add("filters__option--active");
+    connectionsFilter.style.display = "block";
+    screenSizesFilter.style.display = "block";
+  }
+
+  updateCards(window.cards);
+}
+
 function initializeMobileSidebar() {
   const filterToggle = document.getElementById("filtersToggle");
   const filtersSidebar = document.getElementById("filtersSidebar");
@@ -577,7 +621,7 @@ function initializeMobileSidebar() {
   }
 
   if (clearButton) {
-    clearButton.addEventListener("click", resetFilters);
+    clearButton.addEventListener("click", resetFiltersMobile);
   }
 }
 
