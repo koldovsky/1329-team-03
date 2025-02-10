@@ -6,11 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const productsContainer = document.querySelector(".cards");
 
-    if (!productsContainer) {
-      console.error("❌ productsContainer ('.cards') not found!");
-      return;
-    }
-
     fetch("./api/cards.json")
       .then((response) => response.json())
       .then((data) => {
@@ -50,7 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     " ",
                     "-"
                   )}-pro">
-                  <div class="badge__${product.status.toLowerCase().replace(" ", "-")}">
+                  <div class="badge__${product.status
+                    .toLowerCase()
+                    .replace(" ", "-")}">
                     ${product.status}
                   </div>
                 </div>`
@@ -82,13 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
               )} USD</div>
             </div>
           </div>
-          <div class="category__button" ><a class="btn ${
+          <div class="category__button"><button class="btn ${
             product.stockStatus === "out of stock"
               ? "btn-disabled"
               : "btn-primary"
-          }" type="submit" ${
+          }" ${
             product.stockStatus === "out of stock" ? "disabled" : ""
-          }>Buy</a></div>
+          }>Buy</button></div>
         </article>
           `;
 
