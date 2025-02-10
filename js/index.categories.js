@@ -143,9 +143,6 @@ function filterCards(cards) {
       const cardPrice = parseFloat(card.price);
 
       if (cardPrice < minPrice || cardPrice > maxPrice) {
-        console.log("Min Price:", filterState.priceRange.min);
-        console.log("Max Price:", filterState.priceRange.max);
-        console.log("Card Price:", card.price);
         return false;
       }
 
@@ -209,66 +206,6 @@ function updateCards(cards) {
   } else {
     loadMoreButton.style.display = "block"; // Показати, якщо є ще картки
   }
-}
-
-/* Скидає всі фільтри до початкового стану */
-function resetFilters() {
-  // Відновлюємо значення фільтрів до їх початкових значень
-  filterState.category = "all";
-
-  // Очищаємо вибір кольорів, з'єднань і розмірів екранів
-  filterState.colors.clear();
-  filterState.connections.clear();
-  filterState.screenSizes.clear();
-
-  // Визначаємо мінімальні і максимальні ціни на основі карток у window.cards
-  window.cards = data.map((card) => ({
-    ...card,
-    price: parseFloat(card.price),
-  }));
-  const prices = window.cards.map((p) => p.price);
-  filterState.priceRange = {
-    min: Math.min(...prices), // Мінімальна ціна
-    max: Math.max(...prices), // Максимальна ціна
-  };
-
-  // Скидаємо всі чекбокси фільтрів до значення "unchecked"
-  document
-    .querySelectorAll('.filters__option input[type="checkbox"]')
-    .forEach((checkbox) => (checkbox.checked = false));
-
-  // Оновлюємо значення інпутів для цінового діапазону
-  const rangeInputs = document.querySelectorAll(".filters__range-input");
-  if (rangeInputs.length >= 2) {
-    // Встановлюємо мінімальну і максимальну ціни в інпути
-    rangeInputs[0].value = filterState.priceRange.min;
-    rangeInputs[1].value = filterState.priceRange.max;
-
-    // Оновлюємо відображення значень діапазону ціни на сторінці
-    const rangeValues = document.querySelectorAll(".filters__range-value");
-    if (rangeValues.length >= 2) {
-      // Встановлюємо відображення мінімальної і максимальної ціни
-      rangeValues[0].textContent = filterState.priceRange.min.toFixed(2);
-      rangeValues[1].textContent = filterState.priceRange.max.toFixed(2);
-    }
-  }
-
-  // Скидаємо всі активні опції фільтрів категорії
-  document
-    .querySelectorAll('.filters__option[data-filter="category"]')
-    .forEach((option) => option.classList.remove("filters__option--active"));
-
-  // Знаходимо опцію "всі категорії" і додаємо клас для позначення активної
-  const allCategoryOption = document.querySelector(
-    '.filters__option[data-value="all"]'
-  );
-  if (allCategoryOption) {
-    // Додаємо клас активної опції для "всі категорії"
-    allCategoryOption.classList.add("filters__option--active");
-  }
-
-  // Оновлюємо відображення карток після скидання фільтрів
-  updateCards(window.cards);
 }
 
 function createFilterGroup(title, content, filterType) {
@@ -429,6 +366,28 @@ function initializeAccordion() {
   });
 }
 
+function resetFilters() {
+  filterState.priceRange = { min: 32.0, max: 225.0 };
+  filterState.colors.clear();
+  filterState.connections.clear();
+  filterState.screenSizes.clear();
+
+  // Скидаємо всі чекбокси
+  document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
+  // Скидаємо ползунки діапазону цін
+  document.getElementById("minPriceInput").value = 32.0;
+  document.getElementById("maxPriceInput").value = 225.0;
+
+  // Скидаємо слайдер цін
+  const priceSlider = document.getElementById("priceSlider");
+  if (priceSlider && priceSlider.noUiSlider) {
+    priceSlider.noUiSlider.set([32.0, 225.0]);
+  }
+}
+
 function initializeFilterHandlers(cards) {
   // Отримуємо всі опції фільтрації за категорією
   const categoryOptions = document.querySelectorAll(
@@ -448,6 +407,9 @@ function initializeFilterHandlers(cards) {
 
       // Оновлюємо стан фільтра
       filterState.category = option.dataset.value;
+
+      // Скидаємо всі інші фільтри
+      resetFilters();
 
       // Оновлюємо видимість фільтрів
       updateFilterVisibility(filterState.category);
@@ -586,6 +548,50 @@ function generateFilters(cards) {
   initializeFilterHandlers(cards);
 }
 
+function resetFiltersMobile() {
+  filterState.category = "all";
+  filterState.priceRange = { min: 32.0, max: 225.0 };
+  filterState.colors.clear();
+  filterState.connections.clear();
+  filterState.screenSizes.clear();
+
+  // Скидаємо всі чекбокси
+  document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
+  // Скидаємо ползунки діапазону цін
+  document.getElementById("minPriceInput").value = 32.0;
+  document.getElementById("maxPriceInput").value = 225.0;
+
+  // Скидаємо слайдер цін
+  const priceSlider = document.getElementById("priceSlider");
+  if (priceSlider && priceSlider.noUiSlider) {
+    priceSlider.noUiSlider.set([32.0, 225.0]);
+  }
+
+  document
+    .querySelectorAll('.filters__option[data-filter="category"]')
+    .forEach((option) => option.classList.remove("filters__option--active"));
+
+  const allCategoryOption = document.querySelector(
+    '.filters__option[data-value="all"]'
+  );
+  const connectionsFilter = document.querySelector(
+    '[data-filter-group="connections"]'
+  );
+  const screenSizesFilter = document.querySelector(
+    '[data-filter-group="screenSizes"]'
+  );
+  if (allCategoryOption) {
+    allCategoryOption.classList.add("filters__option--active");
+    connectionsFilter.style.display = "block";
+    screenSizesFilter.style.display = "block";
+  }
+
+  updateCards(window.cards);
+}
+
 function initializeMobileSidebar() {
   const filterToggle = document.getElementById("filtersToggle");
   const filtersSidebar = document.getElementById("filtersSidebar");
@@ -615,7 +621,7 @@ function initializeMobileSidebar() {
   }
 
   if (clearButton) {
-    clearButton.addEventListener("click", resetFilters);
+    clearButton.addEventListener("click", resetFiltersMobile);
   }
 }
 
