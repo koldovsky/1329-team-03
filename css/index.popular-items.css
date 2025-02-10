@@ -98,6 +98,12 @@
     margin-bottom: 20px;
   }
 
+.product-card {
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
   .popular-products__currency-label {
     color: var(--color-text-body);
     font-family: var(--font-text);
