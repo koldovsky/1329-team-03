@@ -36,41 +36,47 @@ function renderJobsNumber() {
   const jobsNumberList = document.getElementById("jobs-found-count");
   jobsNumberList.textContent = miniVacancies.length;
 }
-function updateFilters(){
-document
-  .querySelectorAll(".job-opportunities__search-select")
-  .forEach((droplist) => {
-    droplist.addEventListener("change", () => {
-      filters = Array.from(
-        document.querySelectorAll(".job-opportunities__search-select")
-      ).map((select) => select.value === "all" ? null : select.value).filter(value => value !== null);;
-      console.log(filters);
-    });
-  });
-}
-function executeFiltering(){
-document
-  .querySelector(".job-opportunities__search-submit")
-  .addEventListener("click", (event) => {
-    event.preventDefault();
-
-    document
-      .querySelectorAll(".job-opportunities__job-mini-card-inner")
-      .forEach((miniCard) => {
-        const cardText = miniCard.outerHTML.toLowerCase();
-
-        const isMatching =
-        filters.every((val) => val === "all") ||
-          filters.every((keyword) => cardText.includes(keyword.toLowerCase()))
-
-        miniCard.style.display = isMatching ? "" : "none";
+function updateFilters() {
+  document
+    .querySelectorAll(".job-opportunities__search-select")
+    .forEach((droplist) => {
+      droplist.addEventListener("change", () => {
+        filters = Array.from(
+          document.querySelectorAll(".job-opportunities__search-select")
+        )
+          .map((select) => (select.value === "all" ? null : select.value))
+          .filter((value) => value !== null);
+        console.log(filters);
       });
-  });
+    });
 }
-  function clearFormProcessor(){
-  document.querySelector(".job-opportunities__search-form").addEventListener("reset", () => {
+function executeFiltering() {
+  document
+    .querySelector(".job-opportunities__search-submit")
+    .addEventListener("click", (event) => {
+      event.preventDefault();
+
+      document
+        .querySelectorAll(".job-opportunities__job-mini-card-inner")
+        .forEach((miniCard) => {
+          const cardText = miniCard.outerHTML.toLowerCase();
+
+          const isMatching =
+            filters.every((val) => val === "all") ||
+            filters.every((keyword) =>
+              cardText.includes(keyword.toLowerCase())
+            );
+
+          miniCard.style.display = isMatching ? "" : "none";
+        });
+    });
+}
+function clearFormProcessor() {
+  document
+    .querySelector(".job-opportunities__search-form")
+    .addEventListener("reset", () => {
       filters = [];
-  });
+    });
 }
 
 renderMiniVacanciesCards(miniVacancies);
