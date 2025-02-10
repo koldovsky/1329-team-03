@@ -13,20 +13,21 @@
       </p>
     </div>
     <div class="divider"></div>
-    <div class="filters__toggle">
+    <div class="filters__toggle" id="filtersToggle">
       <span class="filters__toggle-icon">
         <img src="./img/categories-aside/filters.svg" alt="Filters" />
       </span>
       <span class="filters__toggle-text">Filters</span>
     </div>
     <div class="categories__main">
-      <div class="categories__filters">
+      <div class="categories__filters" id="filtersSidebar">
         <div class="filters__container">
           <div class="filters__header">
             <h3 class="filters__title">Filters</h3>
-            <button class="filters__close">&times;</button>
+            <button class="filters__close" id="filtersClose">&times;</button>
           </div>
           <div class="filters__content"></div>
+          <p class="countdown__title">SALE START</p>
           <div class="filters__countdown" id="filters__countdown-categories">
             <div class="filters__countdown-content">
               <div class="filters__countdown-item">
@@ -174,6 +175,18 @@
         </div>
       </div>
       <div class="categories__content">
+        <div class="cards__choose-currency">
+          <label for="cards-currency-select" class="cards__currency-label"
+            >Choose currency:</label
+          >
+          <select id="cards-currency-select" class="cards__currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="UAH">UAH</option>
+            <option value="PLN">PLN</option>
+            <option value="BGN">BGN</option>
+          </select>
+        </div>
         <section class="cards"></section>
         <button type="button" class="btn load-more btn-outline-dark">
           Load More

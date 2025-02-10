@@ -1,5 +1,3 @@
-/* Максим Зимин */
-
 // Стан корзини
 let cart = [];
 
@@ -8,6 +6,13 @@ const cartCountElement = document.getElementById("cartCount");
 const cartModal = document.getElementById("cartModal");
 const cartItemsElement = document.getElementById("cartItems");
 const totalAmountElement = document.getElementById("totalAmount");
+const orderButton = document.getElementById("orderButton");
+const customerNameInput = document.getElementById("customerName");
+const customerEmailInput = document.getElementById("customerEmail");
+const customerPhoneInput = document.getElementById("customerPhone");
+const promoInfo = document.getElementById("promo-code");
+const customerInfo = document.getElementById("customer-info");
+const emptyCartMessage = document.querySelector(".cart-empty");
 
 /**
  * Перевіряє, чи існують всі необхідні елементи корзини в DOM
@@ -20,6 +25,7 @@ function initializeCartElements() {
   if (!cartModal) missingElements.push("cartModal");
   if (!cartItemsElement) missingElements.push("cartItems");
   if (!totalAmountElement) missingElements.push("totalAmount");
+  if (!orderButton) missingElements.push("orderButton");
 
   if (missingElements.length) {
     console.error("Missing elements in the DOM:", missingElements.join(", "));
@@ -27,6 +33,101 @@ function initializeCartElements() {
   }
   return true;
 }
+
+/**
+ * Оновлює відображення корзини
+ */
+function updateCart() {
+  if (!initializeCartElements()) return;
+
+  let totalItems = 0;
+  let totalPrice = 0;
+
+  cartItemsElement.innerHTML = "";
+
+  cart.forEach((item) => {
+    totalItems += item.quantity;
+    totalPrice += item.price * item.quantity;
+
+    const itemHTML = `
+      <div class="cart-item">
+        <span>${item.name}</span>
+        <span>${item.quantity} x $${item.price.toFixed(2)}</span>
+        <span>Total: $${(item.price * item.quantity).toFixed(2)}</span>
+        <button data-action="updateQuantity" data-card="${
+          item.name
+        }" data-quantity="${item.quantity + 1}">+</button>
+        <button data-action="updateQuantity" data-card="${
+          item.name
+        }" data-quantity="${item.quantity - 1}">−</button>
+        <button data-action="removeProduct" data-card="${
+          item.name
+        }">Remove</button>
+      </div>
+    `;
+
+    cartItemsElement.innerHTML += itemHTML;
+  });
+
+  cartCountElement.innerText = totalItems;
+  totalAmountElement.innerText = `$${totalPrice.toFixed(2)} USD`;
+
+  // Перевірка, чи корзина пуста
+  if (cart.length === 0) {
+    orderButton.style.display = "none"; // Приховуємо кнопку замовлення
+    promoInfo.style.display = "none";
+    customerInfo.style.display = "none";
+    emptyCartMessage.style.display = "block";
+  } else {
+    emptyCartMessage.style.display = "none";
+    promoInfo.style.display = "block";
+    customerInfo.style.display = "block";
+    orderButton.style.display = "inline-block"; // Показуємо кнопку замовлення
+    updateOrderButtonState();
+  }
+}
+
+/**
+ * Оновлює стан кнопки "Order"
+ */
+function updateOrderButtonState() {
+  const isNameEmpty = !customerNameInput.value.trim();
+  const isEmailEmpty = !customerEmailInput.value.trim();
+  const isPhoneEmpty = !customerPhoneInput.value.trim();
+
+  // Оновлюємо стан кнопки
+  orderButton.disabled = isNameEmpty || isEmailEmpty || isPhoneEmpty;
+
+  // Показуємо попередження для порожніх полів
+  if (isNameEmpty) {
+    customerNameInput.classList.add("warning");
+    document.getElementById("nameWarningMessage").style.display = "block";
+  } else {
+    customerNameInput.classList.remove("warning");
+    document.getElementById("nameWarningMessage").style.display = "none";
+  }
+
+  if (isEmailEmpty) {
+    customerEmailInput.classList.add("warning");
+    document.getElementById("emailWarningMessage").style.display = "block";
+  } else {
+    customerEmailInput.classList.remove("warning");
+    document.getElementById("emailWarningMessage").style.display = "none";
+  }
+
+  if (isPhoneEmpty) {
+    customerPhoneInput.classList.add("warning");
+    document.getElementById("phoneWarningMessage").style.display = "block";
+  } else {
+    customerPhoneInput.classList.remove("warning");
+    document.getElementById("phoneWarningMessage").style.display = "none";
+  }
+}
+
+// Додайте слухачі подій на поля вводу
+customerNameInput.addEventListener("input", updateOrderButtonState);
+customerEmailInput.addEventListener("input", updateOrderButtonState);
+customerPhoneInput.addEventListener("input", updateOrderButtonState);
 
 /**
  * Зберегти корзину в localStorage
@@ -71,50 +172,6 @@ function addProductToCart(productName, price) {
   saveCart();
   updateCart();
   showNotification(`${productName} added to cart!`);
-}
-
-/**
- * Оновлює відображення корзини
- */
-function updateCart() {
-  if (!initializeCartElements()) return;
-
-  let totalItems = 0;
-  let totalPrice = 0;
-
-  cartItemsElement.innerHTML = "";
-
-  cart.forEach((item) => {
-    totalItems += item.quantity;
-    totalPrice += item.price * item.quantity;
-
-    const itemHTML = `
-            <div class="cart-item">
-                <span>${item.name}</span>
-                <span>${item.quantity} x $${item.price.toFixed(2)}</span>
-                <span>Total: $${(item.price * item.quantity).toFixed(2)}</span>
-                <button data-action="updateQuantity" data-card="${
-                  item.name
-                }" data-quantity="${item.quantity + 1}">+</button>
-                <button data-action="updateQuantity" data-card="${
-                  item.name
-                }" data-quantity="${item.quantity - 1}">−</button>
-                <button data-action="removeProduct" data-card="${
-                  item.name
-                }">Remove</button>
-            </div>
-        `;
-
-    cartItemsElement.innerHTML += itemHTML;
-  });
-
-  cartCountElement.innerText = totalItems;
-  totalAmountElement.innerText = `$${totalPrice.toFixed(2)} USD`;
-
-  const emptyCartMessage = document.querySelector(".cart-empty");
-  if (emptyCartMessage) {
-    emptyCartMessage.style.display = cart.length === 0 ? "block" : "none";
-  }
 }
 
 /**

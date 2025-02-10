@@ -1,10 +1,10 @@
-const response = await fetch('api/vacancies.json');
+const response = await fetch("api/vacancies.json");
 const vacancies = await response.json();
 
-function renderVacanciesCards(){
-    let htmlCards = '';
-    for(const vacancy of vacancies){
-        htmlCards += `
+function renderVacanciesCards() {
+  let htmlCards = "";
+  for (const vacancy of vacancies) {
+    htmlCards += `
   <div class="job-opportunities__card" id="mini-card-${vacancy.id}">
   <div class="job-opportunities__card-inner">
     <div class="job-opportunities__card-front">
@@ -141,39 +141,46 @@ function renderVacanciesCards(){
     </div>
   </div>
 </div>
-        `
-    }
-    const vacanciesContainer = document.querySelector('.job-opportunities__vacancies');
-    vacanciesContainer.innerHTML = htmlCards;
+        `;
+  }
+  const vacanciesContainer = document.querySelector(
+    ".job-opportunities__vacancies"
+  );
+  vacanciesContainer.innerHTML = htmlCards;
 }
 
-function addFlipEventListner(){
-  const cards = document.querySelectorAll('.job-opportunities__card');
+function addFlipEventListner() {
+  const cards = document.querySelectorAll(".job-opportunities__card");
   const fileInputs = document.querySelectorAll(`input[type="file"], 
     input[type="button"], input[type="submit"], 
     .job-opportunities__CV-upload-input-label,
      .job-opportunities__cover-letter-input     `);
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('flipped');
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("flipped");
     });
   });
 
-  fileInputs.forEach(input => {
-    input.addEventListener('click', (event) => {
+  fileInputs.forEach((input) => {
+    input.addEventListener("click", (event) => {
       event.stopPropagation();
       window.scrollTo(window.scrollX, window.scrollY);
     });
   });
 }
 
-function renderChosenFileName(){
-  const inputCvFile = document.querySelectorAll('.job-opportunities__CV-upload-input');
+function renderChosenFileName() {
+  const inputCvFile = document.querySelectorAll(
+    ".job-opportunities__CV-upload-input"
+  );
 
-  inputCvFile.forEach(input => {
-    input.addEventListener('change', event => { 
-      const uploadedCvName = input.closest('.job-opportunities__CV-upload').querySelector('.file-name');
-      uploadedCvName.textContent = event.target.files.length > 0 ? event.target.files[0].name : 'None';
+  inputCvFile.forEach((input) => {
+    input.addEventListener("change", (event) => {
+      const uploadedCvName = input
+        .closest(".job-opportunities__CV-upload")
+        .querySelector(".file-name");
+      uploadedCvName.textContent =
+        event.target.files.length > 0 ? event.target.files[0].name : "None";
     });
   });
 }

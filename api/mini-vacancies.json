@@ -1,5 +1,5 @@
 [
-    {
+  {
     "id": 1,
     "companyLogo": "img/about-us/headphones-logo.svg",
     "title": "In-Store Tech Specialist",
@@ -8,8 +8,8 @@
     "employmentType": "Full time",
     "salary": "$55,000",
     "experience": "5 years of experience"
-    },
-    {
+  },
+  {
     "id": 2,
     "companyLogo": "img/about-us/headphones-logo.svg",
     "title": "In-Store Sales Associate",
@@ -18,8 +18,8 @@
     "employmentType": "Full-time",
     "salary": "$35,000",
     "experience": "1 year of experience"
-    },
-    {
+  },
+  {
     "id": 3,
     "companyLogo": "img/about-us/headphones-logo.svg",
     "title": "Customer Support Agent",
@@ -28,5 +28,45 @@
     "employmentType": "Full-time",
     "salary": "$40,000",
     "experience": "2 years of experience"
-    }
+  },
+  {
+    "id": 4,
+    "companyLogo": "img/about-us/headphones-logo.svg",
+    "title": "IT Support Technician",
+    "location": "Kyiv",
+    "country": "ua",
+    "employmentType": "Full-time",
+    "salary": "$50,000",
+    "experience": "4 years of experience"
+  },
+  {
+    "id": 5,
+    "companyLogo": "img/about-us/headphones-logo.svg",
+    "title": "HR & Recruitment Specialist",
+    "location": "London",
+    "country": "uk",
+    "employmentType": "Part-time",
+    "salary": "$25,000",
+    "experience": "1 year of experience"
+  },
+  {
+    "id": 6,
+    "companyLogo": "img/about-us/headphones-logo.svg",
+    "title": "Returns & Warranty Specialist",
+    "location": "Washington",
+    "country": "usa",
+    "employmentType": "Full-time",
+    "salary": "$60,000",
+    "experience": "6 years of experience"
+  },
+  {
+    "id": 7,
+    "companyLogo": "img/about-us/headphones-logo.svg",
+    "title": "Customer Support Agent",
+    "location": "Kyiv",
+    "country": "ua",
+    "employmentType": "Full-time",
+    "salary": "$20,000",
+    "experience": "1 year of experience"
+  }
 ]

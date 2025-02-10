@@ -5,7 +5,7 @@ import { addProductToCart } from "./global.cart.js";
 /* Об'єкт стану фільтрації товарів */
 const filterState = {
   category: "all",
-  priceRange: { min: 32.0, max: 225.99 },
+  priceRange: { min: 32.0, max: 225.0 },
   colors: new Set(),
   connections: new Set(),
   screenSizes: new Set(),
@@ -13,6 +13,7 @@ const filterState = {
 
 const CARDS_PER_PAGE = 12;
 let displayedCards = 0;
+let currencies;
 
 /* Функція для отримання товарів з JSON-файлу */
 async function fetchCards() {
@@ -29,7 +30,7 @@ async function fetchCards() {
   }
 }
 
-function renderCards(cards) {
+function renderCards(cards, rate = 1, currencySymbol = "$") {
   // Знаходимо контейнер, де будуть відображатись картки товарів
   const cardsContainer = document.querySelector(".cards");
 
@@ -82,18 +83,18 @@ function renderCards(cards) {
           <h2 class="card__name">
             <a href="#" class="card__name-link">${card.name}</a> 
           </h2>
-          
-          <div class="card__price-container">
-            ${
-              card.oldPrice
-                ? `<p class="card__price card__price--old">$${card.oldPrice.toFixed(
-                    2
-                  )} USD</p>`
-                : ""
-            }
-            
-            <p class="card__price">$${card.price.toFixed(2)} USD</p> 
-          </div>   
+        <div class="card__price-container">
+        ${
+          card.oldPrice
+            ? `<p class="card__price card__price--old">${currencySymbol}${(
+                card.oldPrice * rate
+              ).toFixed(2)}</p>`
+            : ""
+        }
+        <p class="card__price">${currencySymbol}${(card.price * rate).toFixed(
+      2
+    )}</p>
+      </div> 
           <button class="card__button card__button--cart" ${
             isOutOfStock ? "disabled" : ""
           }>Buy Now</button>       
@@ -115,6 +116,20 @@ function renderCards(cards) {
   });
 }
 
+// Функція зміни валюти
+async function changeCurrency(cards) {
+  const currencyName = document.querySelector(".cards__currency").value;
+  if (!currencies) {
+    const response = await fetch(
+      "https://api.exchangerate-api.com/v4/latest/USD"
+    );
+    currencies = await response.json();
+  }
+  const rate = currencies.rates[currencyName];
+  const currencySymbol = currencyName === "USD" ? "$" : currencyName;
+  renderCards(cards, rate, currencySymbol);
+}
+
 function filterCards(cards) {
   return cards.filter((card) => {
     // Якщо категорія "all", пропускаємо фільтрацію за категорією
@@ -128,9 +143,6 @@ function filterCards(cards) {
       const cardPrice = parseFloat(card.price);
 
       if (cardPrice < minPrice || cardPrice > maxPrice) {
-        console.log("Min Price:", filterState.priceRange.min);
-        console.log("Max Price:", filterState.priceRange.max);
-        console.log("Card Price:", card.price);
         return false;
       }
 
@@ -194,66 +206,6 @@ function updateCards(cards) {
   } else {
     loadMoreButton.style.display = "block"; // Показати, якщо є ще картки
   }
-}
-
-/* Скидає всі фільтри до початкового стану */
-function resetFilters() {
-  // Відновлюємо значення фільтрів до їх початкових значень
-  filterState.category = "all";
-
-  // Очищаємо вибір кольорів, з'єднань і розмірів екранів
-  filterState.colors.clear();
-  filterState.connections.clear();
-  filterState.screenSizes.clear();
-
-  // Визначаємо мінімальні і максимальні ціни на основі карток у window.cards
-  window.cards = data.map((card) => ({
-    ...card,
-    price: parseFloat(card.price), 
-  }));
-  const prices = window.cards.map((p) => p.price);
-  filterState.priceRange = {
-    min: Math.min(...prices), // Мінімальна ціна
-    max: Math.max(...prices), // Максимальна ціна
-  };
-
-  // Скидаємо всі чекбокси фільтрів до значення "unchecked"
-  document
-    .querySelectorAll('.filters__option input[type="checkbox"]')
-    .forEach((checkbox) => (checkbox.checked = false));
-
-  // Оновлюємо значення інпутів для цінового діапазону
-  const rangeInputs = document.querySelectorAll(".filters__range-input");
-  if (rangeInputs.length >= 2) {
-    // Встановлюємо мінімальну і максимальну ціни в інпути
-    rangeInputs[0].value = filterState.priceRange.min;
-    rangeInputs[1].value = filterState.priceRange.max;
-
-    // Оновлюємо відображення значень діапазону ціни на сторінці
-    const rangeValues = document.querySelectorAll(".filters__range-value");
-    if (rangeValues.length >= 2) {
-      // Встановлюємо відображення мінімальної і максимальної ціни
-      rangeValues[0].textContent = filterState.priceRange.min.toFixed(2);
-      rangeValues[1].textContent = filterState.priceRange.max.toFixed(2);
-    }
-  }
-
-  // Скидаємо всі активні опції фільтрів категорії
-  document
-    .querySelectorAll('.filters__option[data-filter="category"]')
-    .forEach((option) => option.classList.remove("filters__option--active"));
-
-  // Знаходимо опцію "всі категорії" і додаємо клас для позначення активної
-  const allCategoryOption = document.querySelector(
-    '.filters__option[data-value="all"]'
-  );
-  if (allCategoryOption) {
-    // Додаємо клас активної опції для "всі категорії"
-    allCategoryOption.classList.add("filters__option--active");
-  }
-
-  // Оновлюємо відображення карток після скидання фільтрів
-  updateCards(window.cards);
 }
 
 function createFilterGroup(title, content, filterType) {
@@ -327,8 +279,8 @@ function initializePriceRangeSlider() {
     start: [filterState.priceRange.min, filterState.priceRange.max], // Використовуємо поточні значення
     connect: true,
     range: {
-      min: 0,
-      max: 500,
+      min: 32,
+      max: 225,
     },
     step: 0.01,
     format: {
@@ -355,25 +307,41 @@ function initializePriceRangeSlider() {
 
   // Оновлення слайдера при зміні значень в інпутах
   minPriceInput.addEventListener("input", function () {
-    const minValue = parseFloat(minPriceInput.value);
+    let minValue = parseFloat(minPriceInput.value);
     const maxValue = parseFloat(maxPriceInput.value);
 
-    if (minValue >= maxValue) {
-      minPriceInput.value = maxValue;
+    // Перевірка меж
+    if (minValue < 32) {
+      minValue = 32; // Мінімальне значення
+    } else if (minValue > 225) {
+      minValue = 225; // Максимальне значення
     }
 
-    priceSlider.noUiSlider.set([minPriceInput.value, maxValue]);
+    if (minValue >= maxValue) {
+      minValue = maxValue; // Запобігаємо введенню мінімальної ціни більшої за максимальну
+    }
+
+    minPriceInput.value = minValue;
+    priceSlider.noUiSlider.set([minValue, maxValue]);
   });
 
   maxPriceInput.addEventListener("input", function () {
     const minValue = parseFloat(minPriceInput.value);
-    const maxValue = parseFloat(maxPriceInput.value);
+    let maxValue = parseFloat(maxPriceInput.value);
 
-    if (maxValue <= minValue) {
-      maxPriceInput.value = minValue;
+    // Перевірка меж
+    if (maxValue > 225) {
+      maxValue = 225; // Максимальне значення
+    } else if (maxValue < 32) {
+      maxValue = 32; // Мінімальне значення
     }
 
-    priceSlider.noUiSlider.set([minValue, maxPriceInput.value]);
+    if (maxValue <= minValue) {
+      maxValue = minValue; // Запобігаємо введенню максимальної ціни меншої за мінімальну
+    }
+
+    maxPriceInput.value = maxValue;
+    priceSlider.noUiSlider.set([minValue, maxValue]);
   });
 }
 
@@ -398,6 +366,28 @@ function initializeAccordion() {
   });
 }
 
+function resetFilters() {
+  filterState.priceRange = { min: 32.0, max: 225.0 };
+  filterState.colors.clear();
+  filterState.connections.clear();
+  filterState.screenSizes.clear();
+
+  // Скидаємо всі чекбокси
+  document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
+  // Скидаємо ползунки діапазону цін
+  document.getElementById("minPriceInput").value = 32.0;
+  document.getElementById("maxPriceInput").value = 225.0;
+
+  // Скидаємо слайдер цін
+  const priceSlider = document.getElementById("priceSlider");
+  if (priceSlider && priceSlider.noUiSlider) {
+    priceSlider.noUiSlider.set([32.0, 225.0]);
+  }
+}
+
 function initializeFilterHandlers(cards) {
   // Отримуємо всі опції фільтрації за категорією
   const categoryOptions = document.querySelectorAll(
@@ -418,13 +408,11 @@ function initializeFilterHandlers(cards) {
       // Оновлюємо стан фільтра
       filterState.category = option.dataset.value;
 
+      // Скидаємо всі інші фільтри
+      resetFilters();
+
       // Оновлюємо видимість фільтрів
-      categoryOptions.forEach((category) => {
-        category.addEventListener("change", (event) => {
-          const selectedCategory = event.target.value;
-          updateFilters(selectedCategory);
-        });
-      });
+      updateFilterVisibility(filterState.category);
 
       updateCards(cards);
     });
@@ -495,12 +483,14 @@ function generateFilters(cards) {
       categories.map((c) => c.charAt(0).toUpperCase() + c.slice(1)),
       "category",
       false
-    )
+    ),
+    "category"
   );
 
   const priceFilter = createFilterGroup(
     "Price",
-    createPriceRange(filterState.priceRange.min, filterState.priceRange.max)
+    createPriceRange(filterState.priceRange.min, filterState.priceRange.max),
+    "price"
   );
 
   const colorsFilter = createFilterGroup(
@@ -508,7 +498,8 @@ function generateFilters(cards) {
     createOptionsGroup(
       colors.map((c) => c.charAt(0).toUpperCase() + c.slice(1)),
       "colors"
-    )
+    ),
+    "colors"
   );
 
   let screenSizesFilter = "";
@@ -520,7 +511,8 @@ function generateFilters(cards) {
       createOptionsGroup(
         screenSizes.map((size) => `${size}`),
         "screenSizes"
-      )
+      ),
+      "screenSizes"
     );
   }
 
@@ -529,7 +521,8 @@ function generateFilters(cards) {
     createOptionsGroup(
       connections.map((c) => c.charAt(0).toUpperCase() + c.slice(1)),
       "connections"
-    )
+    ),
+    "connections"
   );
 
   // Оновлюємо видимість фільтрів на основі поточної категорії
@@ -555,16 +548,57 @@ function generateFilters(cards) {
   initializeFilterHandlers(cards);
 }
 
-/* Ініціалізація обробників для мобільної бічної панелі фільтрів */
+function resetFiltersMobile() {
+  filterState.category = "all";
+  filterState.priceRange = { min: 32.0, max: 225.0 };
+  filterState.colors.clear();
+  filterState.connections.clear();
+  filterState.screenSizes.clear();
+
+  // Скидаємо всі чекбокси
+  document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
+  // Скидаємо ползунки діапазону цін
+  document.getElementById("minPriceInput").value = 32.0;
+  document.getElementById("maxPriceInput").value = 225.0;
+
+  // Скидаємо слайдер цін
+  const priceSlider = document.getElementById("priceSlider");
+  if (priceSlider && priceSlider.noUiSlider) {
+    priceSlider.noUiSlider.set([32.0, 225.0]);
+  }
+
+  document
+    .querySelectorAll('.filters__option[data-filter="category"]')
+    .forEach((option) => option.classList.remove("filters__option--active"));
+
+  const allCategoryOption = document.querySelector(
+    '.filters__option[data-value="all"]'
+  );
+  const connectionsFilter = document.querySelector(
+    '[data-filter-group="connections"]'
+  );
+  const screenSizesFilter = document.querySelector(
+    '[data-filter-group="screenSizes"]'
+  );
+  if (allCategoryOption) {
+    allCategoryOption.classList.add("filters__option--active");
+    connectionsFilter.style.display = "block";
+    screenSizesFilter.style.display = "block";
+  }
+
+  updateCards(window.cards);
+}
+
 function initializeMobileSidebar() {
-  // Отримуємо елементи для мобільної панелі
   const filterToggle = document.getElementById("filtersToggle");
   const filtersSidebar = document.getElementById("filtersSidebar");
   const filtersClose = document.getElementById("filtersClose");
   const applyButton = document.querySelector(".filters__apply-button");
   const clearButton = document.querySelector(".filters__clear-button");
 
-  // Обробник для кнопки відкриття бічної панелі
   if (filterToggle && filtersSidebar) {
     filterToggle.addEventListener("click", function () {
       filtersSidebar.classList.add("filters--open");
@@ -572,7 +606,6 @@ function initializeMobileSidebar() {
     });
   }
 
-  // Обробник для кнопки закриття бічної панелі
   if (filtersClose) {
     filtersClose.addEventListener("click", function () {
       filtersSidebar.classList.remove("filters--open");
@@ -580,7 +613,6 @@ function initializeMobileSidebar() {
     });
   }
 
-  // Обробник для кнопки застосування фільтрів
   if (applyButton) {
     applyButton.addEventListener("click", () => {
       filtersSidebar.classList.remove("filters--open");
@@ -588,9 +620,8 @@ function initializeMobileSidebar() {
     });
   }
 
-  // Обробник для кнопки очищення фільтрів
   if (clearButton) {
-    clearButton.addEventListener("click", resetFilters);
+    clearButton.addEventListener("click", resetFiltersMobile);
   }
 }
 
@@ -614,20 +645,26 @@ async function loadMoreCards() {
   }
 }
 
-function updateFilterVisibility(selectedCategory) {
-  document.querySelectorAll(".filters__group").forEach((group) => {
-    const filterType = group.getAttribute("data-filter-group");
+function updateFilterVisibility(category) {
+  const connectionsFilter = document.querySelector(
+    '[data-filter-group="connections"]'
+  );
+  const screenSizesFilter = document.querySelector(
+    '[data-filter-group="screenSizes"]'
+  );
 
-    if (
-      (selectedCategory === "Monitors" && filterType === "connection") ||
-      (["Headphones", "Mice", "Keyboards"].includes(selectedCategory) &&
-        filterType === "screen_size")
-    ) {
-      group.style.display = "none";
-    } else {
-      group.style.display = "block";
-    }
-  });
+  // Якщо вибрана категорія "монітори", показуємо фільтр по розмірам екранів, ховаємо фільтр по з'єднаннях
+  if (
+    category.toLowerCase() === "monitors" ||
+    category.toLowerCase() === "all"
+  ) {
+    if (connectionsFilter) connectionsFilter.style.display = "none";
+    if (screenSizesFilter) screenSizesFilter.style.display = "block";
+  } else {
+    // Для інших категорій, ховаємо фільтр по розмірам екранів і показуємо фільтр по з'єднаннях
+    if (connectionsFilter) connectionsFilter.style.display = "block";
+    if (screenSizesFilter) screenSizesFilter.style.display = "none";
+  }
 }
 
 async function initialize() {
@@ -652,10 +689,14 @@ async function initialize() {
   // Генеруємо фільтри
   generateFilters(cards);
 
+  document
+    .querySelector(".cards__currency")
+    .addEventListener("change", () => changeCurrency(filteredCards));
+
   initializeMobileSidebar();
   const applyButton = document.querySelector(".filters__apply-button");
   if (applyButton) {
-    applyButton.textContent = `Apply filters: ${filteredCards.length}`;
+    applyButton.textContent = `Apply filters: ${cards.length}`;
   }
 
   // Додаємо слухача події для кнопки Load More
