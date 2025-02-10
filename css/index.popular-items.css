@@ -135,8 +135,8 @@
   @media (min-width: 768px) {
     .popular-products__subtitle,
     .popular-products__divider {
-      font-size: 48px;
-      line-height: 58px;
+      font-size: 52px;
+      line-height: 62px;
     }
 
 }
