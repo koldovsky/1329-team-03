@@ -8,7 +8,7 @@
     background-color: var(--color-primary-white);
     padding: 60px 24px 40px 24px;
 
-    .section__title h2{
+    .section__title{
       color: var(--color-accent-additional);
       font-family: var(--font-text);
       font-size: 12px;
