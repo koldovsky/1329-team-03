@@ -110,8 +110,9 @@
   }
 
   .popular-products__list > .product-card .btn-primary {
-    margin-top: auto; /* Прижимає кнопку донизу */
+    margin-top: 24px; /* Додає відступ від контенту зверху */
     align-self: flex-start; /* Вирівнює кнопку ліворуч */
+    margin-bottom: 0; /* Переконуємось, що кнопка не має зайвих відступів знизу */
 }
 
   .popular-products__currency-label {
