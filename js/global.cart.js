@@ -1,5 +1,7 @@
-// Стан корзини
+/* Максим Зимин */
+
 let cart = [];
+let currencies;
 
 // DOM елементи
 const cartCountElement = document.getElementById("cartCount");
@@ -14,31 +16,14 @@ const promoInfo = document.getElementById("promo-code");
 const customerInfo = document.getElementById("customer-info");
 const emptyCartMessage = document.querySelector(".cart-empty");
 
-/**
- * Перевіряє, чи існують всі необхідні елементи корзини в DOM
- * @returns {boolean} - Чи існують всі елементи
- */
-function initializeCartElements() {
-  const missingElements = [];
-
-  if (!cartCountElement) missingElements.push("cartCount");
-  if (!cartModal) missingElements.push("cartModal");
-  if (!cartItemsElement) missingElements.push("cartItems");
-  if (!totalAmountElement) missingElements.push("totalAmount");
-  if (!orderButton) missingElements.push("orderButton");
-
-  if (missingElements.length) {
-    console.error("Missing elements in the DOM:", missingElements.join(", "));
-    return false;
-  }
-  return true;
+function getSelectedCurrency() {
+  const currencyName = localStorage.getItem("selectedCurrency") || "USD";
+  const currencyRate = parseFloat(localStorage.getItem("currencyRate")) || 1;
+  return { currencyName, currencyRate };
 }
 
-/**
- * Оновлює відображення корзини
- */
 function updateCart() {
-  if (!initializeCartElements()) return;
+  const { currencyName, currencyRate } = getSelectedCurrency();
 
   let totalItems = 0;
   let totalPrice = 0;
@@ -47,20 +32,27 @@ function updateCart() {
 
   cart.forEach((item) => {
     totalItems += item.quantity;
-    totalPrice += item.price * item.quantity;
+    const convertedPrice = (item.price * currencyRate).toFixed(2);
+    const convertedTotal = (item.price * item.quantity * currencyRate).toFixed(
+      2
+    );
+
+    totalPrice += item.price * item.quantity * currencyRate;
 
     const itemHTML = `
       <div class="cart-item">
-        <span>${item.name}</span>
-        <span>${item.quantity} x $${item.price.toFixed(2)}</span>
-        <span>Total: $${(item.price * item.quantity).toFixed(2)}</span>
+        <span class="cart-item__name">${item.name}</span>
+        <span class="cart-item__price">${
+          item.quantity
+        } x ${convertedPrice} ${currencyName}</span>
+        <span class="cart-item__total">${convertedTotal} ${currencyName}</span>
         <button data-action="updateQuantity" data-card="${
           item.name
         }" data-quantity="${item.quantity + 1}">+</button>
         <button data-action="updateQuantity" data-card="${
           item.name
         }" data-quantity="${item.quantity - 1}">−</button>
-        <button data-action="removeProduct" data-card="${
+        <button class="cart-item__button" data-action="removeProduct" data-card="${
           item.name
         }">Remove</button>
       </div>
@@ -70,11 +62,10 @@ function updateCart() {
   });
 
   cartCountElement.innerText = totalItems;
-  totalAmountElement.innerText = `$${totalPrice.toFixed(2)} USD`;
+  totalAmountElement.innerText = `${totalPrice.toFixed(2)} ${currencyName}`;
 
-  // Перевірка, чи корзина пуста
   if (cart.length === 0) {
-    orderButton.style.display = "none"; // Приховуємо кнопку замовлення
+    orderButton.style.display = "none";
     promoInfo.style.display = "none";
     customerInfo.style.display = "none";
     emptyCartMessage.style.display = "block";
@@ -82,7 +73,7 @@ function updateCart() {
     emptyCartMessage.style.display = "none";
     promoInfo.style.display = "block";
     customerInfo.style.display = "block";
-    orderButton.style.display = "inline-block"; // Показуємо кнопку замовлення
+    orderButton.style.display = "inline-block";
     updateOrderButtonState();
   }
 }
@@ -124,21 +115,14 @@ function updateOrderButtonState() {
   }
 }
 
-// Додайте слухачі подій на поля вводу
 customerNameInput.addEventListener("input", updateOrderButtonState);
 customerEmailInput.addEventListener("input", updateOrderButtonState);
 customerPhoneInput.addEventListener("input", updateOrderButtonState);
 
-/**
- * Зберегти корзину в localStorage
- */
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-/**
- * Завантажити корзину з localStorage
- */
 function loadCart() {
   const savedCart = localStorage.getItem("cart");
   if (savedCart) {
@@ -147,14 +131,7 @@ function loadCart() {
   }
 }
 
-/**
- * Додає товар у корзину
- * @param {string} productName - Назва товару
- * @param {number} price - Ціна товару
- */
 function addProductToCart(productName, price) {
-  if (!initializeCartElements()) return;
-
   const existingProduct = cart.find((item) => item.name === productName);
   if (existingProduct) {
     existingProduct.quantity++;
@@ -174,14 +151,7 @@ function addProductToCart(productName, price) {
   showNotification(`${productName} added to cart!`);
 }
 
-/**
- * Оновлює кількість товару у корзині
- * @param {string} productName - Назва товару
- * @param {number} newQuantity - Нова кількість
- */
 function updateQuantityOfProductsInCart(productName, newQuantity) {
-  if (!initializeCartElements()) return;
-
   if (newQuantity <= 0) {
     removeProductFromCart(productName);
     return;
@@ -195,35 +165,20 @@ function updateQuantityOfProductsInCart(productName, newQuantity) {
   }
 }
 
-/**
- * Видаляє товар з корзини
- * @param {string} productName - Назва товару
- */
 function removeProductFromCart(productName) {
-  if (!initializeCartElements()) return;
-
   cart = cart.filter((item) => item.name !== productName);
   saveCart();
   updateCart();
   showNotification(`${productName} removed from cart`);
 }
 
-/**
- * Очищає всю корзину
- */
 function clearCart() {
-  if (!initializeCartElements()) return;
-
   cart = [];
   saveCart();
   updateCart();
   showNotification("Cart cleared");
 }
 
-/**
- * Показує сповіщення
- * @param {string} message - Текст повідомлення
- */
 function showNotification(message) {
   const notification = document.createElement("div");
   notification.className = "notification";
@@ -241,8 +196,6 @@ function showNotification(message) {
  * Перемикає відображення корзини
  */
 function toggleCart() {
-  if (!initializeCartElements()) return;
-
   const isVisible = cartModal.style.display === "flex";
   cartModal.style.display = isVisible ? "none" : "flex";
   document.body.classList.toggle("no-scroll", !isVisible);
@@ -276,12 +229,7 @@ function handleCartAction(event) {
   }
 }
 
-/**
- * Ініціалізація корзини
- */
 function initializeCart() {
-  if (!initializeCartElements()) return;
-
   // Уникнення дублювання слухачів подій
   document.removeEventListener("click", handleCartAction);
   document.addEventListener("click", handleCartAction);
@@ -292,5 +240,4 @@ function initializeCart() {
 // Запуск ініціалізації при завантаженні сторінки
 initializeCart();
 
-// Експорт необхідних функцій
 export { addProductToCart };

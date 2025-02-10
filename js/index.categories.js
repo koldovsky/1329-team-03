@@ -105,9 +105,13 @@ function renderCards(cards, rate = 1, currencySymbol = "$") {
     const addProductToCartButton = cardElement.querySelector(
       ".card__button--cart"
     );
+    const currencyRate = parseFloat(
+      localStorage.getItem("currencyRate") || "1"
+    );
+    const finalPrice = card.price * currencyRate;
     if (!isOutOfStock) {
       addProductToCartButton.addEventListener("click", () => {
-        addProductToCart(card.name, card.price);
+        addProductToCart(card.name, finalPrice);
       });
     }
 
@@ -127,6 +131,8 @@ async function changeCurrency(cards) {
   }
   const rate = currencies.rates[currencyName];
   const currencySymbol = currencyName === "USD" ? "$" : currencyName;
+  localStorage.setItem("selectedCurrency", currencyName);
+  localStorage.setItem("currencyRate", rate);
   renderCards(cards, rate, currencySymbol);
 }
 
