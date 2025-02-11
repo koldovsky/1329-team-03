@@ -1,32 +1,23 @@
-/* Контейнер слайдера */
-.slider-container {
+/* Основні стилі для слайдера Swiper */
+.swiper {
   width: 100%;
-  overflow: hidden;
-  position: relative;
+  padding: 20px 0;
 }
 
-/* Сам слайдер */
-.slider {
-  display: flex;
-  gap: 15px; /* Відстань між слайдами */
-  width: max-content;
-  animation: scroll 10s linear infinite;
-}
-
-/* Окремі слайди */
-.slide {
-  flex: 0 0 140px; /* Фіксована ширина */
+.swiper-slide {
+  flex-shrink: 0;
+  width: 140px; /* Фіксована ширина слайда */
   height: 90px;
   background: #f2ebe5;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
 }
 
-.slide img {
+.swiper-slide img {
   width: 80px;
   height: auto;
   filter: grayscale(100%);
@@ -34,22 +25,17 @@
   transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
-/* Ефект при наведенні */
-.slide:hover {
+.swiper-slide:hover {
   transform: scale(1.05);
 }
 
-.slide:hover img {
+.swiper-slide:hover img {
   filter: grayscale(0%);
   opacity: 1;
 }
 
-/* Анімація автоматичного скролу */
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* Опціонально: стилізація кнопок навігації */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #000;
 }
