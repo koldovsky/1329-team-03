@@ -1,24 +1,20 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
 /* Контейнер для слайдера */
 .slider-container {
   width: 100%;
   max-width: 100%;
-  position: relative; /* щоб стрілки позиціонувалися всередині */
-  overflow: hidden;   /* вимикаємо бокову прокрутку */
+  position: relative; /* для позиціонування стрілок */
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* Основний блок Swiper */
+/* Блок Swiper */
 .swiper {
   width: 100%;
   max-width: 100%;
   display: flex;
   align-items: center;
-  background: var(--color-header-light-accent, #f9f9f9);
-  overflow: hidden; /* додатково сховає горизонтальний scroll */
+  background: #f9f9f9;
+  overflow: hidden;
 }
 
 /* Обгортка слайдів */
@@ -33,12 +29,12 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: var(--slide-background, #ffffff);
-  width: 130px; /* змініть за потреби */
-  height: 80px; /* змініть за потреби */
+  background: #ffffff;
+  width: 130px;
+  height: 80px;
 }
 
-/* Кнопки навігації */
+/* Кнопки */
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
@@ -51,20 +47,17 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 10;
-  transform: translateY(-50%); /* щоб кнопка була по центру */
+  transform: translateY(-50%);
 }
 
-/* Ліва кнопка */
 .swiper-button-prev {
   left: 10px;
 }
 
-/* Права кнопка */
 .swiper-button-next {
   right: 10px;
 }
 
-/* Стиль іконок на кнопках */
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 18px;
@@ -75,12 +68,4 @@ body {
 .swiper-slide img {
   height: auto;
   max-width: 100%;
-}
-
-/* Приклад стилю для тексту під зображенням (за потреби) */
-.swiper-slide span {
-  display: block;
-  margin-top: 5px;
-  font-size: 14px;
-  color: #333;
 }

@@ -13,7 +13,7 @@ function getSlidesPerView() {
 let swiper = new Swiper(".swiper", {
   slidesPerView: getSlidesPerView(),
   spaceBetween: 15,
-  loop: true, // можна вимкнути, якщо не потрібно зациклення
+  loop: true,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
