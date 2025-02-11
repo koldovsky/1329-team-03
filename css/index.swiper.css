@@ -1,28 +1,25 @@
 /* Контейнер для слайдера */
-.swiper-container {
+.slider-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 100%;
-  transform: none;
 }
 
 /* Основний блок Swiper */
 .swiper {
   width: 100%;
   max-width: 100%;
-  transform: none;
   display: flex;
   align-items: center;
-  background: var( --color-header-light-accent);
+  background: var(--color-header-light-accent, #f9f9f9);
 }
 
 /* Обгортка слайдів */
 .swiper-wrapper {
   display: flex;
   align-items: center;
-  transform: none;
 }
 
 /* Окремий слайд */
@@ -31,19 +28,18 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: var(--slide-background);
-  width: 130px;
-  height: 80px;
+  background: var(--slide-background, #ffffff);
+  width: 130px; /* можна змінити за потреби */
+  height: 80px; /* можна змінити за потреби */
 }
 
-/* Контейнер зображення та тексту */
+/* Якщо додатково потрібно стилізувати фон під зображенням */
 .swiper-slide-block {
   background: #f1ece9;
   padding: 15px;
   border-radius: 10px;
   text-align: center;
 }
-
 
 /* Кнопки навігації */
 .swiper-button-next,
@@ -68,15 +64,14 @@
 
 /* Розмір зображень */
 .swiper-slide img {
-  /* width: 100px; */
   height: auto;
+  max-width: 100%;
 }
 
-/* Текст під зображенням */
+/* Текст під зображенням (якщо використовуєте span) */
 .swiper-slide span {
   display: block;
   margin-top: 5px;
   font-size: 14px;
   color: #333;
 }
-
