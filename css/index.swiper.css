@@ -48,8 +48,13 @@
   border-radius: 50%;
 }
 
-.prev { left: -40px; }
-.next { right: -40px; }
+.prev {
+  left: -40px;
+}
+
+.next {
+  right: -40px;
+}
 
 .slider-btn:hover {
   background: rgba(0, 0, 0, 0.8);
