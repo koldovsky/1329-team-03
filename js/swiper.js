@@ -5,42 +5,48 @@ document.addEventListener("DOMContentLoaded", function () {
   const slides = document.querySelectorAll(".slide");
   
   let currentIndex = 0;
-  const slideWidth = slides[0].offsetWidth + 15; // Учитываем ширину одного слайда и отступ
+  // Враховуємо ширину слайда та відстань (gap) між слайдами (gap = 23px)
+  let slideWidth = slides[0].offsetWidth + 23;
 
-  // Функция обновления позиции слайдера
+  // Функція оновлення позиції слайдера
   function updateSliderPosition() {
+    // Включаємо анімацію при перемиканні
     slider.style.transition = "transform 0.5s ease-in-out";
     slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
   }
 
-  // Клик по кнопке "Вперед"
+  // Обробник кліку "Вперед"
   nextBtn.addEventListener("click", function () {
-    currentIndex++;
-    if (currentIndex >= slides.length) {
-      // Если достигли последнего слайда, мгновенно возвращаемся к первому
-      slider.style.transition = "none"; // Отключаем анимацию
-      currentIndex = 0; // Первый слайд
-      slider.style.transform = `translateX(0)`; // Вернуть в начало
-    } else {
+    if (currentIndex < slides.length - 1) {
+      currentIndex++;
       updateSliderPosition();
+    } else {
+      // Якщо досягли останнього слайда, повертаємося до першого
+      currentIndex = 0;
+      slider.style.transition = "none"; // Вимикаємо анімацію для миттєвого переходу
+      slider.style.transform = `translateX(0)`;
+      // Після невеликої затримки відновлюємо анімацію (якщо потрібно)
+      setTimeout(updateSliderPosition, 20);
     }
   });
 
-  // Клик по кнопке "Назад"
+  // Обробник кліку "Назад"
   prevBtn.addEventListener("click", function () {
-    currentIndex--;
-    if (currentIndex < 0) {
-      currentIndex = slides.length - 1; // Возвращаемся на последний слайд
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSliderPosition();
+    } else {
+      // Якщо на першому слайді, переходимо до останнього
+      currentIndex = slides.length - 1;
       slider.style.transition = "none";
       slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-    } else {
-      updateSliderPosition();
+      setTimeout(updateSliderPosition, 20);
     }
   });
 
-  // Пересчет ширины при изменении размера окна
+  // Оновлення ширини слайда при зміні розміру вікна
   window.addEventListener("resize", function () {
-    const slideWidth = slides[0].offsetWidth + 15; // Заново получаем ширину слайда
+    slideWidth = slides[0].offsetWidth + 23;
     updateSliderPosition();
   });
 });

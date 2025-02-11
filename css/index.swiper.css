@@ -20,7 +20,7 @@
 .slide {
   flex: 0 0 140px;
   height: 90px;
-  background: var(39, 39, 39, 0.03);
+  background: rgba(39, 39, 39, 0.03);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -32,7 +32,7 @@
   height: auto;
 }
 .slider-btn {
-  background: var( --color-accent);
+  background: var(--color-accent);
   color: #fff;
   border: none;
   width: 35px;
@@ -58,5 +58,5 @@
   left: 40px;
 }
 .next {
-  right: 140px;
+  right: 40px;
 }
