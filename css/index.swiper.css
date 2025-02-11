@@ -1,55 +1,56 @@
-  /* Контейнер слайдера */
-  .slider-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  }
+.slider-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
 
-  /* Сам слайдер */
-  .slider {
-    display: flex;
-    gap: 15px; /* Відстань між слайдами */
-    width: max-content;
-    animation: scroll 10s linear infinite;
-  }
+.slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
 
-  /* Окремі слайди */
-  .slide {
-    flex: 0 0 140px; /* Фіксована ширина */
-    height: 90px;
-    background: #f2ebe5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
+.slider {
+  display: flex;
+  gap: 15px;
+  transition: transform 0.5s ease-in-out;
+}
 
-  .slide img {
-    width: 80px;
-    height: auto;
-    filter: grayscale(100%);
-    opacity: 0.8;
-    transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
-  }
+.slide {
+  flex: 0 0 140px;
+  height: 90px;
+  background: #f2ebe5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-  /* Ефект при наведенні */
-  .slide:hover {
-    transform: scale(1.05);
-  }
+.slide img {
+  width: 80px;
+  height: auto;
+}
 
-  .slide:hover img {
-    filter: grayscale(0%);
-    opacity: 1;
-  }
+.slider-btn {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border-radius: 50%;
+}
 
-  /* Анімація автоматичного скролу */
-  @keyframes scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
+.prev { left: -40px; }
+.next { right: -40px; }
+
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+}

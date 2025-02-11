@@ -1,15 +1,18 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const swiper = new Swiper('.swiper', {
-      loop: true, // Зациклення
-      slidesPerView: 3, // Скільки слайдів видно одночасно
-      spaceBetween: 20, // Відстань між слайдами
-      navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-      },
-      autoplay: {
-          delay: 3000, // Автоматична прокрутка (3 секунди)
-          disableOnInteraction: false,
-      },
+  const slider = document.querySelector(".slider");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  let slideWidth = document.querySelector(".slide").offsetWidth + 15;
+
+  nextBtn.addEventListener("click", function () {
+    slider.style.transform = `translateX(-${slideWidth}px)`;
+    slider.appendChild(slider.firstElementChild);
+    setTimeout(() => slider.style.transform = "translateX(0)", 500);
+  });
+
+  prevBtn.addEventListener("click", function () {
+    slider.prepend(slider.lastElementChild);
+    slider.style.transform = `translateX(-${slideWidth}px)`;
+    setTimeout(() => slider.style.transform = "translateX(0)", 0);
   });
 });
