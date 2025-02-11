@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function () {
   const slider = document.querySelector(".slider");
   const prevBtn = document.querySelector(".prev");
@@ -31,9 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
     updateSliderPosition();
   });
 
+  // Обновляем ширину слайда при изменении размера окна
   window.addEventListener('resize', function () {
     slideWidth = slides[0].offsetWidth + 15;
     updateSliderPosition();
   });
 });
-</script>
