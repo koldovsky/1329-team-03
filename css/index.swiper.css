@@ -1,13 +1,18 @@
-/* Основні стилі для слайдера Swiper */
-.swiper {
+.mySwiper {
   width: 100%;
-  padding: 20px 0;
+  max-width: 1000px; /* Приклад обмеження ширини */
+  margin: 0 auto;    /* Центрування слайдера */
+  position: relative;
+}
+
+/* Висота можна задати під ваш дизайн */
+.mySwiper .swiper-wrapper {
+  height: 120px;
 }
 
 .swiper-slide {
-  flex-shrink: 0;
-  width: 140px; /* Фіксована ширина слайда */
-  height: 90px;
+  width: 140px; /* Фіксована ширина для прикладу */
+  height: 90px; /* Висота для прикладу */
   background: #f2ebe5;
   border-radius: 10px;
   display: flex;
@@ -25,17 +30,41 @@
   transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
+/* Ефект при наведенні */
 .swiper-slide:hover {
   transform: scale(1.05);
 }
-
 .swiper-slide:hover img {
   filter: grayscale(0%);
   opacity: 1;
 }
 
-/* Опціонально: стилізація кнопок навігації */
+/* Стилізація кнопок (можна підлаштувати під себе) */
 .swiper-button-prev,
 .swiper-button-next {
-  color: #000;
+  color: #333; /* колір стрілок */
+  width: 40px;
+  height: 40px;
+  background: #eee;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  opacity: 1;
+}
+
+/* Позиціонування кнопок ліворуч і праворуч від слайдера */
+.swiper-button-prev {
+  left: 0;
+  transform: translateX(-50%);
+}
+.swiper-button-next {
+  right: 0;
+  transform: translateX(50%);
 }
