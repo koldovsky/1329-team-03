@@ -3,20 +3,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
   const slides = document.querySelectorAll(".slide");
-  
+
   let currentIndex = 0;
-  let slideWidth = slides[0].offsetWidth + 15; // Добавляем 15px, чтобы учесть отступ между слайдами
-  
+
+  // Враховуємо ширину одного слайду + відступ між ними
+  // Якщо ви зміните gap у CSS, змініть його і тут (або рахуйте динамічно)
+  let slideWidth = slides[0].offsetWidth + 15;
+
   function updateSliderPosition() {
     slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-    slider.style.transition = 'transform 0.5s ease-in-out';
+    // transition уже прописано в CSS
   }
 
   nextBtn.addEventListener("click", function () {
+    // Перевірка, чи не вийшли за межі масиву
     if (currentIndex < slides.length - 1) {
       currentIndex++;
     } else {
-      currentIndex = 0; // Возвращаемся к первому слайду
+      currentIndex = 0; // Повертаємось до першого
     }
     updateSliderPosition();
   });
@@ -25,13 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentIndex > 0) {
       currentIndex--;
     } else {
-      currentIndex = slides.length - 1; // Переход на последний слайд
+      currentIndex = slides.length - 1; // Переходимо на останній
     }
     updateSliderPosition();
   });
 
-  // Обновляем ширину слайда при изменении размера окна
-  window.addEventListener('resize', function () {
+  // Якщо розмір екрану змінився, перераховуємо ширину
+  window.addEventListener("resize", function () {
     slideWidth = slides[0].offsetWidth + 15;
     updateSliderPosition();
   });
