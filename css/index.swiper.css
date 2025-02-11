@@ -1,56 +1,55 @@
-/* Основний контейнер Swiper */
-.swiper-container {
+/* Контейнер слайдера */
+.slider-container {
   width: 100%;
-  max-width: 100%;
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 
-/* Основний блок Swiper */
-.swiper {
-  width: 100%;
-}
-
-/* Окремий слайд */
-.swiper-slide {
+/* Сам слайдер */
+.slider {
   display: flex;
-  justify-content: center;
+  gap: 15px; /* Відстань між слайдами */
+  width: max-content;
+  animation: scroll 10s linear infinite;
+}
+
+/* Окремі слайди */
+.slide {
+  flex: 0 0 140px; /* Фіксована ширина */
+  height: 90px;
+  background: #f2ebe5;
+  display: flex;
   align-items: center;
-  flex-direction: column;
-  background: #f9f9f9;
+  justify-content: center;
   border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Блок усередині слайда */
-.swiper-slide-block {
-  text-align: center;
+.slide img {
+  width: 80px;
+  height: auto;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
-/* Кнопки навігації */
-.swiper-button-prev,
-.swiper-button-next {
-  position: absolute;
-  top: 50%;
-  width: 40px;
-  height: 40px;
-  background-color: #3c64a3;
-  border-radius: 50%;
-  z-index: 10;
-  transform: translateY(-50%);
+/* Ефект при наведенні */
+.slide:hover {
+  transform: scale(1.05);
 }
 
-.swiper-button-prev {
-  left: 10px;
+.slide:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
 }
 
-.swiper-button-next {
-  right: 10px;
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  color: white;
-  font-size: 18px;
+/* Анімація автоматичного скролу */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
