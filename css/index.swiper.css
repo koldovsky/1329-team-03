@@ -1,12 +1,11 @@
-/* ------------------------- CSS ------------------------- */
+
 
 /* Контейнер для слайдера */
 .slider-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   max-width: 100%;
+  position: relative; /* щоб стрілки позиціонувалися всередині */
+  overflow: hidden;   /* вимикаємо бокову прокрутку */
 }
 
 /* Основний блок Swiper */
@@ -16,6 +15,7 @@
   display: flex;
   align-items: center;
   background: var(--color-header-light-accent, #f9f9f9);
+  overflow: hidden; /* додатково сховає горизонтальний scroll */
 }
 
 /* Обгортка слайдів */
@@ -31,21 +31,15 @@
   align-items: center;
   flex-direction: column;
   background: var(--slide-background, #ffffff);
-  width: 130px; /* можна змінити за потреби */
-  height: 80px; /* можна змінити за потреби */
-}
-
-/* Якщо додатково потрібно стилізувати фон під зображенням */
-.swiper-slide-block {
-  background: #f1ece9;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
+  width: 130px; /* змініть за потреби */
+  height: 80px; /* змініть за потреби */
 }
 
 /* Кнопки навігації */
-.swiper-button-next,
-.swiper-button-prev {
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
   width: 40px;
   height: 40px;
   background-color: #3c64a3;
@@ -53,24 +47,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   z-index: 10;
+  transform: translateY(-50%); /* щоб кнопка була по центру */
 }
 
-/* Іконки кнопок */
+/* Ліва кнопка */
+.swiper-button-prev {
+  left: 10px;
+}
+
+/* Права кнопка */
+.swiper-button-next {
+  right: 10px;
+}
+
+/* Стиль іконок на кнопках */
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 18px;
   color: #fff;
 }
 
-/* Розмір зображень */
+/* Зображення всередині слайдів */
 .swiper-slide img {
   height: auto;
   max-width: 100%;
 }
 
-/* Текст під зображенням (якщо використовуєте span) */
+/* Приклад стилю для тексту під зображенням (за потреби) */
 .swiper-slide span {
   display: block;
   margin-top: 5px;
