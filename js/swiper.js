@@ -2,17 +2,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const slider = document.querySelector(".slider");
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
-  let slideWidth = document.querySelector(".slide").offsetWidth + 15;
+  const slides = document.querySelectorAll(".slide");
+
+  let slideWidth = slides[0].offsetWidth + 15; // Учитываем gap между слайдами
+  let currentIndex = 0;
+
+  function moveSlider(offset) {
+    slider.style.transition = 'transform 0.5s ease-in-out';
+    slider.style.transform = `translateX(-${offset}px)`;
+  }
 
   nextBtn.addEventListener("click", function () {
-    slider.style.transform = `translateX(-${slideWidth}px)`;
-    slider.appendChild(slider.firstElementChild);
-    setTimeout(() => slider.style.transform = "translateX(0)", 500);
+    currentIndex = (currentIndex + 1) % slides.length;
+    moveSlider(slideWidth * currentIndex);
   });
 
   prevBtn.addEventListener("click", function () {
-    slider.prepend(slider.lastElementChild);
-    slider.style.transform = `translateX(-${slideWidth}px)`;
-    setTimeout(() => slider.style.transform = "translateX(0)", 0);
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    moveSlider(slideWidth * currentIndex);
   });
 });
