@@ -1,8 +1,8 @@
 .slider-container {
   position: relative;
-  width: 80%;
+  width: 100%;
   min-width: 1100px;
-  margin: 35px auto;
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 10px;
   background-color: var(--color-header-light-accent);
@@ -13,9 +13,9 @@
 }
 .slider {
   display: flex;
-  gap: 51px;
+  gap: 23px;
   transition: transform 0.5s ease-in-out;
-  padding: 20px;
+  padding: 25px 50px;
 }
 .slide {
   flex: 0 0 140px;
@@ -55,8 +55,8 @@
   opacity: 1;
 }
 .prev {
-  left: 10px;
+  left: 40px;
 }
 .next {
-  right: 10px;
+  right: 140px;
 }
