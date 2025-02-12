@@ -1,7 +1,6 @@
 .slider-container {
   position: relative;
   width: 100%;
-  min-width: 300px; /* Для кращої адаптивності */
   margin: 0 auto;
   overflow: hidden;
   border-radius: 10px;
@@ -15,14 +14,15 @@
 
 .slider {
   display: flex;
-  gap: 45px; /* Відступи між слайдами */
+  gap: 2%; /* Відступи між слайдами в процентах */
   transition: transform 0.5s ease-in-out;
-  padding: 25px 0;
+  padding: 20px 0;
 }
 
 .slide {
-  flex: 0 0 270px;
-  height: 90px;
+  flex: 0 0 20%; /* Ширина слайду в процентах (адаптивно) */
+  height: auto; /* Автоматична висота для адаптації до ширини */
+  aspect-ratio: 3 / 1; /* Пропорція слайду */
   background: rgba(39, 39, 39, 0.03);
   border-radius: 10px;
   display: flex;
@@ -32,7 +32,7 @@
 }
 
 .slide img {
-  width: 155px;
+  max-width: 80%; /* Змінюється разом із слайдом */
   height: auto;
 }
 
@@ -42,18 +42,18 @@
   border: none;
   width: 40px;
   height: 40px;
-  cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 10; /* Кнопки поверх слайдів */
+  z-index: 10;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   opacity: 0.8;
-  transition: background 0.3s, opacity 0.3s;
+  transition: background 0.3s, opacity 0.3s, width 0.3s, height 0.3s;
 }
 
 .slider-btn:hover {
@@ -62,51 +62,54 @@
 }
 
 .prev {
-  left: 10px; /* Для кнопки "Назад" */
+  left: 15px; /* Відступ від лівого краю */
 }
 
 .next {
-  right: 10px; /* Для кнопки "Вперед" */
+  right: 15px; /* Відступ від правого краю */
 }
 
 /* --- Адаптивні стилі --- */
 @media (max-width: 1200px) {
   .slide {
-    flex: 0 0 220px; /* Менші слайди */
+    flex: 0 0 25%; /* Більше слайдів на екрані */
   }
-  .slider {
-    gap: 30px; /* Зменшуємо відступи */
+  .slider-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
   }
 }
 
 @media (max-width: 992px) {
   .slide {
-    flex: 0 0 180px; /* Ще менші слайди */
+    flex: 0 0 33%; /* Три слайди на екрані */
   }
   .slider-btn {
-    width: 35px;
-    height: 35px;
-    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 768px) {
   .slide {
-    flex: 0 0 150px; /* Компактні слайди для планшетів */
+    flex: 0 0 50%; /* Два слайди на екрані */
   }
-  .slider {
-    gap: 20px;
-    padding: 15px 0;
+  .slider-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 576px) {
   .slide {
-    flex: 0 0 120px; /* Компактні слайди для мобільних */
+    flex: 0 0 100%; /* Один слайд на екрані */
   }
   .slider-btn {
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
   }
 }
