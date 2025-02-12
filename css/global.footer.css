@@ -18,7 +18,7 @@
 
 .reward-line {
     margin: 0;
-    padding: 0 120px;
+    padding: 0 80px;
     font-size: 16px;
     color: var(--color-primary-white);
 }
@@ -29,7 +29,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
+    text-align: left;
 }
 
 .footer__reward-text .reward-line:first-of-type {
@@ -115,12 +115,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
     padding: 0 20px;
     margin: 60px 0 0;
 }
 
 .footer__icon p {
+    text-align: left;
     font-size: 14px;
     margin: 20px 0;
 }
@@ -293,7 +293,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: center;
+    text-align: left;
 }
 
 .footer__nav-list li {
