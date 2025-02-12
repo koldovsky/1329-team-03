@@ -52,7 +52,7 @@
 }
 
 /* Кнопки "Назад" і "Вперед" */
-.slider-btn {
+.slider-btn_prev {
   background: var(--color-accent); /* Або ваш колір (наприклад, синій) */
   color: #fff;
   border: none;
@@ -72,7 +72,31 @@
   transition: background 0.3s, opacity 0.3s, width 0.3s, height 0.3s;
 }
 
-.slider-btn:hover {
+.slider-btn_next {
+  background: var(--color-accent); /* Або ваш колір (наприклад, синій) */
+  color: #fff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: background 0.3s, opacity 0.3s, width 0.3s, height 0.3s;
+}
+
+.slider-btn_next:hover {
+  background: #aaa;
+  opacity: 1;
+}
+.slider-btn_prev:hover {
   background: #aaa;
   opacity: 1;
 }
@@ -104,7 +128,12 @@
   .slide {
     flex: 0 0 25%;
   }
-  .slider-btn {
+  .slider-btn_next {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+  .slider-btn_prev {
     width: 30px;
     height: 30px;
     font-size: 16px;
@@ -116,7 +145,12 @@
   .slide {
     flex: 0 0 33.33%;
   }
-  .slider-btn {
+  .slider-btn_prev {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+  }
+  .slider-btn_next {
     width: 25px;
     height: 25px;
     font-size: 14px;
@@ -128,7 +162,12 @@
   .slide {
     flex: 0 0 50%;
   }
-  .slider-btn {
+  .slider-btn_next {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  .slider-btn_prev {
     width: 20px;
     height: 20px;
     font-size: 12px;
