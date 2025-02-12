@@ -1,7 +1,7 @@
 .slider-container {
   position: relative;
   width: 100%;
-  min-width: 1100px;
+  max-width: 1100px;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 10px;
@@ -9,19 +9,18 @@
 }
 
 .slider-wrapper {
-  width: 100%;
   overflow: hidden;
 }
 
 .slider {
   display: flex;
-  gap: 23px;
-  animation: scroll 15s linear infinite;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slide {
   flex: 0 0 140px;
   height: 90px;
+  margin: 0 10px;
   background: rgba(39, 39, 39, 0.03);
   border-radius: 10px;
   display: flex;
@@ -35,22 +34,35 @@
   height: auto;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.slider-btn {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: background 0.3s, opacity 0.3s;
 }
 
-/* Дублюємо контент для плавного безперервного скролу */
-.slider {
-  display: flex;
-  width: max-content;
+.slider-btn:hover {
+  background: #aaa;
+  opacity: 1;
 }
-.slider:after {
-  content: '';
-  display: flex;
-  width: 100%;
-} 
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
