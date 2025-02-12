@@ -1,7 +1,7 @@
 // Функція ініціалізації слайдера
 function initializeSlider() {
   const slider = document.querySelector(".slider");
-  if (!slider) return; // Якщо слайдер не знайдено, вихід
+  if (!slider) return; // Якщо слайдер не знайдено – вихід
 
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
@@ -49,15 +49,19 @@ function initializeSlider() {
   });
 }
 
-// Ініціалізація слайдера при початковому завантаженні сторінки (якщо слайдер вже в DOM)
+// Ініціалізація слайдера при завантаженні сторінки, якщо елемент вже є в DOM
 document.addEventListener("DOMContentLoaded", function () {
-  initializeSlider();
+  if (document.querySelector(".slider-container")) {
+    initializeSlider();
+  }
 });
 
-// Слухач події HTMX для ініціалізації слайдера після завантаження partial
-document.body.addEventListener("htmx:afterSwap", (event) => {
-  // Якщо в нововставленому контенті є .slider-container, викликаємо ініціалізацію
-  if (event.detail.target.querySelector(".slider-container")) {
+// Слухач HTMX-події після заміни контенту
+document.body.addEventListener("htmx:afterSwap", function (event) {
+  // Для outerHTML swap елемент event.detail.target може вже не існувати,
+  // тому шукаємо слайдер безпосередньо в документі.
+  if (document.querySelector(".slider-container")) {
+    console.log("HTMX заміна: слайдер завантажено, ініціалізуємо його.");
     initializeSlider();
   }
 });
