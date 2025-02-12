@@ -1,7 +1,7 @@
 .slider-container {
   position: relative;
   width: 100%;
-  min-width: 1100px; /* Не стискати нижче 1100px */
+  min-width: 1100px; /* Щоб не стискалося нижче 1100px */
   margin: 0 auto;
   overflow: hidden;
   border-radius: 10px;
@@ -13,7 +13,10 @@
   overflow: hidden;
 }
 
-/* Саме тут залишається transform для руху слайдера */
+/* 
+   ТУТ transform потрібен, 
+   бо саме так зсувається ВЕСЬ ряд (".slider") ліворуч/праворуч
+*/
 .slider {
   display: flex;
   gap: 23px;
@@ -21,7 +24,7 @@
   padding: 25px 50px;
 }
 
-/* Кожен слайд — БЕЗ fade-in, без transform */
+/* Кожен слайд БЕЗ fade-in */
 .slide {
   flex: 0 0 140px;
   height: 90px;
@@ -32,14 +35,14 @@
   justify-content: center;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 
-  /* Вимикаємо анімацію зникання/появи */
-  opacity: 1;          /* відразу видимі */
-  transition: none;    /* жодних переходів */
+  /* Прибираємо opacity, transform, transition */
+  opacity: 1;      /* відразу видимі */
+  transition: none;
 }
 
-/* Можна видалити .slide.visible, якщо воно більше не використовується */
+/* Якщо раніше був .slide.visible — видаліть його повністю */
 .slide.visible {
-  /* Порожньо або видаліть цей селектор взагалі */
+  /* Не потрібен, можна видалити */
 }
 
 .slide img {
@@ -47,6 +50,7 @@
   height: auto;
 }
 
+/* Кнопки */
 .slider-btn {
   background: var(--color-accent);
   color: #fff;
