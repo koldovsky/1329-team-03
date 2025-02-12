@@ -115,6 +115,7 @@
                 background-color: var(--color-accent-additional);
                 color: var(--color-additional-light-text);
                 margin-bottom: 15px;
+                transition: background-color 0.3s ease;
 
                 &:hover {
                     background-color: var(--color-primary);
