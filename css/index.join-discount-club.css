@@ -1,9 +1,8 @@
 .discount-club__top {
   justify-content: center;
   max-width: 100%;
-  width: 1170px;
-  height: 387px;
-  background-image: url("img/join-discount-club/background-discount-club.webp");
+  min-height: 387px;
+  background-image: url("../img/join-discount-club/background-discount-club.webp");
   background-size: cover;
   background-position: center;
   border-radius: 7px;
