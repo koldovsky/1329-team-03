@@ -1,3 +1,5 @@
+// index.swiper.js
+
 // Функція ініціалізації слайдера
 function initializeSlider() {
   const slider = document.querySelector(".slider");
@@ -58,8 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Слухач HTMX-події після заміни контенту
 document.body.addEventListener("htmx:afterSwap", function (event) {
-  // Для outerHTML swap елемент event.detail.target може вже не існувати,
-  // тому шукаємо слайдер безпосередньо в документі.
+  // При outerHTML заміні event.detail.target може бути уже не доступний,
+  // тому перевіряємо наявність слайдера безпосередньо в документі.
   if (document.querySelector(".slider-container")) {
     console.log("HTMX заміна: слайдер завантажено, ініціалізуємо його.");
     initializeSlider();
