@@ -13,20 +13,17 @@
   overflow: hidden;
 }
 
-/* Налаштовуємо "ряд" слайдів */
 .slider {
   display: flex;
   gap: 23px;
   transition: transform 0.5s ease-in-out;
-
-  /* Менші відступи з боків (ліворуч/праворуч),
-     щоб кнопки були ближче до слайдів */
-  padding: 25px 20px; /* top/bottom = 25px, left/right = 20px */
+  /* Відступи зверху/знизу та зліва/справа. За потреби можна змінити. */
+  padding: 25px 50px;
 }
 
-/* Кожен слайд */
+/* Окремий слайд */
 .slide {
-  flex: 0 0 140px; /* ширина слайда */
+  flex: 0 0 140px;
   height: 90px;
   background: rgba(39, 39, 39, 0.03);
   border-radius: 10px;
@@ -35,25 +32,26 @@
   justify-content: center;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 
-  /* Якщо потрібен fade-in: */
+  /* Апаратне прискорення для зменшення флікеру */
+  will-change: transform, opacity;
+
+  /* Якщо потрібен fade-in: (інакше приберіть ці 3 рядки) */
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Робимо слайд видимим */
+/* Коли слайд стає видимим (fade-in) */
 .slide.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Зображення всередині слайду */
 .slide img {
   width: 80px;
   height: auto;
 }
 
-/* Кнопки "Назад"/"Вперед" */
 .slider-btn {
   background: var(--color-accent);
   color: #fff;
@@ -79,11 +77,10 @@
   opacity: 1;
 }
 
-/* Відступ кнопок від країв */
 .prev {
-  left: 20px;
+  left: 40px;
 }
 
 .next {
-  right: 20px;
+  right: 40px;
 }
