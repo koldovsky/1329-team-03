@@ -48,4 +48,4 @@ document.addEventListener("DOMContentLoaded", function () {
     resetSliderPosition(); // Початкове вирівнювання
 });
 
-console.log("//////")
+console.log("33333")
