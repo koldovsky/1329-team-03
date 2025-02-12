@@ -8,16 +8,19 @@
   border-radius: 10px;
   background-color: var(--color-header-light-accent);
 }
+
 .slider-wrapper {
   width: 100%;
   overflow: hidden;
 }
+
 .slider {
   display: flex;
   gap: 23px;
   transition: transform 0.5s ease-in-out;
   padding: 25px 50px;
 }
+
 .slide {
   flex: 0 0 140px;
   height: 90px;
@@ -27,11 +30,24 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
+  /* Додано для плавної появи (fade-in) */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+/* Коли слайд стає видимим, застосовується fade-in */
+.slide.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .slide img {
   width: 80px;
   height: auto;
 }
+
 .slider-btn {
   background: var(--color-accent);
   color: #fff;
@@ -51,13 +67,16 @@
   opacity: 0.7;
   transition: background 0.3s, opacity 0.3s;
 }
+
 .slider-btn:hover {
   background: #aaa;
   opacity: 1;
 }
+
 .prev {
   left: 40px;
 }
+
 .next {
   right: 40px;
 }
