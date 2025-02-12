@@ -1,58 +1,64 @@
-function initializeInfiniteSlider() {
+function initializeSlider() {
   const slider = document.querySelector(".slider");
-  const slides = Array.from(slider.children);
+  if (!slider) return;
 
-  // Клонуємо слайди для створення безперервності
-  slides.forEach(slide => {
-    const clone = slide.cloneNode(true);
-    slider.appendChild(clone);
-  });
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
 
-  let currentPosition = 0;
-  const slideWidth = slides[0].offsetWidth + 20; // 20px - gap між слайдами
-  const totalSlides = slides.length * 2; // Урахування клонів
+  // Отримуємо всі слайди
+  let slides = Array.from(slider.children);
+  if (slides.length < 2) return;
 
-  // Функція для плавного пересування слайдера
-  function updateSliderPosition() {
-    currentPosition -= slideWidth;
-    slider.style.transition = "transform 0.5s linear";
-    slider.style.transform = `translateX(${currentPosition}px)`;
+  // Додаємо клони для безперервної роботи
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[slides.length - 1].cloneNode(true);
 
-    // Якщо досягли кінця, повертаємося на початок
-    if (Math.abs(currentPosition) >= slideWidth * (totalSlides / 2)) {
-      setTimeout(() => {
-        slider.style.transition = "none";
-        currentPosition = 0;
-        slider.style.transform = `translateX(${currentPosition}px)`;
-      }, 500);
-    }
+  slider.appendChild(firstClone); // Додаємо копію першого в кінець
+  slider.insertBefore(lastClone, slides[0]); // Додаємо копію останнього в початок
+
+  slides = Array.from(slider.children); // Оновлюємо масив слайдів
+  let currentIndex = 1;
+  let slideWidth = slides[currentIndex].offsetWidth + 23; // Враховуємо gap між слайдами
+
+  slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+  function updateSliderPosition(transition = true) {
+    slider.style.transition = transition ? "transform 0.5s ease-in-out" : "none";
+    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
   }
 
-  // Клік "Вперед"
-  document.querySelector(".next").addEventListener("click", () => {
+  function moveNext() {
+    if (currentIndex >= slides.length - 1) return;
+    currentIndex++;
     updateSliderPosition();
-  });
+  }
 
-  // Клік "Назад"
-  document.querySelector(".prev").addEventListener("click", () => {
-    currentPosition += slideWidth;
-    slider.style.transition = "transform 0.5s linear";
-    slider.style.transform = `translateX(${currentPosition}px)`;
+  function movePrev() {
+    if (currentIndex <= 0) return;
+    currentIndex--;
+    updateSliderPosition();
+  }
 
-    if (currentPosition > 0) {
-      setTimeout(() => {
-        slider.style.transition = "none";
-        currentPosition = -slideWidth * (totalSlides / 2 - 1);
-        slider.style.transform = `translateX(${currentPosition}px)`;
-      }, 500);
+  nextBtn.addEventListener("click", moveNext);
+  prevBtn.addEventListener("click", movePrev);
+
+  slider.addEventListener("transitionend", function () {
+    if (slides[currentIndex] === firstClone) {
+      currentIndex = 1;
+      updateSliderPosition(false);
+    }
+    if (slides[currentIndex] === lastClone) {
+      currentIndex = slides.length - 2;
+      updateSliderPosition(false);
     }
   });
 
-  // Автоматична прокрутка
-  setInterval(() => {
-    updateSliderPosition();
-  }, 3000); // Інтервал у 3 секунди
+  window.addEventListener("resize", function () {
+    slideWidth = slides[currentIndex].offsetWidth + 23;
+    updateSliderPosition(false);
+  });
 }
 
-// Ініціалізація слайдера після завантаження DOM
-document.addEventListener("DOMContentLoaded", initializeInfiniteSlider);
+document.addEventListener("DOMContentLoaded", function () {
+  initializeSlider();
+});
