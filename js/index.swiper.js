@@ -15,18 +15,21 @@ function initializeSlider() {
   const firstClone = firstSlide.cloneNode(true);
   const lastClone = lastSlide.cloneNode(true);
 
-  // Додаємо клон останнього слайда на початок та першого – в кінець
+  // Додаємо клон останнього на початок та першого – в кінець
   slider.insertBefore(lastClone, firstSlide);
   slider.appendChild(firstClone);
 
   // Оновлюємо перелік слайдів
   slides = slider.querySelectorAll(".slide");
 
-  // Встановлюємо початковий індекс (1, бо 0 — клон останнього)
+  // Початковий індекс (1, бо 0 — це клон останнього слайду)
   let currentIndex = 1;
-  let slideWidth = slides[currentIndex].offsetWidth; // gap відсутній
+  
+  // Визначаємо ширину поточного слайду
+  // Якщо додасте margin: 0 5px, потрібно буде додати +10 пікселів до slideWidth
+  let slideWidth = slides[currentIndex].offsetWidth;
 
-  // Початкове положення слайдера
+  // Початкова позиція
   slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
   // Функція оновлення позиції
@@ -49,20 +52,21 @@ function initializeSlider() {
     updateSliderPosition();
   });
 
-  // Після завершення анімації перевіряємо, чи перебуваємо на клоні,
-  // і миттєво перемикаємося на реальний слайд без анімації
+  // Після завершення анімації перевіряємо, чи перебуваємо на клоні
   slider.addEventListener("transitionend", () => {
+    // Якщо це клон першого
     if (slides[currentIndex].isEqualNode(firstClone)) {
       currentIndex = 1;
       updateSliderPosition(false);
     }
+    // Якщо це клон останнього
     if (slides[currentIndex].isEqualNode(lastClone)) {
       currentIndex = slides.length - 2;
       updateSliderPosition(false);
     }
   });
 
-  // При зміні розміру вікна оновлюємо ширину слайда
+  // При зміні розміру оновлюємо ширину слайду
   window.addEventListener("resize", () => {
     slideWidth = slides[currentIndex].offsetWidth;
     updateSliderPosition(false);
@@ -76,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Ініціалізація слайдера після HTMX-заміни контенту (якщо використовується)
+// Якщо використовуєте HTMX або динамічне завантаження, можна викликати повторну ініціалізацію:
 document.body.addEventListener("htmx:afterSwap", () => {
   if (document.querySelector(".slider-container")) {
     console.log("HTMX заміна: слайдер завантажено, ініціалізуємо його.");
