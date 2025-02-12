@@ -36,7 +36,7 @@ function initializeSlider() {
   function updateSliderPosition(transition = true) {
     slider.style.transition = transition ? "transform 0.5s ease-in-out" : "none";
     slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-  }
+  }  
 
   // Клік "Вперед"
   nextBtn.addEventListener("click", function () {
