@@ -15,13 +15,13 @@
 
 .slider {
   display: flex;
-  gap: 23px; /* Додаємо відступи між слайдами */
+  gap: 25px; /* Додаємо відступи між слайдами */
   transition: transform 0.5s ease-in-out;
-  padding: 25px 50px;
+  padding: 25px 0;
 }
 
 .slide {
-  flex: 0 0 140px;
+  flex: 0 0 170px;
   height: 90px;
   background: rgba(39, 39, 39, 0.03);
   border-radius: 10px;
