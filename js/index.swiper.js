@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const slider = document.querySelector(".slider");
     const slides = Array.from(document.querySelectorAll(".slide"));
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".slider-btn_prev");
+    const nextBtn = document.querySelector(".slider-btn_next");
     let currentIndex = 0;
     const slideWidth = slides[0].clientWidth;
     
@@ -48,4 +48,4 @@ document.addEventListener("DOMContentLoaded", function () {
     resetSliderPosition(); // Початкове вирівнювання
 });
 
-console.log("33333")
+console.log("888888")
