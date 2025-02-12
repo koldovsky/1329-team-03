@@ -1,87 +1,58 @@
-function initializeSlider() {
+function initializeInfiniteSlider() {
   const slider = document.querySelector(".slider");
-  if (!slider) return; // Якщо слайдер не знайдено – вихід
+  const slides = Array.from(slider.children);
 
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
+  // Клонуємо слайди для створення безперервності
+  slides.forEach(slide => {
+    const clone = slide.cloneNode(true);
+    slider.appendChild(clone);
+  });
 
-  // Отримуємо всі слайди з слайдера
-  let slides = slider.querySelectorAll(".slide");
-  if (slides.length < 1) return;
+  let currentPosition = 0;
+  const slideWidth = slides[0].offsetWidth + 20; // 20px - gap між слайдами
+  const totalSlides = slides.length * 2; // Урахування клонів
 
-  // Клонуємо перший та останній слайди для "безкінечності"
-  const firstSlide = slides[0];
-  const lastSlide = slides[slides.length - 1];
-  const firstClone = firstSlide.cloneNode(true);
-  const lastClone = lastSlide.cloneNode(true);
+  // Функція для плавного пересування слайдера
+  function updateSliderPosition() {
+    currentPosition -= slideWidth;
+    slider.style.transition = "transform 0.5s linear";
+    slider.style.transform = `translateX(${currentPosition}px)`;
 
-  // Додаємо клон першого слайда в кінець і клон останнього – на початок
-  slider.appendChild(firstClone);
-  slider.insertBefore(lastClone, firstSlide);
-
-  // Оновлюємо перелік слайдів (включно з клонованими)
-  slides = slider.querySelectorAll(".slide");
-
-  // Якщо раніше додавали .visible — більше не треба (або можна залишити, воно не впливатиме)
-  // slides.forEach(slide => slide.classList.add("visible"));
-
-  // Початковий індекс (1, бо на 0 тепер клон останнього)
-  let currentIndex = 1;
-  let slideWidth = slides[currentIndex].offsetWidth + 23; // 23px - gap між слайдами
-
-  // Початкова позиція
-  slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-
-  // Функція оновлення позиції
-  function updateSliderPosition(transition = true) {
-    slider.style.transition = transition ? "transform 0.5s ease-in-out" : "none";
-    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    // Якщо досягли кінця, повертаємося на початок
+    if (Math.abs(currentPosition) >= slideWidth * (totalSlides / 2)) {
+      setTimeout(() => {
+        slider.style.transition = "none";
+        currentPosition = 0;
+        slider.style.transform = `translateX(${currentPosition}px)`;
+      }, 500);
+    }
   }
 
   // Клік "Вперед"
-  nextBtn.addEventListener("click", function () {
-    if (currentIndex >= slides.length - 1) return;
-    currentIndex++;
+  document.querySelector(".next").addEventListener("click", () => {
     updateSliderPosition();
   });
 
   // Клік "Назад"
-  prevBtn.addEventListener("click", function () {
-    if (currentIndex <= 0) return;
-    currentIndex--;
+  document.querySelector(".prev").addEventListener("click", () => {
+    currentPosition += slideWidth;
+    slider.style.transition = "transform 0.5s linear";
+    slider.style.transform = `translateX(${currentPosition}px)`;
+
+    if (currentPosition > 0) {
+      setTimeout(() => {
+        slider.style.transition = "none";
+        currentPosition = -slideWidth * (totalSlides / 2 - 1);
+        slider.style.transform = `translateX(${currentPosition}px)`;
+      }, 500);
+    }
+  });
+
+  // Автоматична прокрутка
+  setInterval(() => {
     updateSliderPosition();
-  });
-
-  // Коли завершиться анімація, перевіряємо, чи це клон
-  slider.addEventListener("transitionend", function () {
-    if (slides[currentIndex].isEqualNode(firstClone)) {
-      currentIndex = 1;
-      updateSliderPosition(false);
-    }
-    if (slides[currentIndex].isEqualNode(lastClone)) {
-      currentIndex = slides.length - 2;
-      updateSliderPosition(false);
-    }
-  });
-
-  // При зміні розміру вікна перераховуємо ширину
-  window.addEventListener("resize", function () {
-    slideWidth = slides[currentIndex].offsetWidth + 23;
-    updateSliderPosition(false);
-  });
+  }, 3000); // Інтервал у 3 секунди
 }
 
 // Ініціалізація слайдера після завантаження DOM
-document.addEventListener("DOMContentLoaded", function () {
-  if (document.querySelector(".slider-container")) {
-    initializeSlider();
-  }
-});
-
-// Якщо використовуєте HTMX
-document.body.addEventListener("htmx:afterSwap", function () {
-  if (document.querySelector(".slider-container")) {
-    console.log("HTMX заміна: слайдер завантажено, ініціалізуємо його.");
-    initializeSlider();
-  }
-});
+document.addEventListener("DOMContentLoaded", initializeInfiniteSlider);
