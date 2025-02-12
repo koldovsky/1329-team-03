@@ -15,7 +15,7 @@
 
 .slider {
   display: flex;
-  gap: 0; /* Прибираємо проміжки між слайдами */
+  gap: 23px; /* Додаємо відступи між слайдами */
   transition: transform 0.5s ease-in-out;
   padding: 25px 50px;
 }

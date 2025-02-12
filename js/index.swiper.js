@@ -5,18 +5,17 @@ function initializeSlider() {
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
 
-  // Отримуємо всі слайди
   let slides = Array.from(slider.children);
   if (slides.length < 2) return;
 
-  // Додаємо клони для безперервної роботи
+  // Додаємо клони для безперервного циклу
   const firstClone = slides[0].cloneNode(true);
   const lastClone = slides[slides.length - 1].cloneNode(true);
 
-  slider.appendChild(firstClone); // Додаємо копію першого в кінець
-  slider.insertBefore(lastClone, slides[0]); // Додаємо копію останнього в початок
+  slider.appendChild(firstClone);
+  slider.insertBefore(lastClone, slides[0]);
 
-  slides = Array.from(slider.children); // Оновлюємо масив слайдів
+  slides = Array.from(slider.children);
   let currentIndex = 1;
   let slideWidth = slides[currentIndex].offsetWidth + 23; // Враховуємо gap між слайдами
 
@@ -31,27 +30,32 @@ function initializeSlider() {
     if (currentIndex >= slides.length - 1) return;
     currentIndex++;
     updateSliderPosition();
+
+    slider.addEventListener("transitionend", function handleTransition() {
+      if (slides[currentIndex] === firstClone) {
+        currentIndex = 1;
+        updateSliderPosition(false);
+      }
+      slider.removeEventListener("transitionend", handleTransition);
+    });
   }
 
   function movePrev() {
     if (currentIndex <= 0) return;
     currentIndex--;
     updateSliderPosition();
+
+    slider.addEventListener("transitionend", function handleTransition() {
+      if (slides[currentIndex] === lastClone) {
+        currentIndex = slides.length - 2;
+        updateSliderPosition(false);
+      }
+      slider.removeEventListener("transitionend", handleTransition);
+    });
   }
 
   nextBtn.addEventListener("click", moveNext);
   prevBtn.addEventListener("click", movePrev);
-
-  slider.addEventListener("transitionend", function () {
-    if (slides[currentIndex] === firstClone) {
-      currentIndex = 1;
-      updateSliderPosition(false);
-    }
-    if (slides[currentIndex] === lastClone) {
-      currentIndex = slides.length - 2;
-      updateSliderPosition(false);
-    }
-  });
 
   window.addEventListener("resize", function () {
     slideWidth = slides[currentIndex].offsetWidth + 23;
@@ -59,6 +63,4 @@ function initializeSlider() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  initializeSlider();
-});
+document.addEventListener("DOMContentLoaded", initializeSlider);
