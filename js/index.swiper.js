@@ -6,23 +6,28 @@ document.addEventListener('DOMContentLoaded', function () {
         const totalSlides = document.querySelectorAll('.slide').length;
         currentIndex += step;
 
-        // Оновлення індексу слайду
         if (currentIndex >= totalSlides) {
             currentIndex = 0;
         } else if (currentIndex < 0) {
             currentIndex = totalSlides - 1;
         }
 
-        // Переміщення слайдів
         slides.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
-    // Додаємо обробники подій для кнопок
-    document.querySelector('.prev').addEventListener('click', function () {
-        moveSlide(-1); // Переміщаємо на попередній слайд
-    });
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    
+    // Перевірка елементів
+    console.log(prevButton, nextButton);
+    
+    if (prevButton && nextButton) {
+        prevButton.addEventListener('click', function () {
+            moveSlide(-1);
+        });
 
-    document.querySelector('.next').addEventListener('click', function () {
-        moveSlide(1); // Переміщаємо на наступний слайд
-    });
+        nextButton.addEventListener('click', function () {
+            moveSlide(1);
+        });
+    }
 });
