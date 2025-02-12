@@ -1,35 +1,31 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.querySelector(".slider");
+    const slides = document.querySelectorAll(".slide");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
     let currentIndex = 0;
+    const totalSlides = slides.length;
+    const slideWidth = slides[0].clientWidth;
 
-    function moveSlide(step) {
-        const slides = document.querySelector('.slider');
-        const totalSlides = document.querySelectorAll('.slide').length;
-        currentIndex += step;
+    function updateSliderPosition() {
+        slider.style.transform = 'translateX(-${currentIndex * slideWidth}px)';
+    }
 
-        if (currentIndex >= totalSlides) {
-            currentIndex = 0;
-        } else if (currentIndex < 0) {
-            currentIndex = totalSlides - 1;
+    nextBtn.addEventListener("click", function () {
+        if (currentIndex < totalSlides - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Повертаємось на початок
         }
+        updateSliderPosition();
+    });
 
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
-    
-    // Перевірка елементів
-    console.log(prevButton, nextButton);
-    
-    if (prevButton && nextButton) {
-        prevButton.addEventListener('click', function () {
-            moveSlide(-1);
-        });
-
-        nextButton.addEventListener('click', function () {
-            moveSlide(1);
-        });
-    }
+    prevBtn.addEventListener("click", function () {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = totalSlides - 1; // Переходимо до останнього слайду
+        }
+        updateSliderPosition();
+    });
 });
-
-console.log('///////')
