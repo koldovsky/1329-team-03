@@ -22,16 +22,20 @@
   padding: 25px 50px; /* Відступи зверху/знизу та зліва/справа */
 }
 
-/* Окремий слайд */
 .slide {
-  flex: 0 0 140px;            /* Ширина кожного слайда */
-  height: 90px;               /* Висота (за необхідності) */
+  flex: 0 0 140px;
+  height: 90px;
   background: rgba(39, 39, 39, 0.03);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  /* Прибрати fade-in */
+  /* opacity: 0; */
+  /* transform: translateY(20px); */
+  /* transition: opacity 0.5s ease, transform 0.5s ease; */
+}
 
   /* Ефект плавної появи (fade-in) */
   opacity: 0;
