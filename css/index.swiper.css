@@ -1,29 +1,31 @@
-/* styles.css */
+/* Контейнер, що займає всю ширину */
 .slider-container {
   position: relative;
   width: 100%;
-  min-width: 1100px;
-  margin: 0 auto;
+  margin: 0;
   overflow: hidden;
   border-radius: 10px;
   background-color: var(--color-header-light-accent);
 }
 
+/* Обгортка для скролу, якщо слайди виходять за межі */
 .slider-wrapper {
   width: 100%;
   overflow: hidden;
 }
 
+/* Налаштування самого слайдера (ряд з картками) */
 .slider {
   display: flex;
   gap: 23px;
   transition: transform 0.5s ease-in-out;
-  padding: 25px 50px;
+  padding: 25px 50px; /* Відступи зверху/знизу та зліва/справа */
 }
 
+/* Окремий слайд */
 .slide {
-  flex: 0 0 140px;
-  height: 90px;
+  flex: 0 0 140px;            /* Ширина кожного слайда */
+  height: 90px;               /* Висота (за необхідності) */
   background: rgba(39, 39, 39, 0.03);
   border-radius: 10px;
   display: flex;
@@ -31,23 +33,25 @@
   justify-content: center;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 
-  /* Додано для плавної появи (fade-in) */
+  /* Ефект плавної появи (fade-in) */
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Коли слайд стає видимим, застосовується fade-in */
+/* Коли слайд стає видимим (додається JS-клас .visible) */
 .slide.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Зображення всередині слайда */
 .slide img {
   width: 80px;
   height: auto;
 }
 
+/* Кнопки "назад" і "вперед" */
 .slider-btn {
   background: var(--color-accent);
   color: #fff;
@@ -73,6 +77,7 @@
   opacity: 1;
 }
 
+/* Позиціонування кнопок */
 .prev {
   left: 40px;
 }
