@@ -1,101 +1,73 @@
-/* Контейнер для слайдера */
-.swiper-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.slider-container {
+  position: relative;
   width: 100%;
-  max-width: 100%;
-  transform: none;
+  min-width: 1100px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: var(--color-header-light-accent);
 }
 
-/* Основний блок Swiper */
-.swiper {
+.slider-wrapper {
   width: 100%;
-  max-width: 100%;
-  transform: none;
-  display: flex;
-  align-items: center;
-  background: #faf6f2; /* Світлий фон, схожий на твій */
-  padding: 20px 0; /* Додає трохи простору зверху і знизу */
+  overflow: hidden;
 }
 
-/* Обгортка слайдів */
-.swiper-wrapper {
+.slider {
   display: flex;
-  align-items: center;
-  transform: none;
+  gap: 23px; /* Додаємо відступи між слайдами */
+  transition: transform 0.5s ease-in-out;
+  padding: 25px 50px;
 }
 
-/* Окремий слайд */
-.swiper-slide {
+.slide {
+  flex: 0 0 140px;
+  height: 90px;
+  background: rgba(39, 39, 39, 0.03);
+  border-radius: 10px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: #f2ebe5; /* Світлий бежевий фон для кожного слайда */
-  width: 160px; /* Збільшений розмір для кращої видимості */
-  height: 100px;
-  border-radius: 10px; /* Закруглені кути */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Легка тінь */
-  transition: transform 0.3s ease-in-out;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Ефект при наведенні */
-.swiper-slide:hover {
-  transform: scale(1.05);
+.slide img {
+  width: 80px;
+  height: auto;
 }
 
-/* Кнопки навігації */
-.swiper-button-next,
-.swiper-button-prev {
+.slider-btn {
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
   width: 40px;
   height: 40px;
-  background-color: #3c64a3;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+
+  z-index: 10; /* ВАЖЛИВО! Щоб кнопки були поверх слайдів */
   border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: absolute;
-  z-index: 10;
-}
-
-.swiper-button-prev {
-  left: -50px;
-}
-
-.swiper-button-next {
-  right: -50px;
-}
-
-/* Іконки кнопок */
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 18px;
-  color: #fff;
-}
-
-/* Розмір зображень */
-.swiper-slide img {
-  width: 100px;
-  height: auto;
-  filter: grayscale(100%); /* Чорно-білі логотипи */
+  justify-content: center;
   opacity: 0.8;
-  transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+  transition: background 0.3s, opacity 0.3s;
 }
 
-/* При наведенні зображення стають кольоровими */
-.swiper-slide:hover img {
-  filter: grayscale(0%);
+.slider-btn:hover {
+  background: #aaa;
   opacity: 1;
 }
 
-/* Текст під зображенням */
-.swiper-slide span {
-  display: block;
-  margin-top: 5px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.prev {
+  left: 10px; /* Виправлено (було 40px) */
 }
+
+.next {
+  right: 10px; /* Виправлено */
+}
+

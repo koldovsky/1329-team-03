@@ -30,12 +30,12 @@ function initializeSlider() {
   let slideWidth = slides[currentIndex].offsetWidth + 23; // 23px - gap між слайдами
 
   // Початкова позиція
-  slider.style.transform = translateX(-${currentIndex * slideWidth}px);
+  slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
   // Функція оновлення позиції
   function updateSliderPosition(transition = true) {
     slider.style.transition = transition ? "transform 0.5s ease-in-out" : "none";
-    slider.style.transform = translateX(-${currentIndex * slideWidth}px);
+    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
   }
 
   // Клік "Вперед"
