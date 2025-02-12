@@ -1,9 +1,9 @@
 function initializeSlider() {
   const slider = document.querySelector(".slider");
-  if (!slider) return;
-
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
+
+  if (!slider || !prevBtn || !nextBtn) return; // Якщо будь-якого елемента немає – вихід
 
   let slides = Array.from(slider.children);
   if (slides.length < 2) return;
@@ -17,7 +17,7 @@ function initializeSlider() {
 
   slides = Array.from(slider.children);
   let currentIndex = 1;
-  let slideWidth = slides[currentIndex].offsetWidth + 23; // Враховуємо gap між слайдами
+  let slideWidth = slides[currentIndex].offsetWidth + 23; // Враховуємо gap
 
   slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
