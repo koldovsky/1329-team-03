@@ -30,11 +30,13 @@ document.addEventListener("DOMContentLoaded", function () {
     nextBtn.addEventListener("click", function () {
         currentIndex++;
         updateSliderPosition();
+        console.log('nextBtn');
     });
     
     prevBtn.addEventListener("click", function () {
         currentIndex--;
         updateSliderPosition();
+        console.log('prevBtn');
     });
     
     slider.addEventListener("transitionend", function () {
