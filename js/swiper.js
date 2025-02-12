@@ -1,12 +1,14 @@
-// script.js
-document.addEventListener("DOMContentLoaded", function () {
+// Функція ініціалізації слайдера
+function initializeSlider() {
   const slider = document.querySelector(".slider");
+  if (!slider) return; // Якщо слайдер не знайдено, вихід
+
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
   const slides = document.querySelectorAll(".slide");
-  
+
   let currentIndex = 0;
-  let slideWidth = slides[0].offsetWidth + 23; // 23px - gap між слайдами
+  let slideWidth = slides[0].offsetWidth + 23; // 23px – відступ між слайдами
 
   // Функція оновлення позиції слайдера
   function updateSliderPosition() {
@@ -40,9 +42,22 @@ document.addEventListener("DOMContentLoaded", function () {
     updateSliderPosition();
   });
 
-  // Оновлення slideWidth при зміні розміру вікна
+  // Оновлення ширини слайда при зміні розміру вікна
   window.addEventListener("resize", function () {
     slideWidth = slides[0].offsetWidth + 23;
     updateSliderPosition();
   });
+}
+
+// Ініціалізація слайдера при початковому завантаженні сторінки (якщо слайдер вже в DOM)
+document.addEventListener("DOMContentLoaded", function () {
+  initializeSlider();
+});
+
+// Слухач події HTMX для ініціалізації слайдера після завантаження partial
+document.body.addEventListener("htmx:afterSwap", (event) => {
+  // Якщо в нововставленому контенті є .slider-container, викликаємо ініціалізацію
+  if (event.detail.target.querySelector(".slider-container")) {
+    initializeSlider();
+  }
 });
