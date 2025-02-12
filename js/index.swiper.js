@@ -1,53 +1,77 @@
 // index.swiper.js
 
-// Функція ініціалізації слайдера
 function initializeSlider() {
   const slider = document.querySelector(".slider");
   if (!slider) return; // Якщо слайдер не знайдено – вихід
 
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
-  const slides = document.querySelectorAll(".slide");
 
-  let currentIndex = 0;
-  let slideWidth = slides[0].offsetWidth + 23; // 23px – відступ між слайдами
+  // Отримуємо всі слайди з слайдера
+  let slides = slider.querySelectorAll(".slide");
+  if (slides.length < 1) return;
 
-  // Функція оновлення позиції слайдера
-  function updateSliderPosition() {
-    slider.style.transition = "transform 0.5s ease-in-out";
+  // Клонуємо перший та останній слайди для безкінечності
+  const firstSlide = slides[0];
+  const lastSlide = slides[slides.length - 1];
+  const firstClone = firstSlide.cloneNode(true);
+  const lastClone = lastSlide.cloneNode(true);
+
+  // Додаємо клон першого слайда в кінець і клон останнього слайда на початок
+  slider.appendChild(firstClone);
+  slider.insertBefore(lastClone, firstSlide);
+
+  // Оновлюємо перелік слайдів після вставки клонів
+  slides = slider.querySelectorAll(".slide");
+
+  // Встановлюємо початковий індекс: оскільки перед реальним першим слайдом зараз знаходиться клон останнього, 
+  // реальний перший слайд має індекс 1
+  let currentIndex = 1;
+  let slideWidth = slides[currentIndex].offsetWidth + 23; // 23px – відступ між слайдами
+
+  // Встановлюємо початкову позицію слайдера
+  slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+  // Функція для оновлення позиції слайдера
+  function updateSliderPosition(transition = true) {
+    slider.style.transition = transition ? "transform 0.5s ease-in-out" : "none";
     slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
   }
 
-  // Обробник кліку "Вперед"
+  // Обробка кліку "Вперед"
   nextBtn.addEventListener("click", function () {
-    if (currentIndex < slides.length - 1) {
-      currentIndex++;
-    } else {
-      currentIndex = 0;
-      slider.style.transition = "none";
-      slider.style.transform = `translateX(0)`;
-      setTimeout(updateSliderPosition, 20);
-    }
+    // Якщо досягли останнього (клона першого), просто збільшуємо індекс
+    if (currentIndex >= slides.length - 1) return;
+    currentIndex++;
     updateSliderPosition();
   });
 
-  // Обробник кліку "Назад"
+  // Обробка кліку "Назад"
   prevBtn.addEventListener("click", function () {
-    if (currentIndex > 0) {
-      currentIndex--;
-    } else {
-      currentIndex = slides.length - 1;
-      slider.style.transition = "none";
-      slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-      setTimeout(updateSliderPosition, 20);
-    }
+    if (currentIndex <= 0) return;
+    currentIndex--;
     updateSliderPosition();
   });
 
-  // Оновлення ширини слайда при зміні розміру вікна
+  // Після завершення анімації перевіряємо, чи ми на клонованому слайді,
+  // і миттєво перескакуємо на відповідний реальний слайд без анімації
+  slider.addEventListener("transitionend", function () {
+    // Якщо поточний слайд — клон першого, перемикаємося на реальний перший (індекс 1)
+    if (slides[currentIndex].isEqualNode(firstClone)) {
+      currentIndex = 1;
+      updateSliderPosition(false);
+    }
+    // Якщо поточний слайд — клон останнього, перемикаємося на реальний останній
+    if (slides[currentIndex].isEqualNode(lastClone)) {
+      currentIndex = slides.length - 2;
+      updateSliderPosition(false);
+    }
+  });
+
+  // При зміні розміру вікна оновлюємо ширину слайда
   window.addEventListener("resize", function () {
-    slideWidth = slides[0].offsetWidth + 23;
-    updateSliderPosition();
+    slideWidth = slides[currentIndex].offsetWidth + 23;
+    updateSliderPosition(false);
   });
 }
 
@@ -58,10 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Слухач HTMX-події після заміни контенту
+// І ініціалізація слайдера після HTMX-заміни контенту
 document.body.addEventListener("htmx:afterSwap", function (event) {
-  // При outerHTML заміні event.detail.target може бути уже не доступний,
-  // тому перевіряємо наявність слайдера безпосередньо в документі.
   if (document.querySelector(".slider-container")) {
     console.log("HTMX заміна: слайдер завантажено, ініціалізуємо його.");
     initializeSlider();
