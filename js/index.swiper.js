@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     function updateSliderPosition() {
         slider.style.transition = "transform 0.5s ease-in-out";
-        slider.style.transform = translateX(-${currentIndex * slideWidth}px);
+        slider.style.transform = 'translateX(-${currentIndex * slideWidth}px)';
     }
     
     function resetSliderPosition() {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (currentIndex < 0) {
             currentIndex = slides.length - 1;
         }
-        slider.style.transform = translateX(-${currentIndex * slideWidth}px);
+        slider.style.transform = 'translateX(-${currentIndex * slideWidth}px)';
     }
     
     nextBtn.addEventListener("click", function () {
@@ -45,3 +45,5 @@ document.addEventListener("DOMContentLoaded", function () {
     
     resetSliderPosition(); // Початкове вирівнювання
 });
+
+console.log("//////")
