@@ -1,47 +1,43 @@
+
+.swiper {
+  width: 90%; /* Змінено для більшої адаптивності */
+  max-width: 1200px;
+  height: 120px; /* Трохи збільшено висоту */
+  margin: auto;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 80px; /* Оптимальний розмір */
+}
+
+.swiper-slide-block {
+  background: #f1ece9;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
 .swiper-button-next,
 .swiper-button-prev {
-    width: 25px;
-    height: 25px;
-    top: 70%;
-    transform: translateY(-50%);
-    background-color: #3c64a3; 
-    border-radius: 50%; 
-  
+  width: 35px;
+  height: 35px;
+  top: 50%; /* Центрування кнопок */
+  transform: translateY(-50%);
+  background-color: #3c64a3;
+  border-radius: 50%;
 }
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
-    font-size: 11px;
-    color: #fff;
+  font-size: 16px;
+  color: #fff;
 }
-    body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
-
-    .swiper {
-      width: 55%;
-      height: 100px;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .swiper-slide img{
-     width: 90px;
-    }
-    .swiper-slide-block {
-        /* background: #29201b; */
-        background: #f1ece9;
-        padding: 10px;
-        border-radius: 10px;
-    }
-
