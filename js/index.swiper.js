@@ -1,7 +1,7 @@
 let currentIndex = 0;
 
 function moveSlide(step) {
-    const slides = document.querySelector('.slides');
+    const slides = document.querySelector('.slider');
     const totalSlides = document.querySelectorAll('.slide').length;
     currentIndex += step;
 
@@ -13,3 +13,12 @@ function moveSlide(step) {
 
     slides.style.transform = `translateX(-${currentIndex * 100}%)`;
 }
+
+// Додаємо обробники подій для кнопок
+document.querySelector('.prev').addEventListener('click', function() {
+    moveSlide(-1);
+});
+
+document.querySelector('.next').addEventListener('click', function() {
+    moveSlide(1);
+});
