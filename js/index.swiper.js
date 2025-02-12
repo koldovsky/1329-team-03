@@ -5,7 +5,7 @@ function initializeSlider() {
   const prevBtn = document.querySelector(".prev");
   const nextBtn = document.querySelector(".next");
 
-  // Отримуємо всі слайди з слайдера
+  // Отримуємо всі слайди
   let slides = slider.querySelectorAll(".slide");
   if (slides.length < 1) return;
 
@@ -15,23 +15,18 @@ function initializeSlider() {
   const firstClone = firstSlide.cloneNode(true);
   const lastClone = lastSlide.cloneNode(true);
 
-  // Додаємо клон першого слайда в кінець і клон останнього — на початок
-  slider.appendChild(firstClone);
+  // Додаємо клон останнього слайда на початок та першого – в кінець
   slider.insertBefore(lastClone, firstSlide);
+  slider.appendChild(firstClone);
 
-  // Оновлюємо перелік слайдів після вставки клонів
+  // Оновлюємо перелік слайдів
   slides = slider.querySelectorAll(".slide");
 
-  // Робимо всі слайди видимими (fade-in). Якщо не потрібно, видаліть цей блок.
-  slides.forEach(slide => {
-    slide.classList.add("visible");
-  });
-
-  // Встановлюємо початковий індекс (1, бо на 0 тепер клон останнього)
+  // Встановлюємо початковий індекс (1, бо 0 — клон останнього)
   let currentIndex = 1;
-  let slideWidth = slides[currentIndex].offsetWidth + 23; // 23px – відступ між слайдами
+  let slideWidth = slides[currentIndex].offsetWidth; // gap відсутній
 
-  // Початкова позиція
+  // Початкове положення слайдера
   slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
   // Функція оновлення позиції
@@ -41,28 +36,26 @@ function initializeSlider() {
   }
 
   // Клік "Вперед"
-  nextBtn.addEventListener("click", function () {
+  nextBtn.addEventListener("click", () => {
     if (currentIndex >= slides.length - 1) return;
     currentIndex++;
     updateSliderPosition();
   });
 
   // Клік "Назад"
-  prevBtn.addEventListener("click", function () {
+  prevBtn.addEventListener("click", () => {
     if (currentIndex <= 0) return;
     currentIndex--;
     updateSliderPosition();
   });
 
-  // Після завершення анімації перевіряємо, чи ми на клонованому слайді,
-  // і миттєво перескакуємо на відповідний реальний слайд без анімації
-  slider.addEventListener("transitionend", function () {
-    // Якщо поточний слайд — клон першого
+  // Після завершення анімації перевіряємо, чи перебуваємо на клоні,
+  // і миттєво перемикаємося на реальний слайд без анімації
+  slider.addEventListener("transitionend", () => {
     if (slides[currentIndex].isEqualNode(firstClone)) {
       currentIndex = 1;
       updateSliderPosition(false);
     }
-    // Якщо поточний слайд — клон останнього
     if (slides[currentIndex].isEqualNode(lastClone)) {
       currentIndex = slides.length - 2;
       updateSliderPosition(false);
@@ -70,21 +63,21 @@ function initializeSlider() {
   });
 
   // При зміні розміру вікна оновлюємо ширину слайда
-  window.addEventListener("resize", function () {
-    slideWidth = slides[currentIndex].offsetWidth + 23;
+  window.addEventListener("resize", () => {
+    slideWidth = slides[currentIndex].offsetWidth;
     updateSliderPosition(false);
   });
 }
 
 // Ініціалізація слайдера при завантаженні сторінки
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   if (document.querySelector(".slider-container")) {
     initializeSlider();
   }
 });
 
-// Ініціалізація слайдера після HTMX-заміни контенту (якщо використовуєте HTMX)
-document.body.addEventListener("htmx:afterSwap", function () {
+// Ініціалізація слайдера після HTMX-заміни контенту (якщо використовується)
+document.body.addEventListener("htmx:afterSwap", () => {
   if (document.querySelector(".slider-container")) {
     console.log("HTMX заміна: слайдер завантажено, ініціалізуємо його.");
     initializeSlider();

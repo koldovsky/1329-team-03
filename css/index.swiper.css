@@ -1,6 +1,6 @@
 .slider-container {
   position: relative;
-  width: 100%; /* Ширина контейнера займає всю ширину */
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 10px;
@@ -8,21 +8,21 @@
 }
 
 .slider-wrapper {
-  width: 100%; /* Адаптивна ширина */
+  width: 100%;
   overflow: hidden;
 }
 
+/* Забираємо gap, щоб слайди йшли без розривів */
 .slider {
   display: flex;
-  gap: 2%; /* Відступи між слайдами в процентах */
   transition: transform 0.5s ease-in-out;
   padding: 20px 0;
 }
 
 .slide {
-  flex: 0 0 20%; /* Початкова ширина слайду як відсоток від контейнера */
-  height: auto; /* Автоматична висота, залежить від ширини */
-  aspect-ratio: 4 / 3; /* Пропорції слайду */
+  flex: 0 0 20%; /* За замовчуванням 5 слайдів на широкому екрані */
+  height: auto;
+  aspect-ratio: 4 / 3;
   background: rgba(39, 39, 39, 0.03);
   border-radius: 10px;
   display: flex;
@@ -31,8 +31,9 @@
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Зменшення розміру зображення всередині слайда */
 .slide img {
-  max-width: 80%; /* Адаптивне зменшення зображень всередині слайдів */
+  max-width: 60%;
   height: auto;
 }
 
@@ -62,17 +63,19 @@
 }
 
 .prev {
-  left: 15px; /* Відступ для кнопки "Назад" */
+  left: 15px;
 }
 
 .next {
-  right: 15px; /* Відступ для кнопки "Вперед" */
+  right: 15px;
 }
 
-/* --- Адаптивність для масштабування --- */
+/* Адаптивність */
+
+/* При ширині більше 1200px – 5 слайдів */
 @media (max-width: 1200px) {
   .slide {
-    flex: 0 0 25%; /* Ширина слайду збільшується */
+    flex: 0 0 25%; /* 4 слайди на екрані */
   }
   .slider-btn {
     width: 35px;
@@ -83,13 +86,8 @@
 
 @media (max-width: 992px) {
   .slide {
-    flex: 0 0 33%; /* Три слайди на екрані */
+    flex: 0 0 33.33%; /* 3 слайди на екрані */
   }
-
-  .slider {
-    gap: 1.5%; /* Збільшуємо відступи між слайдами */
-  }
-
   .slider-btn {
     width: 30px;
     height: 30px;
@@ -99,10 +97,7 @@
 
 @media (max-width: 768px) {
   .slide {
-    flex: 0 0 50%; /* Два слайди на екрані */
-  }
-  .slider {
-    gap: 1%; /* Збільшуємо відступи між слайдами */
+    flex: 0 0 50%; /* 2 слайди на екрані */
   }
   .slider-btn {
     width: 25px;
@@ -113,13 +108,8 @@
 
 @media (max-width: 576px) {
   .slide {
-    flex: 0 0 100%; /* Один слайд на екрані */
+    flex: 0 0 100%; /* 1 слайд на екрані */
   }
-
-  .slider {
-    gap: 0.5%; /* Збільшуємо відступи між слайдами */
-  }
-
   .slider-btn {
     width: 20px;
     height: 20px;
