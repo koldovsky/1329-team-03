@@ -1,28 +1,54 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const swiper = new Swiper('.swiper', {
-      loop: true,            // Зациклене прокручування
-      slidesPerView: 6,      // Скільки слайдів видно одночасно (на великому екрані)
-      spaceBetween: 20,      // Відстань між слайдами (px)
+document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.querySelector(".slider");
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+    let currentIndex = 0;
+    let slideWidth = slides[0].clientWidth; // початкове значення
   
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-  
-      // Адаптивна кількість слайдів:
-      breakpoints: {
-        576: { slidesPerView: 2 },
-        768: { slidesPerView: 3 },
-        992: { slidesPerView: 4 },
-        1200: { slidesPerView: 5 },
-        1400: { slidesPerView: 6 },
-      },
-  
-      // Якщо потрібна автопрокрутка:
-      // autoplay: {
-      //   delay: 3000,
-      //   disableOnInteraction: false,
-      // },
+    // Клонуємо слайди для безперервної каруселі
+    slides.forEach(slide => {
+      const clone = slide.cloneNode(true);
+      slider.appendChild(clone);
     });
+  
+    function updateSliderPosition() {
+      slider.style.transition = "transform 0.5s ease-in-out";
+      slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+  
+    function resetSliderPosition() {
+      slider.style.transition = "none";
+      if (currentIndex >= slides.length) {
+        currentIndex = 0;
+      } else if (currentIndex < 0) {
+        currentIndex = slides.length - 1;
+      }
+      slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+  
+    nextBtn.addEventListener("click", function () {
+      currentIndex++;
+      updateSliderPosition();
+    });
+  
+    prevBtn.addEventListener("click", function () {
+      currentIndex--;
+      updateSliderPosition();
+    });
+  
+    slider.addEventListener("transitionend", function () {
+      if (currentIndex >= slides.length || currentIndex < 0) {
+        resetSliderPosition();
+      }
+    });
+  
+    // Перерахунок ширини слайда при зміні розміру вікна
+    window.addEventListener("resize", () => {
+      slideWidth = slides[0].clientWidth;
+      resetSliderPosition();
+    });
+  
+    resetSliderPosition();
   });
   
