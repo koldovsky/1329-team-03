@@ -40,4 +40,6 @@ slider.addEventListener("transitionend", function () {
     if (currentIndex >= slides.length || currentIndex < 0) {
         resetSliderPosition();
     }
-});
+}); 
+
+console.log('45545')
