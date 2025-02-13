@@ -1,29 +1,238 @@
-<div class="slider-container">
-  <button class="slider-btn prev">&#10094;</button>
-  <div class="slider-wrapper">
-    <div class="slider">
-      <div class="slide">
-        <img src="img/partners-carousel/partners-carousel-lumixtra.svg" alt="LumiXtra">
-      </div>
-      <div class="slide">
-        <img src="img/partners-carousel/partners-carousel-syncrocore.svg" alt="SyncroCore">
-      </div>
-      <div class="slide">
-        <img src="img/partners-carousel/partners-carousel-aerosyn.svg" alt="AeroSyn">
-      </div>
-      <div class="slide">
-        <img src="img/partners-carousel/partners-carousel-vortexwave.svg" alt="VortexWave">
-      </div>
-      <div class="slide">
-        <img src="img/partners-carousel/partners-carousel-pulsetech.svg" alt="PulseTech">
-      </div>
-      <div class="slide">
-        <img src="img/partners-carousel/partners-carousel-quantumedge.svg" alt="QuantumEdge">
-      </div>
-      <div class="slide">
-        <img src="img/partners-carousel/partners-carousel-technova.svg" alt="TechNova">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Custom Slider</title>
+
+  <!-- Тут вбудований CSS -->
+  <style>
+    /* Якщо у вас немає визначень змінних, додайте їх:
+       :root {
+         --color-header-light-accent: #fdf9f5;
+         --color-accent: #3A70C9;
+       }
+    */
+
+    /* Загальний контейнер */
+    .slider-container {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      background-color: var(--color-header-light-accent);
+      border-radius: 10px;
+    }
+
+    /* Внутрішній обгортковий блок */
+    .slider-wrapper {
+      overflow: hidden;
+    }
+
+    /* Основна стрічка слайдів */
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      padding: 20px 30px;
+    }
+
+    /* Кожен окремий слайд */
+    .slide {
+      flex: 0 0 14%; /* 6–7 слайдів на великому екрані */
+      background: rgba(39, 39, 39, 0.03);
+      border-radius: 10px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      margin: 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Зображення всередині слайда */
+    .slide img {
+      max-width: 60%;
+      height: auto;
+    }
+
+    /* Кнопки "Назад" і "Вперед" */
+    .slider-btn {
+      background: var(--color-accent);
+      color: #fff;
+      border: none;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: background 0.3s, opacity 0.3s, width 0.3s, height 0.3s;
+    }
+
+    .slider-btn:hover {
+      background: #aaa;
+      opacity: 1;
+    }
+
+    .prev {
+      left: 15px;
+    }
+
+    .next {
+      right: 15px;
+    }
+
+    /* --- Адаптивність --- */
+
+    /* Екран <= 1200px: 5 слайдів */
+    @media (max-width: 1200px) {
+      .slide {
+        flex: 0 0 20%;
+      }
+      .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+      }
+    }
+
+    /* Екран <= 992px: 4 слайди */
+    @media (max-width: 992px) {
+      .slide {
+        flex: 0 0 25%;
+      }
+      .slider-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+      }
+    }
+
+    /* Екран <= 768px: 3 слайди */
+    @media (max-width: 768px) {
+      .slide {
+        flex: 0 0 33.33%;
+      }
+      .slider-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+      }
+    }
+
+    /* Екран <= 576px: 2 слайди */
+    @media (max-width: 576px) {
+      .slide {
+        flex: 0 0 50%;
+      }
+      .slider-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+      }
+    }
+
+    /* Екран <= 400px: 1 слайд */
+    @media (max-width: 400px) {
+      .slide {
+        flex: 0 0 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HTML-розмітка слайдера -->
+  <div class="slider-container">
+    <button class="slider-btn prev">&#10094;</button>
+    <div class="slider-wrapper">
+      <div class="slider">
+        <div class="slide">
+          <img src="img/partners-carousel/partners-carousel-lumixtra.svg" alt="LumiXtra">
+        </div>
+        <div class="slide">
+          <img src="img/partners-carousel/partners-carousel-syncrocore.svg" alt="SyncroCore">
+        </div>
+        <div class="slide">
+          <img src="img/partners-carousel/partners-carousel-aerosyn.svg" alt="AeroSyn">
+        </div>
+        <div class="slide">
+          <img src="img/partners-carousel/partners-carousel-vortexwave.svg" alt="VortexWave">
+        </div>
+        <div class="slide">
+          <img src="img/partners-carousel/partners-carousel-pulsetech.svg" alt="PulseTech">
+        </div>
+        <div class="slide">
+          <img src="img/partners-carousel/partners-carousel-quantumedge.svg" alt="QuantumEdge">
+        </div>
+        <div class="slide">
+          <img src="img/partners-carousel/partners-carousel-technova.svg" alt="TechNova">
+        </div>
       </div>
     </div>
+    <button class="slider-btn next">&#10095;</button>
   </div>
-  <button class="slider-btn next">&#10095;</button>
-</div>
+
+  <!-- Вбудований JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slider = document.querySelector(".slider");
+      const slides = Array.from(document.querySelectorAll(".slide"));
+      const prevBtn = document.querySelector(".prev");
+      const nextBtn = document.querySelector(".next");
+      let currentIndex = 0;
+      let slideWidth = slides[0].clientWidth; // початкове значення
+
+      // Клонуємо слайди для безперервної каруселі
+      slides.forEach(slide => {
+        const clone = slide.cloneNode(true);
+        slider.appendChild(clone);
+      });
+
+      function updateSliderPosition() {
+        slider.style.transition = "transform 0.5s ease-in-out";
+        slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      }
+
+      function resetSliderPosition() {
+        slider.style.transition = "none";
+        if (currentIndex >= slides.length) {
+          currentIndex = 0;
+        } else if (currentIndex < 0) {
+          currentIndex = slides.length - 1;
+        }
+        slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+      }
+
+      nextBtn.addEventListener("click", function () {
+        currentIndex++;
+        updateSliderPosition();
+      });
+
+      prevBtn.addEventListener("click", function () {
+        currentIndex--;
+        updateSliderPosition();
+      });
+
+      slider.addEventListener("transitionend", function () {
+        if (currentIndex >= slides.length || currentIndex < 0) {
+          resetSliderPosition();
+        }
+      });
+
+      // Перерахунок ширини слайда при зміні розміру вікна
+      window.addEventListener("resize", () => {
+        slideWidth = slides[0].clientWidth;
+        resetSliderPosition();
+      });
+
+      resetSliderPosition();
+    });
+  </script>
+</body>
+</html>
