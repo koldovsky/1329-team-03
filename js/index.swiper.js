@@ -1,7 +1,7 @@
 const slider = document.querySelector(".slider");
 const slides = Array.from(document.querySelectorAll(".slide"));
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector('.slider-container').querySelector('.prev');
+const nextBtn = document.querySelector('.slider-container').querySelector('.next');
 let currentIndex = 0;
 const slideWidth = slides[0].clientWidth;
 
@@ -13,7 +13,7 @@ slides.forEach(slide => {
 
 function updateSliderPosition() {
     slider.style.transition = "transform 0.5s ease-in-out";
-    slider.style.transform = 'translateX(-${currentIndex * slideWidth}px)';
+    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 }
 
 function resetSliderPosition() {
@@ -23,7 +23,7 @@ function resetSliderPosition() {
     } else if (currentIndex < 0) {
         currentIndex = slides.length - 1;
     }
-    slider.style.transform = 'translateX(-${currentIndex * slideWidth}px)';
+    slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 }
 
 nextBtn.addEventListener("click", function () {
