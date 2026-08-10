@@ -1,0 +1,319 @@
+/* ============================
+   ABOUT US — TOP SECTION
+   ============================ */
+
+.about-us {
+    background-color: var(--color-header-primary-bg);
+    padding: 60px 0;
+    width: 100%;
+}
+
+.about-us__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 992px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+/* Ліва колонка */
+.about-us__left {
+    flex: 1;
+    position: relative;
+}
+
+/* Заголовок */
+.about-us__title {
+    color: var(--color-accent-additional);
+    font-family: var(--font-title);
+    font-size: 109px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Breadcrumb */
+.about-us__breadcrumb-text {
+    color: var(--color-header-light-accent);
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    /* щоб текст справа не підлазив */
+}
+
+/* Печіво */
+.about-us__cookie {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 180px;
+}
+
+/* Права колонка */
+.about-us__right {
+    flex: 1;
+    max-width: 520px;
+}
+
+/* Текст */
+.about-us__text {
+    color: var(--color-header-light-accent);
+    font-family: var(--font-text);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 29px;
+}
+
+/* ============================
+   OUR MISSION SECTION
+   ============================ */
+
+.our-mission {
+    width: 100%;
+    background-color: var(--color-primary-white);
+    margin-bottom: 60px;
+}
+
+.our-mission__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @media (min-width: 992px) {
+        flex-direction: row;
+        align-items: stretch;
+        /* важливо */
+        justify-content: space-between;
+    }
+}
+
+/* Ліва частина */
+.our-mission__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Права частина — КАРТИНКА НА ВСЮ ПРАВУ ПОЛОВИНУ */
+.our-mission__picture {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    /* важливо */
+}
+
+.our-mission__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Маленький заголовок */
+.our-mission__title {
+    color: var(--color-accent-additional);
+    font-family: var(--font-text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-top: 80px;
+}
+
+/* Великий заголовок */
+.our-mission__subtitle {
+    color: var(--color-primary);
+    font-family: var(--font-title);
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 48px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+}
+
+/* Основний текст */
+.our-mission__description {
+    color: var(--color-text-body);
+    font-family: var(--font-text);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 29px;
+    margin-top: 20px;
+}
+
+/* ============================
+   OUR STORY SECTION
+   ============================ */
+
+.our-story {
+    width: 100%;
+    padding: 60px 0;
+    background-color: var(--color-bg-second);
+}
+
+.our-story__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    text-align: center;
+}
+
+/* Маленький заголовок */
+.our-story__title {
+    color: var(--color-accent-additional);
+    font-family: var(--font-text);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Великий заголовок */
+.our-story__subtitle {
+    color: var(--color-primary);
+    font-family: var(--font-title);
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 48px;
+    text-transform: uppercase;
+}
+
+/* Опис */
+.our-story__description {
+    color: var(--color-text-body);
+    font-family: var(--font-text);
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 29px;
+    margin-bottom: 40px;
+}
+
+/* Timeline */
+.our-story__timeline {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.our-story__timeline-content {
+    display: flex;
+    gap: 20px;
+}
+
+.our-story__timeline-item {
+    min-width: 260px;
+    background-color: var(--color-primary-white);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px var(--color-additional-text);
+}
+
+/* Рік */
+.our-story__year {
+    color: var(--color-accent-additional);
+    font-family: var(--font-title);
+    font-size: 40px;
+    line-height: 48px;
+    margin-bottom: 10px;
+}
+
+/* Заголовок події */
+.our-story__event-title {
+    color: var(--color-primary);
+    font-family: var(--font-text);
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Опис події */
+.our-story__event-description {
+    color: var(--color-text-body);
+    font-family: var(--font-text);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 29px;
+}
+
+/* TIMELINE ARROWS */
+
+.our-story__arrow {
+    background-color: var(--color-accent);
+    color: var(--color-primary-white);
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: var(--transiton-primary-all);
+    margin: 0 32px;
+}
+
+.our-story__arrow:hover {
+    background-color: var(--color-accent-additional);
+}
+
+
+.about-us__divider {
+    color: var(--color-accent);
+    font-family: var(--font-title);
+    font-size: 64px;
+}
+
+/* ============================
+   ADAPTIVE
+   ============================ */
+
+@media (min-width: 768px) {
+    .our-mission__inner {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .our-mission__picture {
+        flex: 1;
+    }
+
+    .our-mission__content {
+        flex: 1;
+    }
+
+    .our-mission__subtitle,
+    .our-story__subtitle,
+    .about-us__divider {
+        font-size: 52px;
+        line-height: 62px;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .our-mission__subtitle,
+    .our-story__subtitle,
+    .about-us__divider {
+        font-size: 64px;
+        line-height: 77px;
+    }
+
+    .our-story__timeline-item {
+        min-width: 300px;
+    }
+}
