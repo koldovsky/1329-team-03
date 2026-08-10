@@ -49,7 +49,7 @@ main {
   /* color of bottom line */
   --color-bottom-line: rgba(33, 39, 54, 0.12);
   /* color of input background */
-  --color-input-background: rgb(39, 39, 39, 0.12);
+  --color-input-background: rgba(77, 76, 76, 0.12);
   /* background color of preorder button */
   --badge-preorder-background: #e2ffdd;
   /* color of preorder button */
