@@ -78,7 +78,7 @@
 
 .our-mission {
     width: 100%;
-    background-color: var(--color-primary-white);
+    background-color: var(--color-bg-second);
 }
 
 .our-mission__inner {
@@ -162,7 +162,7 @@
 .our-story {
     width: 100%;
     padding: 60px 0;
-    background-color: var(--color-bg-second);
+    background-color: var(--color-primary-white);
 }
 
 .our-story__inner {
