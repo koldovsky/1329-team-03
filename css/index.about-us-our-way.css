@@ -145,13 +145,22 @@
 }
 
 /* Основний текст */
+.our-mission__technology-subtitle {
+    color: var(--color-primary);
+    font-family: var(--font-text);
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 28px;
+    margin-bottom: 20px;
+}
+
 .our-mission__description {
     color: var(--color-text-body);
     font-family: var(--font-text);
     font-size: 17px;
     font-weight: 600;
     line-height: 29px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 /* ============================
