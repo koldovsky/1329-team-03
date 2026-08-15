@@ -216,13 +216,24 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    overflow-x: auto;
+    overflow: hidden;
     padding-bottom: 10px;
 }
 
 .our-story__timeline-content {
     display: flex;
     gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.our-story__timeline-content::-webkit-scrollbar {
+    display: none;
+}
+
+.our-story__timeline-content {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .our-story__timeline-item {
@@ -244,11 +255,23 @@
 
 /* Заголовок події */
 .our-story__event-title {
+    position: relative;
+    padding-bottom: 15px;
     color: var(--color-primary);
     font-family: var(--font-text);
     font-size: 19px;
     font-weight: 700;
     margin-bottom: 10px;
+}
+
+.our-story__event-title::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin: 10px 0 0;
+    /* як у футері, але без auto */
 }
 
 /* Опис події */
